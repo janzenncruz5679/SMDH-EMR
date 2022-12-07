@@ -46,7 +46,7 @@
                                 <td class="flex justify-center"><a
                                         href="{{ url('/patientPage/updateAdmission' . $patientData->id) }}"
                                         class="editIcon hover:text-green-600">
-                                        <i class="fas fa-edit"></i>
+                                        <i class="fa-solid fa-edit"></i>
                                     </a>
                                 </td>
                             </tr>

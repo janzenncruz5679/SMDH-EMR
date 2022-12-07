@@ -23,34 +23,34 @@
                     {{-- address --}}
                     <div class="grid grid-cols-8 h-[50px] border-b-2 border-black h-[70px]">
                         <div class="border-r-2 border-black col-span-5 flex items-center gap-[5px] px-[10px]">
-                            <p>ADDRESS :</p>
+                            <p class="w-[18%]">ADDRESS :</p>
                             <input type="text"
-                                class="w-[85.5%] border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
                                 placeholder="enter address">
                         </div>
                         <div class="flex items-center gap-[5px] col-span-3 px-[10px]">
-                            <p>HEALTH RECORD NO:</p>
+                            <p class="w-[107%]">HEALTH RECORD NO:</p>
                             <input type="text"
-                                class="w-[52%] border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
                                 placeholder="enter latest record #">
                         </div>
                     </div>
 
                     {{-- sr citizen number --}}
-                    <div class="grid grid-cols-8 h-[50px] border-b-2 border-black h-[70px]">
+                    <div class="grid grid-cols-8 h-[50px] border-b-2 border-black h-[75px]">
                         <div class="col-span-3 border-r-2 border-black flex items-center gap-[5px] px-[10px]">
-                            <p>SR CITIZEN NO:</p>
+                            <p class="w-[61%]">SR CITIZEN NO:</p>
                             <input type="text"
-                                class="w-[64.3%] border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
                                 placeholder="enter sr.citizen #">
                         </div>
                         <div class="col-span-2 flex justify-center items-center border-r-2 border-black">
                             <p class="font-bold">CLINICAL COVER SHEET</p>
                         </div>
                         <div class="col-span-3 flex items-center gap-[5px] px-[10px]">
-                            <p>OLD HEALTH RECORD NO:</p>
+                            <p class="w-[176%]">OLD HEALTH RECORD NO:</p>
                             <input type="text"
-                                class="w-[41.2%] border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
                                 placeholder="enter old record #">
                         </div>
                     </div>
@@ -151,8 +151,8 @@
                                     <label>W</label>
                                 </div>
                                 <div class="col-span-2 inline">
-                                    <input class="scale-125 cursor-pointer accent-green-700" type="radio" value="m"
-                                        name="civil_status">
+                                    <input class="scale-125 cursor-pointer accent-green-700" type="radio"
+                                        value="m" name="civil_status">
                                     <label>M</label>
                                 </div>
                                 <div class="col-span-2 inline">
@@ -308,12 +308,12 @@
 
 
                 {{-- admissionformthird_sec --}}
-                <div class="h-[46.5vh] border-t-0 border-2 border-black">
+                <div class="h-[49vh] border-t-0 border-2 border-black">
                     {{-- Admission --}}
-                    <div class="grid grid-cols-10 h-[50px] border-b-2 border-black h-[145px]">
+                    <div class="grid grid-cols-10 h-[50px] border-b-2 border-black h-[170px]">
                         <div class="col-span-3 border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
                             <p>ADMISSION</p>
-                            <div class="text-[1.3rem] w-full flex flex-col items-end gap-[10px]">
+                            <div class="text-[1.3rem] w-full flex flex-col items-end gap-[20px]">
                                 <div class="flex">
                                     <label class="pt-[3px]">Date: </label>
                                     <input type="date"
@@ -330,7 +330,7 @@
                         </div>
                         <div class="col-span-3 border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
                             <p>DISCHARGE</p>
-                            <div class="text-[1.3rem] w-full flex flex-col items-end gap-[10px]">
+                            <div class="text-[1.3rem] w-full flex flex-col items-end gap-[20px]">
                                 <div class="flex">
                                     <label class="pt-[3px]">Date: </label>
                                     <input type="date"
@@ -396,11 +396,11 @@
                 </div>
 
                 {{-- admissionformfourth_sec --}}
-                <div class="h-[54vh] border-t-0 border-2 border-black">
+                <div class="h-[56.2vh] border-t-0 border-2 border-black">
                     {{-- ssc --}}
                     <div class="grid h-[50px] border-b-2 border-black h-[70px]">
                         <div class="border-black flex items-center gap-[5px] px-[10px]">
-                            <p class="w-[40%]">SOCIAL SERVICE CLASSIFICATION :</p>
+                            <p class="w-[50%]">SOCIAL SERVICE CLASSIFICATION :</p>
                             <div class=" w-full flex justify-around text-[1.3rem]">
                                 <div class="inline">
                                     <input class="scale-125 cursor-pointer accent-green-700" type="radio"
@@ -475,20 +475,23 @@
                     <div class="border-b-2 border-black h-[30px]"></div>
 
                     {{-- data furnished by --}}
-                    <div class="grid grid-cols-10 h-[50px] border-b-2 border-black h-[100px]">
-                        <div class="col-span-5 border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
+                    <div class="grid grid-cols-12 h-[50px] border-b-2 border-black h-[120px]">
+                        <div
+                            class="col-span-6 border-r-2 border-black flex flex-col items-start justify-center gap-y-[10px] px-[10px]">
                             <p>DATA FURNISHED BY(signature over printed name)</p>
                             <input type="text"
                                 class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
                                 placeholder="name of attendant">
                         </div>
-                        <div class="col-span-3 border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
+                        <div
+                            class="col-span-3 border-r-2 border-black flex flex-col items-start justify-center gap-y-[10px] px-[10px]">
                             <p>ADDRESS OF INFORMANT</p>
                             <input type="text"
                                 class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
                                 placeholder="N/A if not available">
                         </div>
-                        <div class="col-span-2 border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
+                        <div
+                            class="col-span-3 border-black flex flex-col items-start justify-center gap-y-[10px] px-[10px]">
                             <p>RELATION TO PATIENT</p>
                             <input type="text"
                                 class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
@@ -503,7 +506,7 @@
                     {{-- admission diagnosis --}}
                     <div class="grid h-[50px] border-b-2 border-black h-[70px]">
                         <div class="border-black flex items-center gap-[5px] px-[10px]">
-                            <p class="w-[26%]">ADMISSION DIAGNOSIS :</p>
+                            <p class="w-[27.5%]">ADMISSION DIAGNOSIS :</p>
                             <input type="text"
                                 class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
                                 placeholder="N/A if not available">
@@ -515,19 +518,18 @@
                 </div>
 
                 {{-- admissionformfifth_sec --}}
-                <div class="h-[34.4vh] border-t-0 border-2 border-black">
-
+                <div class="h-[34.2vh] border-t-0 border-2 border-black">
                     {{-- principal diagnosis --}}
-                    <div class="grid grid-cols-12 h-[50px] border-b-2 border-black h-[120px]">
+                    <div class="grid grid-cols-12 h-[50px] border-t-0 border-b-2 border-black h-[120px]">
                         <div class="col-span-9 border-r-2 border-black flex flex-col justify-center gap-[10px]">
-                            <div class="border-black flex items-center gap-[5px] px-[10px]">
-                                <p class="w-[36%]">PRINCIPAL DIAGNOSIS :</p>
+                            <div class="border-black flex flex-row gap-[5px] px-[10px]">
+                                <p class="w-[39%]">PRINCIPAL DIAGNOSIS :</p>
                                 <input type="text"
                                     class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available">
                             </div>
-                            <div class="border-black flex items-center gap-[5px] px-[10px]">
-                                <p class="w-[29%]">OTHER DIAGNOSIS :</p>
+                            <div class="border-black flex flex-row  gap-[5px] px-[10px]">
+                                <p class="w-[31%]">OTHER DIAGNOSIS :</p>
                                 <input type="text"
                                     class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available">
@@ -545,26 +547,28 @@
                     <div class="border-b-2 border-black h-[30px]"></div>
 
                     {{-- principal operation --}}
-                    <div class="grid grid-cols-12 h-[50px]  border-black h-[120px]">
-                        <div class="col-span-9 border-black flex flex-col justify-center gap-[10px] ">
-                            <div class="border-black flex items-center gap-[5px] px-[10px]">
-                                <p class="w-[70%]">PRINCIPAL OPERATION PROCEDURE :</p>
+                    <div class="grid grid-cols-12 h-[50px]  border-black h-[120px] py-[10px]">
+                        <div class="col-span-9 border-black flex flex-col justify-start gap-[10px] ">
+                            <div class="border-black flex flex-row items-center gap-[5px] px-[10px]">
+                                <p class="w-[78%]">PRINCIPAL OPERATION PROCEDURE :</p>
                                 <input type="text"
                                     class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available">
                             </div>
                             <div class="border-black flex items-center gap-[5px] px-[10px]">
-                                <p class="w-[59%]">OTHER OPERATION PROCEDURE :</p>
+                                <p class="w-[65%]">OTHER OPERATION PROCEDURE :</p>
                                 <input type="text"
                                     class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available">
                             </div>
                         </div>
-                        <div class="col-span-3 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
-                            <p>ICPM CODE</p>
-                            <input type="text"
-                                class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
-                                placeholder="N/A if not available">
+                        <div class="col-span-3 border-black flex flex-col justify-start gap-[10px]">
+                            <div class="border-black flex items-center gap-[5px] px-[10px]">
+                                <p class="w-[90%]">ICPM CODE :</p>
+                                <input type="text"
+                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                    placeholder="ICPM code">
+                            </div>
                         </div>
                     </div>
 

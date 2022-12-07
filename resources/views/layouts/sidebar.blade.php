@@ -15,20 +15,22 @@
                 <li class="flex items-center justify-start cursor-pointer hover:bg-green-600 "><a
                         class="{{ Str::contains(URL::current(), url('home')) ? __('active') : null }} selection_menu text-white hover:text-white w-[275px] p-[20px] text-[1.5rem] no-underline tracking-[3px] focus:bg-green-600"
                         href="{{ url('home') }}"><i
-                            class="fa fa-solid fa-house px-[15px] py-0 text-[1.5rem]"></i>Home</a>
+                            class="fa-solid fa-house px-[15px] py-0 text-[1.5rem]"></i>{{ __('Home') }}</a>
                 </li>
                 <li class="flex items-center justify-start cursor-pointer hover:bg-green-600"><a
                         class="{{ Str::contains(URL::current(), url('patientPage')) ? __('active') : null }} selection_menu text-white hover:text-white w-[275px] p-[20px] text-[1.5rem] no-underline tracking-[3px]"
                         href="{{ url('patientPage') }}"><i
-                            class="fa-sharp fa-solid fa-house px-[15px] py-0 text-[1.5rem]"></i>Patient</a></li>
+                            class="fa-solid fa-hospital-user  px-[15px] py-0 text-[1.5rem]"></i>{{ __('Patients') }}</a>
+                </li>
                 <li class="flex items-center justify-start cursor-pointer hover:bg-green-600"><a
                         class="{{ Str::contains(URL::current(), url('stations')) ? __('active') : null }} selection_menu text-white hover:text-white w-[275px] p-[20px] text-[1.5rem] no-underline tracking-[3px]"
                         href="{{ url('stations') }}"><i
-                            class="fa-sharp fa-solid fa-house px-[15px] py-0 text-[1.5rem]"></i>Stations</a></li>
+                            class="fa-solid fa-hospital px-[15px] py-0 text-[1.5rem]"></i>{{ __('Stations') }}</a></li>
                 <li class="flex items-center justify-start cursor-pointer hover:bg-green-600 "><a
                         class="{{ Str::contains(URL::current(), url('billing')) ? __('active') : null }} selection_menu text-white hover:text-white w-[275px] p-[20px] text-[1.5rem] no-underline tracking-[3px]"
                         href="{{ url('billing') }}"><i
-                            class="fa-sharp fa-solid fa-house px-[15px] py-0 text-[1.5rem]"></i>Billing</a></li>
+                            class="fa-solid fa-hand-holding-dollar px-[15px] py-0 text-[1.5rem]"></i>{{ __('Billing') }}</a>
+                </li>
             </ul>
         </nav>
     </div>

@@ -515,7 +515,7 @@
                 </div>
 
                 {{-- admissionformfifth_sec --}}
-                <div class="h-[34vh] border-t-0 border-2 border-black">
+                <div class="h-[34.4vh] border-t-0 border-2 border-black">
 
                     {{-- principal diagnosis --}}
                     <div class="grid grid-cols-12 h-[50px] border-b-2 border-black h-[120px]">

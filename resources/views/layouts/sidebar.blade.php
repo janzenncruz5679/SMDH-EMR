@@ -15,7 +15,7 @@
                 <li class="flex items-center justify-start cursor-pointer hover:bg-green-600 "><a
                         class="{{ Str::contains(URL::current(), url('home')) ? __('active') : null }} selection_menu text-white hover:text-white w-[275px] p-[20px] text-[1.5rem] no-underline tracking-[3px] focus:bg-green-600"
                         href="{{ url('home') }}"><i
-                            class="fa-sharp fa-solid fa-house px-[15px] py-0 text-[1.5rem]"></i>Home</a>
+                            class="fa fa-solid fa-house px-[15px] py-0 text-[1.5rem]"></i>Home</a>
                 </li>
                 <li class="flex items-center justify-start cursor-pointer hover:bg-green-600"><a
                         class="{{ Str::contains(URL::current(), url('patientPage')) ? __('active') : null }} selection_menu text-white hover:text-white w-[275px] p-[20px] text-[1.5rem] no-underline tracking-[3px]"

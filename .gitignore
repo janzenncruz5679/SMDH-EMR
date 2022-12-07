@@ -16,3 +16,10 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+
+# custom ignores
+
+public/assets/css
+public/assets/js
+public/assets
+

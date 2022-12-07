@@ -7,13 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>San Miguel ERD</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('assets/css/user_screen.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/shortcuts.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/searchbar_admission_patients.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/table_admission.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/info_admission.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/fontawesome/css/all.css') }}">
     @vite('resources/css/app.css')
+    @vite(['resources/sass/app.scss'])
+    @vite(['node_modules/@fortawesome/fontawesome-free/js/all.min.js'])
 
 </head>
 

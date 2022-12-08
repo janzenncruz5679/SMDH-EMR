@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\First_admission;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,4 +19,9 @@ class Admission extends Model
         'gender',
         'address',
     ];
+
+    public function admission_one()
+    {
+        return $this->hasOne(First_admission::class, 'record_id');
+    }
 }

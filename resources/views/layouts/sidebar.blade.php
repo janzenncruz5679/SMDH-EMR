@@ -13,21 +13,21 @@
         <nav>
             <ul>
                 <li class="flex items-center justify-start cursor-pointer hover:bg-green-600 "><a
-                        class="{{ Str::contains(URL::current(), url('home')) ? __('active') : null }} selection_menu text-white hover:text-white w-[275px] p-[20px] text-[1.5rem] no-underline tracking-[3px] focus:bg-green-600"
+                        class="{{ Str::contains(URL::current(), url('home')) ? __('bg-green-600') : null }} selection_menu text-white hover:text-white w-[275px] p-[20px] text-[1.5rem] no-underline tracking-[3px]"
                         href="{{ url('home') }}"><i
                             class="fa-solid fa-house px-[15px] py-0 text-[1.5rem]"></i>{{ __('Home') }}</a>
                 </li>
                 <li class="flex items-center justify-start cursor-pointer hover:bg-green-600"><a
-                        class="{{ Str::contains(URL::current(), url('patientPage')) ? __('active') : null }} selection_menu text-white hover:text-white w-[275px] p-[20px] text-[1.5rem] no-underline tracking-[3px]"
+                        class="{{ Str::contains(URL::current(), url('patientPage')) ? __('bg-green-600') : null }} selection_menu text-white hover:text-white w-[275px] p-[20px] text-[1.5rem] no-underline tracking-[3px]"
                         href="{{ url('patientPage') }}"><i
                             class="fa-solid fa-hospital-user  px-[15px] py-0 text-[1.5rem]"></i>{{ __('Patients') }}</a>
                 </li>
                 <li class="flex items-center justify-start cursor-pointer hover:bg-green-600"><a
-                        class="{{ Str::contains(URL::current(), url('stations')) ? __('active') : null }} selection_menu text-white hover:text-white w-[275px] p-[20px] text-[1.5rem] no-underline tracking-[3px]"
+                        class="{{ Str::contains(URL::current(), url('stations')) ? __('bg-green-600') : null }} selection_menu text-white hover:text-white w-[275px] p-[20px] text-[1.5rem] no-underline tracking-[3px]"
                         href="{{ url('stations') }}"><i
                             class="fa-solid fa-hospital px-[15px] py-0 text-[1.5rem]"></i>{{ __('Stations') }}</a></li>
                 <li class="flex items-center justify-start cursor-pointer hover:bg-green-600 "><a
-                        class="{{ Str::contains(URL::current(), url('billing')) ? __('active') : null }} selection_menu text-white hover:text-white w-[275px] p-[20px] text-[1.5rem] no-underline tracking-[3px]"
+                        class="{{ Str::contains(URL::current(), url('billing')) ? __('bg-green-600') : null }} selection_menu text-white hover:text-white w-[275px] p-[20px] text-[1.5rem] no-underline tracking-[3px]"
                         href="{{ url('billing') }}"><i
                             class="fa-solid fa-hand-holding-dollar px-[15px] py-0 text-[1.5rem]"></i>{{ __('Billing') }}</a>
                 </li>

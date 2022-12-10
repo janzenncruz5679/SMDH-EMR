@@ -17,13 +17,14 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('record_id')->unsigned();
             $table->string('sr_no')->nullable();
-            // $table->string('perma_address')->nullable();
-            // $table->string('phone')->nullable();
-            // $table->string('civil_status')->nullable();
-            // $table->string('birthday')->nullable();
-            // $table->string('nationality')->nullable();
-            // $table->string('religion')->nullable();
-            // $table->string('occupation')->nullable();
+            $table->string('perma_address')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('civil_status')->nullable();
+            $table->string('birthday')->nullable();
+            $table->string('birthplace')->nullable();
+            $table->string('nationality')->nullable();
+            $table->string('religion')->nullable();
+            $table->string('occupation')->nullable();
             $table->timestamps();
             $table->foreign('record_id')
                 ->references('id')

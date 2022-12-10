@@ -5,24 +5,33 @@
         <div class="admissionDisplay h-[85%] w-full relative top-[80px]">
             <div class="admissionSearchbar h-[7%] flex">
                 <div class="searchBar relative h-full w-[40vw] flex justify-start items-center gap-[15px]">
-                    <form action="{{ url('/patientPage/admission/search') }}" method="GET" class="flex gap-[20px] m-0">
+                    <form action="{{ url('/patientPage/admission/search') }}" method="GET"
+                        class="flex gap-[20px] m-0 h-full items-center">
                         @csrf
                         <input type="text" placeholder="Search Patient Name" name="query" value="{{ $search_admission }}"
-                            class="h-[4.7vh] w-[18vw] text-[1.5rem]  border-[3px] focus:outline-offset-1 border-green-700 focus:outline-green-700 rounded-[10px] py-0 px-[15px]"
+                            class="h-[4.7vh] w-[18vw] text-[1.5rem] border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 focus:outline-offset-2 rounded-[10px] px-[10px]"
                             required>
                         <button
-                            class="btnSearch h-[4.7vh] w-[6vw] text-[1.5rem] bg-green-700 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-green-600 focus:outline-green-700 focus:outline-offset-0"
-                            type="submit" value="search">Search</button>
+                            class="h-[4.7vh] w-[6vw] text-[1.5rem] bg-blue-300 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-100"
+                            type="submit" value="search">
+                            <p class="hover:text-zinc-900">Search</p>
+                        </button>
 
                     </form>
+                    {{-- <button
+                        class="btnFilter h-[4.7vh] w-[6vw] text-[1.5rem] bg-green-700 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-green-600 focus:outline-green-700 focus:outline-offset-0">Filter</button> --}}
                     <button
-                        class="btnFilter h-[4.7vh] w-[6vw] text-[1.5rem] bg-green-700 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-green-600 focus:outline-green-700 focus:outline-offset-0">Filter</button>
-                    <button
-                        class="btnClear h-[4.7vh] w-[6vw] text-[1.5rem] bg-green-700 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-green-600 focus:outline-green-700 focus:outline-offset-0"><a
-                            class="px-[26px] py-[7px]" href="{{ url('/patientPage/admission') }}">Clear</a></button>
+                        class="h-[4.7vh] w-[6vw] text-[1.5rem] bg-blue-300 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-100"><a
+                            class="relative w-full h-full flex items-center justify-center hover:text-black"
+                            href="{{ url('/patientPage/admission') }}">
+                            {{ __('Clear') }}
+                        </a></button>
                 </div>
-                <div class="addpatientBar">
-                    <button class="btnAddpatient">Add Patient</button>
+                <div class="h-full w-full flex items-center justify-end">
+                    <button
+                        class="h-[4.7vh] w-[10vw] text-[1.5rem] bg-blue-300 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-100">
+                        <p class="hover:text-zinc-900">Add Patient</p>
+                    </button>
                 </div>
             </div>
             <div class="admissionTable pt-[5px]">
@@ -49,7 +58,7 @@
                                 <td class="flex justify-center"><a
                                         href="{{ url('/patientPage/updateAdmission' . $patientData->id) }}"
                                         class="editIcon">
-                                        <i class="fas fa-edit hover:text-green-600"></i>
+                                        <i class="fas fa-edit hover:text-blue-300"></i>
                                     </a>
                                 </td>
                             </tr>

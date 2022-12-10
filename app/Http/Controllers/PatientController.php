@@ -72,9 +72,28 @@ class PatientController extends Controller
 
         $admission_second = new Second_admission();
         $admission_second->employer_name = $request->input('employer_name');
+        $admission_second->employer_address = $request->input('employer_address');
+        $admission_second->employer_phone = $request->input('employer_phone');
+        $admission_second->father_name = $request->input('father_name');
+        $admission_second->father_address = $request->input('father_address');
+        $admission_second->father_phone = $request->input('father_phone');
+        $admission_second->mother_maiden_name = $request->input('mother_maiden_name');
+        $admission_second->mother_address = $request->input('mother_address');
+        $admission_second->mother_phone = $request->input('mother_phone');
+        $admission_second->spouse_name = $request->input('spouse_name');
+        $admission_second->spouse_address = $request->input('spouse_address');
+        $admission_second->spouse_phone = $request->input('spouse_phone');
 
         $admission_first = new First_admission();
         $admission_first->sr_no = $request->input('sr_no');
+        $admission_first->perma_address = $request->input('perma_address');
+        $admission_first->phone = $request->input('phone');
+        $admission_first->civil_status = $request->input('civil_status');
+        $admission_first->birthday = $request->input('birthday');
+        $admission_first->birthplace = $request->input('birthplace');
+        $admission_first->nationality = $request->input('nationality');
+        $admission_first->religion = $request->input('religion');
+        $admission_first->occupation = $request->input('occupation');
 
         $admission_displays = new Admission();
         $admission_displays->first_name = $request->input('first_name');

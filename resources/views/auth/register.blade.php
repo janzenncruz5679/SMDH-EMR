@@ -3,7 +3,7 @@
 @section('content')
     <div class="flex h-full w-full justify-center items-center">
         <div class="w-[25vw]">
-            <div class="h-[92vh] px-[30px] pb-[30px] pt-[20px] rounded-[15px]" style="background: rgba(245, 245, 245, 0.6);">
+            <div class="h-[92vh] px-[30px] pb-[30px] pt-[20px] rounded-[15px] bg-white">
                 <div class="flex justify-center pb-[10px]">
                     <img src="'../../assets/img/san_miguel_hospital_logo.png" alt="logo" style="height: 25vh">
                 </div>

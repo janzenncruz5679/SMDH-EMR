@@ -1,7 +1,7 @@
 @vite('resources/css/app.css')
 <header>
     <div
-        class="green z-50 fixed w-screen w-59 h-[59px] bg-green-600 left-0 top-0 flex space-between items-center p-[10px]">
+        class="green z-50 fixed w-screen w-59 h-[59px] bg-blue-200 left-0 top-0 flex space-between items-center p-[10px]">
         <div class="green_logo flex h-[5vh] text-[1.5rem] gap-[10px]">
             <img src="../../assets/img/san_miguel_hospital_logo.png" alt="logo">
             <div class="hospital_name_div pt-[5px] h-full">

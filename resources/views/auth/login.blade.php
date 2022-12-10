@@ -4,8 +4,7 @@
     {{-- <div class="h-100 d-flex align-items-center justify-content-center"> --}}
     <div class=" flex h-full w-full justify-center items-center">
         <div class="w-[25vw]">
-            <div class="h-[70vh] px-[30px] pb-[30px] pt-[15px] rounded-[15px]" style="background: rgba(245, 245, 245, 0.6);">
-
+            <div class="h-[70vh] px-[30px] pb-[30px] pt-[15px] rounded-[15px]" style="background: rgba(255, 255, 255, 0.6);">
                 <div class="flex justify-center pb-[15px]">
                     <img src="../../assets/img/san_miguel_hospital_logo.png" alt="logo" class="h-[30vh]">
                 </div>

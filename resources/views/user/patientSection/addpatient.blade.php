@@ -26,13 +26,13 @@
                             <div class="border-r-2 border-black col-span-5 flex items-center gap-[5px] px-[10px]">
                                 <p class="w-[18%]">ADDRESS :</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="enter address" name="address">
                             </div>
                             <div class="flex items-center gap-[5px] col-span-3 px-[10px]">
                                 <p class="w-[107%]">HEALTH RECORD NO:</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="enter latest record #">
                             </div>
                         </div>
@@ -43,7 +43,7 @@
                             <div class="col-span-3 border-r-2 border-black flex items-center gap-[5px] px-[10px]">
                                 <p class="w-[61%]">SR CITIZEN NO:</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="enter sr.citizen #" name="sr_no">
                             </div>
                             <div class="col-span-2 flex justify-center items-center border-r-2 border-black">
@@ -52,7 +52,7 @@
                             <div class="col-span-3 flex items-center gap-[5px] px-[10px]">
                                 <p class="w-[176%]">OLD HEALTH RECORD NO:</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="enter old record #">
                             </div>
                         </div>
@@ -68,27 +68,27 @@
                             <div class="border-r-2 border-black flex flex-col items-center gap-y-[10px] px-[10px]">
                                 <p>(Last)</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="last name" name="last_name">
                             </div>
                             <div
                                 class="col-span-2 border-r-2 border-black flex flex-col items-center gap-y-[10px] px-[10px]">
                                 <p>(Given)</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="given name" name="first_name">
                             </div>
                             <div
                                 class=" border-r-2 border-r-2 border-black flex flex-col items-center gap-y-[10px] px-[10px]">
                                 <p>(Middle)</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                    class="w-full  border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="middle name" name="middle_name">
                             </div>
                             <div class="col-span-3 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
                                 <p>WARD/ROOM/BED/SERVICE :</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                    class="w-full  border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="enter ward/room/bed/service type">
                             </div>
 
@@ -103,26 +103,26 @@
                                 class="col-span-5 border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
                                 <p>PERMANENT ADDRESS :</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
-                                    placeholder="enter permanent address">
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="enter permanent address" name="perma_address">
                             </div>
                             <div
                                 class="col-span-2 border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
                                 <p>TEL. NO. :</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
-                                    placeholder="enter telephone #">
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="enter telephone #" name="phone">
                             </div>
                             <div class="border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
                                 <p>SEX:</p>
                                 <div class="w-full flex justify-around text-[1.3rem]">
                                     <div class="inline">
-                                        <input class="scale-125 cursor-pointer accent-green-700" type="radio"
+                                        <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
                                             value="Male" name="sex" required>
                                         <label>M</label>
                                     </div>
                                     <div class="inline">
-                                        <input class="scale-125 cursor-pointer accent-green-700" type="radio"
+                                        <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
                                             value="Female" name="sex">
                                         <label>F</label>
                                     </div>
@@ -132,38 +132,38 @@
                                 <p>CIVIL STATUS:</p>
                                 <div class="w-full flex justify-around text-[1.3rem]">
                                     <div class="inline">
-                                        <input class="scale-125 cursor-pointer accent-green-700" type="radio"
-                                            value="s" name="civil_status">
+                                        <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
+                                            value="Single" name="civil_status">
                                         <label>S</label>
                                     </div>
                                     <div class="inline">
-                                        <input class="scale-125 cursor-pointer accent-green-700" type="radio"
-                                            value="d" name="civil_status">
+                                        <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
+                                            value="Divorced" name="civil_status">
                                         <label>D</label>
                                     </div>
                                     <div class="col-span-2 inline">
-                                        <input class="scale-125 cursor-pointer accent-green-700" type="radio"
-                                            value="sep" name="civil_status">
+                                        <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
+                                            value="Separated" name="civil_status">
                                         <label>SEP</label>
                                     </div>
                                     <div class="col-span-2 inline">
-                                        <input class="scale-125 cursor-pointer accent-green-700" type="radio"
-                                            value="c" name="civil_status">
+                                        <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
+                                            value="Common Law" name="civil_status">
                                         <label>C</label>
                                     </div>
                                     <div class="col-span-2 inline">
-                                        <input class="scale-125 cursor-pointer accent-green-700" type="radio"
-                                            value="w" name="civil_status">
+                                        <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
+                                            value="Widowed" name="civil_status">
                                         <label>W</label>
                                     </div>
                                     <div class="col-span-2 inline">
-                                        <input class="scale-125 cursor-pointer accent-green-700" type="radio"
-                                            value="m" name="civil_status">
+                                        <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
+                                            value="Married" name="civil_status">
                                         <label>M</label>
                                     </div>
                                     <div class="col-span-2 inline">
-                                        <input class="scale-125 cursor-pointer accent-green-700" type="radio"
-                                            value="n" name="civil_status">
+                                        <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
+                                            value="Neutral" name="civil_status">
                                         <label>N</label>
                                     </div>
                                 </div>
@@ -180,40 +180,41 @@
                                 class="col-span-3 border-r-2 border-black flex flex-col items-center gap-y-[10px] px-[10px]">
                                 <p>BIRTHDATE</p>
                                 <input type="date"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2">
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    name="birthday">
                             </div>
                             <div class="border-r-2 border-black flex flex-col items-center gap-y-[10px] px-[10px]">
                                 <p>AGE</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="age" name="age">
                             </div>
                             <div
                                 class="col-span-2 border-r-2 border-black flex flex-col items-center gap-y-[10px] px-[10px]">
                                 <p>BIRTHPLACE</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
-                                    placeholder="birthplace">
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="birthplace" name="birthplace">
                             </div>
                             <div
                                 class="col-span-2 border-r-2 border-black flex flex-col items-center gap-y-[10px] px-[10px]">
                                 <p>NATIONALITY</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
-                                    placeholder="nationality">
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="nationality" name="nationality">
                             </div>
                             <div
                                 class="col-span-2 border-r-2 border-black flex flex-col items-center gap-y-[10px] px-[10px]">
                                 <p>RELIGION</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
-                                    placeholder="religion">
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="religion" name="religion">
                             </div>
                             <div class="col-span-2 border-black flex flex-col items-center gap-y-[10px] px-[10px]">
                                 <p>OCCUPATION</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
-                                    placeholder="occupation">
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="occupation" name="occupation">
                             </div>
                         </div>
 
@@ -231,21 +232,21 @@
                                 class="col-span-3 border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
                                 <p>EMPLOYER(Type of Business)</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available" name="employer_name">
                             </div>
                             <div
                                 class="col-span-3 border-r-2 border-black flex flex-col items-center gap-y-[10px] px-[10px]">
                                 <p>ADDRESS</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
-                                    placeholder="N/A if not available">
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="N/A if not available" name="employer_address">
                             </div>
                             <div class="col-span-3 border-black flex flex-col items-center gap-y-[10px] px-[10px]">
                                 <p>TEL. NO.</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
-                                    placeholder="N/A if not available">
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="N/A if not available" name="employer_phone">
                             </div>
                         </div>
 
@@ -255,21 +256,23 @@
                                 class="col-span-3 border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
                                 <p>FATHER'S NAME</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
-                                    placeholder="N/A if not available">
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="N/A if not available" name="father_name">
                             </div>
                             <div
                                 class="col-span-3 border-r-2 border-black flex flex-col items-center gap-y-[10px] px-[10px]">
                                 <p>ADDRESS</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
-                                    placeholder="N/A if not available">
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="N/A if not available" name="father_address">
                             </div>
-                            <div class="col-span-3 border-black flex flex-col items-center gap-y-[10px] px-[10px]">
+                            <div
+                                class="col-span-3
+                                    border-black flex flex-col items-center gap-y-[10px] px-[10px]">
                                 <p>TEL. NO.</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
-                                    placeholder="N/A if not available">
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="N/A if not available" name="father_phone">
                             </div>
                         </div>
 
@@ -279,21 +282,21 @@
                                 class="col-span-3 border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
                                 <p>MOTHER'S(MAIDEN) NAME</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
-                                    placeholder="N/A if not available">
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="N/A if not available" name="mother_maiden_name">
                             </div>
                             <div
                                 class="col-span-3 border-r-2 border-black flex flex-col items-center gap-y-[10px] px-[10px]">
                                 <p>ADDRESS</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
-                                    placeholder="N/A if not available">
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="N/A if not available" name="mother_address">
                             </div>
                             <div class="col-span-3 border-black flex flex-col items-center gap-y-[10px] px-[10px]">
                                 <p>TEL. NO.</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
-                                    placeholder="N/A if not available">
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="N/A if not available" name="mother_phone">
                             </div>
                         </div>
 
@@ -303,21 +306,21 @@
                                 class="col-span-3 border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
                                 <p>SPOUSE NAME</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
-                                    placeholder="N/A if not available">
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="N/A if not available" name="spouse_name">
                             </div>
                             <div
                                 class="col-span-3 border-r-2 border-black flex flex-col items-center gap-y-[10px] px-[10px]">
                                 <p>ADDRESS</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
-                                    placeholder="N/A if not available">
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="N/A if not available" name="spouse_address">
                             </div>
                             <div class="col-span-3 border-black flex flex-col items-center gap-y-[10px] px-[10px]">
                                 <p>TEL. NO.</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
-                                    placeholder="N/A if not available">
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="N/A if not available" name="spouse_phone">
                             </div>
                         </div>
                         {{-- empty border --}}
@@ -336,13 +339,13 @@
                                     <div class="flex">
                                         <label class="pt-[3px]">Date: </label>
                                         <input type="date"
-                                            class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                             placeholder="N/A if not available">
                                     </div>
                                     <div class="flex">
                                         <label class="pt-[3px]">Time: </label>
                                         <input type="time"
-                                            class="w-[203px] border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                            class="w-[203px] border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                             placeholder="N/A if not available">
                                     </div>
                                 </div>
@@ -354,13 +357,13 @@
                                     <div class="flex">
                                         <label class="pt-[3px]">Date: </label>
                                         <input type="date"
-                                            class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                             placeholder="N/A if not available">
                                     </div>
                                     <div class="flex">
                                         <label class="pt-[3px]">Time: </label>
                                         <input type="time"
-                                            class="w-[203px] border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                            class="w-[203px] border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                             placeholder="N/A if not available">
                                     </div>
                                 </div>
@@ -368,13 +371,13 @@
                             <div class=" border-r-2 border-black flex flex-col items-center gap-y-[10px] px-[10px]">
                                 <p>TOTAL NO. OF DAYS:</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="# of days">
                             </div>
                             <div class="col-span-3 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
                                 <p>ADMITTING PHYSICIAN:</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="name of physician">
                             </div>
                         </div>
@@ -387,7 +390,7 @@
                             <div class="border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
                                 <p>ADMITTING CLERK :</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available">
                             </div>
                             <div class="border-black flex flex-col items-start gap-y-[10px] px-[10px]">
@@ -401,15 +404,15 @@
                         {{-- type of admission --}}
                         <div class="grid grid-cols-2 h-[50px] border-b-2 border-black h-[100px]">
                             <div class="border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
-                                <p>ADMITTING CLERK :</p>
+                                <p>TYPE OF blue-300 :</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="name of clerk">
                             </div>
                             <div class="border-black flex flex-col items-start gap-y-[10px] px-[10px]">
                                 <p>REFERRED BY:</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="name of clerk">
                             </div>
                         </div>
@@ -423,32 +426,32 @@
                                 <p class="w-[50%]">SOCIAL SERVICE CLASSIFICATION :</p>
                                 <div class=" w-full flex justify-around text-[1.3rem]">
                                     <div class="inline">
-                                        <input class="scale-125 cursor-pointer accent-green-700" type="radio"
+                                        <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
                                             value="a" name="ssc">
                                         <label>A</label>
                                     </div>
                                     <div class="inline">
-                                        <input class="scale-125 cursor-pointer accent-green-700" type="radio"
+                                        <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
                                             value="b" name="ssc">
                                         <label>B</label>
                                     </div>
                                     <div class="inline">
-                                        <input class="scale-125 cursor-pointer accent-green-700" type="radio"
+                                        <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
                                             value="c_one" name="ssc">
                                         <label>C1</label>
                                     </div>
                                     <div class="inline">
-                                        <input class="scale-125 cursor-pointer accent-green-700" type="radio"
+                                        <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
                                             value="c_two" name="ssc">
                                         <label>C2</label>
                                     </div>
                                     <div class="inline">
-                                        <input class="scale-125 cursor-pointer accent-green-700" type="radio"
+                                        <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
                                             value="c_three" name="ssc">
                                         <label>C3</label>
                                     </div>
                                     <div class="inline">
-                                        <input class="scale-125 cursor-pointer accent-green-700" type="radio"
+                                        <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
                                             value="d" name="ssc">
                                         <label>D</label>
                                     </div>
@@ -466,7 +469,7 @@
                                 <p>ALERT</p>
                                 <p>ALLERGIC TO:</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="allergic to">
                             </div>
                             <div
@@ -474,7 +477,7 @@
                                 <p>HOSPITALIZATION PLAN</p>
                                 <p>COMPANY/INDUSTRIAL NAME</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available">
                             </div>
                             <div
@@ -482,14 +485,14 @@
                                 <p>HEALTH</p>
                                 <p>INSURANCE NAME</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available">
                             </div>
                             <div class="col-span-3 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
                                 <p>TYPE OF INSURANCE</p>
                                 <p>COVERAGE</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available">
                             </div>
                         </div>
@@ -503,21 +506,21 @@
                                 class="col-span-6 border-r-2 border-black flex flex-col items-start justify-center gap-y-[10px] px-[10px]">
                                 <p>DATA FURNISHED BY(signature over printed name)</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="name of attendant">
                             </div>
                             <div
                                 class="col-span-3 border-r-2 border-black flex flex-col items-start justify-center gap-y-[10px] px-[10px]">
                                 <p>ADDRESS OF INFORMANT</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available">
                             </div>
                             <div
                                 class="col-span-3 border-black flex flex-col items-start justify-center gap-y-[10px] px-[10px]">
                                 <p>RELATION TO PATIENT</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available">
                             </div>
                         </div>
@@ -531,7 +534,7 @@
                             <div class="border-black flex items-center gap-[5px] px-[10px]">
                                 <p class="w-[27.5%]">ADMISSION DIAGNOSIS :</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available">
                             </div>
                         </div>
@@ -548,20 +551,20 @@
                                 <div class="border-black flex flex-row gap-[5px] px-[10px]">
                                     <p class="w-[39%]">PRINCIPAL DIAGNOSIS :</p>
                                     <input type="text"
-                                        class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                        class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="N/A if not available">
                                 </div>
                                 <div class="border-black flex flex-row  gap-[5px] px-[10px]">
                                     <p class="w-[31%]">OTHER DIAGNOSIS :</p>
                                     <input type="text"
-                                        class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                        class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="N/A if not available">
                                 </div>
                             </div>
                             <div class="col-span-3 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
                                 <p>IDC CODE NO.</p>
                                 <input type="text"
-                                    class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                    class="w-full bborder-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available">
                             </div>
                         </div>
@@ -575,13 +578,13 @@
                                 <div class="border-black flex flex-row items-center gap-[5px] px-[10px]">
                                     <p class="w-[78%]">PRINCIPAL OPERATION PROCEDURE :</p>
                                     <input type="text"
-                                        class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                        class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="N/A if not available">
                                 </div>
                                 <div class="border-black flex items-center gap-[5px] px-[10px]">
                                     <p class="w-[65%]">OTHER OPERATION PROCEDURE :</p>
                                     <input type="text"
-                                        class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                        class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="N/A if not available">
                                 </div>
                             </div>
@@ -589,7 +592,7 @@
                                 <div class="border-black flex items-center gap-[5px] px-[10px]">
                                     <p class="w-[90%]">ICPM CODE :</p>
                                     <input type="text"
-                                        class="w-full border-4 border-green-700 focus:outline-green-700 px-[10px] focus:outline-offset-2"
+                                        class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="ICPM code">
                                 </div>
                             </div>

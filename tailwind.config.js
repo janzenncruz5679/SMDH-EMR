@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: ["./resources/**/*.{blade.php,js,css,scss}"],
+
     theme: {
         extend: {
             colors: {
@@ -16,6 +17,11 @@ module.exports = {
                     700: "#067306",
                     800: "#07540A",
                     900: "#002101",
+                },
+                blue: {
+                    100: "#C9F2F8",
+                    200: "#005551",
+                    300: "#028090",
                 },
             },
         },

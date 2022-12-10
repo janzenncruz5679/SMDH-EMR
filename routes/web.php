@@ -33,6 +33,7 @@ Route::get('/billing', [HomeController::class, 'billing']);
 
 //add data from db
 Route::get('/patientPage/addPatient', [PatientController::class, 'addPatient']);
+Route::post('/patientPage/admission', [PatientController::class, 'submit_admit_patient']);
 
 // read data from db
 Route::get('/patientPage/admission', [PatientController::class, 'admission']);

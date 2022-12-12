@@ -404,7 +404,7 @@
                         {{-- type of admission --}}
                         <div class="grid grid-cols-2 h-[50px] border-b-2 border-black h-[100px]">
                             <div class="border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
-                                <p>TYPE OF blue-300 :</p>
+                                <p>TYPE OF ADMISSION :</p>
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="name of clerk">

@@ -8,8 +8,7 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="h-screen"
-    style="background-image: url('../../assets/img/login_bg.png');background-repeat: no-repeat; background-size: 100%;">
+<body class="w-full h-screen bg-no-repeat bg-cover" style="background-image: url('../../assets/img/login_bg.png')">
     @yield('content')
 
 </body>

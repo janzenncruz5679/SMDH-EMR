@@ -1,21 +1,17 @@
 @extends('layouts.splash')
 
 @section('content')
-    <div class="flex h-full w-full justify-center items-center">
-        <div class="w-[25vw]">
-            <div class="h-[92vh] px-[30px] pb-[30px] pt-[20px] rounded-[15px] bg-white">
-                <div class="flex justify-center pb-[10px]">
-                    <img src="'../../assets/img/san_miguel_hospital_logo.png" alt="logo" style="height: 25vh">
-                </div>
+    <div class="relative h-full w-full flex justify-center items-center">
+        <div class="h-[80%] lg:h-[75%] w-[24.5vw] lg:w-[49.5%]">
+            <div class="h-full px-[25px] lg:px-[30px] rounded-[15px] bg-white flex flex-col justify-center">
 
-                <form method="POST" action="{{ route('register') }}">
+                <form method="POST" action="{{ route('register') }}"
+                    class="flex flex-col pb-[15px] gap-[15px] lg:gap-[10px] text-[1.5rem] lg:text-[1rem]">
                     @csrf
-                    <div class="text-[1rem] text-black flex flex-col gap-[5px]">
+                    <div class="flex flex-col">
                         <label for="name" class="">{{ __('Name') }}</label>
-
-
                         <input id="name" type="text"
-                            class="peer rounded-[5px] px-[10px] py-[2px] border-[3px] focus:outline-offset-1 border-green-700 focus:outline-green-700"
+                            class="peer lg:h-[40px] w-full rounded-[5px] border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                             name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                         @error('name')
                             <p class="peer-invalid:visible text-[20px] text-red-700 ">
@@ -25,12 +21,12 @@
 
                     </div>
 
-                    <div class="text-[1rem] text-black flex flex-col gap-[5px]">
-                        <label for="email" class="pt-[10px]">{{ __('Email Address') }}</label>
+                    <div class="flex flex-col">
+                        <label for="email" class="">{{ __('Email Address') }}</label>
 
 
                         <input id="email" type="email"
-                            class="peer rounded-[5px] px-[10px] py-[2px] border-[3px] focus:outline-offset-1 border-green-700 focus:outline-green-700"
+                            class="peer lg:h-[40px] w-full rounded-[5px] border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                             name="email" value="{{ old('email') }}" required autocomplete="email">
                         @error('email')
                             <p class="peer-invalid:visible text-[20px] text-red-700 ">
@@ -39,10 +35,10 @@
                         @enderror
                     </div>
 
-                    <div class="text-[1rem] text-black flex flex-col gap-[5px]">
-                        <label for="phone" class="pt-[15px]">{{ __('Phone') }}</label>
+                    <div class="flex flex-col">
+                        <label for="phone" class="">{{ __('Phone') }}</label>
                         <input id="phone" type="text"
-                            class="peer rounded-[5px] px-[10px] py-[2px] border-[3px] focus:outline-offset-1 border-green-700 focus:outline-green-700"
+                            class="peer lg:h-[40px] w-full rounded-[5px] border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                             name="phone" value="{{ old('phone') }}" required autocomplete="phone">
                         @error('phone')
                             <p class="peer-invalid:visible text-[20px] text-red-700 ">
@@ -52,11 +48,11 @@
 
                     </div>
 
-                    <div class="text-[1rem] text-black flex flex-col gap-[5px]">
-                        <label for="address" class="pt-[10px]">{{ __('Address') }}</label>
+                    <div class="flex flex-col">
+                        <label for="address" class="">{{ __('Address') }}</label>
 
                         <input id="address" type="text"
-                            class="peer rounded-[5px] px-[10px] py-[2px] border-[3px] focus:outline-offset-1 border-green-700 focus:outline-green-700"
+                            class="peer lg:h-[40px] w-full rounded-[5px] border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                             name="address" value="{{ old('address') }}" required autocomplete="address">
 
                         @error('address')
@@ -67,12 +63,12 @@
 
                     </div>
 
-                    <div class="text-[1rem] text-black flex flex-col gap-[5px]">
-                        <label for="password" class="pt-[10px]">{{ __('Password') }}</label>
+                    <div class="flex flex-col">
+                        <label for="password" class="">{{ __('Password') }}</label>
 
 
                         <input id="password" type="password"
-                            class="peer rounded-[5px] px-[10px] py-[2px] border-[3px] focus:outline-offset-1 border-green-700 focus:outline-green-700"
+                            class="peer lg:h-[40px] w-full rounded-[5px] border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                             name="password" required autocomplete="new-password">
 
                         @error('password')
@@ -83,30 +79,32 @@
 
                     </div>
 
-                    <div class="text-[1rem] text-black flex flex-col gap-[5px]">
-                        <label for="password-confirm" class="pt-[10px]">{{ __('Confirm Password') }}</label>
+                    <div class="flex flex-col pb-[10px]">
+                        <label for="password-confirm" class="">{{ __('Confirm Password') }}</label>
 
 
                         <input id="password-confirm" type="password"
-                            class="peer rounded-[5px] px-[10px] py-[2px] border-[3px] focus:outline-offset-1 border-green-700 focus:outline-green-700"
+                            class="peer lg:h-[40px] w-full rounded-[5px] border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                             name="password_confirmation" required autocomplete="new-password">
 
                     </div>
-                    <div class="flex justify-center h-[9vh] pt-[25px]">
+                    <div class="flex flex-col h-[50px] lg:h-[40px]">
 
                         <button type="submit"
-                            class="w-[6.8vw] text-[1.5rem] bg-green-700 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-green-600 focus:outline-green-700 focus:outline-offset-0">
+                            class="h-full w-full text-[1.5rem] bg-blue-200 tracking-[2px] text-white border-none rounded-[10px] bg-blue-300 text-white hover:text-black hover:bg-blue-100">
                             {{ __('Register') }}
                         </button>
                     </div>
-                    <div class="pt-[15px] text-center">
-                        @if (Route::has('password.request'))
-                            <a class="hover:text-green-600" href="{{ route('login') }}">
-                                {{ __('Log in if account exist') }}
-                            </a>
-                        @endif
-                    </div>
+
                 </form>
+                <div class="h-[50px] lg:h-[40px]">
+                    <button type="submit"
+                        class="h-full w-full text-[1.5rem] bg-blue-200 tracking-[2px] text-white border-none rounded-[10px] bg-blue-300 text-white hover:text-black hover:bg-blue-100">
+                        <a href="{{ route('login') }}"
+                            class="relative w-full h-full flex items-center justify-center">{{ __('Back') }}</a>
+                    </button>
+                </div>
+
             </div>
         </div>
     </div>

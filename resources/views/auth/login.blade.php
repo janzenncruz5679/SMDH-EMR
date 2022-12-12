@@ -3,7 +3,7 @@
 @section('content')
     {{-- <div class="h-100 d-flex align-items-center justify-content-center"> --}}
     <div class="relative h-full w-full flex justify-center items-center">
-        <div class="h-[75%] lg:h-[79%]">
+        <div class="h-[75%] lg:h-[79%] md:h-[85%]">
             <div class="h-full px-[25px]  rounded-[15px] bg-white flex flex-col justify-center">
                 <div class="flex justify-center items-center">
                     <img src="../../assets/img/san_miguel_hospital_logo.png" alt="logo" class="h-[30vh]">

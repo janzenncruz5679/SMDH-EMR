@@ -3,10 +3,11 @@
 @section('content')
     {{-- <div class="h-100 d-flex align-items-center justify-content-center"> --}}
     <div class="relative h-full w-full flex justify-center items-center">
-        <div class="h-[75%] lg:h-[79%] md:h-[85%]">
-            <div class="h-full px-[25px]  rounded-[15px] bg-white flex flex-col justify-center">
+        <div class="h-[75%] xl:h-[85%] md:h-[85%]">
+            <div
+                class="h-full px-[25px] rounded-[15px] bg-white flex flex-col justify-center bg-white ssm:bg-zinc-800 sm:bg-red-200 md:bg-violet-300 lg:bg-blue-800 xl:bg-yellow-500 2xl:bg-green-200">
                 <div class="flex justify-center items-center">
-                    <img src="../../assets/img/san_miguel_hospital_logo.png" alt="logo" class="h-[30vh]">
+                    <img src="../../assets/img/san_miguel_hospital_logo.png" alt="logo" class="h-[30vh] lg:h-[25vh]">
                 </div>
                 <form method="POST" action="{{ route('login') }}"
                     class="text-[1.5rem] lg:text-[1.2rem] flex flex-col gap-[15px] lg:gap-[10px] py-[15px]">
@@ -47,8 +48,8 @@
 
                     <div class="flex text-[0.8rem] gap-[175px] lg:pb-[20px] ">
                         <div class="inline">
-                            <input class="scale-110 accent-blue-300 cursor-pointer" type="checkbox" name="remember"
-                                id="remember" {{ old('remember') ? 'checked' : '' }}>
+                            <input class="scale-110 xl:scale-125 accent-blue-300 cursor-pointer" type="checkbox"
+                                name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                             <label class="text-[1rem]" for="remember">
                                 {{ __('Remember Me') }}
@@ -65,7 +66,7 @@
 
 
 
-                    <div class="h-[50px] lg:h-[40px]">
+                    <div class="h-[50px] xl:h-[60px] lg:h-[40px]">
                         <button type="submit"
                             class="h-full w-full text-[1.5rem] bg-blue-200 tracking-[2px] text-white border-none rounded-[10px] bg-blue-300 text-white hover:text-black hover:bg-blue-100">
                             {{ __('Login') }}
@@ -73,7 +74,7 @@
                     </div>
 
                 </form>
-                <div class="h-[50px] lg:h-[40px]">
+                <div class="h-[50px] xl:h-[60px] lg:h-[40px]">
                     <button type="submit"
                         class="h-full w-full text-[1.5rem] bg-blue-200 tracking-[2px] text-white border-none rounded-[10px] bg-blue-300 text-white hover:text-black hover:bg-blue-100">
                         <a href="{{ route('register') }}"

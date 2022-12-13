@@ -2,8 +2,9 @@
 
 @section('content')
     <div class="relative h-full w-full flex justify-center items-center">
-        <div class="h-[80%] lg:h-[75%] w-[24.5vw] lg:w-[49.5%]">
-            <div class="h-full px-[25px] lg:px-[30px] rounded-[15px] bg-white flex flex-col justify-center">
+        <div class="h-[80%] xl:h-[85%] w-[24.5vw] xl:w-[37.5vw] lg:w-[46%]">
+            <div
+                class="h-full px-[25px] lg:px-[30px] rounded-[15px] bg-white sm:bg-red-200 md:bg-violet-300 lg:bg-blue-800 xl:bg-yellow-500 2xl:bg-green-200 flex flex-col justify-center">
 
                 <form method="POST" action="{{ route('register') }}"
                     class="flex flex-col pb-[15px] gap-[15px] lg:gap-[10px] text-[1.5rem] lg:text-[1rem]">

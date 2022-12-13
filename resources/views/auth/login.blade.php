@@ -3,9 +3,9 @@
 @section('content')
     {{-- <div class="h-100 d-flex align-items-center justify-content-center"> --}}
     <div class="relative h-full w-full flex justify-center items-center">
-        <div class="h-[75%] xl:h-[85%] md:h-[85%]">
+        <div class="h-[75%] sm:h-[85%] md:h-[85%] lg:h-[75%] xl:h-[75%]">
             <div
-                class="h-full px-[25px] rounded-[15px] bg-white flex flex-col justify-center bg-white ssm:bg-zinc-800 sm:bg-red-200 md:bg-violet-300 lg:bg-blue-800 xl:bg-yellow-500 2xl:bg-green-200">
+                class="h-full px-[25px] rounded-[15px] bg-white flex flex-col justify-center bg-white sm:bg-red-200 md:bg-violet-300 lg:bg-blue-800 xl:bg-yellow-500">
                 <div class="flex justify-center items-center">
                     <img src="../../assets/img/san_miguel_hospital_logo.png" alt="logo" class="h-[30vh] lg:h-[25vh]">
                 </div>

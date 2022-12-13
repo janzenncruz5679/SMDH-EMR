@@ -3,19 +3,19 @@
 @section('content')
     {{-- <div class="h-100 d-flex align-items-center justify-content-center"> --}}
     <div class="relative h-full w-full flex justify-center items-center">
-        <div class="h-[75%] sm:h-[85%] md:h-[85%] lg:h-[75%] xl:h-[75%]">
+        <div class="h-[75%] sm:h-[90%] md:h-[90%] lg:h-[85%] xl:h-[88%]">
             <div
                 class="h-full px-[25px] rounded-[15px] bg-white flex flex-col justify-center bg-white sm:bg-red-200 md:bg-violet-300 lg:bg-blue-800 xl:bg-yellow-500">
                 <div class="flex justify-center items-center">
                     <img src="../../assets/img/san_miguel_hospital_logo.png" alt="logo" class="h-[30vh] lg:h-[25vh]">
                 </div>
                 <form method="POST" action="{{ route('login') }}"
-                    class="text-[1.5rem] lg:text-[1.2rem] flex flex-col gap-[15px] lg:gap-[10px] py-[15px]">
+                    class="text-[1.5rem] sm:text-[1.2rem] lg:text-[1.2rem] xl:text-[1.3rem] flex flex-col gap-[15px] xl:gap-[10px] lg:gap-[10px] py-[15px]">
                     @csrf
                     <div class="text-black flex flex-col">
-                        <label for="email" class="">{{ __('Username') }}</label>
+                        <label for="email">{{ __('Username') }}</label>
                         <input id="email" type="email"
-                            class="peer lg:h-[40px] w-full rounded-[5px] border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                            class="peer sm:h-[40px] lg:h-[40px] w-full rounded-[5px] border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                             name="email" value="{{ old('email') }}" required autocomplete="email">
 
                         @error('email')
@@ -29,7 +29,7 @@
                     <div class="text-black flex flex-col">
                         <label for="password" class="">{{ __('Password') }}</label>
                         <input id="password" type="password"
-                            class="peer lg:h-[40px] w-full rounded-[5px] border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                            class="peer sm:h-[40px] lg:h-[40px] w-full rounded-[5px] border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                             name="password" value="{{ old('password') }}" required autocomplete="password">
 
                         @error('password')
@@ -46,7 +46,7 @@
                     </div>
 
 
-                    <div class="flex text-[0.8rem] gap-[175px] lg:pb-[20px] ">
+                    <div class="flex text-[0.8rem] gap-[175px] sm:pb-[25px] lg:pb-[20px] xl:pb-[10px]">
                         <div class="inline">
                             <input class="scale-110 xl:scale-125 accent-blue-300 cursor-pointer" type="checkbox"
                                 name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -66,17 +66,17 @@
 
 
 
-                    <div class="h-[50px] xl:h-[60px] lg:h-[40px]">
+                    <div class="h-[50px] sm:h-[40px] lg:h-[40px] xl:h-[50px]">
                         <button type="submit"
-                            class="h-full w-full text-[1.5rem] bg-blue-200 tracking-[2px] text-white border-none rounded-[10px] bg-blue-300 text-white hover:text-black hover:bg-blue-100">
+                            class="h-full w-full sm:text-[1.4rem] text-[1.5rem] bg-blue-200 tracking-[2px] text-white border-none rounded-[10px] bg-blue-300 text-white hover:text-black hover:bg-blue-100">
                             {{ __('Login') }}
                         </button>
                     </div>
 
                 </form>
-                <div class="h-[50px] xl:h-[60px] lg:h-[40px]">
+                <div class="h-[50px] sm:h-[40px] lg:h-[40px] xl:h-[50px]">
                     <button type="submit"
-                        class="h-full w-full text-[1.5rem] bg-blue-200 tracking-[2px] text-white border-none rounded-[10px] bg-blue-300 text-white hover:text-black hover:bg-blue-100">
+                        class="h-full w-full sm:text-[1.4rem] text-[1.5rem] bg-blue-200 tracking-[2px] text-white border-none rounded-[10px] bg-blue-300 text-white hover:text-black hover:bg-blue-100">
                         <a href="{{ route('register') }}"
                             class="relative w-full h-full flex items-center justify-center">{{ __('Register') }}</a>
                     </button>

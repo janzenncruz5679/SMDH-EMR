@@ -13,9 +13,10 @@ class PatientController extends Controller
 {
     public function admission()
     {
-        $patientDatas = Admission::all();
+        $patientDatas = Admission::select('id', 'first_name', 'middle_name', 'last_name', 'age', 'gender', 'address')->paginate(15);
 
-        $patientDatas = collect($patientDatas)->paginate(15);
+
+        // $patientDatas = collect($patientDatas)->paginate(15);
         return view('user.patientSection.admission', ['patientDatas' => $patientDatas,]);
     }
     public function admissionSearch(Request $request)

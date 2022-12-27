@@ -6,7 +6,7 @@
 
             <div class="flex justify-center items-center">
                 <img src="../../assets/img/san_miguel_hospital_logo.png" alt="logo"
-                    class="h-[30vh] xl:h-[30vh] lg:h-[25vh]">
+                    class="h-[25vh] xl:h-[30vh] lg:h-[25vh]">
             </div>
             <form method="POST" action="{{ route('login') }}"
                 class="text-[1.5rem] sm:text-base md:text-lg grid gap-4 xl:gap-4 lg:gap-2 sm:gap-2 md:gap-2 py-[15px]">

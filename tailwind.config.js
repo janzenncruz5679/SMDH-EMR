@@ -42,9 +42,9 @@ module.exports = {
                     300: "#028090",
                 },
             },
-            // fontFamily: {
-            //     Roboto: ["Roboto", "sans-serif"],
-            // },
+            fontFamily: {
+                Roboto: ["Roboto", "sans-serif"],
+            },
         },
     },
     plugins: [],

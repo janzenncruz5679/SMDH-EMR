@@ -1,39 +1,41 @@
 @extends('layouts.main')
 @section('content')
-    <div class="shortcuts flex gap-x-[50px] fixed top-[59px] right-0 h-screen w-[85.5vw] p-[50px]">
-        <div class="flex flex-row justify-start gap-[55px] h-[25vh]">
-            <div class="homeShortcuts h-[25vh] flex flex-col justify-center items-center">
-                <div
-                    class="menu h-[20vh] w-[10vw] relative shadow-md shadow-blue-200 bg-blue-100 text-zinc-900 flex flex-col justify-center items-center rounded-[20px] hover:-translate-y-0.5 transform transition hover:bg-blue-300">
-                    <a class="menuLink absolute w-full h-full flex justify-center items-center hover:text-white"
-                        href="{{ url('patientPage') }}"><i class="menuIcon fa-solid fa-hospital-user text-[7rem]"></i> </a>
-                </div>
-                <div class="menuDescription text-[1.5rem] pt-[5px] text-center">
+    <div
+        class="grid fixed h-[94%] w-[86%] left-[275px] top-[59px] p-12 sm:bg-red-200 md:bg-violet-300 lg:bg-blue-800 xl:bg-yellow-500">
+        <div class=" grid grid-cols-5 gap-14 h-[30%] w-[75%] ">
+            <div class="grid w-full gap-[10px]">
+                <a class=" text-zinc-900 hover:text-white" href="{{ url('patientPage') }}">
+                    <div
+                        class=" bg-blue-100 hover:bg-blue-300 py-10 rounded-3xl grid justify-center shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
+                        <i class="fa-solid fa-hospital-user text-[7rem]"></i>
+                    </div>
+                </a>
+                <div class="grid justify-center text-[1.5rem]">
                     {{ __('Patient Profile') }}
                 </div>
             </div>
-            <div class="homeShortcuts h-[25vh] flex flex-col justify-center items-center">
-                <div
-                    class="menu h-[20vh] w-[10vw] relative shadow-md shadow-blue-200 bg-blue-100 text-zinc-900 flex flex-col justify-center items-center rounded-[20px] hover:-translate-y-0.5 transform transition hover:bg-blue-200">
-                    <a class="menuLink absolute w-full h-full flex justify-center items-center hover:text-white"
-                        href="{{ url('stations') }}"><i class="menuIcon fa fa-hospital text-[7rem]"></i> </a>
-                </div>
-                <div class="menuDescription text-[1.5rem] pt-[5px] text-center">
+            <div class="grid w-full gap-[10px]">
+                <a class=" text-zinc-900 hover:text-white" href="{{ url('patientPage') }}">
+                    <div
+                        class=" bg-blue-100 hover:bg-blue-300 py-10 rounded-3xl grid justify-center shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
+                        <i class="fa-solid fa-hospital text-[7rem]"></i>
+                    </div>
+                </a>
+                <div class="grid justify-center text-2xl">
                     {{ __('View Stations') }}
                 </div>
             </div>
-            <div class="homeShortcuts h-[25vh] flex flex-col justify-center items-center">
-                <div
-                    class="menu h-[20vh] w-[10vw] relative shadow-md shadow-blue-200 bg-blue-100 text-zinc-900 flex flex-col justify-center items-center rounded-[20px] hover:-translate-y-0.5 transform transition hover:bg-blue-200">
-                    <a class="menuLink absolute w-full h-full flex justify-center items-center hover:text-white"
-                        href="{{ url('billing') }}"><i class="menuIcon fa-solid fa-hand-holding-dollar text-[7rem]"></i>
-                    </a>
-                </div>
-                <div class="menuDescription text-[1.5rem] pt-[5px] text-center">
+            <div class="grid w-full gap-[10px]">
+                <a class=" text-zinc-900 hover:text-white" href="{{ url('billing') }}">
+                    <div
+                        class=" bg-blue-100 hover:bg-blue-300 py-10 rounded-3xl grid justify-center shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
+                        <i class="fa-solid fa-hand-holding-dollar text-[7rem]"></i>
+                    </div>
+                </a>
+                <div class="grid justify-center text-2xl">
                     {{ __('Add Bill') }}
                 </div>
             </div>
-
         </div>
     </div>
 @endsection

@@ -11,7 +11,7 @@
                     {{-- admissionformfirst_sec --}}
                     <div class="h-[67.5vh] border-2 border-black">
                         {{-- name --}}
-                        <div class="grid grid-cols-8 h-[50px] border-b-2 border-black h-[70px]">
+                        <div class="grid grid-cols-8 border-b-2 border-black h-[70px]">
                             <div class="border-r-2 border-black col-span-5 flex items-center gap-[5px] px-[10px]">
                                 <p>NAME OF HOSPITAL :</p>
                                 <p>San Miguel District Hospital</p>
@@ -23,7 +23,7 @@
                         </div>
 
                         {{-- address --}}
-                        <div class="grid grid-cols-8 h-[50px] border-b-2 border-black h-[70px]">
+                        <div class="grid grid-cols-8 border-b-2 border-black h-[70px]">
                             <div class="border-r-2 border-black col-span-5 flex items-center gap-[5px] px-[10px]">
                                 <p class="w-[18%]">ADDRESS :</p>
                                 <input type="text"
@@ -40,7 +40,7 @@
 
 
                         {{-- sr citizen number --}}
-                        <div class="grid grid-cols-8 h-[50px] border-b-2 border-black h-[75px]">
+                        <div class="grid grid-cols-8 border-b-2 border-black h-[75px]">
                             <div class="col-span-3 border-r-2 border-black flex items-center gap-[5px] px-[10px]">
                                 <p class="w-[61%]">SR CITIZEN NO:</p>
                                 <input type="text"
@@ -63,7 +63,7 @@
                         <div class="border-b-2 border-black h-[30px]"></div>
 
                         {{-- patients border --}}
-                        <div class="grid grid-cols-8 h-[50px] border-b-2 border-black h-[100px]">
+                        <div class="grid grid-cols-8 border-b-2 border-black h-[100px]">
                             <div class="border-r-2 border-black flex items-start px-[10px]">
                                 <p>PATIENT'S NAME :</p>
                             </div>
@@ -81,8 +81,7 @@
                                     placeholder="given name" name="first_name" value="{{ $update_data->first_name }}"
                                     readonly>
                             </div>
-                            <div
-                                class=" border-r-2 border-r-2 border-black flex flex-col items-center gap-y-[10px] px-[10px]">
+                            <div class=" border-r-2 border-black flex flex-col items-center gap-y-[10px] px-[10px]">
                                 <p>(Middle)</p>
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
@@ -102,7 +101,7 @@
                         <div class="border-b-2 border-black h-[30px]"></div>
 
                         {{-- perma address --}}
-                        <div class="grid grid-cols-11 h-[50px] border-b-2 border-black h-[100px]">
+                        <div class="grid grid-cols-11 border-b-2 border-black h-[100px]">
                             <div
                                 class="col-span-5 border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
                                 <p>PERMANENT ADDRESS :</p>
@@ -190,7 +189,7 @@
                         <div class="border-b-2 border-black h-[30px]"></div>
 
                         {{-- birthdate border --}}
-                        <div class="grid grid-cols-12 h-[50px] border-b-2 border-black h-[100px]">
+                        <div class="grid grid-cols-12 border-b-2 border-black h-[100px]">
                             <div
                                 class="col-span-3 border-r-2 border-black flex flex-col items-center gap-y-[10px] px-[10px]">
                                 <p>BIRTHDATE</p>
@@ -246,7 +245,7 @@
                     <div class="h-[46vh] border-t-0 border-2 border-black">
 
                         {{-- employee --}}
-                        <div class="grid grid-cols-9 h-[50px] border-b-2 border-black h-[100px]">
+                        <div class="grid grid-cols-9 border-b-2 border-black h-[100px]">
                             <div
                                 class="col-span-3 border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
                                 <p>EMPLOYER(Type of Business)</p>
@@ -273,7 +272,7 @@
                         </div>
 
                         {{-- father --}}
-                        <div class="grid grid-cols-9 h-[50px] border-b-2 border-black h-[100px]">
+                        <div class="grid grid-cols-9 border-b-2 border-black h-[100px]">
                             <div
                                 class="col-span-3 border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
                                 <p>FATHER'S NAME</p>
@@ -300,7 +299,7 @@
                         </div>
 
                         {{-- mother --}}
-                        <div class="grid grid-cols-9 h-[50px] border-b-2 border-black h-[100px]">
+                        <div class="grid grid-cols-9 border-b-2 border-black h-[100px]">
                             <div
                                 class="col-span-3 border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
                                 <p>MOTHER'S(MAIDEN) NAME</p>
@@ -327,7 +326,7 @@
                         </div>
 
                         {{-- spouse --}}
-                        <div class="grid grid-cols-9 h-[50px] border-b-2 border-black h-[100px]">
+                        <div class="grid grid-cols-9 border-b-2 border-black h-[100px]">
                             <div
                                 class="col-span-3 border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
                                 <p>SPOUSE NAME</p>
@@ -360,7 +359,7 @@
                     {{-- admissionformthird_sec --}}
                     <div class="h-[49vh] border-t-0 border-2 border-black">
                         {{-- Admission --}}
-                        <div class="grid grid-cols-10 h-[50px] border-b-2 border-black h-[170px]">
+                        <div class="grid grid-cols-10 border-b-2 border-black h-[170px]">
                             <div
                                 class="col-span-3 border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
                                 <p>ADMISSION</p>
@@ -415,7 +414,7 @@
                         <div class="border-b-2 border-black h-[30px]"></div>
 
                         {{-- Admitting clerk --}}
-                        <div class="grid grid-cols-2 h-[50px] border-b-2 border-black h-[100px]">
+                        <div class="grid grid-cols-2 border-b-2 border-black h-[100px]">
                             <div class="border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
                                 <p>ADMITTING CLERK :</p>
                                 <input type="text"
@@ -431,9 +430,9 @@
                         <div class="border-b-2 border-black h-[30px]"></div>
 
                         {{-- type of admission --}}
-                        <div class="grid grid-cols-2 h-[50px] border-b-2 border-black h-[100px]">
+                        <div class="grid grid-cols-2 border-b-2 border-black h-[100px]">
                             <div class="border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
-                                <p>ADMITTING CLERK :</p>
+                                <p>TYPE OF ADMISSION :</p>
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="name of clerk">
@@ -450,7 +449,7 @@
                     {{-- admissionformfourth_sec --}}
                     <div class="h-[56.2vh] border-t-0 border-2 border-black">
                         {{-- ssc --}}
-                        <div class="grid h-[50px] border-b-2 border-black h-[70px]">
+                        <div class="grid border-b-2 border-black h-[70px]">
                             <div class="border-black flex items-center gap-[5px] px-[10px]">
                                 <p class="w-[50%]">SOCIAL SERVICE CLASSIFICATION :</p>
                                 <div class=" w-full flex justify-around text-[1.3rem]">
@@ -492,7 +491,7 @@
                         <div class="border-b-2 border-black h-[30px]"></div>
 
                         {{-- alert allergic to --}}
-                        <div class="grid grid-cols-12 h-[50px] border-b-2 border-black h-[145px]">
+                        <div class="grid grid-cols-12 border-b-2 border-black h-[145px]">
                             <div
                                 class="col-span-2 border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
                                 <p>ALERT</p>
@@ -530,7 +529,7 @@
                         <div class="border-b-2 border-black h-[30px]"></div>
 
                         {{-- data furnished by --}}
-                        <div class="grid grid-cols-12 h-[50px] border-b-2 border-black h-[120px]">
+                        <div class="grid grid-cols-12 border-b-2 border-black h-[120px]">
                             <div
                                 class="col-span-6 border-r-2 border-black flex flex-col items-start justify-center gap-y-[10px] px-[10px]">
                                 <p>DATA FURNISHED BY(signature over printed name)</p>
@@ -559,7 +558,7 @@
 
 
                         {{-- admission diagnosis --}}
-                        <div class="grid h-[50px] border-b-2 border-black h-[70px]">
+                        <div class="grid border-b-2 border-black h-[70px]">
                             <div class="border-black flex items-center gap-[5px] px-[10px]">
                                 <p class="w-[27.5%]">ADMISSION DIAGNOSIS :</p>
                                 <input type="text"
@@ -575,7 +574,7 @@
                     {{-- admissionformfifth_sec --}}
                     <div class="h-[34.2vh] border-t-0 border-2 border-black">
                         {{-- principal diagnosis --}}
-                        <div class="grid grid-cols-12 h-[50px] border-t-0 border-b-2 border-black h-[120px]">
+                        <div class="grid grid-cols-12 border-t-0 border-b-2 border-black h-[120px]">
                             <div class="col-span-9 border-r-2 border-black flex flex-col justify-center gap-[10px]">
                                 <div class="border-black flex flex-row gap-[5px] px-[10px]">
                                     <p class="w-[39%]">PRINCIPAL DIAGNOSIS :</p>
@@ -602,7 +601,7 @@
                         <div class="border-b-2 border-black h-[30px]"></div>
 
                         {{-- principal operation --}}
-                        <div class="grid grid-cols-12 h-[50px]  border-black h-[120px] py-[10px]">
+                        <div class="grid grid-cols-12 border-black h-[120px] py-[10px]">
                             <div class="col-span-9 border-black flex flex-col justify-start gap-[10px] ">
                                 <div class="border-black flex flex-row items-center gap-[5px] px-[10px]">
                                     <p class="w-[78%]">PRINCIPAL OPERATION PROCEDURE :</p>

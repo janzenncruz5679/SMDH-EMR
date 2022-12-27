@@ -15,7 +15,6 @@
 
 <body>
     @include('layouts.header')
-
     @include('layouts.sidebar')
     @yield('content')
     @include('layouts.allScripts')

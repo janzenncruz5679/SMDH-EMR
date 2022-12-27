@@ -59,10 +59,12 @@
                         @endforeach
                     </table>
                 @endif
-            </div>
-            <div class="paginator absolute inset-x-0 bottom-0 h-16 flex justify-center py-1">
-                {{ $patientDatas->onEachSide(1)->links('pagination::custom_tailwind') }}
+                <div class="paginator absolute  bottom-0 h-16 flex justify-center py-1">
+
+                </div>
+                <div class="paginator absolute inset-x-0 bottom-0 h-16 flex justify-center py-1">
+                    {{ $patientDatas->links('pagination::custom_tailwind') }}
+                </div>
             </div>
         </div>
-    </div>
-@endsection
+    @endsection

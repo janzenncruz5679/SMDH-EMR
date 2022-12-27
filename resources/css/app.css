@@ -1,5 +1,6 @@
 @import "./master.css";
 
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap"); */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

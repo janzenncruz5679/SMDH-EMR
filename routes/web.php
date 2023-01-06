@@ -24,20 +24,27 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/test', [TestingController::class, 'index']);
 
-Route::get('/home', [HomeController::class, 'index']);
-Route::get('/homePage', [HomeController::class, 'homePage']);
-Route::get('/patientPage', [HomeController::class, 'patientPage']);
-Route::get('/stations', [HomeController::class, 'stations']);
-Route::get('/billing', [HomeController::class, 'billing']);
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/home', [HomeController::class, 'index']);
+    Route::get('/homePage', [HomeController::class, 'homePage']);
+    Route::get('/patientPage', [HomeController::class, 'patientPage']);
+    Route::get('/stations', [HomeController::class, 'stations']);
+    Route::get('/billing', [HomeController::class, 'billing']);
 
 
-//add data from db
-Route::get('/patientPage/addPatient', [PatientController::class, 'addPatient']);
-Route::post('/patientPage/admission', [PatientController::class, 'submit_admit_patient']);
+    //add data from db
+    Route::get('/patientPage/addPatient', [PatientController::class, 'addPatient']);
+    Route::post('/patientPage/admission', [PatientController::class, 'submit_admit_patient']);
 
-// read data from db
-Route::get('/patientPage/admission', [PatientController::class, 'admission']);
-Route::get('/patientPage/admission/search', [PatientController::class, 'admissionSearch']);
+    // read data from db
+    Route::get('/patientPage/admission', [PatientController::class, 'admission']);
+    Route::get('/patientPage/admission/search', [PatientController::class, 'admissionSearch']);
 
-//update data from db
-Route::get('/patientPage/updateAdmission{id}', [PatientController::class, 'updateAdmission']);
+    //view data from db
+    Route::get('/patientPage/viewAdmission{id}', [PatientController::class, 'viewAdmission']);
+
+    //update data from db
+    Route::get('/patientPage/updateAdmission{id}', [PatientController::class, 'updateAdmission']);
+    Route::post('/patientPage/editAdmission{id}', [PatientController::class, 'editAdmission']);
+});

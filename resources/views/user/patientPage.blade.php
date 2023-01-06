@@ -2,37 +2,41 @@
 
 @section('content')
     <div
-        class="shortcuts flex gap-x-[50px] fixed top-[59px] right-0 h-full w-[85.6vw] xl:w-[79vw] lg:w-[73.1vw] p-[50px] xl:p-[40px] ssm:bg-zinc-800 sm:bg-red-200 md:bg-violet-300 lg:bg-blue-800 xl:bg-yellow-500 2xl:bg-green-200">
-        <div class="flex flex-row justify-start gap-[55px] h-[25vh] xl:h-[30vh] w-full">
-            <div class="homeShortcuts h-[25vh] xl:h-[26vh] xl:w-[14vw] flex flex-col justify-center items-center">
-                <div
-                    class="menu h-[20vh] xl:h-full w-[10vw] xl:w-full relative shadow-md shadow-blue-200 bg-blue-100 text-zinc-900 flex flex-col justify-center items-center rounded-[20px] hover:-translate-y-0.5 transform transition hover:bg-blue-300">
-                    <a class="menuLink absolute w-full h-full flex justify-center items-center hover:text-white"
-                        href="{{ url('/patientPage/admission') }}"><i class="menuIcon fa-solid fa-bed text-[7rem]"></i> </a>
-                </div>
-                <div class="menuDescription text-[1.5rem] pt-[5px] text-center">
-                    {{ __('Admission') }}
-                </div>
+        class="grid fixed h-[94%] w-[86%] left-[275px] top-[59px] p-12 sm:bg-red-200 md:bg-violet-300 lg:bg-blue-800 xl:bg-yellow-500">
+        <div class=" grid grid-cols-6 gap-16 h-[25%] w-full">
+            <div class="grid w-full gap-[10px]">
+                <a class=" text-zinc-900 hover:text-white" href="{{ url('/patientPage/admission') }}">
+                    <div
+                        class=" bg-blue-100 hover:bg-blue-300 py-8 gap-4 rounded-3xl grid place-items-center shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
+                        <i class="fa-solid fa-bed text-[7rem]"></i>
+                        <div class="text-2xl font-[sans-serif]">
+                            {{ __('Admission') }}
+                        </div>
+                    </div>
+                </a>
             </div>
-            <div class="homeShortcuts h-[25vh] xl:h-[26vh] xl:w-[14vw] flex flex-col justify-center items-center">
-                <div
-                    class="menu h-[20vh] xl:h-full w-[10vw] xl:w-full relative shadow-md shadow-blue-200 bg-blue-100 text-zinc-900 flex flex-col justify-center items-center rounded-[20px] hover:-translate-y-0.5 transform transition hover:bg-blue-300">
-                    <a class="menuLink absolute w-full h-full flex justify-center items-center hover:text-white"
-                        href=""><i class="menuIcon fa-solid fa-truck-medical text-[7rem]"></i> </a>
-                </div>
-                <div class="menuDescription text-[1.5rem] pt-[5px] text-center">
-                    {{ __('Emergency') }}
-                </div>
+            <div class="grid w-full gap-[10px]">
+                <a class=" text-zinc-900 hover:text-white" href="{{ url('patientPage') }}">
+                    <div
+                        class=" bg-blue-100 hover:bg-blue-300 py-8 gap-4 rounded-3xl grid place-items-center shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
+                        <i class="fa-solid fa-truck-medical text-[7rem]"></i>
+                        <div class="text-2xl font-[sans-serif]">
+                            {{ __('Emergency') }}
+                        </div>
+                    </div>
+                </a>
             </div>
-            <div class="homeShortcuts h-[25vh] xl:h-[26vh] xl:w-[14vw] flex flex-col justify-center items-center">
-                <div
-                    class="menu h-[20vh] xl:h-full w-[10vw] xl:w-full relative shadow-md shadow-blue-200 bg-blue-100 text-zinc-900 flex flex-col justify-center items-center rounded-[20px] hover:-translate-y-0.5 transform transition hover:bg-blue-300">
-                    <a class="menuLink absolute w-full h-full flex justify-center items-center hover:text-white"
-                        href=""><i class="menuIcon fa-solid fa-heart-pulse text-[7rem]"></i> </a>
-                </div>
-                <div class="menuDescription text-[1.5rem] pt-[5px] text-center">
-                    {{ __('Outpatients') }}
-                </div>
+            <div class="grid w-full gap-[10px]">
+                <a class=" text-zinc-900 hover:text-white" href="{{ url('billing') }}">
+                    <div
+                        class=" bg-blue-100 hover:bg-blue-300 py-8 gap-4 rounded-3xl grid place-items-center shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
+                        <i class="fa-solid fa-heart-pulse text-[7rem]"></i>
+                        <div class="text-2xl font-[sans-serif]">
+                            {{ __('Outpatients') }}
+                        </div>
+                    </div>
+                </a>
+
             </div>
         </div>
     </div>

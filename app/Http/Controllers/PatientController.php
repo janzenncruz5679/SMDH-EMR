@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admission;
 use App\Models\First_admission;
 use App\Models\Second_admission;
 use App\Models\Third_admission;
@@ -144,27 +143,73 @@ class PatientController extends Controller
     public function updateAdmission($id)
     {
         $view_first = First_admission::find($id);
-        // $view_second = Second_admission::find($id);
-        // $view_third = Third_admission::find($id);
+        $view_second = Second_admission::find($id);
+        $view_third = Third_admission::find($id);
         return view('user.patientSection.updatepatient', [
             'view_first' => $view_first,
-            // 'view_second' => $view_second,
-            // 'view_third' => $view_third,
+            'view_second' => $view_second,
+            'view_third' => $view_third,
         ]);
     }
 
     public function editAdmission(Request $request, $id)
     {
         $edit_first = First_admission::find($id);
-        // $edit_second = Second_admission::find($id);
+        $edit_second = Second_admission::find($id);
         // $edit_third = Third_admission::find($id);
 
+        $request->validate([
+            //first admission
+            'address' => 'required',
+            'last_name' => 'required',
+            'first_name' => 'required',
+            'ward_room_bed_service' => 'required',
+            'gender' => 'required',
+            'phone' => 'required',
+            'birthday' => 'required',
 
-        // $edit_second->perma_address = $request->input('perma_address');
-        // $edit_second->save();
+            //second_admission
+            'perma_address' => 'required',
+            'civil_status' => 'required',
+            'birthplace' => 'required',
+            'nationality' => 'required',
+            'religion' => 'required',
+        ], [
+            'address.required' => '*this field is required',
+            'last_name.required' => '*this field is required',
+            'first_name.required' => '*this field is required',
+            'ward_room_bed_service.required' => '*this field is required',
+            'gender.required' => '*required',
+            'phone' => '*this field is required',
+            'birthday' => '*this field is required',
+
+            'perma_address.required' => '*this field is required',
+            'civil_status.required' => '*this field is required',
+            'birthplace' => '*this field is required',
+            'nationality' => '*this field is required',
+            'religion' => '*this field is required',
+
+        ]);
 
 
-        $edit_first->address = $request->address;
+        $edit_second->perma_address = $request->input('perma_address');
+        $edit_second->civil_status = $request->input('civil_status');
+        $edit_second->birthplace = $request->input('birthplace');
+        $edit_second->nationality = $request->input('nationality');
+        $edit_second->religion = $request->input('religion');
+        $edit_second->occupation = $request->input('occupation');
+        $edit_second->save();
+
+        $edit_first->address = $request->input('address');
+        $edit_first->sr_no = $request->input('sr_no');
+        $edit_first->last_name = $request->input('last_name');
+        $edit_first->first_name = $request->input('first_name');
+        $edit_first->middle_name = $request->input('middle_name');
+        $edit_first->ward_room_bed_service = $request->input('ward_room_bed_service');
+        $edit_first->age = $request->input('age');
+        $edit_first->gender = $request->input('gender');
+        $edit_first->phone = $request->input('phone');
+        $edit_first->birthday = $request->input('birthday');
         $edit_first->save();
         return redirect('/patientPage/admission');
     }

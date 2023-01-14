@@ -1,8 +1,8 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="addPatient absolute top-[59px] left-[275px] h-[280vh] w-[85.3vw] p-[45px] ">
-        <div class=" h-full w-full">
+    <div class="absolute top-[59px] left-[275px]  w-[85.3vw] p-[45px] ">
+        <div class=" h-[80%] w-full">
             <form action="{{ url('/patientPage/admission') }}" method="POST">
                 @csrf
                 <div class=" h-full w-full text-xl tracking-wider border-2 border-black font-[sans-serif]">
@@ -677,6 +677,23 @@
                     </div>
 
                 </div>
+                <div class="py-8 grid grid-cols-8 gap-4">
+                    <a class=" col-end-7 text-zinc-900 hover:text-white tracking-[2px] text-2xl font-[sans-serif]"
+                        href="{{ url('/patientPage/updateAdmission' . $view_first->id) }}">
+                        <div
+                            class=" h-full bg-blue-300 hover:bg-blue-200 p-2 text-2xl font-[sans-serif] flex items-center justify-center text-white rounded-xl  shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
+                            {{ __('Edit') }}
+                        </div>
+                    </a>
+
+                    <a class=" col-end-8 text-zinc-900 hover:text-white tracking-[2px] text-2xl font-[sans-serif]"
+                        href="">
+                        <div
+                            class=" h-full bg-blue-300 hover:bg-blue-200 p-2 text-2xl font-[sans-serif] flex items-center justify-center text-white rounded-xl  shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
+                            {{ __('Print') }}
+                        </div>
+                    </a>
+                </div>
 
                 {{-- <button
                     class="btnSearch h-[4.7vh] w-[6vw] text-[1.5rem] bg-blue-300 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-200"
@@ -684,6 +701,7 @@
 
             </form>
         </div>
+
     </div>
 @endsection
 @push('custom_scripts')

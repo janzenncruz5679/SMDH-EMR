@@ -1,7 +1,8 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="admissionInfo fixed right-0 top-[59px] h-screen w-[86vw] p-[25px] gap-[50px] flex flex-column">
+    <div class="fixed h-full w-[86%] left-[275px] top-[59px] p-12">
+        {{-- <div class="right-0 top-[59px] gap-[50px] flex flex-column"> --}}
         <div class="admissionDisplay h-[85%] w-full relative top-[80px]">
             <div class="admissionSearchbar h-[7%] flex">
                 <div class="searchBar relative h-full w-[40vw] flex justify-start items-center gap-[15px]">
@@ -17,8 +18,7 @@
                             <p class="hover:text-zinc-900">Search</p>
                         </button>
                     </form>
-                    {{-- <button
-                        class="btnFilter h-[4.7vh] w-[6vw] text-[1.5rem] bg-green-700 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-green-600 focus:outline-green-700 focus:outline-offset-0">Filter</button> --}}
+
                 </div>
                 <div class="addpatientBar h-full w-full flex items-center justify-end">
                     <button
@@ -73,4 +73,6 @@
                 </div>
             </div>
         </div>
-    @endsection
+        {{-- </div> --}}
+    </div>
+@endsection

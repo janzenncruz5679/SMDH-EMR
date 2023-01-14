@@ -3,24 +3,24 @@ module.exports = {
     content: ["./resources/**/*.{blade.php,js,css,scss}"],
 
     theme: {
-        screens: {
-            ssm: { max: "639px" },
+        // screens: {
+        //     ssm: { max: "639px" },
 
-            sm: { min: "640px", max: "767px" },
-            // => @media (min-width: 640px and max-width: 767px) { ... }
+        //     sm: { min: "640px", max: "767px" },
+        //     // => @media (min-width: 640px and max-width: 767px) { ... }
 
-            md: { min: "768px", max: "1023px" },
-            // => @media (min-width: 768px and max-width: 1023px) { ... }
+        //     md: { min: "768px", max: "1023px" },
+        //     // => @media (min-width: 768px and max-width: 1023px) { ... }
 
-            lg: { min: "1024px", max: "1279px" },
-            // => @media (min-width: 1024px and max-width: 1279px) { ... }
+        //     lg: { min: "1024px", max: "1279px" },
+        //     // => @media (min-width: 1024px and max-width: 1279px) { ... }
 
-            xl: { min: "1280px", max: "1535px" },
-            // => @media (min-width: 1280px and max-width: 1535px) { ... }
+        //     xl: { min: "1280px", max: "1535px" },
+        //     // => @media (min-width: 1280px and max-width: 1535px) { ... }
 
-            "2xl": { min: "1536px" },
-            // => @media (min-width: 1536px) { ... }
-        },
+        //     "2xl": { min: "1536px" },
+        //     // => @media (min-width: 1536px) { ... }
+        // },
         extend: {
             colors: {
                 transparent: "transparent",
@@ -40,6 +40,13 @@ module.exports = {
                     100: "#C9F2F8",
                     200: "#005551",
                     300: "#028090",
+                },
+                custom_hospital: {
+                    100: "#508D83",
+                    200: "#508D83",
+                    300: "#28655B",
+                    400: "#145147",
+                    500: "#003D33",
                 },
             },
             fontFamily: {

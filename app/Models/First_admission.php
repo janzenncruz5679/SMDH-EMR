@@ -5,27 +5,28 @@ namespace App\Models;
 use App\Models\Admission;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class First_admission extends Model
 {
     use HasFactory;
     protected $table = "first_admissions";
     protected $fillable = [
-        'record_id',
+        'address',
         'sr_no',
-        // 'perma_address',
-        // 'phone',
-        // 'civil_status',
-        // 'birthday',
-        // 'nationality',
-        // 'religion',
-        // 'occupation',
+        'last_name',
+        'first_name',
+        'middle_name',
+        'ward_room_bed_service',
+        'age',
+        'gender',
+        'phone',
     ];
 
-    public function admission_display()
-    {
-        return $this->belongsTo(Admission::class);
-    }
+    // public function admission_display()
+    // {
+    //     return $this->belongsTo(Admission::class);
+    // }
 
     public function admission_two()
     {

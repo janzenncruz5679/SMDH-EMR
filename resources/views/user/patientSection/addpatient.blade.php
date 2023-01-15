@@ -405,7 +405,6 @@
                         <div class="border-b-2 border-black h-8"></div>
                     </div>
 
-
                     {{-- admissionform_sec --}}
                     <div class="bg-red-200">
                         {{-- Admission --}}
@@ -414,14 +413,14 @@
                                 <p>ADMISSION*</p>
                                 <div class="w-full flex flex-col items-end gap-4">
                                     <div class="flex">
-                                        <label class="pt-[3px]">Date: </label>
+                                        <label class="pt-[3px]">Date*: </label>
                                         <input type="date"
                                             class="w-44 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                             name="start_date" id="start_date" autocomplete="off"
                                             value="{{ old('start_date') }}">
                                     </div>
                                     <div class="flex">
-                                        <label class="pt-[3px]">Time: </label>
+                                        <label class="pt-[3px]">Time*: </label>
                                         <input type="time"
                                             class="w-44 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                             autocomplete="off" name="start_time" id="start_time"
@@ -430,10 +429,10 @@
                                 </div>
                             </div>
                             <div class="col-span-3 border-r-2 border-black px-3 py-2">
-                                <p>DISCHARGE</p>
+                                <p>DISCHARGE*</p>
                                 <div class="text-[1.3rem] w-full flex flex-col items-end gap-[20px]">
                                     <div class="flex">
-                                        <label class="pt-[3px]">Date: </label>
+                                        <label class="pt-[3px]">Date*: </label>
                                         <input type="date"
                                             class="w-44 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                             name="end_date" id="end_date" autocomplete="off"
@@ -452,14 +451,15 @@
                                 <p>TOTAL NO. OF DAYS:</p>
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="# of days" name="diff" id="diff" value="{{ old('diff') }}"
-                                    readonly>
+                                    placeholder="# of days" name="total_days" id="total_days"
+                                    value="{{ old('total_days') }}" readonly>
                             </div>
                             <div class="col-span-3 border-black px-3 py-2">
                                 <p>ADMITTING PHYSICIAN:</p>
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="name of physician">
+                                    placeholder="name of physician" name="admitting_physician" id="admitting_physician"
+                                    value="{{ old('admitting_physician') }}">
                             </div>
                         </div>
 
@@ -467,14 +467,15 @@
                         <div class="border-b-2 border-black h-[30px]"></div>
 
                         {{-- Admitting clerk --}}
-                        <div class="grid grid-cols-2 border-b-2 border-black h-[100px]">
-                            <div class="border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
+                        <div class="grid grid-cols-2 border-b-2 border-black h-28">
+                            <div class="border-r-2 border-black px-3 py-2">
                                 <p>ADMITTING CLERK :</p>
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="N/A if not available" autocomplete="off">
+                                    placeholder="N/A if not available" name="admitting_clerk" id="admitting_clerk"
+                                    value="{{ old('admitting_clerk') }}" autocomplete="off">
                             </div>
-                            <div class="border-black flex flex-col items-start gap-y-[10px] px-[10px]">
+                            <div class="border-black px-3 py-2">
                                 <p>ATTENDING PHYSICIAN SIGNATURE:</p>
                             </div>
                         </div>
@@ -483,18 +484,20 @@
                         <div class="border-b-2 border-black h-[30px]"></div>
 
                         {{-- type of admission --}}
-                        <div class="grid grid-cols-2 border-b-2 border-black h-[100px]">
-                            <div class="border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
+                        <div class="grid grid-cols-2 border-b-2 border-black h-28">
+                            <div class="border-r-2 border-black px-3 py-2">
                                 <p>TYPE OF ADMISSION :</p>
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="name of clerk" autocomplete="off">
+                                    placeholder="type of admission" name="admission_type" id="admission_type"
+                                    value="{{ old('admission_type') }}" autocomplete="off">
                             </div>
-                            <div class="border-black flex flex-col items-start gap-y-[10px] px-[10px]">
+                            <div class="border-black px-3 py-2">
                                 <p>REFERRED BY:</p>
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="name of clerk" autocomplete="off">
+                                    placeholder="referred by" name="referred_by" id="referred_by"
+                                    value="{{ old('admission_type') }}" autocomplete="off">
                             </div>
                         </div>
                     </div>
@@ -502,10 +505,10 @@
                     {{-- admissionform_sec --}}
                     <div class="">
                         {{-- ssc --}}
-                        <div class="grid border-b-2 border-black h-[70px]">
-                            <div class="border-black flex items-center gap-[5px] px-[10px]">
-                                <p class="w-[50%]">SOCIAL SERVICE CLASSIFICATION :</p>
-                                <div class=" w-full flex justify-around text-[1.3rem]">
+                        <div class="grid border-b-2 border-black h-">
+                            <div class="border-black grid grid-cols-12 px-3 py-2 gap-2">
+                                <p class="col-span-4">SOCIAL SERVICE CLASSIFICATION :</p>
+                                <div class=" col-span-6 grid grid-cols-6">
                                     <div class="inline">
                                         <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
                                             value="a" name="ssc">
@@ -537,6 +540,13 @@
                                         <label>D</label>
                                     </div>
                                 </div>
+                                {{-- <div class="col-span-2">
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                        @error('address')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                </div> --}}
                             </div>
                         </div>
 

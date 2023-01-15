@@ -9,14 +9,8 @@ function append(dl, dtTxt, ddTxt) {
 
 $(document).ready(function () {
     var today = new Date();
-    $("#start_date").val(
-        today.getFullYear() +
-            "-" +
-            ("0" + (today.getMonth() + 1)).slice(-2) +
-            "-" +
-            ("0" + (today.getDate() + 1)).slice(-2)
-    );
-    $("#end_date").val($("#start_date").val());
+    $("#start_date").val();
+    $("#end_date").val();
     $("#start_time").val();
     $("#end_time").val();
 

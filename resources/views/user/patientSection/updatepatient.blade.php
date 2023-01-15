@@ -236,7 +236,7 @@
                         <div class="grid grid-cols-11 border-b-2 border-black h-28">
                             <div class="col-span-2 border-r-2 border-black px-3 py-2">
                                 <p>BIRTHDATE* :</p>
-                                <input type="text"
+                                <input type="date"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
                                     placeholder="birthday" name="birthday" id="birthday" autocomplete="off"
                                     value="{{ $view_first->birthday }}">
@@ -398,54 +398,58 @@
                     {{-- admissionformthird_sec --}}
                     <div class="">
                         {{-- Admission --}}
-                        <div class="grid grid-cols-10 border-b-2 border-black h-[170px]">
-                            <div
-                                class="col-span-3 border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
+                        <div class="grid grid-cols-12 border-b-2 border-black h-44">
+                            <div class="col-span-3 border-r-2 border-black px-3 py-2">
                                 <p>ADMISSION</p>
-                                <div class="text-[1.3rem] w-full flex flex-col items-end gap-[20px]">
+                                <div class="w-full flex flex-col items-end gap-4">
                                     <div class="flex">
                                         <label class="pt-[3px]">Date: </label>
                                         <input type="date"
-                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                            placeholder="N/A if not available" autocomplete="off">
+                                            class="w-44 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            placeholder="N/A if not available" name="start_date" id="start_date"
+                                            autocomplete="off" value="{{ $view_fourth->start_date }}">
                                     </div>
                                     <div class="flex">
                                         <label class="pt-[3px]">Time: </label>
                                         <input type="time"
-                                            class="w-[203px] border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                            placeholder="N/A if not available" autocomplete="off">
+                                            class="w-44 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            placeholder="N/A if not available" autocomplete="off" name="start_time"
+                                            id="start_time" autocomplete="off" value="{{ $view_fourth->start_time }}">
                                     </div>
                                 </div>
                             </div>
-                            <div
-                                class="col-span-3 border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
+                            <div class="col-span-3 border-r-2 border-black px-3 py-2">
                                 <p>DISCHARGE</p>
                                 <div class="text-[1.3rem] w-full flex flex-col items-end gap-[20px]">
                                     <div class="flex">
                                         <label class="pt-[3px]">Date: </label>
                                         <input type="date"
-                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                            placeholder="N/A if not available" autocomplete="off">
+                                            class="w-44 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            placeholder="N/A if not available" autocomplete="off" name="end_date"
+                                            id="end_date" value="{{ $view_fourth->end_date }}">
                                     </div>
                                     <div class="flex">
                                         <label class="pt-[3px]">Time: </label>
                                         <input type="time"
-                                            class="w-[203px] border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                            placeholder="N/A if not available" autocomplete="off">
+                                            class="w-44 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            placeholder="N/A if not available" autocomplete="off" name="end_time"
+                                            id="end_time" value="{{ $view_fourth->end_time }}">
                                     </div>
                                 </div>
                             </div>
-                            <div class=" border-r-2 border-black flex flex-col items-center gap-y-[10px] px-[10px]">
+                            <div class="col-span-3 border-r-2 border-black px-3 py-2">
                                 <p>TOTAL NO. OF DAYS:</p>
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="# of days">
+                                    placeholder="# of days" autocomplete="off" name="total_days" id="total_days"
+                                    value="{{ $view_fourth->total_days }}" readonly>
                             </div>
-                            <div class="col-span-3 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
+                            <div class="col-span-3 border-black px-3 py-2">
                                 <p>ADMITTING PHYSICIAN:</p>
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="name of physician">
+                                    placeholder="name of physician" name="admitting_physician" id="admitting_physician"
+                                    value="{{ $view_fourth->admitting_physician }}">
                             </div>
                         </div>
 
@@ -454,13 +458,14 @@
 
                         {{-- Admitting clerk --}}
                         <div class="grid grid-cols-2 border-b-2 border-black h-[100px]">
-                            <div class="border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
+                            <div class="border-r-2 border-black px-3 py-2">
                                 <p>ADMITTING CLERK :</p>
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="N/A if not available" autocomplete="off">
+                                    placeholder="N/A if not available" autocomplete="off" name="admitting_clerk"
+                                    id="admitting_clerk" value="{{ $view_fourth->admitting_clerk }}">
                             </div>
-                            <div class="border-black flex flex-col items-start gap-y-[10px] px-[10px]">
+                            <div class="border-black px-3 py-2">
                                 <p>ATTENDING PHYSICIAN SIGNATURE:</p>
                             </div>
                         </div>
@@ -470,17 +475,19 @@
 
                         {{-- type of admission --}}
                         <div class="grid grid-cols-2 border-b-2 border-black h-[100px]">
-                            <div class="border-r-2 border-black flex flex-col items-start gap-y-[10px] px-[10px]">
+                            <div class="border-r-2 border-black px-3 py-2">
                                 <p>TYPE OF ADMISSION :</p>
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="name of clerk" autocomplete="off">
+                                    placeholder="name of clerk" autocomplete="off" name="admission_type"
+                                    id="admission_type" value="{{ $view_fourth->admission_type }}">
                             </div>
-                            <div class="border-black flex flex-col items-start gap-y-[10px] px-[10px]">
+                            <div class="border-black px-3 py-2">
                                 <p>REFERRED BY:</p>
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="name of clerk" autocomplete="off">
+                                    placeholder="name of clerk" autocomplete="off" name="referred_by" id="referred_by"
+                                    value="{{ $view_fourth->referred_by }}">
                             </div>
                         </div>
                     </div>
@@ -688,4 +695,5 @@
 @endsection
 @push('custom_scripts')
     @vite('resources/js/patientPage/birthdate.js')
+    @vite('resources/js/patientPage/admissionDays_edit.js')
 @endpush

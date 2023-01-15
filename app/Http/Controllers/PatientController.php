@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\First_admission;
 use App\Models\Second_admission;
 use App\Models\Third_admission;
+use App\Models\Fourth_admission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\Console\Input\Input;
@@ -46,10 +47,12 @@ class PatientController extends Controller
         $view_first = First_admission::find($id);
         $view_second = Second_admission::find($id);
         $view_third = Third_admission::find($id);
+        $view_fourth = Fourth_admission::find($id);
         return view('user.patientSection.infoAdmission', [
             'view_first' => $view_first,
             'view_second' => $view_second,
             'view_third' => $view_third,
+            'view_fourth' => $view_fourth,
         ]);
     }
 
@@ -97,6 +100,17 @@ class PatientController extends Controller
 
         ]);
 
+        $admission_fourth  = new Fourth_admission();
+        $admission_fourth->start_date = $request->input('start_date');
+        $admission_fourth->start_time = $request->input('start_time');
+        $admission_fourth->end_date = $request->input('end_date');
+        $admission_fourth->end_time = $request->input('end_time');
+        $admission_fourth->total_days = $request->input('total_days');
+        $admission_fourth->admitting_physician = $request->input('admitting_physician');
+        $admission_fourth->admitting_clerk = $request->input('admitting_clerk');
+        $admission_fourth->admission_type = $request->input('admission_type');
+        $admission_fourth->referred_by = $request->input('referred_by');
+
         $admission_third  = new Third_admission();
         $admission_third->employer_name = $request->input('employer_name');
         $admission_third->employer_address = $request->input('employer_address');
@@ -110,8 +124,6 @@ class PatientController extends Controller
         $admission_third->spouse_name = $request->input('spouse_name');
         $admission_third->spouse_address = $request->input('spouse_address');
         $admission_third->spouse_phone = $request->input('spouse_phone');
-
-
 
         $admission_second = new Second_admission();
         $admission_second->perma_address = $request->input('perma_address');
@@ -136,6 +148,7 @@ class PatientController extends Controller
 
         $admission_first->admission_two()->save($admission_second);
         $admission_second->admission_third()->save($admission_third);
+        $admission_third->admission_fourth()->save($admission_fourth);
         return redirect('/patientPage/admission');
     }
 
@@ -145,10 +158,12 @@ class PatientController extends Controller
         $view_first = First_admission::find($id);
         $view_second = Second_admission::find($id);
         $view_third = Third_admission::find($id);
+        $view_fourth = Fourth_admission::find($id);
         return view('user.patientSection.updatepatient', [
             'view_first' => $view_first,
             'view_second' => $view_second,
             'view_third' => $view_third,
+            'view_fourth' => $view_fourth,
         ]);
     }
 
@@ -156,7 +171,8 @@ class PatientController extends Controller
     {
         $edit_first = First_admission::find($id);
         $edit_second = Second_admission::find($id);
-        // $edit_third = Third_admission::find($id);
+        $edit_third = Third_admission::find($id);
+        $edit_fourth = Fourth_admission::find($id);
 
         $request->validate([
             //first admission
@@ -191,6 +207,30 @@ class PatientController extends Controller
 
         ]);
 
+        $edit_fourth->start_date = $request->input('start_date');
+        $edit_fourth->start_time = $request->input('start_time');
+        $edit_fourth->end_date = $request->input('end_date');
+        $edit_fourth->end_time = $request->input('end_time');
+        $edit_fourth->total_days = $request->input('total_days');
+        $edit_fourth->admitting_physician = $request->input('admitting_physician');
+        $edit_fourth->admitting_clerk = $request->input('admitting_clerk');
+        $edit_fourth->admission_type = $request->input('admission_type');
+        $edit_fourth->referred_by = $request->input('referred_by');
+        $edit_fourth->save();
+
+        $edit_third->employer_name = $request->input('employer_name');
+        $edit_third->employer_address = $request->input('employer_address');
+        $edit_third->employer_phone = $request->input('employer_phone');
+        $edit_third->father_name = $request->input('father_name');
+        $edit_third->father_address = $request->input('father_address');
+        $edit_third->father_phone = $request->input('father_phone');
+        $edit_third->mother_maiden_name = $request->input('mother_maiden_name');
+        $edit_third->mother_address = $request->input('mother_address');
+        $edit_third->mother_phone = $request->input('mother_phone');
+        $edit_third->spouse_name = $request->input('spouse_name');
+        $edit_third->spouse_address = $request->input('spouse_address');
+        $edit_third->spouse_phone = $request->input('spouse_phone');
+        $edit_third->save();
 
         $edit_second->perma_address = $request->input('perma_address');
         $edit_second->civil_status = $request->input('civil_status');

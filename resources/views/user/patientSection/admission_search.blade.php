@@ -58,7 +58,7 @@
                                 <td class="col-span-2 flex justify-center">{{ $patientData->phone }}</td>
                                 <td class="col-span-2 flex justify-center">
                                     <div class="grid grid-cols-2 justify-center gap-4">
-                                        <a href="{{ url('/patientPage/updateAdmission' . $patientData->id) }}"
+                                        <a href="{{ url('/patientPage/viewAdmission' . $patientData->id) }}"
                                             class="editIcon hover:text-blue-300">
                                             <i class="fa-solid fa-eye"></i>
                                         </a>

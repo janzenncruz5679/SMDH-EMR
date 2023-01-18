@@ -8,15 +8,8 @@ function append(dl, dtTxt, ddTxt) {
 }
 
 $(document).ready(function () {
-    var today = new Date();
-    $("#start_date").val(
-        today.getFullYear() +
-            "-" +
-            ("0" + (today.getMonth() + 1)).slice(-2) +
-            "-" +
-            ("0" + (today.getDate() + 1)).slice(-2)
-    );
-    $("#end_date").val($("#start_date").val());
+    $("#start_date").val();
+    $("#end_date").val();
     $("#start_time").val();
     $("#end_time").val();
 
@@ -35,13 +28,12 @@ $(document).ready(function () {
                 $("#end_date").val() + " " + $("#end_time").val()
             ).getTime();
             var msec = date2 - date1;
-            var mins = Math.floor(msec / 60000);
-            var hrs = Math.floor(mins / 60);
-            var days = Math.floor(hrs / 24);
-            var yrs = Math.floor(days / 365);
+            var mins = Math.floor(msec / 60000) || 0;
+            var hrs = Math.floor(mins / 60) || 0;
+            var days = Math.floor(hrs / 24) || 0;
+            var yrs = Math.floor(days / 365) || 0;
             mins = mins % 60;
             hrs = hrs % 24;
-            days = days % 365;
             append(
                 dl,
                 "In days: ",

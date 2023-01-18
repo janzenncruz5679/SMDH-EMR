@@ -6,6 +6,8 @@ use App\Models\First_admission;
 use App\Models\Second_admission;
 use App\Models\Third_admission;
 use App\Models\Fourth_admission;
+use App\Models\Fifth_admission;
+use App\Models\Sixth_admission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\Console\Input\Input;
@@ -48,11 +50,15 @@ class PatientController extends Controller
         $view_second = Second_admission::find($id);
         $view_third = Third_admission::find($id);
         $view_fourth = Fourth_admission::find($id);
+        $view_fifth = Fifth_admission::find($id);
+        $view_sixth = Sixth_admission::find($id);
         return view('user.patientSection.infoAdmission', [
             'view_first' => $view_first,
             'view_second' => $view_second,
             'view_third' => $view_third,
             'view_fourth' => $view_fourth,
+            'view_fifth' => $view_fifth,
+            'view_sixth' => $view_sixth,
         ]);
     }
 
@@ -83,7 +89,38 @@ class PatientController extends Controller
             'birthplace' => 'required',
             'nationality' => 'required',
             'religion' => 'required',
+
+            //third_admission
+
+            //fourth_admission
+            'start_date' => 'required',
+            'start_time' => 'required',
+            'end_date' => 'required',
+            'end_time' => 'required',
+            'admitting_physician' => 'required',
+            'admitting_clerk' => 'required',
+            'admission_type' => 'required',
+            'referred_by' => 'required',
+
+            //fifth_admission
+            'ssc' => 'required',
+            'alert_allergic' => 'required',
+            'health_insurance' => 'required',
+            'coverage_insurance' => 'required',
+            'furnished_by' => 'required',
+            'informant_address' => 'required',
+            'relation_to_patient' => 'required',
+
+            //sixth_admission
+            'admission_diagnosis' => 'required',
+            'principal_diagnosis' => 'required',
+            'other_diagnosis' => 'required',
+            'idc_code' => 'required',
+            'principal_operation' => 'required',
+            'other_operation' => 'required',
+            'icpm_code' => 'required',
         ], [
+            //first
             'address.required' => '*this field is required',
             'last_name.required' => '*this field is required',
             'first_name.required' => '*this field is required',
@@ -92,13 +129,63 @@ class PatientController extends Controller
             'phone' => '*this field is required',
             'birthday' => '*this field is required',
 
+            //second
             'perma_address.required' => '*this field is required',
             'civil_status.required' => '*this field is required',
             'birthplace' => '*this field is required',
             'nationality' => '*this field is required',
             'religion' => '*this field is required',
 
+            //third
+
+            //fourth
+            'start_date.required' => '*this field is required',
+            'start_time.required' => '*this field is required',
+            'end_date.required' => '*this field is required',
+            'end_time.required' => '*this field is required',
+            'admitting_physician.required' => '*this field is required',
+            'admitting_clerk.required' => '*this field is required',
+            'admission_type.required' => '*this field is required',
+            'referred_by.required' => '*this field is required',
+
+            //fifth
+            'ssc.required' => '*this field is required',
+            'alert_allergic.required' => '*this field is required',
+            'health_insurance.required' => '*this field is required',
+            'coverage_insurance.required' => '*this field is required',
+            'furnished_by.required' => '*this field is required',
+            'informant_address.required' => '*this field is required',
+            'relation_to_patient.required' => '*this field is required',
+
+            //sixth
+            'admission_diagnosis.required' => '*this field is required',
+            'principal_diagnosis.required' => '*this field is required',
+            'other_diagnosis.required' => '*this field is required',
+            'idc_code.required' => '*this field is required',
+            'principal_operation.required' => '*this field is required',
+            'other_operation.required' => '*this field is required',
+            'icpm_code.required' => '*this field is required',
+
         ]);
+
+        $admission_sixth = new Sixth_admission();
+        $admission_sixth->admission_diagnosis = $request->input('admission_diagnosis');
+        $admission_sixth->principal_diagnosis = $request->input('principal_diagnosis');
+        $admission_sixth->other_diagnosis = $request->input('other_diagnosis');
+        $admission_sixth->idc_code = $request->input('idc_code');
+        $admission_sixth->principal_operation = $request->input('principal_operation');
+        $admission_sixth->other_operation = $request->input('other_operation');
+        $admission_sixth->icpm_code = $request->input('icpm_code');
+
+        $admission_fifth = new Fifth_admission();
+        $admission_fifth->ssc = $request->input('ssc');
+        $admission_fifth->alert_allergic = $request->input('alert_allergic');
+        $admission_fifth->hospitalization_plan = $request->input('hospitalization_plan');
+        $admission_fifth->health_insurance = $request->input('health_insurance');
+        $admission_fifth->coverage_insurance = $request->input('coverage_insurance');
+        $admission_fifth->furnished_by = $request->input('furnished_by');
+        $admission_fifth->informant_address = $request->input('informant_address');
+        $admission_fifth->relation_to_patient = $request->input('relation_to_patient');
 
         $admission_fourth  = new Fourth_admission();
         $admission_fourth->start_date = $request->input('start_date');
@@ -149,6 +236,8 @@ class PatientController extends Controller
         $admission_first->admission_two()->save($admission_second);
         $admission_second->admission_third()->save($admission_third);
         $admission_third->admission_fourth()->save($admission_fourth);
+        $admission_fourth->admission_fifth()->save($admission_fifth);
+        $admission_fifth->admission_sixth()->save($admission_sixth);
         return redirect('/patientPage/admission');
     }
 
@@ -159,11 +248,15 @@ class PatientController extends Controller
         $view_second = Second_admission::find($id);
         $view_third = Third_admission::find($id);
         $view_fourth = Fourth_admission::find($id);
+        $view_fifth = Fifth_admission::find($id);
+        $view_sixth = Sixth_admission::find($id);
         return view('user.patientSection.updatepatient', [
             'view_first' => $view_first,
             'view_second' => $view_second,
             'view_third' => $view_third,
             'view_fourth' => $view_fourth,
+            'view_fifth' => $view_fifth,
+            'view_sixth' => $view_sixth,
         ]);
     }
 
@@ -173,6 +266,8 @@ class PatientController extends Controller
         $edit_second = Second_admission::find($id);
         $edit_third = Third_admission::find($id);
         $edit_fourth = Fourth_admission::find($id);
+        $edit_fifth = Fifth_admission::find($id);
+        $edit_sixth = Sixth_admission::find($id);
 
         $request->validate([
             //first admission
@@ -190,7 +285,38 @@ class PatientController extends Controller
             'birthplace' => 'required',
             'nationality' => 'required',
             'religion' => 'required',
+
+            //third_admission
+
+            //fourth_admission
+            'start_date' => 'required',
+            'start_time' => 'required',
+            'end_date' => 'required',
+            'end_time' => 'required',
+            'admitting_physician' => 'required',
+            'admitting_clerk' => 'required',
+            'admission_type' => 'required',
+            'referred_by' => 'required',
+
+            //fifth_admission
+            'ssc' => 'required',
+            'alert_allergic' => 'required',
+            'health_insurance' => 'required',
+            'coverage_insurance' => 'required',
+            'furnished_by' => 'required',
+            'informant_address' => 'required',
+            'relation_to_patient' => 'required',
+
+            //sixth_admission
+            'admission_diagnosis' => 'required',
+            'principal_diagnosis' => 'required',
+            'other_diagnosis' => 'required',
+            'idc_code' => 'required',
+            'principal_operation' => 'required',
+            'other_operation' => 'required',
+            'icpm_code' => 'required',
         ], [
+            //first
             'address.required' => '*this field is required',
             'last_name.required' => '*this field is required',
             'first_name.required' => '*this field is required',
@@ -199,13 +325,64 @@ class PatientController extends Controller
             'phone' => '*this field is required',
             'birthday' => '*this field is required',
 
+            //second
             'perma_address.required' => '*this field is required',
             'civil_status.required' => '*this field is required',
             'birthplace' => '*this field is required',
             'nationality' => '*this field is required',
             'religion' => '*this field is required',
 
+            //third
+
+            //fourth
+            'start_date.required' => '*this field is required',
+            'start_time.required' => '*this field is required',
+            'end_date.required' => '*this field is required',
+            'end_time.required' => '*this field is required',
+            'admitting_physician.required' => '*this field is required',
+            'admitting_clerk.required' => '*this field is required',
+            'admission_type.required' => '*this field is required',
+            'referred_by.required' => '*this field is required',
+
+            //fifth
+            'ssc.required' => '*this field is required',
+            'alert_allergic.required' => '*this field is required',
+            'health_insurance.required' => '*this field is required',
+            'coverage_insurance.required' => '*this field is required',
+            'furnished_by.required' => '*this field is required',
+            'informant_address.required' => '*this field is required',
+            'relation_to_patient.required' => '*this field is required',
+
+            //sixth
+            'admission_diagnosis.required' => '*this field is required',
+            'principal_diagnosis.required' => '*this field is required',
+            'other_diagnosis.required' => '*this field is required',
+            'idc_code.required' => '*this field is required',
+            'principal_operation.required' => '*this field is required',
+            'other_operation.required' => '*this field is required',
+            'icpm_code.required' => '*this field is required',
+
         ]);
+
+
+        $edit_sixth->admission_diagnosis = $request->input('admission_diagnosis');
+        $edit_sixth->principal_diagnosis = $request->input('principal_diagnosis');
+        $edit_sixth->other_diagnosis = $request->input('other_diagnosis');
+        $edit_sixth->idc_code = $request->input('idc_code');
+        $edit_sixth->principal_operation = $request->input('principal_operation');
+        $edit_sixth->other_operation = $request->input('other_operation');
+        $edit_sixth->icpm_code = $request->input('icpm_code');
+        $edit_sixth->save();
+
+        $edit_fifth->ssc = $request->input('ssc');
+        $edit_fifth->alert_allergic = $request->input('alert_allergic');
+        $edit_fifth->hospitalization_plan = $request->input('hospitalization_plan');
+        $edit_fifth->health_insurance = $request->input('health_insurance');
+        $edit_fifth->coverage_insurance = $request->input('coverage_insurance');
+        $edit_fifth->furnished_by = $request->input('furnished_by');
+        $edit_fifth->informant_address = $request->input('informant_address');
+        $edit_fifth->relation_to_patient = $request->input('relation_to_patient');
+        $edit_fifth->save();
 
         $edit_fourth->start_date = $request->input('start_date');
         $edit_fourth->start_time = $request->input('start_time');

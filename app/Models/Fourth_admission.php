@@ -26,4 +26,9 @@ class Fourth_admission extends Model
     {
         return $this->belongsTo(Third_admission::class);
     }
+
+    public function admission_fifth()
+    {
+        return $this->hasOne(Fifth_admission::class, 'record_id');
+    }
 }

@@ -17,7 +17,7 @@ class PatientController extends Controller
 {
     public function admission()
     {
-        $patientDatas = First_admission::select('id', 'first_name', 'middle_name', 'last_name', 'age', 'gender', 'phone')->paginate(15);
+        $patientDatas = First_admission::select('id', 'first_name', 'middle_name', 'last_name', 'age', 'gender', 'phone')->paginate(18);
 
 
         // $patientDatas = collect($patientDatas)->paginate(15);
@@ -31,7 +31,7 @@ class PatientController extends Controller
                 ->where('first_name', 'LIKE', '%' . $search_admission . '%')
                 ->orwhere('last_name', 'LIKE', '%' . $search_admission . '%')
                 ->orwhere('middle_name', 'LIKE', '%' . $search_admission . '%')
-                ->paginate(15);
+                ->paginate(18);
             $patientDatas->appends($request->all());
             return view('user.patientSection.admission_search', [
                 'patientDatas' => $patientDatas,

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\StationController;
 use App\Http\Controllers\TestingController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -47,4 +48,9 @@ Route::middleware(['auth'])->group(function () {
     //update data from db
     Route::get('/patientPage/updateAdmission{id}', [PatientController::class, 'updateAdmission']);
     Route::post('/patientPage/editAdmission{id}', [PatientController::class, 'editAdmission']);
+
+    ////station section
+    Route::get('stations/labOptions', [StationController::class, 'labOptions']);
+    ////vitalsigns view
+    Route::get('stations/labOptions/vitalSigns', [StationController::class, 'vitalSigns']);
 });

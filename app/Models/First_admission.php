@@ -17,19 +17,44 @@ class First_admission extends Model
         'last_name',
         'first_name',
         'middle_name',
+        'birthday',
         'ward_room_bed_service',
         'age',
         'gender',
         'phone',
     ];
 
-    // public function admission_display()
+
+    //for real
+    // public function admission_two()
     // {
-    //     return $this->belongsTo(Admission::class);
+    //     return $this->hasOne(Second_admission::class, 'record_id');
     // }
 
+
+    //for testing
     public function admission_two()
     {
         return $this->hasOne(Second_admission::class, 'record_id');
+    }
+
+    public function admission_three()
+    {
+        return $this->hasOne(Third_admission::class, 'record_id');
+    }
+
+    public function admission_four()
+    {
+        return $this->hasOne(Fourth_admission::class, 'record_id');
+    }
+
+    public function admission_five()
+    {
+        return $this->hasOne(Fifth_admission::class, 'record_id');
+    }
+
+    public function admission_six()
+    {
+        return $this->hasOne(Sixth_admission::class, 'record_id');
     }
 }

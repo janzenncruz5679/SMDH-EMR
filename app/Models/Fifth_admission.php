@@ -30,4 +30,10 @@ class Fifth_admission extends Model
     {
         return $this->hasOne(Sixth_admission::class, 'record_id');
     }
+
+    //test
+    public function admission_five()
+    {
+        return $this->hasOne(Fifth_admission::class, 'record_id');
+    }
 }

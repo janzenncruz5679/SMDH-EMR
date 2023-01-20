@@ -19,7 +19,7 @@
 
 
                 <a class="col-span-2 grid items-start p-6 text-zinc-900 hover:text-white bg-blue-100 hover:bg-blue-300 rounded-3xl shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition"
-                    href="{{ url('labOptions') }}">
+                    href="{{ url('stations/labOptions') }}">
                     <div class="grid gap-3">
                         <div class="grid place-items-center">
                             <i class="fa-solid fa-flask text-[7rem]"></i>

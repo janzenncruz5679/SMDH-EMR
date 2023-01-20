@@ -14,7 +14,6 @@ class Second_admission extends Model
     protected $fillable = [
         'perma_address',
         'civil_status',
-        'birthday',
         'birthplace',
         'nationality',
         'religion',
@@ -29,5 +28,12 @@ class Second_admission extends Model
     public function admission_third()
     {
         return $this->hasOne(Third_admission::class, 'record_id');
+    }
+
+
+    ///test
+    public function admission_two()
+    {
+        return $this->belongsTo(First_admission::class, 'record_id');
     }
 }

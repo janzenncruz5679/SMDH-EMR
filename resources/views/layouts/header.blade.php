@@ -2,7 +2,7 @@
 <header>
     <div
         class="z-50 fixed w-screen w-59 h-[59px] text-[2rem] bg-custom_hospital-400 left-0 top-0 flex space-between items-center p-2 font-[sans-serif]">
-        <div class="green_logo flex flex-row h-[5vh] gap-[10px]">
+        <div class="flex flex-row h-[5vh] gap-[10px]">
             <img src="../../assets/img/san_miguel_hospital_logo.png" alt="logo">
             <a class=" w-full text-white" href="{{ url('home') }}">
                 {{ __('SAN MIGUEL DISTRICT HOSPITAL') }}

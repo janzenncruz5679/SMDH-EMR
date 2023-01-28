@@ -3,7 +3,7 @@
 @section('content')
     <div class="absolute top-[59px] left-[275px] h-full w-[85.3vw] p-[45px] ">
         <div class=" h-full w-full">
-            <form action="{{ url('/patientPage/admission') }}" method="POST">
+            <form action="{{ url('/patientPage/emergency') }}" method="POST">
                 @csrf
                 <div class=" h-full w-full text-xl tracking-wider border-2 border-black font-[sans-serif]">
                     {{-- admissionformfirst_sec --}}
@@ -114,7 +114,7 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="enter permanent address" name="perma_address"
-                                    value="{{ $view_second->perma_address ?? 'None' }}" readonly>
+                                    value="{{ $view_second->perma_address }}" readonly>
 
                             </div>
                             <div class="col-span-2 border-r-2 border-black p-3">
@@ -141,7 +141,7 @@
 
                                 </div>
                             </div>
-                            {{-- <div class="col-span-3 border-black p-3">
+                            <div class="col-span-3 border-black p-3">
                                 <p class="pb-2">CIVIL STATUS* :</p>
                                 <div class="w-full flex justify-around">
                                     <div class="inline">
@@ -187,7 +187,7 @@
                                         <label>N</label>
                                     </div>
                                 </div>
-                            </div> --}}
+                            </div>
 
                         </div>
 
@@ -195,7 +195,7 @@
                         <div class="border-b-2 border-black h-8"></div>
 
                         {{-- birthdate border --}}
-                        {{-- <div class="grid grid-cols-11 border-b-2 border-black h-full">
+                        <div class="grid grid-cols-11 border-b-2 border-black h-full">
                             <div class="col-span-2 border-r-2 border-black p-3">
                                 <p>BIRTHDATE* :</p>
                                 <input type="date"
@@ -238,7 +238,7 @@
                                     placeholder="N/A if not available" name="occupation" autocomplete="off"
                                     value="{{ $view_second->occupation ?? 'N/A' }}" readonly>
                             </div>
-                        </div> --}}
+                        </div>
                     </div>
 
                     {{-- admissionformsecond_sec --}}

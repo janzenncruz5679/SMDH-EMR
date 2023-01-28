@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sixth_admissions', function (Blueprint $table) {
+        Schema::create('sixth_emergencies', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('record_id')->unsigned();
             $table->string('admission_diagnosis')->nullable();
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->timestamps();
             $table->foreign('record_id')
                 ->references('id')
-                ->on('fifth_admissions')
+                ->on('fifth_emergencies')
                 ->onDelete('cascade');
         });
     }
@@ -38,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sixth_admissions');
+        Schema::dropIfExists('sixth_emergencies');
     }
 };

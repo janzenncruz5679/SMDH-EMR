@@ -58,10 +58,10 @@
                                 <p class="font-bold">CLINICAL COVER SHEET</p>
                             </div>
                             <div class="col-span-3 p-3">
-                                <p>OLD HEALTH RECORD NO :</p>
+                                <p>Type:</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="enter old record #" autocomplete="off">
+                                    placeholder="enter old record #" name="type" value="Admission" readonly>
                             </div>
                         </div>
 

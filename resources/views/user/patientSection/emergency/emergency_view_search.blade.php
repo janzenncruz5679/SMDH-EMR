@@ -1,14 +1,15 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="fixed h-auto w-[86%] left-[275px] top-[59px] p-12 grid gap-8">
+    <div class="fixed w-[86%] left-[275px] top-[59px] p-12 grid gap-8">
         <div class="admissionDisplay h-full w-full grid gap-4">
             <div class="h-20 bg-blue-300 flex items-center justify-center">
                 <p class="font-[sans-serif] font-semibold text-white tracking-wide text-4xl">
-                    {{ __('Admission Patients') }}</p>
+                    {{ __('Emergency Patients') }}</p>
             </div>
-            <div class="searchBar h-12 w-full flex justify-start items-center">
-                <form action="{{ url('/patientPage/admission/search') }}" method="GET"
+
+            <div class="searchBar h-12 w-full flex justify-start items-center gap-4">
+                <form action="{{ url('/patientPage/emergency/search') }}" method="GET"
                     class="flex gap-4 m-0 h-full items-center">
                     @csrf
                     <input type="text" placeholder="Search Patient Name" name="search"
@@ -18,20 +19,30 @@
                     <button
                         class="h-full w-32 text-[1.5rem] bg-blue-300 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-100"
                         type="submit" value="search">
-                        <p class="hover:text-zinc-900">{{ __('Search') }}</p>
+                        <p class="hover:text-black h-full w-full flex justify-center items-center">{{ __('Search') }}
+                        </p>
                     </button>
+
                 </form>
+                {{-- <button
+                        class="btnFilter h-[4.7vh] w-[6vw] text-[1.5rem] bg-green-700 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-green-600 focus:outline-green-700 focus:outline-offset-0">Filter</button> --}}
+                <button
+                    class="h-full w-40 text-[1.5rem] bg-blue-300 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-100"><a
+                        class="relative w-full h-full flex items-center justify-center hover:text-black"
+                        href="{{ url('/patientPage/emergency') }}">
+                        {{ __('Clear') }}
+                    </a></button>
                 <div class="addpatientBar h-full w-full flex items-center justify-end">
                     <button
                         class="btnAddpatient h-full w-48 text-[1.5rem] bg-blue-300 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-100"><a
-                            href="{{ url('/patientPage/addPatient') }}">
-                            <p class="hover:text-zinc-900">{{ __('Add Patient') }}</p>
+                            href="{{ url('/patientPage/addPatient') }}" class='hover:text-white'>
+                            <p class="hover:text-black h-full w-full flex justify-center items-center">Add Patient</p>
                         </a></button>
                 </div>
             </div>
-            <div class="admissionTable">
+            <div class="admissionTable relative">
                 @if (isset($patientDatas))
-                    <table class="text-[1.5rem] tracking-[2px] w-full">
+                    <table class="tblAdmission text-[1.5rem] tracking-[2px] w-full">
                         <tr class="grid grid-cols-12">
                             <th class="flex justify-center">Id</th>
                             <th class="col-span-5 flex justify-center">Name</th>
@@ -71,7 +82,3 @@
         </div>
     </div>
 @endsection
-
-@push('custom_scripts')
-    @vite('resources/js/patientPage/liveSearch.js')
-@endpush

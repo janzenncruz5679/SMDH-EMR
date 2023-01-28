@@ -13,20 +13,21 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sixth_admissions', function (Blueprint $table) {
+        Schema::create('fifth_emergencies', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('record_id')->unsigned();
-            $table->string('admission_diagnosis')->nullable();
-            $table->string('principal_diagnosis')->nullable();
-            $table->string('other_diagnosis')->nullable();
-            $table->string('idc_code')->nullable();
-            $table->string('principal_operation')->nullable();
-            $table->string('other_operation')->nullable();
-            $table->string('icpm_code')->nullable();
+            $table->string('ssc')->nullable();
+            $table->string('alert_allergic')->nullable();
+            $table->string('hospitalization_plan')->nullable();
+            $table->string('health_insurance')->nullable();
+            $table->string('coverage_insurance')->nullable();
+            $table->string('furnished_by')->nullable();
+            $table->string('informant_address')->nullable();
+            $table->string('relation_to_patient')->nullable();
             $table->timestamps();
             $table->foreign('record_id')
                 ->references('id')
-                ->on('fifth_admissions')
+                ->on('fourth_emergencies')
                 ->onDelete('cascade');
         });
     }
@@ -38,6 +39,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sixth_admissions');
+        Schema::dropIfExists('fifth_emergencies');
     }
 };

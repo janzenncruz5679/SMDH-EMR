@@ -5,14 +5,13 @@
         <div class="admissionDisplay h-full w-full grid gap-4">
             <div class="h-20 bg-blue-300 flex items-center justify-center">
                 <p class="font-[sans-serif] font-semibold text-white tracking-wide text-4xl">
-                    {{ __('Admission Patients') }}</p>
+                    {{ __('Emergency Patients') }}</p>
             </div>
             <div class="searchBar h-12 w-full flex justify-start items-center">
-                <form action="{{ url('/patientPage/admission/search') }}" method="GET"
+                <form action="{{ url('/patientPage/emergency/search') }}" method="GET"
                     class="flex gap-4 m-0 h-full items-center">
                     @csrf
                     <input type="text" placeholder="Search Patient Name" name="search"
-                        value="{{ Request::get('search') }}"
                         class="h-full w-96 text-[1.5rem] border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 focus:outline-offset-2 rounded-[10px] px-[10px]"
                         required autocomplete="off">
                     <button
@@ -24,7 +23,7 @@
                 <div class="addpatientBar h-full w-full flex items-center justify-end">
                     <button
                         class="btnAddpatient h-full w-48 text-[1.5rem] bg-blue-300 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-100"><a
-                            href="{{ url('/patientPage/addPatient') }}">
+                            href="{{ url('/patientPage/addEmergency') }}">
                             <p class="hover:text-zinc-900">{{ __('Add Patient') }}</p>
                         </a></button>
                 </div>
@@ -50,7 +49,7 @@
                                 <td class="col-span-2 flex justify-center">{{ $patientData->phone }}</td>
                                 <td class="col-span-2 flex justify-center">
                                     <div class="grid grid-cols-2 justify-center gap-4">
-                                        <a href="{{ url('/patientPage/viewAdmission' . $patientData->id) }}"
+                                        <a href="{{ url('/patientPage/viewEmergency' . $patientData->id) }}"
                                             class="editIcon hover:text-blue-300">
                                             <i class="fa-solid fa-eye"></i>
                                         </a>

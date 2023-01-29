@@ -50,9 +50,16 @@ class First_emergency extends Model
         return $this->first_name . ' ' . ($this->middle_name ? $this->middle_name . ' ' : '') . ' ' . $this->last_name;
     }
 
+
+    //for real
     public function emergency_two()
     {
         return $this->hasOne(Second_emergency::class, 'record_id');
+    }
+
+    public function patient_id_table()
+    {
+        return $this->belongsTo(Patient_id::class);
     }
 
     //for testing

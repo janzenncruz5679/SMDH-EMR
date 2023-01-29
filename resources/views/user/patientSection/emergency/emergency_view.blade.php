@@ -41,7 +41,7 @@
                         </tr>
                         @foreach ($patientDatas as $patientData)
                             <tr class="grid grid-cols-12 even:bg-gray-200 odd:bg-white text-xl">
-                                <td class="flex justify-center">{{ $patientData->id }}</td>
+                                <td class="flex justify-center">{{ $patientData->patient_id }}
                                 <td class="col-span-5 flex justify-center">{{ $patientData->full_name }}
                                 </td>
                                 <td class="flex justify-center">{{ $patientData->age }}</td>

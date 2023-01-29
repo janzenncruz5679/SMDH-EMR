@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('first_emergencies', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('patient_id')->unsigned();
             $table->string('address')->nullable();
             $table->string('sr_no')->nullable();
             $table->string('full_name')->nullable();
@@ -28,6 +29,10 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('birthday')->nullable();
             $table->timestamps();
+            $table->foreign('patient_id')
+                ->references('id')
+                ->on('patient_ids')
+                ->onDelete('cascade');
         });
     }
 

@@ -141,7 +141,7 @@
 
                                 </div>
                             </div>
-                            {{-- <div class="col-span-3 border-black p-3">
+                            <div class="col-span-3 border-black p-3">
                                 <p class="pb-2">CIVIL STATUS* :</p>
                                 <div class="w-full flex justify-around">
                                     <div class="inline">
@@ -187,7 +187,7 @@
                                         <label>N</label>
                                     </div>
                                 </div>
-                            </div> --}}
+                            </div>
 
                         </div>
 
@@ -195,7 +195,7 @@
                         <div class="border-b-2 border-black h-8"></div>
 
                         {{-- birthdate border --}}
-                        {{-- <div class="grid grid-cols-11 border-b-2 border-black h-full">
+                        <div class="grid grid-cols-11 border-b-2 border-black h-full">
                             <div class="col-span-2 border-r-2 border-black p-3">
                                 <p>BIRTHDATE* :</p>
                                 <input type="date"
@@ -238,7 +238,7 @@
                                     placeholder="N/A if not available" name="occupation" autocomplete="off"
                                     value="{{ $view_second->occupation ?? 'N/A' }}" readonly>
                             </div>
-                        </div> --}}
+                        </div>
                     </div>
 
                     {{-- admissionformsecond_sec --}}

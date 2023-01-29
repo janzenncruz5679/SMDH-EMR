@@ -64,6 +64,11 @@ class First_admission extends Model
         return $this->hasOne(Second_admission::class, 'record_id');
     }
 
+    public function patient_id_table()
+    {
+        return $this->belongsTo(Patient_id::class);
+    }
+
     // public function emergency_two()
     // {
     //     return $this->hasOne(Second_emergency::class, 'record_id');

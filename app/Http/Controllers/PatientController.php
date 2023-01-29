@@ -7,6 +7,7 @@ use App\Models\Second_admission;
 use App\Models\Third_admission;
 use App\Models\Fourth_admission;
 use App\Models\Fifth_admission;
+use App\Models\Patient_id;
 use App\Models\Sixth_admission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -17,25 +18,27 @@ class PatientController extends Controller
 {
     public function admission()
     {
-        $patientDatas = First_admission::select('id', 'first_name', 'middle_name', 'last_name', 'age', 'gender', 'phone')->paginate(18);
-
+        $patientDatas = First_admission::select('id', 'patient_id', 'first_name', 'middle_name', 'last_name', 'age', 'gender', 'phone')->paginate(18);
 
         // $patientDatas = collect($patientDatas)->paginate(15);
-        return view('user.patientSection.admission', ['patientDatas' => $patientDatas,]);
+        return view('user.patientSection.admission', [
+            'patientDatas' => $patientDatas,
+        ]);
     }
     public function admissionSearch(Request $request)
     {
-        if (isset($_GET['query'])) {
-            $search_admission = $_GET['query'] ?? "";
-            $patientDatas = DB::table('first_admissions')
-                ->where('first_name', 'LIKE', '%' . $search_admission . '%')
-                ->orwhere('last_name', 'LIKE', '%' . $search_admission . '%')
-                ->orwhere('middle_name', 'LIKE', '%' . $search_admission . '%')
+
+        if ($request->search) {
+            $searchTerms = explode(' ', $request->search);
+            $patientDatas = First_admission::where('type', '=', 'Admission')
+                ->where(function ($q) use ($searchTerms) {
+                    foreach ($searchTerms as $term) {
+                        $q->orWhere('full_name', 'LIKE', '%' . $term . '%');
+                    }
+                })
                 ->paginate(18);
-            $patientDatas->appends($request->all());
             return view('user.patientSection.admission_search', [
                 'patientDatas' => $patientDatas,
-                'search_admission' => $search_admission
             ]);
         } else {
             return view('user.patientSection.admission_search');
@@ -226,13 +229,17 @@ class PatientController extends Controller
         $admission_first->last_name = $request->input('last_name');
         $admission_first->first_name = $request->input('first_name');
         $admission_first->middle_name = $request->input('middle_name');
+        $admission_first->type = $request->input('type');
         $admission_first->ward_room_bed_service = $request->input('ward_room_bed_service');
         $admission_first->age = Carbon::parse($request->birthday)->age;
         $admission_first->gender = $request->input('gender');
         $admission_first->phone = $request->input('phone');
         $admission_first->birthday = $request->input('birthday');
-        $admission_first->save();
 
+        $admission_base = new Patient_id();
+        $admission_base->save();
+
+        $admission_base->admission_table()->save($admission_first);
         $admission_first->admission_two()->save($admission_second);
         $admission_second->admission_third()->save($admission_third);
         $admission_third->admission_fourth()->save($admission_fourth);

@@ -10,6 +10,7 @@ use App\Models\Fifth_emergency;
 use App\Models\First_admission;
 use App\Models\First_emergency;
 use App\Models\Fourth_emergency;
+use App\Models\Patient_id;
 use App\Models\Sixth_emergency;
 use Carbon\Carbon;
 
@@ -18,13 +19,19 @@ class EmergencyPatientController extends Controller
     ///////////////EMERGENCY PATIENTS
     public function emergency()
     {
-        $patientDatas = First_emergency::select('id', 'first_name', 'middle_name', 'last_name', 'age', 'gender', 'phone')
+        $patientDatas = First_emergency::select('id', 'patient_id', 'first_name', 'middle_name', 'last_name', 'age', 'gender', 'phone')
             ->where('type', '=', 'Emergency')
             ->paginate(18);
 
+        $patientIds = Patient_id::select('id')->paginate(18);
+
+
 
         // $patientDatas = collect($patientDatas)->paginate(15);
-        return view('user.patientSection.emergency.emergency_view', ['patientDatas' => $patientDatas,]);
+        return view('user.patientSection.emergency.emergency_view', [
+            'patientDatas' => $patientDatas,
+            'patientIds' => $patientIds,
+        ]);
     }
 
     public function addEmergency()
@@ -120,8 +127,12 @@ class EmergencyPatientController extends Controller
         $emergency_first->gender = $request->input('gender');
         $emergency_first->phone = $request->input('phone');
         $emergency_first->birthday = $request->input('birthday');
-        $emergency_first->save();
 
+        $emergency_base = new Patient_id();
+        $emergency_base->save();
+
+
+        $emergency_base->emergency_table()->save($emergency_first);
         $emergency_first->emergency_two()->save($emergency_second);
         $emergency_second->emergency_third()->save($emergency_third);
         $emergency_third->emergency_fourth()->save($emergency_fourth);

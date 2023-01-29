@@ -21,7 +21,7 @@ class Second_emergency extends Model
 
     public function emergency_first()
     {
-        return $this->belongsTo(First_emergency::class);
+        return $this->belongsTo(First_admission::class);
     }
 
     public function emergency_third()

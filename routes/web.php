@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\EmergencyPatientController;
+use App\Http\Controllers\StationController;
 use App\Http\Controllers\TestingController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -33,6 +35,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/billing', [HomeController::class, 'billing']);
 
 
+    ///////////////admission patients section
     //add data from db
     Route::get('/patientPage/addPatient', [PatientController::class, 'addPatient']);
     Route::post('/patientPage/admission', [PatientController::class, 'submit_admit_patient']);
@@ -47,4 +50,22 @@ Route::middleware(['auth'])->group(function () {
     //update data from db
     Route::get('/patientPage/updateAdmission{id}', [PatientController::class, 'updateAdmission']);
     Route::post('/patientPage/editAdmission{id}', [PatientController::class, 'editAdmission']);
+
+    ////station section
+    Route::get('stations/labOptions', [StationController::class, 'labOptions']);
+    ////vitalsigns view
+    Route::get('stations/labOptions/vitalSigns', [StationController::class, 'vitalSigns']);
+
+
+    ///////////////emergency patients section
+    //add data from db
+    Route::get('/patientPage/addEmergency', [EmergencyPatientController::class, 'addEmergency']);
+    Route::post('/patientPage/emergency', [EmergencyPatientController::class, 'submit_emergency_patient']);
+
+    //read data from db
+    Route::get('/patientPage/emergency', [EmergencyPatientController::class, 'emergency']);
+    Route::get('/patientPage/emergency/search', [EmergencyPatientController::class, 'emergencySearch']);
+
+    //view data from db
+    Route::get('/patientPage/viewEmergency{id}', [EmergencyPatientController::class, 'viewEmergency']);
 });

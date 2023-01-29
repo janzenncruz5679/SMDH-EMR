@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class First_admission extends Model
+class First_emergency extends Model
 {
     use HasFactory;
-    protected $table = "first_admissions";
+    protected $table = "first_emergencies";
     protected $fillable = [
         'address',
         'sr_no',
@@ -24,14 +24,6 @@ class First_admission extends Model
         'phone',
     ];
 
-    // public function toSearchableArray()
-    // {
-    //     $search = $this->with('first_admissions')
-    //         ->where('id', '=', $this->id)
-    //         ->first()
-    //         ->toArray();
-    //     return $search;
-    // }
 
     //combine first middle and last name using accessor and mutators
     public function setFirstNameAttribute($value)
@@ -58,21 +50,17 @@ class First_admission extends Model
         return $this->first_name . ' ' . ($this->middle_name ? $this->middle_name . ' ' : '') . ' ' . $this->last_name;
     }
 
+
     //for real
-    public function admission_two()
+    public function emergency_two()
     {
-        return $this->hasOne(Second_admission::class, 'record_id');
+        return $this->hasOne(Second_emergency::class, 'record_id');
     }
 
     public function patient_id_table()
     {
         return $this->belongsTo(Patient_id::class);
     }
-
-    // public function emergency_two()
-    // {
-    //     return $this->hasOne(Second_emergency::class, 'record_id');
-    // }
 
     //for testing
     // public function admission_two()

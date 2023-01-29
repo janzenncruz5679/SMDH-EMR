@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Third_admission extends Model
+class Third_emergency extends Model
 {
     use HasFactory;
-    protected $table = 'third_admissions';
+    protected $table = 'third_emergencies';
     protected $fillable = [
         'record_id',
         'employer_name',
@@ -25,19 +25,19 @@ class Third_admission extends Model
         'spouse_phone',
     ];
 
-    public function admission_second()
+    public function emergency_second()
     {
-        return $this->belongsTo(Second_admission::class);
+        return $this->belongsTo(Second_emergency::class);
     }
 
-    public function admission_fourth()
+    public function emergency_fourth()
     {
-        return $this->hasOne(Fourth_admission::class, 'record_id');
+        return $this->hasOne(Fourth_emergency::class, 'record_id');
     }
 
     //test
-    public function admission_three()
-    {
-        return $this->belongsTo(First_admission::class, 'record_id');
-    }
+    // public function admission_three()
+    // {
+    //     return $this->belongsTo(First_admission::class, 'record_id');
+    // }
 }

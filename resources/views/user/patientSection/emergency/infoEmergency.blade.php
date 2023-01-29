@@ -1,10 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="addPatient absolute top-[59px] left-[275px] h-full w-[85.3vw] p-[45px] ">
+    <div class="absolute top-[59px] left-[275px] h-full w-[85.3vw] p-[45px] ">
         <div class=" h-full w-full">
-            <form action="{{ url('/patientPage/editAdmission' . $view_first->id) }}" method="POST"
-                enctype="multipart/form-data">
+            <form action="{{ url('/patientPage/emergency') }}" method="POST">
                 @csrf
                 <div class=" h-full w-full text-xl tracking-wider border-2 border-black font-[sans-serif]">
                     {{-- admissionformfirst_sec --}}
@@ -26,19 +25,14 @@
                             <div class="col-span-5 border-r-2 border-black p-3">
                                 <p>ADDRESS* :</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="enter address" name="address" autocomplete="off"
-                                    value="{{ $view_first->address }}">
-                                <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                    @error('address')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
+                                    value="{{ $view_first->address }}" readonly>
                             </div>
                             <div class="col-span-3 p-3">
                                 <p>HEALTH RECORD NO :</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="enter latest record #" autocomplete="off" value="{{ $view_first->id }}"
                                     readonly>
 
@@ -51,9 +45,9 @@
                             <div class="col-span-3 border-r-2 border-black p-3">
                                 <p>SR CITIZEN NO :</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="sr_no" autocomplete="off"
-                                    value="{{ $view_first->sr_no ?? 'N/A' }}">
+                                    value="{{ $view_first->sr_no ?? 'N/A' }}" readonly>
 
                             </div>
                             <div class="col-span-2 flex justify-center items-center border-r-2 border-black">
@@ -62,8 +56,8 @@
                             <div class="col-span-3  gap-[5px] p-3">
                                 <p>OLD HEALTH RECORD NO :</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="enter old record #" autocomplete="off">
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                    placeholder="enter old record #" autocomplete="off" readonly>
                             </div>
                         </div>
 
@@ -79,45 +73,33 @@
                             <div class="col-span-2 border-r-2 border-black p-3">
                                 <p>Last Name* :</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="last name" name="last_name" autocomplete="off"
-                                    value="{{ $view_first->last_name ?? 'N/A' }}">
-                                <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                    @error('last_name')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
+                                    value="{{ $view_first->last_name ?? 'N/A' }}" readonly>
+
                             </div>
                             <div class="col-span-3 border-r-2 border-black p-3">
                                 <p>Given Name* :</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="given name" name="first_name" autocomplete="off"
-                                    value="{{ $view_first->first_name ?? 'N/A' }}">
-                                <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                    @error('first_name')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
+                                    value="{{ $view_first->first_name ?? 'N/A' }}" readonly>
+
                             </div>
                             <div class="col-span-3 border-r-2 border-black p-3">
                                 <p>Middle Name :</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="middle_name" autocomplete="off"
-                                    value="{{ $view_first->middle_name ?? 'N/A' }}">
+                                    value="{{ $view_first->middle_name ?? 'N/A' }}" readonly>
                             </div>
                             <div class="col-span-3 border-black p-3">
                                 <p>WARD/ROOM/BED/SERVICE* :</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="enter ward/room/bed/service type" name="ward_room_bed_service"
-                                    autocomplete="off" value="{{ $view_first->ward_room_bed_service ?? 'N/A' }}">
-                                <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                    @error('ward_room_bed_service')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
+                                    autocomplete="off" value="{{ $view_first->ward_room_bed_service ?? 'N/A' }}" readonly>
+
                             </div>
 
                         </div>
@@ -130,101 +112,81 @@
                             <div class="col-span-5 border-r-2 border-black p-3">
                                 <p>PERMANENT ADDRESS* :</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="enter permanent address" name="perma_address"
-                                    value="{{ $view_second->perma_address }}">
-                                <span class="text-base font-[sans-serif] font-medium text-red-600" autocomplete="off">
-                                    @error('perma_address')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
+                                    value="{{ $view_second->perma_address }}" readonly>
+
                             </div>
                             <div class="col-span-2 border-r-2 border-black p-3">
                                 <p>TEL. NO.* :</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="enter cellular phone #" name="phone" maxlength="11" autocomplete="off"
-                                    value="{{ $view_first->phone }}">
-                                <span class="text-base font-[sans-serif] font-medium text-red-600" autocomplete="off">
-                                    @error('phone')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
+                                    value="{{ $view_first->phone }}" readonly>
+
                             </div>
                             <div class=" border-r-2 border-black p-3">
                                 <p class="pb-2">SEX* :</p>
                                 <div class="w-full flex justify-start gap-4">
                                     <div class="inline">
-                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
-                                            value="Male" name="gender"
-                                            {{ $view_first->gender == 'Male' ? 'checked' : '' }}>
+                                        <input class="scale-150 cursor-auto accent-blue-300" type="radio" value="Male"
+                                            name="gender" {{ $view_first->gender == 'Male' ? 'checked' : 'disabled' }}>
                                         <label>M</label>
                                     </div>
                                     <div class="inline">
-                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
-                                            value="Female"
-                                            name="gender"{{ $view_first->gender == 'Female' ? 'checked' : '' }}>
+                                        <input class="scale-150 cursor-auto accent-blue-300" type="radio" value="Female"
+                                            name="gender" {{ $view_first->gender == 'Female' ? 'checked' : 'disabled' }}>
                                         <label>F</label>
                                     </div>
 
                                 </div>
-                                <span class="text-base font-[sans-serif] font-medium text-red-600" autocomplete="off">
-                                    @error('gender')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
                             </div>
                             <div class="col-span-3 border-black p-3">
                                 <p class="pb-2">CIVIL STATUS* :</p>
                                 <div class="w-full flex justify-around">
                                     <div class="inline">
-                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
+                                        <input class="scale-150 cursor-auto accent-blue-300" type="radio"
                                             value="Single" name="civil_status"
-                                            {{ $view_second->civil_status == 'Single' ? 'checked' : '' }}>
+                                            {{ $view_second->civil_status == 'Single' ? 'checked' : 'disabled' }}>
                                         <label>S</label>
                                     </div>
                                     <div class="inline">
-                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
+                                        <input class="scale-150 cursor-auto accent-blue-300" type="radio"
                                             value="Divorced" name="civil_status"
-                                            {{ $view_second->civil_status == 'Divorced' ? 'checked' : '' }}>
+                                            {{ $view_second->civil_status == 'Divorced' ? 'checked' : 'disabled' }}>
                                         <label>D</label>
                                     </div>
                                     <div class="col-span-2 inline">
-                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
+                                        <input class="scale-150 cursor-auto accent-blue-300" type="radio"
                                             value="Separated" name="civil_status"
-                                            {{ $view_second->civil_status == 'Separated' ? 'checked' : '' }}>
+                                            {{ $view_second->civil_status == 'Separated' ? 'checked' : 'disabled' }}>
                                         <label>SEP</label>
                                     </div>
                                     <div class="col-span-2 inline">
-                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
+                                        <input class="scale-150 cursor-auto accent-blue-300" type="radio"
                                             value="Common Law" name="civil_status"
-                                            {{ $view_second->civil_status == 'Common Law' ? 'checked' : '' }}>
+                                            {{ $view_second->civil_status == 'Common Law' ? 'checked' : 'disabled' }}>
                                         <label>C</label>
                                     </div>
                                     <div class="col-span-2 inline">
-                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
+                                        <input class="scale-150 cursor-auto accent-blue-300" type="radio"
                                             value="Widowed" name="civil_status"
-                                            {{ $view_second->civil_status == 'Widowed' ? 'checked' : '' }}>
+                                            {{ $view_second->civil_status == 'Widowed' ? 'checked' : 'disabled' }}>
                                         <label>W</label>
                                     </div>
                                     <div class="col-span-2 inline">
-                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
+                                        <input class="scale-150 cursor-auto accent-blue-300" type="radio"
                                             value="Married" name="civil_status"
-                                            {{ $view_second->civil_status == 'Married' ? 'checked' : '' }}>
+                                            {{ $view_second->civil_status == 'Married' ? 'checked' : 'disabled' }}>
                                         <label>M</label>
                                     </div>
                                     <div class="col-span-2 inline">
-                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
+                                        <input class="scale-150 cursor-auto accent-blue-300" type="radio"
                                             value="Neutral" name="civil_status"
-                                            {{ $view_second->civil_status == 'Neutral' ? 'checked' : '' }}>
+                                            {{ $view_second->civil_status == 'Neutral' ? 'checked' : 'disabled' }}>
                                         <label>N</label>
                                     </div>
                                 </div>
-                                <span class="text-base font-[sans-serif] font-medium text-red-600" autocomplete="off">
-                                    @error('perma_address')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
                             </div>
 
                         </div>
@@ -237,14 +199,9 @@
                             <div class="col-span-2 border-r-2 border-black p-3">
                                 <p>BIRTHDATE* :</p>
                                 <input type="date"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="birthday" name="birthday" id="birthday" autocomplete="off"
-                                    value="{{ $view_first->birthday }}">
-                                <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                    @error('birthday')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
+                                    value="{{ $view_first->birthday }}" readonly>
                             </div>
                             <div class="border-r-2 border-black p-3">
                                 <p>AGE* :</p>
@@ -256,45 +213,30 @@
                             <div class="col-span-2 border-r-2 border-black p-3">
                                 <p>BIRTHPLACE* :</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="birthplace" name="birthplace" autocomplete="off"
-                                    value="{{ $view_second->birthplace }}">
-                                <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                    @error('birthplace')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
+                                    value="{{ $view_second->birthplace }}" readonly>
                             </div>
                             <div class="col-span-2 border-r-2 border-black p-3">
                                 <p>NATIONALITY* :</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="nationality" name="nationality" autocomplete="off"
-                                    value="{{ $view_second->nationality }}">
-                                <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                    @error('nationality')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
+                                    value="{{ $view_second->nationality }}" readonly>
                             </div>
                             <div class="col-span-2 border-r-2 border-black p-3">
                                 <p>RELIGION* :</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="religion" name="religion" autocomplete="off"
-                                    value="{{ $view_second->religion }}">
-                                <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                    @error('religion')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
+                                    value="{{ $view_second->religion }}" readonly>
                             </div>
                             <div class="col-span-2 border-black p-3">
                                 <p>OCCUPATION :</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="occupation" autocomplete="off"
-                                    value="{{ $view_second->occupation ?? 'N/A' }}">
+                                    value="{{ $view_second->occupation ?? 'N/A' }}" readonly>
                             </div>
                         </div>
                     </div>
@@ -308,23 +250,23 @@
                             <div class="col-span-3 border-r-2 border-black p-3">
                                 <p>EMPLOYER(Type of Business)</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="employer_name" autocomplete="off"
-                                    value="{{ $view_third->employer_name ?? 'N/A' }}">
+                                    value="{{ $view_third->employer_name ?? 'N/A' }}" readonly>
                             </div>
                             <div class="col-span-3 border-r-2 border-black flex flex-col items-center p-3">
                                 <p>ADDRESS</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="employer_address" autocomplete="off"
-                                    value="{{ $view_third->employer_address ?? 'N/A' }}">
+                                    value="{{ $view_third->employer_address ?? 'N/A' }}" readonly>
                             </div>
                             <div class="col-span-3 border-black flex flex-col items-center p-3">
                                 <p>TEL. NO.</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="employer_phone" autocomplete="off"
-                                    value="{{ $view_third->employer_phone ?? 'N/A' }}">
+                                    value="{{ $view_third->employer_phone ?? 'N/A' }}" readonly>
                             </div>
                         </div>
 
@@ -333,25 +275,25 @@
                             <div class="col-span-3 border-r-2 border-black p-3">
                                 <p>FATHER'S NAME</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="father_name" autocomplete="off"
-                                    value="{{ $view_third->father_name ?? 'N/A' }}">
+                                    value="{{ $view_third->father_name ?? 'N/A' }}" readonly>
                             </div>
                             <div class="col-span-3 border-r-2 border-black flex flex-col items-center p-3">
                                 <p>ADDRESS</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="father_address" autocomplete="off"
-                                    value="{{ $view_third->father_address ?? 'N/A' }}">
+                                    value="{{ $view_third->father_address ?? 'N/A' }}" readonly>
                             </div>
                             <div
                                 class="col-span-3
                                     border-black flex flex-col items-center p-3">
                                 <p>TEL. NO.</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="father_phone" autocomplete="off"
-                                    value="{{ $view_third->father_phone ?? 'N/A' }}">
+                                    value="{{ $view_third->father_phone ?? 'N/A' }}" readonly>
                             </div>
                         </div>
 
@@ -360,23 +302,23 @@
                             <div class="col-span-3 border-r-2 border-black flex flex-col items-start p-3">
                                 <p>MOTHER'S(MAIDEN) NAME</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="mother_maiden_name" autocomplete="off"
-                                    value="{{ $view_third->mother_maiden_name ?? 'N/A' }}">
+                                    value="{{ $view_third->mother_maiden_name ?? 'N/A' }}" readonly>
                             </div>
                             <div class="col-span-3 border-r-2 border-black flex flex-col items-center p-3">
                                 <p>ADDRESS</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="mother_address" autocomplete="off"
-                                    value="{{ $view_third->mother_address ?? 'N/A' }}">
+                                    value="{{ $view_third->mother_address ?? 'N/A' }}" readonly>
                             </div>
                             <div class="col-span-3 border-black flex flex-col items-center p-3">
                                 <p>TEL. NO.</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="mother_phone" autocomplete="off"
-                                    value="{{ $view_third->mother_phone ?? 'N/A' }}">
+                                    value="{{ $view_third->mother_phone ?? 'N/A' }}" readonly>
                             </div>
                         </div>
 
@@ -385,23 +327,23 @@
                             <div class="col-span-3 border-r-2 border-black p-3">
                                 <p>SPOUSE NAME</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="spouse_name" autocomplete="off"
-                                    value="{{ $view_third->spouse_name ?? 'N/A' }}">
+                                    value="{{ $view_third->spouse_name ?? 'N/A' }}" readonly>
                             </div>
                             <div class="col-span-3 border-r-2 border-black flex flex-col items-center p-3">
                                 <p>ADDRESS</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="spouse_address" autocomplete="off"
-                                    value="{{ $view_third->spouse_address ?? 'N/A' }}">
+                                    value="{{ $view_third->spouse_address ?? 'N/A' }}" readonly>
                             </div>
                             <div class="col-span-3 border-black flex flex-col items-center p-3">
                                 <p>TEL. NO.</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="spouse_phone" autocomplete="off"
-                                    value="{{ $view_third->spouse_phone ?? 'N/A' }}">
+                                    value="{{ $view_third->spouse_phone ?? 'N/A' }}" readonly>
                             </div>
                         </div>
                         {{-- empty border --}}
@@ -421,18 +363,10 @@
                                             <p class="col-start-2">Date*: </p>
                                             <div class="col-span-3">
                                                 <input type="date"
-                                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
+                                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                                     name="start_date" id="start_date"
-                                                    value="{{ $view_fourth->start_date }}">
+                                                    value="{{ $view_fourth->start_date }}" readonly>
                                             </div>
-                                        </div>
-                                        <div class="grid grid-cols-5">
-                                            <span
-                                                class="col-start-3 col-span-3 text-base font-[sans-serif] font-medium text-red-600">
-                                                @error('start_date')
-                                                    {{ $message }}
-                                                @enderror
-                                            </span>
                                         </div>
                                     </div>
                                     <div class="grid gap-2">
@@ -440,18 +374,10 @@
                                             <p class="col-start-2">Time*: </p>
                                             <div class="col-span-3">
                                                 <input type="time"
-                                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
+                                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                                     name="start_time" id="start_time"
-                                                    value="{{ $view_fourth->start_time }}">
+                                                    value="{{ $view_fourth->start_time }}" readonly>
                                             </div>
-                                        </div>
-                                        <div class="grid grid-cols-5">
-                                            <span
-                                                class="col-start-3 col-span-3 text-base font-[sans-serif] font-medium text-red-600">
-                                                @error('start_time')
-                                                    {{ $message }}
-                                                @enderror
-                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -464,17 +390,10 @@
                                             <p class="col-start-2">Date*: </p>
                                             <div class="col-span-3">
                                                 <input type="date"
-                                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
-                                                    name="end_date" id="end_date" value="{{ $view_fourth->end_date }}">
+                                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                                    name="end_date" id="end_date" value="{{ $view_fourth->end_date }}"
+                                                    readonly>
                                             </div>
-                                        </div>
-                                        <div class="grid grid-cols-5">
-                                            <span
-                                                class="col-start-3 col-span-3 text-base font-[sans-serif] font-medium text-red-600">
-                                                @error('end_date')
-                                                    {{ $message }}
-                                                @enderror
-                                            </span>
                                         </div>
                                     </div>
                                     <div class="grid gap-2">
@@ -482,17 +401,10 @@
                                             <p class="col-start-2">Time*: </p>
                                             <div class="col-span-3">
                                                 <input type="time"
-                                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
-                                                    name="end_time" id="end_time" value="{{ $view_fourth->end_time }}">
+                                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                                    name="end_time" id="end_time" value="{{ $view_fourth->end_time }}"
+                                                    readonly>
                                             </div>
-                                        </div>
-                                        <div class="grid grid-cols-5">
-                                            <span
-                                                class="col-start-3 col-span-3 text-base font-[sans-serif] font-medium text-red-600">
-                                                @error('end_time')
-                                                    {{ $message }}
-                                                @enderror
-                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -500,16 +412,16 @@
                             <div class=" col-span-3 border-r-2 border-black p-3">
                                 <p>TOTAL NO. OF DAYS:</p>
                                 <input type="text"
-                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="# of days" name="total_days" id="total_days"
                                     value="{{ $view_fourth->total_days }}" readonly>
                             </div>
                             <div class="col-span-3 border-black p-3">
                                 <p>ADMITTING PHYSICIAN:</p>
                                 <input type="text"
-                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="name of physician" name="admitting_physician" id="admitting_physician"
-                                    value="{{ $view_fourth->admitting_physician }}">
+                                    value="{{ $view_fourth->admitting_physician }}" readonly>
                             </div>
                         </div>
 
@@ -521,14 +433,9 @@
                             <div class="border-r-2 border-black p-3">
                                 <p>ADMITTING CLERK :</p>
                                 <input type="text"
-                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="admitting_clerk" id="admitting_clerk"
-                                    value="{{ $view_fourth->admitting_clerk }}" autocomplete="off">
-                                <span class="col-start-3 col-span-3 text-base font-[sans-serif] font-medium text-red-600">
-                                    @error('admitting_clerk')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
+                                    value="{{ $view_fourth->admitting_clerk }}" autocomplete="off" readonly>
                             </div>
                             <div class="border-black p-3">
                                 <p>ATTENDING PHYSICIAN SIGNATURE:</p>
@@ -543,30 +450,21 @@
                             <div class="border-r-2 border-black p-3">
                                 <p>TYPE OF ADMISSION :</p>
                                 <input type="text"
-                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="type of admission" name="admission_type" id="admission_type"
-                                    value="{{ $view_fourth->admission_type }}" autocomplete="off">
-                                <span class="col-start-3 col-span-3 text-base font-[sans-serif] font-medium text-red-600">
-                                    @error('admission_type')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
+                                    value="{{ $view_fourth->admission_type }}" autocomplete="off" readonly>
                             </div>
                             <div class="border-black p-3">
                                 <p>REFERRED BY:</p>
                                 <input type="text"
-                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="referred by" name="referred_by" id="referred_by"
-                                    value="{{ $view_fourth->referred_by }}" autocomplete="off">
-                                <span class="col-start-3 col-span-3 text-base font-[sans-serif] font-medium text-red-600">
-                                    @error('referred_by')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
+                                    value="{{ $view_fourth->referred_by }}" autocomplete="off" readonly>
                             </div>
                         </div>
                     </div>
 
+                    {{-- admissionform_sec --}}
                     <div class="">
                         {{-- ssc --}}
                         <div class="grid border-b-2 border-black h-full">
@@ -574,45 +472,41 @@
                                 <p class="col-span-3">SOCIAL SERVICE CLASSIFICATION :</p>
                                 <div class=" col-span-5 grid grid-cols-6">
                                     <div class="flex justify-center gap-2">
-                                        <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
-                                            value="a" name="ssc" {{ $view_fifth->ssc == 'a' ? 'checked' : '' }}>
+                                        <input class="scale-125 cursor-auto accent-blue-300" type="radio"
+                                            value="a" name="ssc"
+                                            {{ $view_fifth->ssc == 'a' ? 'checked' : 'disabled' }}>
                                         <label>A</label>
                                     </div>
                                     <div class="flex justify-center gap-2">
-                                        <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
-                                            value="b" name="ssc" {{ $view_fifth->ssc == 'b' ? 'checked' : '' }}>
+                                        <input class="scale-125 cursor-auto accent-blue-300" type="radio"
+                                            value="b" name="ssc"
+                                            {{ $view_fifth->ssc == 'b' ? 'checked' : 'disabled' }}>
                                         <label>B</label>
                                     </div>
                                     <div class="flex justify-center gap-2">
-                                        <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
+                                        <input class="scale-125 cursor-auto accent-blue-300" type="radio"
                                             value="c_one" name="ssc"
-                                            {{ $view_fifth->ssc == 'c_one' ? 'checked' : '' }}>
+                                            {{ $view_fifth->ssc == 'c_one' ? 'checked' : 'disabled' }}>
                                         <label>C1</label>
                                     </div>
                                     <div class="flex justify-center gap-2">
-                                        <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
+                                        <input class="scale-125 cursor-auto accent-blue-300" type="radio"
                                             value="c_two" name="ssc"
-                                            {{ $view_fifth->ssc == 'c_two' ? 'checked' : '' }}>
+                                            {{ $view_fifth->ssc == 'c_two' ? 'checked' : 'disabled' }}>
                                         <label>C2</label>
                                     </div>
                                     <div class="flex justify-center gap-2">
-                                        <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
+                                        <input class="scale-125 cursor-auto accent-blue-300" type="radio"
                                             value="c_three" name="ssc"
-                                            {{ $view_fifth->ssc == 'c_three' ? 'checked' : '' }}>
+                                            {{ $view_fifth->ssc == 'c_three' ? 'checked' : 'disabled' }}>
                                         <label>C3</label>
                                     </div>
                                     <div class="flex justify-center gap-2">
-                                        <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
-                                            value="d" name="ssc" {{ $view_fifth->ssc == 'd' ? 'checked' : '' }}>
+                                        <input class="scale-125 cursor-auto accent-blue-300" type="radio"
+                                            value="d" name="ssc"
+                                            {{ $view_fifth->ssc == 'd' ? 'checked' : 'disabled' }}>
                                         <label>D</label>
                                     </div>
-                                </div>
-                                <div class="col-span-2">
-                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                        @error('ssc')
-                                            {{ $message }}
-                                        @enderror
-                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -626,49 +520,34 @@
                                 <p>ALERT</p>
                                 <p>ALLERGIC TO:</p>
                                 <input type="text"
-                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="allergic to" name="alert_allergic" id="alert_allergic"
-                                    autocomplete="off" value="{{ $view_fifth->alert_allergic }}">
-                                <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                    @error('alert_allergic')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
+                                    autocomplete="off" value="{{ $view_fifth->alert_allergic }}" readonly>
                             </div>
                             <div class="col-span-4 border-r-2 border-black p-3 gap-2">
                                 <p>HOSPITALIZATION PLAN</p>
                                 <p>COMPANY/INDUSTRIAL NAME</p>
                                 <input type="text"
-                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="hospitalization_plan"
                                     id="hospitalization_plan" autocomplete="off"
-                                    value="{{ $view_fifth->hospitalization_plan }}">
+                                    value="{{ $view_fifth->hospitalization_plan }}" readonly>
                             </div>
                             <div class="col-span-3 border-r-2 border-black p-3 gap-2">
                                 <p>HEALTH</p>
                                 <p>INSURANCE NAME</p>
                                 <input type="text"
-                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     name="health_insurance" id="health_insurance" placeholder="N/A if not available"
-                                    autocomplete="off" value="{{ $view_fifth->health_insurance }}">
-                                <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                    @error('health_insurance')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
+                                    autocomplete="off" value="{{ $view_fifth->health_insurance }}" readonly>
                             </div>
                             <div class="col-span-3 border-black p-3 gap-2">
                                 <p>TYPE OF INSURANCE</p>
                                 <p>COVERAGE</p>
                                 <input type="text"
-                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     name="coverage_insurance" id="coverage_insurance" placeholder="N/A if not available"
-                                    autocomplete="off" value="{{ $view_fifth->coverage_insurance }}">
-                                <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                    @error('coverage_insurance')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
+                                    autocomplete="off" value="{{ $view_fifth->coverage_insurance }}" readonly>
                             </div>
                         </div>
 
@@ -680,39 +559,24 @@
                             <div class="col-span-6 border-r-2 border-black p-3 gap-2">
                                 <p>DATA FURNISHED BY(signature over printed name)</p>
                                 <input type="text"
-                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="name of attendant" name="furnished_by" id="furnished_by"
-                                    autocomplete="off" value="{{ $view_fifth->furnished_by }}">
-                                <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                    @error('furnished_by')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
+                                    autocomplete="off" value="{{ $view_fifth->furnished_by }}" readonly>
                             </div>
                             <div class="col-span-3 border-r-2 border-black p-3 gap-2">
                                 <p>ADDRESS OF INFORMANT</p>
                                 <input type="text"
-                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="informant_address" id="informant_address"
-                                    autocomplete="off" value="{{ $view_fifth->informant_address }}">
-                                <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                    @error('informant_address')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
+                                    autocomplete="off" value="{{ $view_fifth->informant_address }}" readonly>
                             </div>
                             <div class="col-span-3 border-black p-3 gap-2">
                                 <p>RELATION TO PATIENT</p>
                                 <input type="text"
-                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="relation_to_patient"
                                     id="relation_to_patient" autocomplete="off"
-                                    value="{{ $view_fifth->relation_to_patient }}">
-                                <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                    @error('relation_to_patient')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
+                                    value="{{ $view_fifth->relation_to_patient }}" readonly>
                             </div>
                         </div>
 
@@ -726,19 +590,11 @@
                                     <p class="col-span-2">ADMISSION DIAGNOSIS :</p>
                                     <div class="col-span-8 ">
                                         <input type="text"
-                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                             placeholder="N/A if not available" name="admission_diagnosis"
                                             id="admission_diagnosis" autocomplete="off"
-                                            value="{{ $view_sixth->admission_diagnosis }}">
+                                            value="{{ $view_sixth->admission_diagnosis }}" readonly>
                                     </div>
-                                </div>
-                                <div class="grid grid-cols-10">
-                                    <span
-                                        class="col-start-3 col-span-2 text-base font-[sans-serif] font-medium text-red-600">
-                                        @error('admission_diagnosis')
-                                            {{ $message }}
-                                        @enderror
-                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -758,18 +614,11 @@
                                             <p>PRINCIPAL DIAGNOSIS :</p>
                                             <div class="col-span-3">
                                                 <input type="text"
-                                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                                     placeholder="N/A if not available" name="principal_diagnosis"
                                                     id="principal_diagnosis" autocomplete="off"
-                                                    value="{{ $view_sixth->principal_diagnosis }}">
+                                                    value="{{ $view_sixth->principal_diagnosis }}" readonly>
                                             </div>
-                                        </div>
-                                        <div class="grid grid-cols-4">
-                                            <span class="col-start-2 text-base font-[sans-serif] font-medium text-red-600">
-                                                @error('principal_diagnosis')
-                                                    {{ $message }}
-                                                @enderror
-                                            </span>
                                         </div>
                                     </div>
                                     <div class="grid gap-2">
@@ -777,18 +626,11 @@
                                             <p>OTHER DIAGNOSIS :</p>
                                             <div class="col-span-3">
                                                 <input type="text"
-                                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                                     placeholder="N/A if not available" name="other_diagnosis"
                                                     id="other_diagnosis" autocomplete="off"
-                                                    value="{{ $view_sixth->other_diagnosis }}">
+                                                    value="{{ $view_sixth->other_diagnosis }}" readonly>
                                             </div>
-                                        </div>
-                                        <div class="grid grid-cols-4">
-                                            <span class="col-start-2 text-base font-[sans-serif] font-medium text-red-600">
-                                                @error('other_diagnosis')
-                                                    {{ $message }}
-                                                @enderror
-                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -796,14 +638,9 @@
                             <div class="col-span-3 border-black p-3">
                                 <p>IDC CODE NO.</p>
                                 <input type="text"
-                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="idc_code" id="idc_code" autocomplete="off"
-                                    value="{{ $view_sixth->idc_code }}">
-                                <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                    @error('idc_code')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
+                                    value="{{ $view_sixth->idc_code }}" readonly>
                             </div>
                         </div>
 
@@ -819,18 +656,11 @@
                                             <p class="col-span-2">PRINCIPAL OPERATION PROCEDURE :</p>
                                             <div class="col-span-3">
                                                 <input type="text"
-                                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                                     placeholder="N/A if not available" name="principal_operation"
                                                     id="principal_operation" autocomplete="off"
-                                                    value="{{ $view_sixth->principal_operation }}">
+                                                    value="{{ $view_sixth->principal_operation }}" readonly>
                                             </div>
-                                        </div>
-                                        <div class="grid grid-cols-5">
-                                            <span class="col-start-3 text-base font-[sans-serif] font-medium text-red-600">
-                                                @error('principal_operation')
-                                                    {{ $message }}
-                                                @enderror
-                                            </span>
                                         </div>
                                     </div>
                                     <div class="grid gap-2">
@@ -838,18 +668,11 @@
                                             <p class="col-span-2">OTHER OPERATION PROCEDURE :</p>
                                             <div class="col-span-3">
                                                 <input type="text"
-                                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                                     placeholder="N/A if not available" name="other_operation"
                                                     id="other_operation" autocomplete="off"
-                                                    value="{{ $view_sixth->other_operation }}">
+                                                    value="{{ $view_sixth->other_operation }}" readonly>
                                             </div>
-                                        </div>
-                                        <div class="grid grid-cols-5">
-                                            <span class="col-start-3 text-base font-[sans-serif] font-medium text-red-600">
-                                                @error('other_operation')
-                                                    {{ $message }}
-                                                @enderror
-                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -857,14 +680,9 @@
                             <div class="col-span-3 border-black p-3">
                                 <p>ICPM CODE</p>
                                 <input type="text"
-                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="icpm_code" id="icpm_code"
-                                    autocomplete="off" value="{{ $view_sixth->icpm_code }}">
-                                <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                    @error('icpm_code')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
+                                    autocomplete="off" value="{{ $view_sixth->icpm_code }}" readonly>
                             </div>
                         </div>
 
@@ -880,25 +698,33 @@
                     </div>
 
                 </div>
-
                 <div class="py-8 grid grid-cols-8 gap-4">
-                    <button
-                        class="h-full col-start-7 text-2xl p-2 bg-blue-300 tracking-[2px] text-white rounded-xl transform transition hover:-translate-y-0.5 hover:bg-blue-200 shadow-md shadow-blue-200"
-                        type="submit">Submit</button>
+                    <a class=" col-end-7 text-zinc-900 hover:text-white tracking-[2px] text-2xl font-[sans-serif]"
+                        href="{{ url('/patientPage/updateAdmission' . $view_first->id) }}">
+                        <div
+                            class=" h-full bg-blue-300 hover:bg-blue-200 p-2 text-2xl font-[sans-serif] flex items-center justify-center text-white rounded-xl  shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
+                            {{ __('Edit') }}
+                        </div>
+                    </a>
 
-                    <a class=" col-start-8 text-zinc-900 hover:text-white tracking-[2px] text-2xl font-[sans-serif]"
+                    <a class=" col-end-8 text-zinc-900 hover:text-white tracking-[2px] text-2xl font-[sans-serif]"
                         href="">
                         <div
-                            class=" h-full bg-blue-300 hover:bg-blue-200 p-2 text-2xl font-[sans-serif] flex items-center justify-center text-white rounded-xl shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
+                            class=" h-full bg-blue-300 hover:bg-blue-200 p-2 text-2xl font-[sans-serif] flex items-center justify-center text-white rounded-xl  shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
                             {{ __('Print') }}
                         </div>
                     </a>
                 </div>
+
+                {{-- <button
+                    class="btnSearch h-[4.7vh] w-[6vw] text-[1.5rem] bg-blue-300 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-200"
+                    type="submit">Submit</button> --}}
+
             </form>
         </div>
+
     </div>
 @endsection
 @push('custom_scripts')
     @vite('resources/js/patientPage/birthdate.js')
-    @vite('resources/js/patientPage/admission_days.js')
 @endpush

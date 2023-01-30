@@ -33,8 +33,8 @@
                                 <p>HEALTH RECORD NO :</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
-                                    placeholder="enter latest record #" autocomplete="off" value="{{ $view_first->id }}"
-                                    readonly>
+                                    placeholder="enter latest record #" autocomplete="off"
+                                    value="{{ $view_first->patient_id }}" readonly>
 
                             </div>
                         </div>
@@ -53,11 +53,12 @@
                             <div class="col-span-2 flex justify-center items-center border-r-2 border-black">
                                 <p class="font-bold">CLINICAL COVER SHEET</p>
                             </div>
-                            <div class="col-span-3  gap-[5px] p-3">
-                                <p>OLD HEALTH RECORD NO :</p>
+                            <div class="col-span-3 p-3">
+                                <p>Type:</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
-                                    placeholder="enter old record #" autocomplete="off" readonly>
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="enter old record #" name="type" value="{{ $view_first->type }}"
+                                    readonly>
                             </div>
                         </div>
 
@@ -700,7 +701,7 @@
                 </div>
                 <div class="py-8 grid grid-cols-8 gap-4">
                     <a class=" col-end-7 text-zinc-900 hover:text-white tracking-[2px] text-2xl font-[sans-serif]"
-                        href="{{ url('/patientPage/updateAdmission' . $view_first->id) }}">
+                        href="{{ url('/patientPage/updateEmergency' . $view_first->id) }}">
                         <div
                             class=" h-full bg-blue-300 hover:bg-blue-200 p-2 text-2xl font-[sans-serif] flex items-center justify-center text-white rounded-xl  shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
                             {{ __('Edit') }}

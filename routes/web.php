@@ -25,6 +25,7 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/test', [TestingController::class, 'index']);
+Route::get('/testemergency', [TestingController::class, 'index_second']);
 
 
 Route::middleware(['auth'])->group(function () {
@@ -51,7 +52,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/patientPage/updateAdmission{id}', [PatientController::class, 'updateAdmission']);
     Route::post('/patientPage/editAdmission{id}', [PatientController::class, 'editAdmission']);
 
-    ////station section
+    ///////////////station section
     Route::get('stations/labOptions', [StationController::class, 'labOptions']);
     ////vitalsigns view
     Route::get('stations/labOptions/vitalSigns', [StationController::class, 'vitalSigns']);
@@ -68,4 +69,8 @@ Route::middleware(['auth'])->group(function () {
 
     //view data from db
     Route::get('/patientPage/viewEmergency{id}', [EmergencyPatientController::class, 'viewEmergency']);
+
+    //update data from db
+    Route::get('/patientPage/updateEmergency{id}', [EmergencyPatientController::class, 'updateEmergency']);
+    Route::post('/patientPage/editEmergency{id}', [EmergencyPatientController::class, 'editEmergency']);
 });

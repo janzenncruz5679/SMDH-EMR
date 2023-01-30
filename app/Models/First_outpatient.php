@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class First_admission extends Model
+class First_outpatient extends Model
 {
     use HasFactory;
-    protected $table = "first_admissions";
+    protected $table = "first_outpatients";
     protected $fillable = [
         'address',
         'sr_no',
@@ -50,7 +50,7 @@ class First_admission extends Model
     }
 
     //for real
-    // public function admission_two()
+    // public function outpatient_two()
     // {
     //     return $this->hasOne(Second_admission::class, 'record_id');
     // }
@@ -60,34 +60,29 @@ class First_admission extends Model
         return $this->belongsTo(Patient_id::class);
     }
 
-    // public function emergency_two()
-    // {
-    //     return $this->hasOne(Second_emergency::class, 'record_id');
-    // }
-
     //for testing
-    public function admission_two()
+    public function outpatient_two()
     {
-        return $this->hasOne(Second_admission::class, 'record_id');
+        return $this->hasOne(Second_outpatient::class, 'record_id');
     }
 
-    public function admission_three()
+    public function outpatient_three()
     {
-        return $this->hasOne(Third_admission::class, 'record_id');
+        return $this->hasOne(Third_outpatient::class, 'record_id');
     }
 
-    public function admission_four()
+    public function outpatient_four()
     {
-        return $this->hasOne(Fourth_admission::class, 'record_id');
+        return $this->hasOne(Fourth_outpatient::class, 'record_id');
     }
 
-    public function admission_five()
+    public function outpatient_five()
     {
-        return $this->hasOne(Fifth_admission::class, 'record_id');
+        return $this->hasOne(Fifth_outpatient::class, 'record_id');
     }
 
-    public function admission_six()
+    public function outpatient_six()
     {
-        return $this->hasOne(Sixth_admission::class, 'record_id');
+        return $this->hasOne(Sixth_outpatient::class, 'record_id');
     }
 }

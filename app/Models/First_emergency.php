@@ -52,10 +52,10 @@ class First_emergency extends Model
 
 
     //for real
-    public function emergency_two()
-    {
-        return $this->hasOne(Second_emergency::class, 'record_id');
-    }
+    // public function emergency_two()
+    // {
+    //     return $this->hasOne(Second_emergency::class, 'record_id');
+    // }
 
     public function patient_id_table()
     {
@@ -63,28 +63,28 @@ class First_emergency extends Model
     }
 
     //for testing
-    // public function admission_two()
-    // {
-    //     return $this->hasOne(Second_admission::class, 'record_id');
-    // }
+    public function emergency_two()
+    {
+        return $this->hasOne(Second_emergency::class, 'record_id');
+    }
 
-    // public function admission_three()
-    // {
-    //     return $this->hasOne(Third_admission::class, 'record_id');
-    // }
+    public function emergency_three()
+    {
+        return $this->hasOne(Third_emergency::class, 'record_id');
+    }
 
-    // public function admission_four()
-    // {
-    //     return $this->hasOne(Fourth_admission::class, 'record_id');
-    // }
+    public function emergency_four()
+    {
+        return $this->hasOne(Fourth_emergency::class, 'record_id');
+    }
 
-    // public function admission_five()
-    // {
-    //     return $this->hasOne(Fifth_admission::class, 'record_id');
-    // }
+    public function emergency_five()
+    {
+        return $this->hasOne(Fifth_emergency::class, 'record_id');
+    }
 
-    // public function admission_six()
-    // {
-    //     return $this->hasOne(Sixth_admission::class, 'record_id');
-    // }
+    public function emergency_six()
+    {
+        return $this->hasOne(Sixth_emergency::class, 'record_id');
+    }
 }

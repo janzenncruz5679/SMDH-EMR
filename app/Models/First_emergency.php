@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class First_admission extends Model
+class First_emergency extends Model
 {
     use HasFactory;
-    protected $table = "first_admissions";
+    protected $table = "first_emergencies";
     protected $fillable = [
         'address',
         'sr_no',
@@ -23,6 +23,7 @@ class First_admission extends Model
         'gender',
         'phone',
     ];
+
 
     //combine first middle and last name using accessor and mutators
     public function setFirstNameAttribute($value)
@@ -49,10 +50,11 @@ class First_admission extends Model
         return $this->first_name . ' ' . ($this->middle_name ? $this->middle_name . ' ' : '') . ' ' . $this->last_name;
     }
 
+
     //for real
-    // public function admission_two()
+    // public function emergency_two()
     // {
-    //     return $this->hasOne(Second_admission::class, 'record_id');
+    //     return $this->hasOne(Second_emergency::class, 'record_id');
     // }
 
     public function patient_id_table()
@@ -60,34 +62,29 @@ class First_admission extends Model
         return $this->belongsTo(Patient_id::class);
     }
 
-    // public function emergency_two()
-    // {
-    //     return $this->hasOne(Second_emergency::class, 'record_id');
-    // }
-
     //for testing
-    public function admission_two()
+    public function emergency_two()
     {
-        return $this->hasOne(Second_admission::class, 'record_id');
+        return $this->hasOne(Second_emergency::class, 'record_id');
     }
 
-    public function admission_three()
+    public function emergency_three()
     {
-        return $this->hasOne(Third_admission::class, 'record_id');
+        return $this->hasOne(Third_emergency::class, 'record_id');
     }
 
-    public function admission_four()
+    public function emergency_four()
     {
-        return $this->hasOne(Fourth_admission::class, 'record_id');
+        return $this->hasOne(Fourth_emergency::class, 'record_id');
     }
 
-    public function admission_five()
+    public function emergency_five()
     {
-        return $this->hasOne(Fifth_admission::class, 'record_id');
+        return $this->hasOne(Fifth_emergency::class, 'record_id');
     }
 
-    public function admission_six()
+    public function emergency_six()
     {
-        return $this->hasOne(Sixth_admission::class, 'record_id');
+        return $this->hasOne(Sixth_emergency::class, 'record_id');
     }
 }

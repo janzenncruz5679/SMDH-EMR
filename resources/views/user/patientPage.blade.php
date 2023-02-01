@@ -17,7 +17,7 @@
                 </a>
 
                 <a class="col-span-2 grid items-center p-6 text-zinc-900 hover:text-white bg-blue-100 hover:bg-blue-300 rounded-3xl shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition"
-                    href="{{ url('patientPage') }}">
+                    href="{{ url('/patientPage/emergency') }}">
                     <div class="grid gap-3">
                         <div class="grid place-items-center">
                             <i class="fa-solid fa-truck-medical text-[7rem]"></i>
@@ -29,7 +29,7 @@
                 </a>
 
                 <a class="col-span-2 grid items-start p-6 text-zinc-900 hover:text-white bg-blue-100 hover:bg-blue-300 rounded-3xl shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition"
-                    href="{{ url('patientPage') }}">
+                    href="{{ url('/patientPage/outpatient') }}">
                     <div class="grid gap-3">
                         <div class="grid place-items-center">
                             <i class="fa-solid fa-kit-medical text-[7rem]"></i>

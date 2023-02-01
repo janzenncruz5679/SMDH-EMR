@@ -5,13 +5,14 @@
         <div class="admissionDisplay h-full w-full grid gap-4">
             <div class="h-20 bg-blue-300 flex items-center justify-center">
                 <p class="font-[sans-serif] font-semibold text-white tracking-wide text-4xl">
-                    {{ __('Patient Profile') }}</p>
+                    {{ __('Admission Patients') }}</p>
             </div>
             <div class="searchBar h-12 w-full flex justify-start items-center">
                 <form action="{{ url('/patientPage/admission/search') }}" method="GET"
                     class="flex gap-4 m-0 h-full items-center">
                     @csrf
-                    <input type="text" placeholder="Search Patient Name" name="query"
+                    <input type="text" placeholder="Search Patient Name" name="search"
+                        value="{{ Request::get('search') }}"
                         class="h-full w-96 text-[1.5rem] border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 focus:outline-offset-2 rounded-[10px] px-[10px]"
                         required autocomplete="off">
                     <button
@@ -24,7 +25,7 @@
                     <button
                         class="btnAddpatient h-full w-48 text-[1.5rem] bg-blue-300 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-100"><a
                             href="{{ url('/patientPage/addPatient') }}">
-                            <p class="hover:text-zinc-900">Add Patient</p>
+                            <p class="hover:text-zinc-900">{{ __('Add Patient') }}</p>
                         </a></button>
                 </div>
             </div>
@@ -41,10 +42,8 @@
                         </tr>
                         @foreach ($patientDatas as $patientData)
                             <tr class="grid grid-cols-12 even:bg-gray-200 odd:bg-white text-xl">
-                                <td class="flex justify-center">{{ $patientData->id }}</td>
-                                <td class="col-span-5 flex justify-center">{{ $patientData->first_name }}
-                                    {{ $patientData->middle_name }}
-                                    {{ $patientData->last_name }}
+                                <td class="flex justify-center">{{ $patientData->patient_id }}</td>
+                                <td class="col-span-5 flex justify-center">{{ $patientData->full_name }}
                                 </td>
                                 <td class="flex justify-center">{{ $patientData->age }}</td>
                                 <td class="flex justify-center">{{ $patientData->gender }}</td>
@@ -71,5 +70,8 @@
             {{ $patientDatas->links('pagination::custom_tailwind') }}
         </div>
     </div>
-
 @endsection
+
+@push('custom_scripts')
+    @vite('resources/js/patientPage/liveSearch.js')
+@endpush

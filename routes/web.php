@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\EmergencyPatientController;
+use App\Http\Controllers\OutpatientController;
 use App\Http\Controllers\StationController;
 use App\Http\Controllers\TestingController;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +26,8 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/test', [TestingController::class, 'index']);
+Route::get('/testemergency', [TestingController::class, 'index_second']);
+Route::get('/testoutpatient', [TestingController::class, 'index_third']);
 
 
 Route::middleware(['auth'])->group(function () {
@@ -34,6 +38,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/billing', [HomeController::class, 'billing']);
 
 
+    ///////////////admission patients section
     //add data from db
     Route::get('/patientPage/addPatient', [PatientController::class, 'addPatient']);
     Route::post('/patientPage/admission', [PatientController::class, 'submit_admit_patient']);
@@ -49,8 +54,42 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/patientPage/updateAdmission{id}', [PatientController::class, 'updateAdmission']);
     Route::post('/patientPage/editAdmission{id}', [PatientController::class, 'editAdmission']);
 
-    ////station section
+    ///////////////station section
     Route::get('stations/labOptions', [StationController::class, 'labOptions']);
     ////vitalsigns view
     Route::get('stations/labOptions/vitalSigns', [StationController::class, 'vitalSigns']);
+
+
+    ///////////////emergency patients section
+    //add data from db
+    Route::get('/patientPage/addEmergency', [EmergencyPatientController::class, 'addEmergency']);
+    Route::post('/patientPage/emergency', [EmergencyPatientController::class, 'submit_emergency_patient']);
+
+    //read data from db
+    Route::get('/patientPage/emergency', [EmergencyPatientController::class, 'emergency']);
+    Route::get('/patientPage/emergency/search', [EmergencyPatientController::class, 'emergencySearch']);
+
+    //view data from db
+    Route::get('/patientPage/viewEmergency{id}', [EmergencyPatientController::class, 'viewEmergency']);
+
+    //update data from db
+    Route::get('/patientPage/updateEmergency{id}', [EmergencyPatientController::class, 'updateEmergency']);
+    Route::post('/patientPage/editEmergency{id}', [EmergencyPatientController::class, 'editEmergency']);
+
+
+    ///////////////outpatient section
+    //add data from db
+    Route::get('/patientPage/addOutpatient', [OutpatientController::class, 'addOutpatient']);
+    Route::post('/patientPage/outpatient', [OutpatientController::class, 'submit_emergency_patient']);
+
+    //read data from db
+    Route::get('/patientPage/outpatient', [OutpatientController::class, 'outpatient']);
+    Route::get('/patientPage/outpatient/search', [OutpatientController::class, 'outpatientSearch']);
+
+    //view data from db
+    Route::get('/patientPage/viewOutpatient{id}', [OutpatientController::class, 'viewOutpatient']);
+
+    //update data from db
+    Route::get('/patientPage/updateOutpatient{id}', [OutpatientController::class, 'updateOutpatient']);
+    Route::post('/patientPage/editOutpatient{id}', [OutpatientController::class, 'editOutpatient']);
 });

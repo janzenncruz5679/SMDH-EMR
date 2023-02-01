@@ -3,7 +3,7 @@
 @section('content')
     <div class="absolute top-[59px] left-[275px] h-full w-[85.3vw] p-[45px] ">
         <div class=" h-full w-full">
-            <form action="{{ url('/patientPage/admission') }}" method="POST">
+            <form action="{{ url('/patientPage/outpatient') }}" method="POST">
                 @csrf
                 <div class=" h-full w-full text-xl tracking-wider border-2 border-black font-[sans-serif]">
                     {{-- admissionformfirst_sec --}}
@@ -32,9 +32,10 @@
                             <div class="col-span-3 p-3">
                                 <p>HEALTH RECORD NO :</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="enter latest record #" autocomplete="off"
                                     value="{{ $view_first->patient_id }}" readonly>
+
                             </div>
                         </div>
 
@@ -114,7 +115,7 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="enter permanent address" name="perma_address"
-                                    value="{{ $view_second->perma_address ?? 'None' }}" readonly>
+                                    value="{{ $view_second->perma_address }}" readonly>
 
                             </div>
                             <div class="col-span-2 border-r-2 border-black p-3">
@@ -700,7 +701,7 @@
                 </div>
                 <div class="py-8 grid grid-cols-8 gap-4">
                     <a class=" col-end-7 text-zinc-900 hover:text-white tracking-[2px] text-2xl font-[sans-serif]"
-                        href="{{ url('/patientPage/updateAdmission' . $view_first->id) }}">
+                        href="{{ url('/patientPage/updateOutpatient' . $view_first->id) }}">
                         <div
                             class=" h-full bg-blue-300 hover:bg-blue-200 p-2 text-2xl font-[sans-serif] flex items-center justify-center text-white rounded-xl  shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
                             {{ __('Edit') }}

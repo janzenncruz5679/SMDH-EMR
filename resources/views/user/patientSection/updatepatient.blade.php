@@ -39,9 +39,8 @@
                                 <p>HEALTH RECORD NO :</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="enter latest record #" autocomplete="off" value="{{ $view_first->id }}"
-                                    readonly>
-
+                                    placeholder="enter latest record #" autocomplete="off"
+                                    value="{{ $view_first->patient_id }}" readonly>
                             </div>
                         </div>
 
@@ -59,11 +58,12 @@
                             <div class="col-span-2 flex justify-center items-center border-r-2 border-black">
                                 <p class="font-bold">CLINICAL COVER SHEET</p>
                             </div>
-                            <div class="col-span-3  gap-[5px] p-3">
-                                <p>OLD HEALTH RECORD NO :</p>
+                            <div class="col-span-3 p-3">
+                                <p>HEALTH RECORD NO :</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="enter old record #" autocomplete="off">
+                                    placeholder="enter latest record #" autocomplete="off" value="{{ $view_first->type }}"
+                                    readonly>
                             </div>
                         </div>
 

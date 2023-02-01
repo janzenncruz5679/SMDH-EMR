@@ -30,6 +30,7 @@ $(document).ready(function () {
     });
 });
 
+//input date not greater than today
 $(function () {
     var dtToday = new Date();
 

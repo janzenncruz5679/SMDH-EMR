@@ -5,11 +5,11 @@
         <div class="admissionDisplay h-full w-full grid gap-4">
             <div class="h-20 bg-blue-300 flex items-center justify-center">
                 <p class="font-[sans-serif] font-semibold text-white tracking-wide text-4xl">
-                    {{ __('Admission Patients') }}</p>
+                    {{ __('Outpatients') }}</p>
             </div>
 
             <div class="searchBar h-12 w-full flex justify-start items-center gap-4">
-                <form action="{{ url('/patientPage/admission/search') }}" method="GET"
+                <form action="{{ url('/patientPage/outpatient/search') }}" method="GET"
                     class="flex gap-4 m-0 h-full items-center">
                     @csrf
                     <input type="text" placeholder="Search Patient Name" name="search"
@@ -29,13 +29,13 @@
                 <button
                     class="h-full w-40 text-[1.5rem] bg-blue-300 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-100"><a
                         class="relative w-full h-full flex items-center justify-center hover:text-black"
-                        href="{{ url('/patientPage/admission') }}">
+                        href="{{ url('/patientPage/outpatient') }}">
                         {{ __('Clear') }}
                     </a></button>
                 <div class="addpatientBar h-full w-full flex items-center justify-end">
                     <button
                         class="btnAddpatient h-full w-48 text-[1.5rem] bg-blue-300 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-100"><a
-                            href="{{ url('/patientPage/addPatient') }}" class='hover:text-white'>
+                            href="{{ url('/patientPage/addOutpatient') }}" class='hover:text-white'>
                             <p class="hover:text-black h-full w-full flex justify-center items-center">Add Patient</p>
                         </a></button>
                 </div>
@@ -65,7 +65,7 @@
                                             class="editIcon hover:text-blue-300">
                                             <i class="fa-solid fa-eye"></i>
                                         </a>
-                                        <a href="{{ url('/patientPage/updateAdmission' . $patientData->id) }}"
+                                        <a href="{{ url('/patientPage/updateOutpatient' . $patientData->id) }}"
                                             class="editIcon hover:text-blue-300">
                                             <i class="fa-solid fa-edit"></i>
                                         </a>

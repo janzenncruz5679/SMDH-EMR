@@ -13,20 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sixth_admissions', function (Blueprint $table) {
+        Schema::create('second_outpatients', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('record_id')->unsigned();
-            $table->string('admission_diagnosis')->nullable();
-            $table->string('principal_diagnosis')->nullable();
-            $table->string('other_diagnosis')->nullable();
-            $table->string('idc_code')->nullable();
-            $table->string('principal_operation')->nullable();
-            $table->string('other_operation')->nullable();
-            $table->string('icpm_code')->nullable();
+            $table->string('perma_address')->nullable();
+            $table->string('civil_status')->nullable();
+            $table->string('birthplace')->nullable();
+            $table->string('nationality')->nullable();
+            $table->string('religion')->nullable();
+            $table->string('occupation')->nullable();
             $table->timestamps();
             $table->foreign('record_id')
                 ->references('id')
-                ->on('fifth_admissions')
+                ->on('first_outpatients')
                 ->onDelete('cascade');
         });
     }
@@ -38,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sixth_admissions');
+        Schema::dropIfExists('second_outpatients');
     }
 };

@@ -12,6 +12,7 @@
     @vite('resources/css/app.css')
     @vite(['resources/sass/app.scss'])
     @vite(['node_modules/@fortawesome/fontawesome-free/js/all.min.js'])
+    @livewireStyles
 
 </head>
 
@@ -21,6 +22,7 @@
     @yield('content')
     @include('layouts.allScripts')
     @stack('custom_scripts')
+    @livewireScripts
 </body>
 
 </html>

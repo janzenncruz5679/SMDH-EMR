@@ -1,6 +1,3 @@
-@extends('layouts.main')
-
-
 <div class=" h-full w-full">
     <form action="{{ url('/patientPage/admission') }}" method="POST" enctype="multipart/form-data"
         wire:submit.prevent="submit">
@@ -28,7 +25,7 @@
                             <input type="text"
                                 class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="enter address" name="address" autocomplete="off"
-                                value="{{ old('address') }}" wire:model="address">
+                                value="{{ old('address') }}" wire:model.defer="address">
                             <span class="text-base font-[sans-serif] font-medium text-red-600">
                                 @error('address')
                                     {{ $message }}
@@ -52,7 +49,7 @@
                             <input type="text"
                                 class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="N/A if not available" name="sr_no" autocomplete="off"
-                                value="{{ old('sr_no') }}" wire:model="sr_no">
+                                value="{{ old('sr_no') }}" wire:model.defer="sr_no">
 
                         </div>
                         <div class="col-span-2 flex justify-center items-center border-r-2 border-black">
@@ -62,8 +59,8 @@
                             <p>Type:</p>
                             <input type="text"
                                 class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                placeholder="enter old record #" name="type" value="Admission" wire:model="type"
-                                readonly>
+                                placeholder="enter old record #" name="type" value="Admission"
+                                wire:model.defer="type" readonly>
                         </div>
                     </div>
 
@@ -81,7 +78,7 @@
                             <input type="text"
                                 class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="last name" name="last_name" autocomplete="off"
-                                value="{{ old('last_name') }}" wire:model="last_name">
+                                value="{{ old('last_name') }}" wire:model.defer="last_name">
                             <span class="text-base font-[sans-serif] font-medium text-red-600">
                                 @error('last_name')
                                     {{ $message }}
@@ -93,7 +90,7 @@
                             <input type="text"
                                 class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="given name" name="first_name" autocomplete="off"
-                                value="{{ old('first_name') }}" wire:model="first_name">
+                                value="{{ old('first_name') }}" wire:model.defer="first_name">
                             <span class="text-base font-[sans-serif] font-medium text-red-600">
                                 @error('first_name')
                                     {{ $message }}
@@ -105,7 +102,7 @@
                             <input type="text"
                                 class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="N/A if not available" name="middle_name" autocomplete="off"
-                                value="{{ old('middle_name') }}" wire:model="middle_name">
+                                value="{{ old('middle_name') }}" wire:model.defer="middle_name">
                         </div>
                         <div class="col-span-3 border-black p-3">
                             <p>WARD/ROOM/BED/SERVICE* :</p>
@@ -113,7 +110,7 @@
                                 class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="enter ward/room/bed/service type" name="ward_room_bed_service"
                                 autocomplete="off" value="{{ old('ward_room_bed_service') }}"
-                                wire:model="ward_room_bed_service">
+                                wire:model.defer="ward_room_bed_service">
                             <span class="text-base font-[sans-serif] font-medium text-red-600">
                                 @error('ward_room_bed_service')
                                     {{ $message }}
@@ -128,14 +125,33 @@
 
                     {{-- perma address --}}
                     <div class="grid grid-cols-11 border-b-2 border-black h-full">
-                        <div class="col-span-5 border-r-2 border-black p-3">
-                            <p>PERMANENT ADDRESS* :</p>
+                        <div class="col-span-2 border-r-2 border-black p-3">
+                            <p>BIRTHDATE* :</p>
+                            <input type="date"
+                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
+                                placeholder="birthday" id="birthday" autocomplete="off" value="{{ old('birthday') }}"
+                                wire:model.defer="birthday">
+                            <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                @error('birthday')
+                                    {{ $message }}
+                                @enderror
+                            </span>
+                        </div>
+                        <div class="border-r-2 border-black p-3">
+                            <p>AGE* :</p>
+                            <input type="text"
+                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                placeholder="age" id="age" autocomplete="off" value="{{ old('age') }}"
+                                wire:model.defer="age" readonly>
+                        </div>
+                        <div class="col-span-2 border-r-2 border-black p-3">
+                            <p>BIRTHPLACE* :</p>
                             <input type="text"
                                 class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                placeholder="enter permanent address" name="perma_address" autocomplete="off"
-                                value="{{ old('perma_address') }}" wire:model="perma_address">
+                                placeholder="birthplace" name="birthplace" autocomplete="off"
+                                value="{{ old('birthplace') }}" wire:model.defer="birthplace">
                             <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                @error('perma_address')
+                                @error('birthplace')
                                     {{ $message }}
                                 @enderror
                             </span>
@@ -144,8 +160,8 @@
                             <p>TEL. NO.* :</p>
                             <input type="text"
                                 class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                placeholder="enter cellular phone #" name="phone" maxlength="11" autocomplete="off"
-                                value="{{ old('phone') }}" wire:model="phone">
+                                placeholder="enter cellular phone #" name="phone" maxlength="11"
+                                autocomplete="off" value="{{ old('phone') }}" wire:model.defer="phone">
                             <span class="text-base font-[sans-serif] font-medium text-red-600">
                                 @error('phone')
                                     {{ $message }}
@@ -157,13 +173,13 @@
                             <div class="w-full flex justify-start gap-4">
                                 <div class="inline">
                                     <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
-                                        value="Male" name="gender" wire:model="gender"
+                                        value="Male" name="gender" wire:model.defer="gender"
                                         {{ old('gender') == 'Male' ? 'checked' : '' }}>
                                     <label>M</label>
                                 </div>
                                 <div class="inline">
                                     <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
-                                        value="Female" name="gender" wire:model="gender"
+                                        value="Female" name="gender" wire:model.defer="gender"
                                         {{ old('gender') == 'Female' ? 'checked' : '' }}>
                                     <label>F</label>
                                 </div>
@@ -179,43 +195,43 @@
                             <div class="w-full flex justify-around">
                                 <div class="inline">
                                     <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
-                                        value="Single" name="civil_status" wire:model="civil_status"
+                                        value="Single" name="civil_status" wire:model.defer="civil_status"
                                         {{ old('civil_status') == 'Single' ? 'checked' : '' }}>
                                     <label>S</label>
                                 </div>
                                 <div class="inline">
                                     <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
-                                        value="Divorced" name="civil_status" wire:model="civil_status"
+                                        value="Divorced" name="civil_status" wire:model.defer="civil_status"
                                         {{ old('civil_status') == 'Divorced' ? 'checked' : '' }}>
                                     <label>D</label>
                                 </div>
                                 <div class="col-span-2 inline">
                                     <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
-                                        value="Separated" name="civil_status" wire:model="civil_status"
+                                        value="Separated" name="civil_status" wire:model.defer="civil_status"
                                         {{ old('civil_status') == 'Separated' ? 'checked' : '' }}>
                                     <label>SEP</label>
                                 </div>
                                 <div class="col-span-2 inline">
                                     <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
-                                        value="Common Law" name="civil_status" wire:model="civil_status"
+                                        value="Common Law" name="civil_status" wire:model.defer="civil_status"
                                         {{ old('civil_status') == 'Common Law' ? 'checked' : '' }}>
                                     <label>C</label>
                                 </div>
                                 <div class="col-span-2 inline">
                                     <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
-                                        value="Widowed" name="civil_status" wire:model="civil_status"
+                                        value="Widowed" name="civil_status" wire:model.defer="civil_status"
                                         {{ old('civil_status') == 'Widowed' ? 'checked' : '' }}>
                                     <label>W</label>
                                 </div>
                                 <div class="col-span-2 inline">
                                     <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
-                                        value="Married" name="civil_status" wire:model="civil_status"
+                                        value="Married" name="civil_status" wire:model.defer="civil_status"
                                         {{ old('civil_status') == 'Married' ? 'checked' : '' }}>
                                     <label>M</label>
                                 </div>
                                 <div class="col-span-2 inline">
                                     <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
-                                        value="Neutral" name="civil_status" wire:model="civil_status"
+                                        value="Neutral" name="civil_status" wire:model.defer="civil_status"
                                         {{ old('civil_status') == 'Neutral' ? 'checked' : '' }}>
                                     <label>N</label>
                                 </div>
@@ -234,33 +250,14 @@
 
                     {{-- birthdate border --}}
                     <div class="grid grid-cols-11 border-b-2 border-black h-full">
-                        <div class="col-span-2 border-r-2 border-black p-3">
-                            <p>BIRTHDATE* :</p>
-                            <input type="date"
-                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
-                                placeholder="birthday" id="birthday" autocomplete="off"
-                                value="{{ old('birthday') }}" wire:model="birthday">
-                            <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                @error('birthday')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
-                        <div class="border-r-2 border-black p-3">
-                            <p>AGE* :</p>
-                            <input type="text"
-                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
-                                placeholder="age" id="age" autocomplete="off" value="{{ old('age') }}"
-                                wire:model="age" readonly>
-                        </div>
-                        <div class="col-span-2 border-r-2 border-black p-3">
-                            <p>BIRTHPLACE* :</p>
+                        <div class="col-span-5 border-r-2 border-black p-3">
+                            <p>PERMANENT ADDRESS* :</p>
                             <input type="text"
                                 class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                placeholder="birthplace" name="birthplace" autocomplete="off"
-                                value="{{ old('birthplace') }}" wire:model="birthplace">
+                                placeholder="enter permanent address" name="perma_address" autocomplete="off"
+                                value="{{ old('perma_address') }}" wire:model.defer="perma_address">
                             <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                @error('birthplace')
+                                @error('perma_address')
                                     {{ $message }}
                                 @enderror
                             </span>
@@ -270,7 +267,7 @@
                             <input type="text"
                                 class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="nationality" name="nationality" autocomplete="off"
-                                value="{{ old('nationality') }}" wire:model="nationality">
+                                value="{{ old('nationality') }}" wire:model.defer="nationality">
                             <span class="text-base font-[sans-serif] font-medium text-red-600">
                                 @error('nationality')
                                     {{ $message }}
@@ -282,7 +279,7 @@
                             <input type="text"
                                 class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="religion" name="religion" autocomplete="off"
-                                value="{{ old('religion') }}" wire:model="religion">
+                                value="{{ old('religion') }}" wire:model.defer="religion">
                             <span class="text-base font-[sans-serif] font-medium text-red-600">
                                 @error('religion')
                                     {{ $message }}
@@ -294,7 +291,7 @@
                             <input type="text"
                                 class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="N/A if not available" name="occupation" autocomplete="off"
-                                value="{{ old('occupation') }}" wire:model="occupation">
+                                value="{{ old('occupation') }}" wire:model.defer="occupation">
                         </div>
                     </div>
                 </div>
@@ -312,21 +309,27 @@
                             <input type="text"
                                 class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="N/A if not available" name="employer_name" autocomplete="off"
-                                value="{{ old('employer_name') }}" wire:model="employer_name">
+                                value="{{ old('employer_name') }}" wire:model.defer="employer_name">
                         </div>
                         <div class="col-span-3 border-r-2 border-black flex flex-col items-center p-3">
                             <p>ADDRESS</p>
                             <input type="text"
                                 class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="N/A if not available" name="employer_address" autocomplete="off"
-                                wire:model="employer_name">
+                                value="{{ old('employer_address') }}" wire:model.defer="employer_address"
+                                wire:key="employer_address_key">
+                            {{-- <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                @error('employer_address')
+                                    {{ $message }}
+                                @enderror
+                            </span> --}}
                         </div>
                         <div class="col-span-3 border-black flex flex-col items-center p-3">
                             <p>TEL. NO.</p>
                             <input type="text"
                                 class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="N/A if not available" name="employer_phone" autocomplete="off"
-                                value="{{ old('employer_phone') }}" wire:model="employer_phone">
+                                value="{{ old('employer_phone') }}" wire:model.defer="employer_phone">
                         </div>
                     </div>
 
@@ -337,22 +340,21 @@
                             <input type="text"
                                 class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="N/A if not available" name="father_name" autocomplete="off"
-                                value="{{ old('father_name') }}" wire:model="father_name">
+                                value="{{ old('father_name') }}" wire:model.defer="father_name">
                         </div>
                         <div class="col-span-3 border-r-2 border-black flex flex-col items-center p-3">
                             <p>ADDRESS</p>
                             <input type="text"
                                 class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="N/A if not available" name="father_address" autocomplete="off"
-                                value="{{ old('father_address') }}" wire:model="father_address">
+                                value="{{ old('father_address') }}" wire:model.defer="father_address">
                         </div>
-                        <div class="col-span-3
-                    border-black flex flex-col items-center p-3">
+                        <div class="col-span-3 border-black flex flex-col items-center p-3">
                             <p>TEL. NO.</p>
                             <input type="text"
                                 class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="N/A if not available" name="father_phone" autocomplete="off"
-                                value="{{ old('father_phone') }}" wire:model="father_phone">
+                                value="{{ old('father_phone') }}" wire:model.defer="father_phone">
                         </div>
                     </div>
 
@@ -363,21 +365,21 @@
                             <input type="text"
                                 class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="N/A if not available" name="mother_maiden_name" autocomplete="off"
-                                value="{{ old('mother_maiden_name') }}" wire:model="mother_maiden_name">
+                                value="{{ old('mother_maiden_name') }}" wire:model.defer="mother_maiden_name">
                         </div>
                         <div class="col-span-3 border-r-2 border-black flex flex-col items-center p-3">
                             <p>ADDRESS</p>
                             <input type="text"
                                 class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="N/A if not available" name="mother_address" autocomplete="off"
-                                value="{{ old('mother_address') }}" wire:model="mother_address">
+                                value="{{ old('mother_address') }}" wire:model.defer="mother_address">
                         </div>
                         <div class="col-span-3 border-black flex flex-col items-center p-3">
                             <p>TEL. NO.</p>
                             <input type="text"
                                 class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="N/A if not available" name="mother_phone" autocomplete="off"
-                                value="{{ old('mother_phone') }}" wire:model.lazy="mother_phone">
+                                value="{{ old('mother_phone') }}" wire:model.defer="mother_phone">
                         </div>
                     </div>
 
@@ -388,21 +390,21 @@
                             <input type="text"
                                 class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="N/A if not available" name="spouse_name" autocomplete="off"
-                                value="{{ old('spouse_name') }}" wire:model="spouse_name">
+                                value="{{ old('spouse_name') }}" wire:model.defer="spouse_name">
                         </div>
                         <div class="col-span-3 border-r-2 border-black flex flex-col items-center p-3">
                             <p>ADDRESS</p>
                             <input type="text"
                                 class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="N/A if not available" name="spouse_address" autocomplete="off"
-                                value="{{ old('spouse_address') }}" wire:model="spouse_address">
+                                value="{{ old('spouse_address') }}" wire:model.defer="spouse_address">
                         </div>
                         <div class="col-span-3 border-black flex flex-col items-center p-3">
                             <p>TEL. NO.</p>
                             <input type="text"
                                 class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="N/A if not available" name="spouse_phone" autocomplete="off"
-                                value="{{ old('spouse_phone') }}" wire:model="spouse_phone">
+                                value="{{ old('spouse_phone') }}" wire:model.defer="spouse_phone">
                         </div>
                     </div>
                     {{-- empty border --}}
@@ -425,7 +427,7 @@
                                             <input type="date"
                                                 class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
                                                 name="start_date" id="start_date" value="{{ old('start_date') }}"
-                                                wire:model="start_date">
+                                                wire:model.defer="start_date">
                                         </div>
                                     </div>
                                     <div class="grid grid-cols-5">
@@ -444,7 +446,7 @@
                                             <input type="time"
                                                 class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
                                                 name="start_time" id="start_time" value="{{ old('start_time') }}"
-                                                wire:model="start_time">
+                                                wire:model.defer="start_time">
                                         </div>
                                     </div>
                                     <div class="grid grid-cols-5">
@@ -468,7 +470,7 @@
                                             <input type="date"
                                                 class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
                                                 name="end_date" id="end_date" value="{{ old('end_date') }}"
-                                                wire:model="end_date">
+                                                wire:model.defer="end_date">
                                         </div>
                                     </div>
                                     <div class="grid grid-cols-5">
@@ -487,7 +489,7 @@
                                             <input type="time"
                                                 class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
                                                 name="end_time" id="end_time" value="{{ old('end_time') }}"
-                                                wire:model="end_time">
+                                                wire:model.defer="end_time">
                                         </div>
                                     </div>
                                     <div class="grid grid-cols-5">
@@ -506,14 +508,14 @@
                             <input type="text"
                                 class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="# of days" name="total_days" id="total_days"
-                                value="{{ old('total_days') }}" wire:model="total_days" readonly>
+                                value="{{ old('total_days') }}" wire:model.defer="total_days" readonly>
                         </div>
                         <div class="col-span-3 border-black p-3">
                             <p>ADMITTING PHYSICIAN:</p>
                             <input type="text"
                                 class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="name of physician" name="admitting_physician" id="admitting_physician"
-                                value="{{ old('admitting_physician') }}" wire:model="admitting_physician"
+                                value="{{ old('admitting_physician') }}" wire:model.defer="admitting_physician"
                                 autocomplete="off">
                             <span class="text-base font-[sans-serif] font-medium text-red-600">
                                 @error('admitting_physician')
@@ -533,7 +535,7 @@
                             <input type="text"
                                 class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="N/A if not available" name="admitting_clerk" id="admitting_clerk"
-                                value="{{ old('admitting_clerk') }}" wire:model="admitting_clerk"
+                                value="{{ old('admitting_clerk') }}" wire:model.defer="admitting_clerk"
                                 autocomplete="off">
                             <span class="text-base font-[sans-serif] font-medium text-red-600">
                                 @error('admitting_clerk')
@@ -556,7 +558,8 @@
                             <input type="text"
                                 class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="type of admission" name="admission_type" id="admission_type"
-                                value="{{ old('admission_type') }}" wire:model="admission_type" autocomplete="off">
+                                value="{{ old('admission_type') }}" wire:model.defer="admission_type"
+                                autocomplete="off">
                             <span class="text-base font-[sans-serif] font-medium text-red-600">
                                 @error('admission_type')
                                     {{ $message }}
@@ -568,7 +571,7 @@
                             <input type="text"
                                 class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="referred by" name="referred_by" id="referred_by"
-                                value="{{ old('referred_by') }}" wire:model="referred_by" autocomplete="off">
+                                value="{{ old('referred_by') }}" wire:model.defer="referred_by" autocomplete="off">
                             <span class="text-base font-[sans-serif] font-medium text-red-600">
                                 @error('referred_by')
                                     {{ $message }}
@@ -589,7 +592,7 @@
                             <div class=" col-span-5 grid grid-cols-6">
                                 <div class="flex justify-center gap-2">
                                     <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
-                                        value="a" name="ssc" wire:model="ssc"
+                                        value="a" name="ssc" wire:model.defer="ssc"
                                         {{ old('ssc') == 'a' ? 'checked' : '' }}>
                                     <label>A</label>
                                 </div>
@@ -600,25 +603,25 @@
                                 </div>
                                 <div class="flex justify-center gap-2">
                                     <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
-                                        value="c_one" name="ssc" wire:model="ssc"
+                                        value="c_one" name="ssc" wire:model.defer="ssc"
                                         {{ old('ssc') == 'c_one' ? 'checked' : '' }}>
                                     <label>C1</label>
                                 </div>
                                 <div class="flex justify-center gap-2">
                                     <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
-                                        value="c_two" name="ssc" wire:model="ssc"
+                                        value="c_two" name="ssc" wire:model.defer="ssc"
                                         {{ old('ssc') == 'c_two' ? 'checked' : '' }}>
                                     <label>C2</label>
                                 </div>
                                 <div class="flex justify-center gap-2">
                                     <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
-                                        value="c_three" name="ssc" wire:model="ssc"
+                                        value="c_three" name="ssc" wire:model.defer="ssc"
                                         {{ old('ssc') == 'c_three' ? 'checked' : '' }}>
                                     <label>C3</label>
                                 </div>
                                 <div class="flex justify-center gap-2">
                                     <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
-                                        value="d" name="ssc" wire:model="ssc"
+                                        value="d" name="ssc" wire:model.defer="ssc"
                                         {{ old('ssc') == 'd' ? 'checked' : '' }}>
                                     <label>D</label>
                                 </div>
@@ -644,7 +647,8 @@
                             <input type="text"
                                 class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="allergic to" name="alert_allergic" id="alert_allergic"
-                                autocomplete="off" value="{{ old('alert_allergic') }}" wire:model="alert_allergic">
+                                autocomplete="off" value="{{ old('alert_allergic') }}"
+                                wire:model.defer="alert_allergic">
                             <span class="text-base font-[sans-serif] font-medium text-red-600">
                                 @error('alert_allergic')
                                     {{ $message }}
@@ -658,7 +662,7 @@
                                 class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="N/A if not available" name="hospitalization_plan"
                                 id="hospitalization_plan" autocomplete="off"
-                                value="{{ old('hospitalization_plan') }}" wire:model="hospitalization_plan">
+                                value="{{ old('hospitalization_plan') }}" wire:model.defer="hospitalization_plan">
                         </div>
                         <div class="col-span-3 border-r-2 border-black p-3 gap-2">
                             <p>HEALTH</p>
@@ -667,7 +671,7 @@
                                 class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 name="health_insurance" id="health_insurance" placeholder="N/A if not available"
                                 autocomplete="off" value="{{ old('health_insurance') }}"
-                                wire:model="health_insurance">
+                                wire:model.defer="health_insurance">
                             <span class="text-base font-[sans-serif] font-medium text-red-600">
                                 @error('health_insurance')
                                     {{ $message }}
@@ -681,7 +685,7 @@
                                 class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 name="coverage_insurance" id="coverage_insurance" placeholder="N/A if not available"
                                 autocomplete="off" value="{{ old('coverage_insurance') }}"
-                                wire:model="coverage_insurance">
+                                wire:model.defer="coverage_insurance">
                             <span class="text-base font-[sans-serif] font-medium text-red-600">
                                 @error('coverage_insurance')
                                     {{ $message }}
@@ -700,7 +704,8 @@
                             <input type="text"
                                 class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="name of attendant" name="furnished_by" id="furnished_by"
-                                autocomplete="off" value="{{ old('furnished_by') }}" wire:model="furnished_by">
+                                autocomplete="off" value="{{ old('furnished_by') }}"
+                                wire:model.defer="furnished_by">
                             <span class="text-base font-[sans-serif] font-medium text-red-600">
                                 @error('furnished_by')
                                     {{ $message }}
@@ -713,7 +718,7 @@
                                 class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="N/A if not available" name="informant_address" id="informant_address"
                                 autocomplete="off" value="{{ old('informant_address') }}"
-                                wire:model="informant_address">
+                                wire:model.defer="informant_address">
                             <span class="text-base font-[sans-serif] font-medium text-red-600">
                                 @error('informant_address')
                                     {{ $message }}
@@ -726,7 +731,7 @@
                                 class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="N/A if not available" name="relation_to_patient"
                                 id="relation_to_patient" autocomplete="off" value="{{ old('relation_to_patient') }}"
-                                wire:model="relation_to_patient">
+                                wire:model.defer="relation_to_patient">
                             <span class="text-base font-[sans-serif] font-medium text-red-600">
                                 @error('relation_to_patient')
                                     {{ $message }}
@@ -748,7 +753,8 @@
                                         class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="N/A if not available" name="admission_diagnosis"
                                         id="admission_diagnosis" autocomplete="off"
-                                        value="{{ old('admission_diagnosis') }}" wire:model="admission_diagnosis">
+                                        value="{{ old('admission_diagnosis') }}"
+                                        wire:model.defer="admission_diagnosis">
                                 </div>
                             </div>
                             <div class="grid grid-cols-10">
@@ -783,7 +789,7 @@
                                                 placeholder="N/A if not available" name="principal_diagnosis"
                                                 id="principal_diagnosis" autocomplete="off"
                                                 value="{{ old('principal_diagnosis') }}"
-                                                wire:model="principal_diagnosis">
+                                                wire:model.defer="principal_diagnosis">
                                         </div>
                                     </div>
                                     <div class="grid grid-cols-4">
@@ -802,7 +808,8 @@
                                                 class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                                 placeholder="N/A if not available" name="other_diagnosis"
                                                 id="other_diagnosis" autocomplete="off"
-                                                value="{{ old('other_diagnosis') }}" wire:model="other_diagnosis">
+                                                value="{{ old('other_diagnosis') }}"
+                                                wire:model.defer="other_diagnosis">
                                         </div>
                                     </div>
                                     <div class="grid grid-cols-4">
@@ -820,7 +827,7 @@
                             <input type="text"
                                 class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="N/A if not available" name="idc_code" id="idc_code" autocomplete="off"
-                                value="{{ old('idc_code') }}" wire:model="idc_code">
+                                value="{{ old('idc_code') }}" wire:model.defer="idc_code">
                             <span class="text-base font-[sans-serif] font-medium text-red-600">
                                 @error('idc_code')
                                     {{ $message }}
@@ -845,7 +852,7 @@
                                                 placeholder="N/A if not available" name="principal_operation"
                                                 id="principal_operation" autocomplete="off"
                                                 value="{{ old('principal_operation') }}"
-                                                wire:model="principal_operation">
+                                                wire:model.defer="principal_operation">
                                         </div>
                                     </div>
                                     <div class="grid grid-cols-5">
@@ -864,7 +871,8 @@
                                                 class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                                 placeholder="N/A if not available" name="other_operation"
                                                 id="other_operation" autocomplete="off"
-                                                value="{{ old('other_operation') }}" wire:model="other_operation">
+                                                value="{{ old('other_operation') }}"
+                                                wire:model.defer="other_operation">
                                         </div>
                                     </div>
                                     <div class="grid grid-cols-5">
@@ -882,7 +890,7 @@
                             <input type="text"
                                 class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                 placeholder="N/A if not available" name="icpm_code" id="icpm_code"
-                                autocomplete="off" value="{{ old('icpm_code') }}" wire:model="icpm_code">
+                                autocomplete="off" value="{{ old('icpm_code') }}" wire:model.defer="icpm_code">
                             <span class="text-base font-[sans-serif] font-medium text-red-600">
                                 @error('icpm_code')
                                     {{ $message }}
@@ -942,8 +950,3 @@
 
     </form>
 </div>
-
-@push('custom_scripts')
-    @vite('resources/js/patientPage/birthdate.js')
-    @vite('resources/js/patientPage/admission_days.js')
-@endpush

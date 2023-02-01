@@ -5,6 +5,13 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\Patient_id;
+use App\Models\First_admission;
+use App\Models\Second_admission;
+use App\Models\Third_admission;
+use App\Models\Fourth_admission;
+use App\Models\Fifth_admission;
+use App\Models\Sixth_admission;
+
 
 class MultiStepForm extends Component
 {
@@ -21,7 +28,6 @@ class MultiStepForm extends Component
     public $gender;
     public $phone;
     public $birthday;
-
     public $perma_address;
     public $civil_status;
     public $birthplace;
@@ -31,6 +37,7 @@ class MultiStepForm extends Component
 
     public $employer_name;
     public $employer_address;
+    public $employer_address_key = '';
     public $employer_phone;
     public $father_name;
     public $father_address;
@@ -72,15 +79,17 @@ class MultiStepForm extends Component
     public $totalSteps = 5;
     public $currentStep = 1;
 
+
     public function mount()
     {
         $this->currentStep = 1;
+        $this->type = "Admission";
     }
 
-    public function render()
-    {
-        return view('livewire.multi-step-form');
-    }
+    // public function render()
+    // {
+    //     return view('livewire.multi-step-form');
+    // }
 
     public function increaseStep()
     {
@@ -117,7 +126,6 @@ class MultiStepForm extends Component
                 'nationality' => 'required',
                 'religion' => 'required',
             ], [
-                //first
                 'address.required' => '*this field is required',
                 'last_name.required' => '*this field is required',
                 'first_name.required' => '*this field is required',
@@ -132,6 +140,24 @@ class MultiStepForm extends Component
                 'religion' => '*this field is required',
             ]);
         }
+
+        // if ($this->currentStep == 2) {
+        //     $this->validate([
+        //         'employer_name' => 'required',
+        //         'employer_address' => 'required',
+        //         'employer_phone' => 'required',
+        //         'father_name' => 'required',
+        //         'father_address' => 'required',
+        //         'father_phone' => 'required',
+        //         'mother_maiden_name' => 'required',
+        //         'mother_address' => 'required',
+        //         'mother_phone' => 'required',
+        //         'spouse_name' => 'required',
+        //         'spouse_address' => 'required',
+        //         'spouse_phone' => 'required',
+
+        //     ]);
+        // }
 
         if ($this->currentStep == 3) {
             $this->validate([

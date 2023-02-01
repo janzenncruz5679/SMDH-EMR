@@ -41,7 +41,7 @@ Route::middleware(['auth'])->group(function () {
     ///////////////admission patients section
     //add data from db
     Route::get('/patientPage/addPatient', [PatientController::class, 'addPatient']);
-    Route::post('/patientPage/admission', [PatientController::class, 'submit_admit_patient']);
+    // Route::post('/patientPage/admission', [PatientController::class, 'submit_admit_patient']);
 
     // read data from db
     Route::get('/patientPage/admission', [PatientController::class, 'admission']);

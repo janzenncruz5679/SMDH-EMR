@@ -5,12 +5,6 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\Patient_id;
-use App\Models\First_admission;
-use App\Models\Second_admission;
-use App\Models\Third_admission;
-use App\Models\Fourth_admission;
-use App\Models\Fifth_admission;
-use App\Models\Sixth_admission;
 
 
 class MultiStepForm extends Component
@@ -226,6 +220,8 @@ class MultiStepForm extends Component
 
     public function submit()
     {
+        $this->resetErrorBag();
+        $this->validateData();
         $patients_Dummy_id = Patient_id::create();
         $patients_Dummy =  $patients_Dummy_id->admission_table()->create([
             'patient_id' => $patients_Dummy_id->id,

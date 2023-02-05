@@ -15,49 +15,13 @@
         }
     </style>
     <div class="addPatient absolute top-[59px] left-[275px] h-full w-[85.3vw] p-12 ">
-        <div class="w-full pb-12">
-            <ul class="flex items-center h-20">
-                <div
-                    class="step0 shadow-sm h-full flex items-center justify-center p-3 rounded-full border-4 border-blue-100">
-                    Step 1
-                </div>
-                <div class="line0 flex jusify-center items-center border-4 border-blue-100 w-25">
-                </div>
-                <div
-                    class="step1 shadow-sm h-full flex items-center justify-center p-3 rounded-full border-4 border-blue-100">
-                    Step 2
-                </div>
-                <div class="line1 flex jusify-center items-center border-4 border-blue-100 w-25">
-                </div>
-                <div
-                    class="step2 shadow-sm h-full flex items-center justify-center p-3 rounded-full border-4 border-blue-100">
-                    Step 3
-                </div>
-                <div class="line2 flex jusify-center items-center border-4 border-blue-100 w-25">
-                </div>
-                <div
-                    class="step3 shadow-sm h-full flex items-center justify-center p-3 rounded-full border-4 border-blue-100">
-                    Step 4
-                </div>
-                <div class="line3 flex jusify-center items-center border-4 border-blue-100 w-25">
-                </div>
-                <div
-                    class="step4 shadow-sm h-full flex items-center justify-center p-3 rounded-full border-4 border-blue-100">
-                    Step 5
-                </div>
-                <div class="line4 flex jusify-center items-center border-4 border-blue-100 w-25">
-                </div>
-                <div
-                    class="step5 shadow-sm h-full flex items-center justify-center p-3 rounded-full border-4 border-blue-100">
-                    Step 6
-                </div>
-            </ul>
-        </div>
+        @include('layouts.stepper')
         <div class=" h-full w-full">
             <form action="{{ url('/patientPage/admission') }}" method="POST" enctype="multipart/form-data"
-                class="employee-form">
+                class="admission-form">
                 @csrf
-                <div class=" h-full w-full text-xl tracking-wider border-2 border-black font-[sans-serif]">
+                <div class="h-full
+                 w-full text-xl tracking-wider border-2 border-black font-[sans-serif]">
                     {{-- admissionform_sec --}}
                     <div class="form-section">
                         {{-- name --}}
@@ -174,7 +138,10 @@
 
                         {{-- empty border --}}
                         <div class="border-b-2 border-black h-8"></div>
+                    </div>
 
+                    {{-- admissionform_sec --}}
+                    <div class="form-section">
                         {{-- perma address --}}
                         <div class="grid grid-cols-11 border-b-2 border-black h-full">
                             <div class="col-span-5 border-r-2 border-black p-3">
@@ -193,8 +160,8 @@
                                 <p>TEL. NO.* :</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="enter cellular phone #" name="phone" maxlength="11"
-                                    autocomplete="off" value="{{ old('phone') }}">
+                                    placeholder="enter cellular phone #" name="phone" maxlength="11" autocomplete="off"
+                                    value="{{ old('phone') }}">
                                 <span class="text-base font-[sans-serif] font-medium text-red-600">
                                     @error('phone')
                                         {{ $message }}
@@ -281,7 +248,7 @@
                         <div class="border-b-2 border-black h-8"></div>
 
                         {{-- birthdate border --}}
-                        <div class="grid grid-cols-11 border-b-2 border-black h-full">
+                        <div class="grid grid-cols-11 h-full">
                             <div class="col-span-2 border-r-2 border-black p-3">
                                 <p>BIRTHDATE* :</p>
                                 <input type="date"
@@ -453,7 +420,7 @@
                             </div>
                         </div>
                         {{-- empty border --}}
-                        <div class="border-b-2 border-black h-8"></div>
+                        <div class=" border-black h-8"></div>
                     </div>
 
                     {{-- admissionform_sec --}}

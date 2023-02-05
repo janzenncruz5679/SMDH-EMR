@@ -14,6 +14,9 @@ $(function () {
 
         const line = document.querySelector(".line" + index);
         line.style.borderColor = "#028090";
+
+        const check = document.querySelector(".check" + index);
+        check.innerHTML = '<i class="fa-solid fa-check"></i>';
     }
     function curIndex() {
         return $sections.index($sections.filter(".current"));
@@ -22,14 +25,19 @@ $(function () {
         var currentIndex = $sections.index($sections.filter(".current"));
         const step = document.querySelector(".step" + currentIndex);
         const line = document.querySelector(".line" + currentIndex);
+        const check = document.querySelector(".check" + currentIndex);
         step.style.backgroundColor = "";
         step.style.color = "";
         step.style.borderColor = "";
         line.style.borderColor = "";
+        check.innerHTML = currentIndex;
         navigateTo(curIndex() - 1);
     });
+    // $(".form-navigation .previous").click(function () {
+    //     navigateTo(curIndex() - 1);
+    // });
     $(".form-navigation .next").click(function () {
-        $(".employee-form")
+        $(".admission-form")
             .parsley()
             .whenValidate({
                 group: "block-" + curIndex(),

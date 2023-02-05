@@ -1,14 +1,65 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="addPatient absolute top-[59px] left-[275px] h-full w-[85.3vw] p-[45px] ">
+    <style>
+        .form-section {
+            display: none;
+        }
+
+        .form-section.current {
+            display: inline;
+        }
+
+        .parsley-errors-list {
+            color: red;
+        }
+    </style>
+    <div class="addPatient absolute top-[59px] left-[275px] h-full w-[85.3vw] p-12 ">
+        <div class="w-full pb-12">
+            <ul class="flex items-center h-20">
+                <div
+                    class="step0 shadow-sm h-full flex items-center justify-center p-3 rounded-full border-4 border-blue-100">
+                    Step 1
+                </div>
+                <div class="line0 flex jusify-center items-center border-4 border-blue-100 w-25">
+                </div>
+                <div
+                    class="step1 shadow-sm h-full flex items-center justify-center p-3 rounded-full border-4 border-blue-100">
+                    Step 2
+                </div>
+                <div class="line1 flex jusify-center items-center border-4 border-blue-100 w-25">
+                </div>
+                <div
+                    class="step2 shadow-sm h-full flex items-center justify-center p-3 rounded-full border-4 border-blue-100">
+                    Step 3
+                </div>
+                <div class="line2 flex jusify-center items-center border-4 border-blue-100 w-25">
+                </div>
+                <div
+                    class="step3 shadow-sm h-full flex items-center justify-center p-3 rounded-full border-4 border-blue-100">
+                    Step 4
+                </div>
+                <div class="line3 flex jusify-center items-center border-4 border-blue-100 w-25">
+                </div>
+                <div
+                    class="step4 shadow-sm h-full flex items-center justify-center p-3 rounded-full border-4 border-blue-100">
+                    Step 5
+                </div>
+                <div class="line4 flex jusify-center items-center border-4 border-blue-100 w-25">
+                </div>
+                <div
+                    class="step5 shadow-sm h-full flex items-center justify-center p-3 rounded-full border-4 border-blue-100">
+                    Step 6
+                </div>
+            </ul>
+        </div>
         <div class=" h-full w-full">
-            <form action="{{ url('/patientPage/editAdmission' . $view_first->id) }}" method="POST"
+            <form action="{{ url('/patientPage/editAdmission' . $view_first->id) }}" method="POST" class="employee-form"
                 enctype="multipart/form-data">
                 @csrf
                 <div class=" h-full w-full text-xl tracking-wider border-2 border-black font-[sans-serif]">
                     {{-- admissionformfirst_sec --}}
-                    <div class="">
+                    <div class="form-section">
                         {{-- name --}}
                         <div class="grid grid-cols-8  border-b-2 border-black h-full">
                             <div class="border-r-2 border-black col-span-5 grid grid-cols-8 content-center p-3">
@@ -143,8 +194,8 @@
                                 <p>TEL. NO.* :</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="enter cellular phone #" name="phone" maxlength="11" autocomplete="off"
-                                    value="{{ $view_first->phone }}">
+                                    placeholder="enter cellular phone #" name="phone" maxlength="11"
+                                    autocomplete="off" value="{{ $view_first->phone }}">
                                 <span class="text-base font-[sans-serif] font-medium text-red-600" autocomplete="off">
                                     @error('phone')
                                         {{ $message }}
@@ -300,7 +351,7 @@
                     </div>
 
                     {{-- admissionformsecond_sec --}}
-                    <div class="">
+                    <div class="form-section">
                         {{-- empty border --}}
                         <div class="border-b-2 border-black h-8"></div>
                         {{-- employee --}}
@@ -408,9 +459,8 @@
                         <div class="border-b-2 border-black h-8"></div>
                     </div>
 
-
                     {{-- admissionform_sec --}}
-                    <div class="">
+                    <div class="form-section">
                         {{-- Admission --}}
                         <div class="grid grid-cols-12 border-b-2 border-black h-full">
                             <div class="col-span-3 border-r-2 border-black grid gap-2 p-3">
@@ -567,7 +617,7 @@
                         </div>
                     </div>
 
-                    <div class="">
+                    <div class="form-section">
                         {{-- ssc --}}
                         <div class="grid border-b-2 border-black h-full">
                             <div class="border-black grid grid-cols-11 p-3 gap-2 content-center justify-center">
@@ -748,7 +798,7 @@
                     </div>
 
                     {{-- admissionform_sec --}}
-                    <div class="">
+                    <div class="form-section">
                         {{-- principal diagnosis --}}
                         <div class="grid grid-cols-12 border-t-0 border-b-2 border-black h-full">
                             <div class="col-span-9 border-r-2 border-black p-3 gap-2">
@@ -880,8 +930,13 @@
                     </div>
 
                 </div>
-
-                <div class="py-8 grid grid-cols-8 gap-4">
+                <div class="form-navigation py-8 grid grid-cols-8 gap-4">
+                    <button
+                        class="previous h-full col-start-5 text-2xl p-2 bg-blue-300 tracking-[2px] text-white rounded-xl transform transition hover:-translate-y-0.5 hover:bg-blue-200 shadow-md shadow-blue-200"
+                        type="button">Previous</button>
+                    <button
+                        class="next h-full col-start-6 text-2xl p-2 bg-blue-300 tracking-[2px] text-white rounded-xl transform transition hover:-translate-y-0.5 hover:bg-blue-200 shadow-md shadow-blue-200"
+                        type="button">Next</button>
                     <button
                         class="h-full col-start-7 text-2xl p-2 bg-blue-300 tracking-[2px] text-white rounded-xl transform transition hover:-translate-y-0.5 hover:bg-blue-200 shadow-md shadow-blue-200"
                         type="submit">Submit</button>
@@ -901,4 +956,5 @@
 @push('custom_scripts')
     @vite('resources/js/patientPage/birthdate.js')
     @vite('resources/js/patientPage/admission_days.js')
+    @vite('resources/js/patientPage/multi-step-form.js')
 @endpush

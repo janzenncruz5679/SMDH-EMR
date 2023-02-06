@@ -36,22 +36,27 @@ Route::middleware(['auth'])->group(function () {
 
 
     ///////////////admission patients section
-    //add data from db
+    //admission add data from db
     Route::get('/patientPage/addPatient', [PatientController::class, 'addPatient']);
     Route::post('/patientPage/admission', [PatientController::class, 'submit_admit_patient']);
 
-    // read data from db
+    //admission read data from db
     Route::get('/patientPage/admission', [PatientController::class, 'admission']);
     Route::get('/patientPage/admission/search', [PatientController::class, 'admissionSearch']);
 
     //view data from db
     Route::get('/patientPage/viewAdmission{id}', [PatientController::class, 'viewAdmission']);
 
-    //update data from db
+    //admission update data from db
     Route::get('/patientPage/updateAdmission{id}', [PatientController::class, 'updateAdmission']);
     Route::post('/patientPage/editAdmission{id}', [PatientController::class, 'editAdmission']);
 
-    ////station section
+    //admission view pdf
+    Route::get('/patientPage/viewpdfAdmission{id}', [PatientController::class, 'viewpdfAdmission']);
+
+
+
+    ////////////////////station section
     Route::get('stations/labOptions', [StationController::class, 'labOptions']);
     ////vitalsigns view
     Route::get('stations/labOptions/vitalSigns', [StationController::class, 'vitalSigns']);

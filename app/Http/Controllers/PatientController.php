@@ -11,7 +11,7 @@ use App\Models\Patient_id;
 use App\Models\Sixth_admission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Symfony\Component\Console\Input\Input;
+use PDF;
 use Carbon\Carbon;
 
 class PatientController extends Controller
@@ -20,11 +20,13 @@ class PatientController extends Controller
     {
         $patientDatas = First_admission::select('id', 'patient_id', 'first_name', 'middle_name', 'last_name', 'age', 'gender', 'phone')->paginate(18);
 
+
         // $patientDatas = collect($patientDatas)->paginate(15);
         return view('user.patientSection.admission', [
             'patientDatas' => $patientDatas,
         ]);
     }
+
     public function admissionSearch(Request $request)
     {
 
@@ -48,7 +50,6 @@ class PatientController extends Controller
     //view admission patient form
     public function viewAdmission($id)
     {
-
         $view_first = First_admission::find($id);
         $view_second = Second_admission::find($id);
         $view_third = Third_admission::find($id);
@@ -436,5 +437,40 @@ class PatientController extends Controller
         $edit_first->birthday = $request->input('birthday');
         $edit_first->save();
         return redirect('/patientPage/admission');
+    }
+
+    public function viewpdfAdmission($id)
+    {
+        // $print_firsts = First_admission::all();
+
+        // foreach ($print_firsts as $print_first) {
+        //     $admission_pdf = PDF::loadView('user.pdf.admission_details', ['print_first' => $print_first]);
+        //     return $admission_pdf->stream();
+        // }
+
+        $view_first = First_admission::find($id);
+        $view_second = Second_admission::find($id);
+        $view_third = Third_admission::find($id);
+        $view_fourth = Fourth_admission::find($id);
+        $view_fifth = Fifth_admission::find($id);
+        $view_sixth = Sixth_admission::find($id);
+        $customPaper = array(0, 0, 612, 936);
+
+        $admission_pdf = PDF::loadView('user.pdf.admission_details', [
+            'view_first' => $view_first,
+            'view_second' => $view_second,
+            'view_third' => $view_third,
+            'view_fourth' => $view_fourth,
+            'view_fifth' => $view_fifth,
+            'view_sixth' => $view_sixth,
+        ])->setPaper($customPaper);
+
+        // $output = $admission_pdf->output();
+
+        // return new Response($output, 200, [
+        //     'Content-Type' => 'application/pdf',
+        //     'Content-Disposition' =>  'inline; filename="Admission_patient_" . $view_first->patient_id . ".pdf""',
+        // ]);
+        return $admission_pdf->stream("Admission_patient_" . $view_first->patient_id . ".pdf");
     }
 }

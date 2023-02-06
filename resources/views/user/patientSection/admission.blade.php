@@ -58,6 +58,10 @@
                                             class="editIcon hover:text-blue-300">
                                             <i class="fa-solid fa-edit"></i>
                                         </a>
+                                        <a href="{{ url('/patientPage/viewpdfAdmission' . $patientData->id) }}"
+                                            class="editIcon hover:text-blue-300" target="_blank">
+                                            <i class="fa-solid fa-edit"></i>
+                                        </a>
                                     </div>
                                 </td>
                             </tr>

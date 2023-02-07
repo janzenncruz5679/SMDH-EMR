@@ -454,8 +454,6 @@ class PatientController extends Controller
         $view_fourth = Fourth_admission::find($id);
         $view_fifth = Fifth_admission::find($id);
         $view_sixth = Sixth_admission::find($id);
-        $customPaper = array(0, 0, 612, 936);
-
         $admission_pdf = PDF::loadView('user.pdf.admission_details', [
             'view_first' => $view_first,
             'view_second' => $view_second,
@@ -463,7 +461,7 @@ class PatientController extends Controller
             'view_fourth' => $view_fourth,
             'view_fifth' => $view_fifth,
             'view_sixth' => $view_sixth,
-        ])->setPaper($customPaper);
+        ])->setPaper('a4', 'portrait');
 
         // $output = $admission_pdf->output();
 

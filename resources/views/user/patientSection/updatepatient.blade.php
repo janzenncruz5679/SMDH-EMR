@@ -72,11 +72,12 @@
                             <div class="col-span-2 flex justify-center items-center border-r-2 border-black">
                                 <p class="font-bold">CLINICAL COVER SHEET</p>
                             </div>
-                            <div class="col-span-3  gap-[5px] p-3">
-                                <p>OLD HEALTH RECORD NO :</p>
+                            <div class="col-span-3 p-3">
+                                <p>Type:</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="enter old record #" autocomplete="off">
+                                    placeholder="enter old record #" name="type" value="{{ $view_first->type }}"
+                                    readonly>
                             </div>
                         </div>
 
@@ -912,22 +913,14 @@
                 </div>
                 <div class="form-navigation py-8 grid grid-cols-8 gap-4">
                     <button
-                        class="previous h-full col-start-5 text-2xl p-2 bg-blue-300 tracking-[2px] text-white rounded-xl transform transition hover:-translate-y-0.5 hover:bg-blue-200 shadow-md shadow-blue-200"
+                        class="previous h-full col-start-6 text-2xl p-2 bg-blue-300 tracking-[2px] text-white rounded-xl transform transition hover:-translate-y-0.5 hover:bg-blue-200 shadow-md shadow-blue-200"
                         type="button">Previous</button>
                     <button
-                        class="next h-full col-start-6 text-2xl p-2 bg-blue-300 tracking-[2px] text-white rounded-xl transform transition hover:-translate-y-0.5 hover:bg-blue-200 shadow-md shadow-blue-200"
+                        class="next h-full col-start-7 text-2xl p-2 bg-blue-300 tracking-[2px] text-white rounded-xl transform transition hover:-translate-y-0.5 hover:bg-blue-200 shadow-md shadow-blue-200"
                         type="button">Next</button>
                     <button
-                        class="h-full col-start-7 text-2xl p-2 bg-blue-300 tracking-[2px] text-white rounded-xl transform transition hover:-translate-y-0.5 hover:bg-blue-200 shadow-md shadow-blue-200"
+                        class="h-full col-start-8 text-2xl p-2 bg-blue-300 tracking-[2px] text-white rounded-xl transform transition hover:-translate-y-0.5 hover:bg-blue-200 shadow-md shadow-blue-200"
                         type="submit">Submit</button>
-
-                    <a class=" col-start-8 text-zinc-900 hover:text-white tracking-[2px] text-2xl font-[sans-serif]"
-                        href="">
-                        <div
-                            class=" h-full bg-blue-300 hover:bg-blue-200 p-2 text-2xl font-[sans-serif] flex items-center justify-center text-white rounded-xl shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
-                            {{ __('Print') }}
-                        </div>
-                    </a>
                 </div>
             </form>
         </div>

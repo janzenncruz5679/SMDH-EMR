@@ -36,6 +36,7 @@ class PatientController extends Controller
                 ->where(function ($q) use ($searchTerms) {
                     foreach ($searchTerms as $term) {
                         $q->orWhere('full_name', 'LIKE', '%' . $term . '%');
+                        // $q->orWhere('patient_id', $term );
                     }
                 })
                 ->paginate(18);

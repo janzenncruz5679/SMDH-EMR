@@ -27,8 +27,7 @@
         <div class="admissionDisplay w-full relative pt-4 -z-10">
             <div class="admissionSearchbar h-[7%] flex">
                 <div class="searchBar relative h-full w-[40vw] flex justify-start items-center gap-[15px]">
-                    <form action="{{ url('/patientPage/admission/search') }}" method="GET"
-                        class="flex gap-[20px] m-0 h-full items-center">
+                    <form action="" method="GET" class="flex gap-[20px] m-0 h-full items-center">
                         @csrf
                         <input type="text" placeholder="Search Patient Name" name="query"
                             class="h-12 w-[18vw] text-[1.5rem] border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 focus:outline-offset-2 rounded-[10px] px-[10px]"

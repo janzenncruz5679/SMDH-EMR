@@ -739,11 +739,19 @@
                             {{ __('Edit') }}
                         </div>
                     </a> --}}
-                    <a class=" col-end-7 text-zinc-900 hover:text-white tracking-[2px] text-2xl font-[sans-serif]"
+                    <a class=" col-end-8 text-zinc-900 hover:text-white tracking-[2px] text-2xl font-[sans-serif]"
                         href="{{ url('/patientPage/viewpdfAdmission' . $view_first->id) }}" target="_blank">
                         <div
                             class=" h-full bg-blue-300 hover:bg-blue-200 p-2 text-2xl font-[sans-serif] flex items-center justify-center text-white rounded-xl  shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
-                            {{ __('hello') }}
+                            {{ __('View PDF') }}
+                        </div>
+                    </a>
+
+                    <a class=" col-end-9 text-zinc-900 hover:text-white tracking-[2px] text-2xl font-[sans-serif]"
+                        href="{{ url('/patientPage/savepdfAdmission' . $view_first->id) }}">
+                        <div
+                            class=" h-full bg-blue-300 hover:bg-blue-200 p-2 text-2xl font-[sans-serif] flex items-center justify-center text-white rounded-xl  shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
+                            {{ __('Print') }}
                         </div>
                     </a>
                     {{-- <form action="{{ url('/patientPage/viewpdfAdmission') }}" method="POST" target="_blank"

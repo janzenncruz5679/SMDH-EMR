@@ -53,6 +53,8 @@ Route::middleware(['auth'])->group(function () {
 
     //admission view pdf
     Route::get('/patientPage/viewpdfAdmission{id}', [PatientController::class, 'viewpdfAdmission']);
+    //admission save pdf
+    Route::get('/patientPage/savepdfAdmission{id}', [PatientController::class, 'savepdfAdmission']);
 
 
 

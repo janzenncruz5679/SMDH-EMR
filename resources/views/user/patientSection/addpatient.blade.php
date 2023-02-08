@@ -556,20 +556,36 @@
                         <div class="border-b-2 border-black h-8"></div>
 
                         {{-- type of admission --}}
-                        <div class="grid grid-cols-2 border-b-2 border-black h-full">
+                        <div class="grid grid-cols-4 border-b-2 border-black h-full">
                             <div class="border-r-2 border-black p-3">
                                 <p>TYPE OF ADMISSION :</p>
-                                <input type="text"
-                                    class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="type of admission" name="admission_type" id="admission_type"
-                                    value="{{ old('admission_type') }}" autocomplete="off">
+                                <div class="w-full flex justify-start gap-10">
+                                    <div class="inline">
+                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
+                                            value="New" name="admission_type"
+                                            {{ old('admission_type') == 'New' ? 'checked' : '' }}>
+                                        <label>New</label>
+                                    </div>
+                                    <div class="inline">
+                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
+                                            value="Old" name="admission_type"
+                                            {{ old('admission_type') == 'Old' ? 'checked' : '' }}>
+                                        <label>Old</label>
+                                    </div>
+                                    <div class="inline">
+                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
+                                            value="Former OPD" name="admission_type"
+                                            {{ old('admission_type') == 'Former OPD' ? 'checked' : '' }}>
+                                        <label>Former OPD</label>
+                                    </div>
+                                </div>
                                 <span class="text-base font-[sans-serif] font-medium text-red-600">
                                     @error('admission_type')
                                         {{ $message }}
                                     @enderror
                                 </span>
                             </div>
-                            <div class="border-black p-3">
+                            <div class="col-span-3 border-black p-3">
                                 <p>REFERRED BY:</p>
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"

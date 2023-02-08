@@ -60,7 +60,7 @@
                                 <td class="flex justify-center">{{ $patientData->gender }}</td>
                                 <td class="col-span-2 flex justify-center">{{ $patientData->phone }}</td>
                                 <td class="col-span-2 flex justify-center">
-                                    <div class="grid grid-cols-2 justify-center gap-4">
+                                    <div class="grid grid-cols-3 justify-center gap-4">
                                         <a href="{{ url('/patientPage/viewAdmission' . $patientData->id) }}"
                                             class="editIcon hover:text-blue-300">
                                             <i class="fa-solid fa-eye"></i>
@@ -68,6 +68,10 @@
                                         <a href="{{ url('/patientPage/updateAdmission' . $patientData->id) }}"
                                             class="editIcon hover:text-blue-300">
                                             <i class="fa-solid fa-edit"></i>
+                                        </a>
+                                        <a href="{{ url('/patientPage/viewpdfAdmission' . $patientData->id) }}"
+                                            class="editIcon hover:text-blue-300" target="_blank">
+                                            <i class="fa-solid fa-file-pdf"></i>
                                         </a>
                                     </div>
                                 </td>

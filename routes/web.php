@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdmissionsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\EmergencyPatientController;
@@ -75,4 +76,6 @@ Route::middleware(['auth'])->group(function () {
 
     //view data from db
     Route::get('/patientPage/viewEmergency{id}', [EmergencyPatientController::class, 'viewEmergency']);
+
+    Route::resource('test-patient', AdmissionsController::class);
 });

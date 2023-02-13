@@ -77,5 +77,16 @@ Route::middleware(['auth'])->group(function () {
     //view data from db
     Route::get('/patientPage/viewEmergency{id}', [EmergencyPatientController::class, 'viewEmergency']);
 
+
+    ////////vitalSigns_add
+    Route::get('/records/addVitals', [StationController::class, 'addVitals'])->name('addVitals');
+    Route::post('/records/addVitals', [StationController::class, 'submit_addVitals'])->name('submitVitals');
+    Route::get('/records/vitalSigns', [StationController::class, 'vitalSigns'])->name('vitalSigns');
+    Route::get('/records/viewVitals{id}', [StationController::class, 'viewVitalSigns'])->name('viewVitals');
+
+    //admission update data from db
+    Route::get('/records/updateVitals{id}', [StationController::class, 'updateVitals'])->name('updateVitals');
+    Route::post('/records/editVitals{id}', [StationController::class, 'editVitals']);
+
     Route::resource('test-patient', AdmissionsController::class);
 });

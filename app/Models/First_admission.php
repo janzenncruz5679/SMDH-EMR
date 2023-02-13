@@ -59,10 +59,10 @@ class First_admission extends Model
     }
 
     //for real
-    public function admission_two()
-    {
-        return $this->hasOne(Second_admission::class, 'record_id');
-    }
+    // public function admission_two()
+    // {
+    //     return $this->hasOne(Second_admission::class, 'record_id');
+    // }
 
     public function patient_id_table()
     {
@@ -75,28 +75,28 @@ class First_admission extends Model
     // }
 
     //for testing
-    // public function admission_two()
-    // {
-    //     return $this->hasOne(Second_admission::class, 'record_id');
-    // }
+    public function admission_two()
+    {
+        return $this->hasOne(Second_admission::class, 'record_id');
+    }
 
-    // public function admission_three()
-    // {
-    //     return $this->hasOne(Third_admission::class, 'record_id');
-    // }
+    public function admission_three()
+    {
+        return $this->hasOne(Third_admission::class, 'record_id');
+    }
 
-    // public function admission_four()
-    // {
-    //     return $this->hasOne(Fourth_admission::class, 'record_id');
-    // }
+    public function admission_four()
+    {
+        return $this->hasOne(Fourth_admission::class, 'record_id');
+    }
 
-    // public function admission_five()
-    // {
-    //     return $this->hasOne(Fifth_admission::class, 'record_id');
-    // }
+    public function admission_five()
+    {
+        return $this->hasOne(Fifth_admission::class, 'record_id');
+    }
 
-    // public function admission_six()
-    // {
-    //     return $this->hasOne(Sixth_admission::class, 'record_id');
-    // }
+    public function admission_six()
+    {
+        return $this->hasOne(Sixth_admission::class, 'record_id');
+    }
 }

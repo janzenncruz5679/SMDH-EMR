@@ -13,9 +13,7 @@ class AdmissionsController
 {
     public function __construct(
         private Actions\Store $storeAdmission,
-    )
-    {
-
+    ) {
     }
 
     public function index()

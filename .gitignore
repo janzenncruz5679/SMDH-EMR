@@ -22,4 +22,5 @@ yarn-error.log
 public/assets/css
 public/assets/js
 public/assets
-
+composer.lock
+package-lock.json

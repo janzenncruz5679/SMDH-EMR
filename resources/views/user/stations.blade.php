@@ -16,8 +16,6 @@
                         </div>
                     </div>
                 </a>
-
-
                 <a class="col-span-2 grid items-start p-6 text-zinc-900 hover:text-white bg-blue-100 hover:bg-blue-300 rounded-3xl shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition"
                     href="{{ url('stations/labOptions') }}">
                     <div class="grid gap-3">

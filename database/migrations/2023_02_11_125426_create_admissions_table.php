@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -22,7 +23,7 @@ return new class extends Migration {
 
             $table->dateTime('admission_start');
             $table->dateTime('admission_end');
-            $table->string('admission_start_end_diff',255);
+            $table->string('admission_start_end_diff', 255);
 
             $table->string('physician', 255);
             $table->string('admitting_clerk', 255);
@@ -40,6 +41,7 @@ return new class extends Migration {
 
             $table->string('idc_code')->nullable();
             $table->string('icpm_code')->nullable();
+
 
             $table->timestamps();
         });

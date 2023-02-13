@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\First_admission;
+use App\Models\Patient_id;
 use App\Models\Second_admission;
 use Illuminate\Http\Request;
 
@@ -10,7 +11,9 @@ class TestingController extends Controller
 {
     public function index()
     {
-        $patients_Dummy = First_admission::create([
+        $patients_base = Patient_id::create();
+        $patients_Dummy = $patients_base->admission_table()->create([
+            'patient_id' => $patients_base->id,
             'address' => 'Mahogany lane, Ylang Ylang Homes Phase 2 Tabang Guiguinto Bulacan',
             'sr_no' => '254789',
             'last_name' => 'Dela Cruz',
@@ -58,7 +61,7 @@ class TestingController extends Controller
             'total_days' => '1 days, 23 hours, 59 minutes',
             'admitting_physician' => 'Dr. Sven Doe',
             'admitting_clerk' => 'Nurse Crystal Maiden Doe',
-            'admission_type' => 'Onsite',
+            'admission_type' => 'Former OPD',
             'referred_by' => 'Nurse Crystal Maiden Doe',
         ]);
 
@@ -71,6 +74,7 @@ class TestingController extends Controller
             'coverage_insurance' => 'Full Coverage',
             'furnished_by' => 'Mary Winowa Doe',
             'relation_to_patient' => 'Sister',
+            'informant_address' => 'Meycauyan Bulacan'
         ]);
 
         $patients_Dummy_six = $patients_Dummy->admission_six()->create([
@@ -84,6 +88,6 @@ class TestingController extends Controller
             'icpm_code' => '845874356415694',
         ]);
 
-        dd($patients_Dummy, $patients_Dummy_two, $patients_Dummy_three, $patients_Dummy_four, $patients_Dummy_five, $patients_Dummy_six);
+        dd($patients_base, $patients_Dummy, $patients_Dummy_two, $patients_Dummy_three, $patients_Dummy_four, $patients_Dummy_five, $patients_Dummy_six);
     }
 }

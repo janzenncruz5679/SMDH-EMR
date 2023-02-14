@@ -1141,7 +1141,7 @@
         PERMANENT ADDRESS:
     </div>
     <div class="perma_address_value">
-        {{ $view_second->perma_address }}
+        {{ $view_first->perma_address }}
     </div>
     <div class="tel_no">
         TEL. NO.:
@@ -1171,7 +1171,7 @@
     </div>
     <div class="civil_single">
         <input class="" type="checkbox" value="Single" name="gender"
-            {{ $view_second->civil_status == 'Single' ? 'checked' : 'disabled' }}>
+            {{ $view_first->civil_status == 'Single' ? 'checked' : 'disabled' }}>
     </div>
     <div class="civil_single_label">
         S
@@ -1179,7 +1179,7 @@
 
     <div class="civil_divorced">
         <input class="" type="checkbox" value="Divorced" name="gender"
-            {{ $view_second->civil_status == 'Divorced' ? 'checked' : 'disabled' }}>
+            {{ $view_first->civil_status == 'Divorced' ? 'checked' : 'disabled' }}>
     </div>
     <div class="civil_divorced_label">
         D
@@ -1187,7 +1187,7 @@
 
     <div class="civil_separated">
         <input class="" type="checkbox" value="Separated" name="gender"
-            {{ $view_second->civil_status == 'Separated' ? 'checked' : 'disabled' }}>
+            {{ $view_first->civil_status == 'Separated' ? 'checked' : 'disabled' }}>
     </div>
     <div class="civil_separated_label">
         SEP
@@ -1195,7 +1195,7 @@
 
     <div class="civil_commonlaw">
         <input class="" type="checkbox" value="Common Law" name="gender"
-            {{ $view_second->civil_status == 'Common Law' ? 'checked' : 'disabled' }}>
+            {{ $view_first->civil_status == 'Common Law' ? 'checked' : 'disabled' }}>
     </div>
     <div class="civil_commonlaw_label">
         C
@@ -1203,7 +1203,7 @@
 
     <div class="civil_widowed">
         <input class="" type="checkbox" value="Widowed" name="gender"
-            {{ $view_second->civil_status == 'Widowed' ? 'checked' : 'disabled' }}>
+            {{ $view_first->civil_status == 'Widowed' ? 'checked' : 'disabled' }}>
     </div>
     <div class="civil_widowed_label">
         W
@@ -1211,7 +1211,7 @@
 
     <div class="civil_married">
         <input class="" type="checkbox" value="Married" name="gender"
-            {{ $view_second->civil_status == 'Married' ? 'checked' : 'disabled' }}>
+            {{ $view_first->civil_status == 'Married' ? 'checked' : 'disabled' }}>
     </div>
     <div class="civil_married_label">
         M
@@ -1219,7 +1219,7 @@
 
     <div class="civil_neutral">
         <input class="" type="checkbox" value="Neutral" name="gender"
-            {{ $view_second->civil_status == 'Neutral' ? 'checked' : 'disabled' }}>
+            {{ $view_first->civil_status == 'Neutral' ? 'checked' : 'disabled' }}>
     </div>
     <div class="civil_neutral_label">
         N
@@ -1243,154 +1243,154 @@
         BIRTHPLACE:
     </div>
     <div class="birthplace_value">
-        {{ $view_second->birthplace }}
+        {{ $view_first->birthplace }}
     </div>
 
     <div class="nationality">
         NATIONALITY:
     </div>
     <div class="nationality_value">
-        {{ $view_second->nationality }}
+        {{ $view_first->nationality }}
     </div>
 
     <div class="religion">
         RELIGION:
     </div>
     <div class="religion_value">
-        {{ $view_second->religion }}
+        {{ $view_first->religion }}
     </div>
 
     <div class="occupation">
         OCCUPATION:
     </div>
     <div class="occupation_value">
-        {{ $view_second->occupation }}
+        {{ $view_first->occupation }}
     </div>
 
     <div class="employer_name">
         EMPLOYER(type of Business):
     </div>
     <div class="employer_name_value">
-        {{ $view_third->employer_name ?? '' }}
+        {{ $view_second->person_of_contact['employer']['name'] ?? '' }}
     </div>
     <div class="employer_address">
         ADDRESS:
     </div>
     <div class="employer_address_value">
-        {{ $view_third->employer_address ?? '' }}
+        {{ $view_second->person_of_contact['employer']['address'] ?? '' }}
     </div>
 
     <div class="employer_phone">
         TEL.NO.:
     </div>
     <div class="employer_phone_value">
-        {{ $view_third->employer_phone ?? '' }}
+        {{ $view_second->person_of_contact['employer']['contact'] ?? '' }}
     </div>
 
     <div class="father_name">
         FATHER'S NAME:
     </div>
     <div class="father_name_value">
-        {{ $view_third->father_name ?? '' }}
+        {{ $view_second->person_of_contact['father']['name'] ?? '' }}
     </div>
 
     <div class="father_address">
         ADDRESS:
     </div>
     <div class="father_address_value">
-        {{ $view_third->father_address ?? '' }}
+        {{ $view_second->person_of_contact['father']['address'] ?? '' }}
     </div>
 
     <div class="father_phone">
         TEL.NO.:
     </div>
     <div class="father_phone_value">
-        {{ $view_third->father_phone ?? '' }}
+        {{ $view_second->person_of_contact['father']['contact'] ?? '' }}
     </div>
 
     <div class="mother_maiden_name">
         MOTHER'S(MAIDEN) NAME:
     </div>
     <div class="mother_maiden_name_value">
-        {{ $view_third->mother_maiden_name ?? '' }}
+        {{ $view_second->person_of_contact['mother']['name'] ?? '' }}
     </div>
 
     <div class="mother_address">
         ADDRESS:
     </div>
     <div class="mother_address_value">
-        {{ $view_third->mother_address ?? '' }}
+        {{ $view_second->person_of_contact['mother']['address'] ?? '' }}
     </div>
 
     <div class="mother_phone">
         TEL.NO.:
     </div>
     <div class="mother_phone_value">
-        {{ $view_third->mother_phone ?? '' }}
+        {{ $view_second->person_of_contact['mother']['contact'] ?? '' }}
     </div>
 
     <div class="spouse_name">
         SPOUSE NAME:
     </div>
     <div class="spouse_name_value">
-        {{ $view_third->spouse_name ?? '' }}
+        {{ $view_second->person_of_contact['spouse']['name'] ?? '' }}
     </div>
 
     <div class="spouse_address">
         ADDRESS:
     </div>
     <div class="spouse_address_value">
-        {{ $view_third->spouse_address ?? '' }}
+        {{ $view_second->person_of_contact['spouse']['address'] ?? '' }}
     </div>
 
     <div class="spouse_phone">
         TEL.NO.:
     </div>
     <div class="spouse_phone_value">
-        {{ $view_third->spouse_phone ?? '' }}
+        {{ $view_second->person_of_contact['spouse']['contact'] ?? '' }}
     </div>
 
     <div class="admission">
         ADMISSION:
     </div>
     <div class="admission_start_date">
-        DATE: {{ $view_fourth->start_date }}
+        DATE: {{ $view_second->admission_start['start_date'] }}
     </div>
 
     <div class="admission_start_time">
-        TIME: {{ $view_fourth->start_time }}
+        TIME: {{ $view_second->admission_start['start_time'] }}
     </div>
 
     <div class="discharge">
         DISCHARGE:
     </div>
     <div class="discharge_end_date">
-        DATE: {{ $view_fourth->end_date }}
+        DATE: {{ $view_second->admission_end['end_date'] }}
     </div>
 
     <div class="discharge_end_time">
-        TIME: {{ $view_fourth->end_time }}
+        TIME: {{ $view_second->admission_end['end_time'] }}
     </div>
 
     <div class="total_days">
         TOTAL NO. OF DAYS:
     </div>
     <div class="total_days_value">
-        {{ $view_fourth->total_days }}
+        {{ $view_second->admission_diff }}
     </div>
 
     <div class="admitting_physician">
         ADMITTING PHYSICIAN:
     </div>
     <div class="admitting_physician_value">
-        {{ $view_fourth->admitting_physician }}
+        {{ $view_second->admitting_personel['admitting_physician'] }}
     </div>
 
     <div class="admitting_clerk">
         ADMITTING CLERK:
     </div>
     <div class="admitting_clerk_value">
-        {{ $view_fourth->admitting_clerk }}
+        {{ $view_second->admitting_personel['admitting_clerk'] }}
     </div>
 
     <div class="attending_physician">
@@ -1402,7 +1402,7 @@
     </div>
     <div class="toa_new">
         <input class="" type="checkbox" value="New" name="admission_type"
-            {{ $view_fourth->admission_type == 'New' ? 'checked' : 'disabled' }}>
+            {{ $view_second->type_of_admission == 'New' ? 'checked' : 'disabled' }}>
     </div>
     <div class="toa_new_label">
         New
@@ -1410,7 +1410,7 @@
 
     <div class="toa_old">
         <input class="" type="checkbox" value="Old" name="admission_type"
-            {{ $view_fourth->admission_type == 'Old' ? 'checked' : 'disabled' }}>
+            {{ $view_second->type_of_admission == 'Old' ? 'checked' : 'disabled' }}>
     </div>
     <div class="toa_old_label">
         Old
@@ -1418,7 +1418,7 @@
 
     <div class="toa_former">
         <input class="" type="checkbox" value="Former OPD" name="admission_type"
-            {{ $view_fourth->admission_type == 'Former OPD' ? 'checked' : 'disabled' }}>
+            {{ $view_second->type_of_admission == 'Former OPD' ? 'checked' : 'disabled' }}>
     </div>
     <div class="toa_former_label">
         Former OPD
@@ -1428,7 +1428,7 @@
         REFERRED BY:
     </div>
     <div class="referred_by_value">
-        {{ $view_fourth->referred_by }}
+        {{ $view_second->admitting_personel['referred_by'] }}
     </div>
 
     <div class="ssc">
@@ -1437,7 +1437,7 @@
 
     <div class="ssc_a">
         <input class="" type="checkbox" value="a" name="ssc"
-            {{ $view_fifth->ssc == 'a' ? 'checked' : 'disabled' }}>
+            {{ $view_second->ssc == 'a' ? 'checked' : 'disabled' }}>
     </div>
     <div class="ssc_a_label">
         A
@@ -1445,7 +1445,7 @@
 
     <div class="ssc_b">
         <input class="" type="checkbox" value="b" name="ssc"
-            {{ $view_fifth->ssc == 'b' ? 'checked' : 'disabled' }}>
+            {{ $view_second->ssc == 'b' ? 'checked' : 'disabled' }}>
     </div>
     <div class="ssc_b_label">
         B
@@ -1453,21 +1453,21 @@
 
     <div class="ssc_c_one">
         <input class="" type="checkbox" value="c_one" name="ssc"
-            {{ $view_fifth->ssc == 'c_one' ? 'checked' : 'disabled' }}>
+            {{ $view_second->ssc == 'c_one' ? 'checked' : 'disabled' }}>
     </div>
     <div class="ssc_c_one_label">
         C1
     </div>
     <div class="ssc_c_two">
         <input class="" type="checkbox" value="c_two" name="ssc"
-            {{ $view_fifth->ssc == 'c_two' ? 'checked' : 'disabled' }}>
+            {{ $view_second->ssc == 'c_two' ? 'checked' : 'disabled' }}>
     </div>
     <div class="ssc_c_two_label">
         C2
     </div>
     <div class="ssc_c_three">
         <input class="" type="checkbox" value="c_three" name="ssc"
-            {{ $view_fifth->ssc == 'c_three' ? 'checked' : 'disabled' }}>
+            {{ $view_second->ssc == 'c_three' ? 'checked' : 'disabled' }}>
     </div>
     <div class="ssc_c_three_label">
         C3
@@ -1475,7 +1475,7 @@
 
     <div class="ssc_d">
         <input class="" type="checkbox" value="d" name="ssc"
-            {{ $view_fifth->ssc == 'd' ? 'checked' : 'disabled' }}>
+            {{ $view_second->ssc == 'd' ? 'checked' : 'disabled' }}>
     </div>
     <div class="ssc_d_label">
         D
@@ -1485,7 +1485,7 @@
         ALLERGIC TO
     </div>
     <div class="alert_allergic_value">
-        {{ $view_fifth->alert_allergic }}
+        {{ $view_second->allergic }}
     </div>
 
     <div class="hosp_plan">
@@ -1493,7 +1493,7 @@
         COMPANY/INDUSTRIAL NAME
     </div>
     <div class="hosp_plan_value">
-        {{ $view_fifth->hospitalization_plan }}
+        {{ $view_second->insurance['hospitalization_plan'] }}
     </div>
 
     <div class="health_insurance">
@@ -1501,7 +1501,7 @@
         INSURANCE NAME:
     </div>
     <div class="health_insurance_value">
-        {{ $view_fifth->health_insurance }}
+        {{ $view_second->insurance['health_insurance'] }}
     </div>
 
     <div class="toi">
@@ -1509,77 +1509,77 @@
         COVERAGE:
     </div>
     <div class="toi_value">
-        {{ $view_fifth->coverage_insurance }}
+        {{ $view_second->insurance['coverage_insurance'] }}
     </div>
 
     <div class="data_furnished">
         DATA FURNISHED BY: (signature over printed name)
     </div>
     <div class="data_furnished_value">
-        {{ $view_fifth->furnished_by }}
+        {{ $view_second->insurance['furnished_by'] }}
     </div>
 
     <div class="address_informant">
         ADDRESS OF INFORMANT
     </div>
     <div class="address_informant_value">
-        {{ $view_fifth->informant_address }}
+        {{ $view_second->insurance['informant_address'] }}
     </div>
 
     <div class="rtp">
         RELATION TO PATIENT
     </div>
     <div class="rtp_value">
-        {{ $view_fifth->relation_to_patient }}
+        {{ $view_second->insurance['relation_to_patient'] }}
     </div>
 
     <div class="admission_diagnosis">
         ADMISSION DIAGNOSIS:
     </div>
     <div class="admission_diagnosis_value">
-        {{ $view_sixth->admission_diagnosis }}
+        {{ $view_second->diagnosis['admission_diagnosis'] }}
     </div>
 
     <div class="principal_diagnosis">
         PRINCIPAL DIAGNOSIS:
     </div>
     <div class="principal_diagnosis_value">
-        {{ $view_sixth->principal_diagnosis }}
+        {{ $view_second->diagnosis['principal_diagnosis'] }}
     </div>
 
     <div class="other_diagnosis">
         OTHER DIAGNOSIS:
     </div>
     <div class="other_diagnosis_value">
-        {{ $view_sixth->other_diagnosis }}
+        {{ $view_second->diagnosis['other_diagnosis'] }}
     </div>
 
     <div class="idc_code">
         IDC CODE:
     </div>
     <div class="idc_code_value">
-        {{ $view_sixth->idc_code }}
+        {{ $view_second->idc_code }}
     </div>
 
     <div class="principal_operation">
         PRINCIPAL OPERATION PROCEDURE:
     </div>
     <div class="principal_operation_value">
-        {{ $view_sixth->principal_operation }}
+        {{ $view_second->other_opt['principal_operation'] }}
     </div>
 
     <div class="other_operation">
         OTHER OPERATION PROCEDURE:
     </div>
     <div class="other_operation_value">
-        {{ $view_sixth->other_operation }}
+        {{ $view_second->other_opt['other_operation'] }}
     </div>
 
     <div class="icpm_code">
         ICPM CODE:
     </div>
     <div class="icpm_code_value">
-        {{ $view_sixth->icpm_code }}
+        {{ $view_second->icpm_code }}
     </div>
 
     <div class="created_at">

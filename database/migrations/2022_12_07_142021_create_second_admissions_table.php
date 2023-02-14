@@ -15,18 +15,25 @@ return new class extends Migration
     {
         Schema::create('second_admissions', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('record_id')->unsigned();
-            $table->string('perma_address')->nullable();
-            $table->string('civil_status')->nullable();
-            $table->string('birthplace')->nullable();
-            $table->string('nationality')->nullable();
-            $table->string('religion')->nullable();
-            $table->string('occupation')->nullable();
+            $table->unsignedBigInteger('record_id');
+            $table->foreign('record_id')->references('id')->on('first_admissions');
+
+            $table->longText('person_of_contact')->nullable();
+            $table->longText('admitting_personel')->nullable();
+            $table->longText('admission_start')->nullable();
+            $table->longText('admission_end')->nullable();
+            $table->string('admission_diff')->nullable();
+            $table->string('type_of_admission')->nullable();
+            $table->string('allergic')->nullable();
+
+            $table->string('ssc')->nullable();
+            $table->longText('insurance')->nullable();
+            $table->longText('diagnosis')->nullable();
+            $table->string('idc_code')->nullable();
+            $table->longText('other_opt')->nullable();
+            $table->string('icpm_code')->nullable();
+
             $table->timestamps();
-            $table->foreign('record_id')
-                ->references('id')
-                ->on('first_admissions')
-                ->onDelete('cascade');
         });
     }
 

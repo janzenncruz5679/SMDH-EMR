@@ -10,28 +10,29 @@ class First_admission extends Model
     use HasFactory;
     protected $table = "first_admissions";
     protected $fillable = [
-        'address',
-        'sr_no',
         'full_name',
         'last_name',
-        'first_name',
         'middle_name',
-        'type',
-        'birthday',
+        'first_name',
+        'address',
         'ward_room_bed_service',
-        'age',
+        'perma_address',
+        'sr_no',
         'gender',
         'phone',
+        'civil_status',
+        'birthday',
+        'age',
+        'birthplace',
+        'nationality',
+        'religion',
+        'occupation',
+        'type',
     ];
 
-    // public function toSearchableArray()
-    // {
-    //     $search = $this->with('first_admissions')
-    //         ->where('id', '=', $this->id)
-    //         ->first()
-    //         ->toArray();
-    //     return $search;
-    // }
+    protected $guarded = [];
+
+    protected $hidden = [];
 
     //combine first middle and last name using accessor and mutators
     public function setFirstNameAttribute($value)

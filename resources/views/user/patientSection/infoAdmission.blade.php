@@ -34,8 +34,8 @@
                                 <p>HEALTH RECORD NO :</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
-                                    placeholder="enter latest record #" autocomplete="off" value="{{ $view_first->id }}"
-                                    readonly>
+                                    placeholder="enter latest record #" autocomplete="off"
+                                    value="{{ $view_first->patient_id }}" readonly>
 
                             </div>
                         </div>
@@ -48,17 +48,18 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="sr_no" autocomplete="off"
-                                    value="{{ $view_first->sr_no ?? 'N/A' }}" readonly>
+                                    value="{{ $view_first->sr_no ?? '' }}" readonly>
 
                             </div>
                             <div class="col-span-2 flex justify-center items-center border-r-2 border-black">
                                 <p class="font-bold">CLINICAL COVER SHEET</p>
                             </div>
-                            <div class="col-span-3  gap-[5px] p-3">
-                                <p>OLD HEALTH RECORD NO :</p>
+                            <div class="col-span-3 p-3">
+                                <p>Type:</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
-                                    placeholder="enter old record #" autocomplete="off" readonly>
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="enter old record #" name="type" value="{{ $view_first->type }}"
+                                    readonly>
                             </div>
                         </div>
 
@@ -76,7 +77,7 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="last name" name="last_name" autocomplete="off"
-                                    value="{{ $view_first->last_name ?? 'N/A' }}" readonly>
+                                    value="{{ $view_first->last_name }}" readonly>
 
                             </div>
                             <div class="col-span-3 border-r-2 border-black p-3">
@@ -84,7 +85,7 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="given name" name="first_name" autocomplete="off"
-                                    value="{{ $view_first->first_name ?? 'N/A' }}" readonly>
+                                    value="{{ $view_first->first_name }}" readonly>
 
                             </div>
                             <div class="col-span-3 border-r-2 border-black p-3">
@@ -92,7 +93,7 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="middle_name" autocomplete="off"
-                                    value="{{ $view_first->middle_name ?? 'N/A' }}" readonly>
+                                    value="{{ $view_first->middle_name }}" readonly>
                             </div>
                             <div class="col-span-3 border-black p-3">
                                 <p>WARD/ROOM/BED/SERVICE* :</p>
@@ -115,7 +116,7 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="enter permanent address" name="perma_address"
-                                    value="{{ $view_second->perma_address ?? 'None' }}" readonly>
+                                    value="{{ $view_first->perma_address ?? '' }}" readonly>
 
                             </div>
                             <div class="col-span-2 border-r-2 border-black p-3">
@@ -148,43 +149,43 @@
                                     <div class="inline">
                                         <input class="scale-150 cursor-auto accent-blue-300" type="radio"
                                             value="Single" name="civil_status"
-                                            {{ $view_second->civil_status == 'Single' ? 'checked' : 'disabled' }}>
+                                            {{ $view_first->civil_status == 'Single' ? 'checked' : 'disabled' }}>
                                         <label>S</label>
                                     </div>
                                     <div class="inline">
                                         <input class="scale-150 cursor-auto accent-blue-300" type="radio"
                                             value="Divorced" name="civil_status"
-                                            {{ $view_second->civil_status == 'Divorced' ? 'checked' : 'disabled' }}>
+                                            {{ $view_first->civil_status == 'Divorced' ? 'checked' : 'disabled' }}>
                                         <label>D</label>
                                     </div>
                                     <div class="col-span-2 inline">
                                         <input class="scale-150 cursor-auto accent-blue-300" type="radio"
                                             value="Separated" name="civil_status"
-                                            {{ $view_second->civil_status == 'Separated' ? 'checked' : 'disabled' }}>
+                                            {{ $view_first->civil_status == 'Separated' ? 'checked' : 'disabled' }}>
                                         <label>SEP</label>
                                     </div>
                                     <div class="col-span-2 inline">
                                         <input class="scale-150 cursor-auto accent-blue-300" type="radio"
                                             value="Common Law" name="civil_status"
-                                            {{ $view_second->civil_status == 'Common Law' ? 'checked' : 'disabled' }}>
+                                            {{ $view_first->civil_status == 'Common Law' ? 'checked' : 'disabled' }}>
                                         <label>C</label>
                                     </div>
                                     <div class="col-span-2 inline">
                                         <input class="scale-150 cursor-auto accent-blue-300" type="radio"
                                             value="Widowed" name="civil_status"
-                                            {{ $view_second->civil_status == 'Widowed' ? 'checked' : 'disabled' }}>
+                                            {{ $view_first->civil_status == 'Widowed' ? 'checked' : 'disabled' }}>
                                         <label>W</label>
                                     </div>
                                     <div class="col-span-2 inline">
                                         <input class="scale-150 cursor-auto accent-blue-300" type="radio"
                                             value="Married" name="civil_status"
-                                            {{ $view_second->civil_status == 'Married' ? 'checked' : 'disabled' }}>
+                                            {{ $view_first->civil_status == 'Married' ? 'checked' : 'disabled' }}>
                                         <label>M</label>
                                     </div>
                                     <div class="col-span-2 inline">
                                         <input class="scale-150 cursor-auto accent-blue-300" type="radio"
                                             value="Neutral" name="civil_status"
-                                            {{ $view_second->civil_status == 'Neutral' ? 'checked' : 'disabled' }}>
+                                            {{ $view_first->civil_status == 'Neutral' ? 'checked' : 'disabled' }}>
                                         <label>N</label>
                                     </div>
                                 </div>
@@ -216,28 +217,28 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="birthplace" name="birthplace" autocomplete="off"
-                                    value="{{ $view_second->birthplace }}" readonly>
+                                    value="{{ $view_first->birthplace }}" readonly>
                             </div>
                             <div class="col-span-2 border-r-2 border-black p-3">
                                 <p>NATIONALITY* :</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="nationality" name="nationality" autocomplete="off"
-                                    value="{{ $view_second->nationality }}" readonly>
+                                    value="{{ $view_first->nationality }}" readonly>
                             </div>
                             <div class="col-span-2 border-r-2 border-black p-3">
                                 <p>RELIGION* :</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="religion" name="religion" autocomplete="off"
-                                    value="{{ $view_second->religion }}" readonly>
+                                    value="{{ $view_first->religion }}" readonly>
                             </div>
                             <div class="col-span-2 border-black p-3">
                                 <p>OCCUPATION :</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="occupation" autocomplete="off"
-                                    value="{{ $view_second->occupation ?? 'N/A' }}" readonly>
+                                    value="{{ $view_first->occupation ?? 'Unemployed' }}" readonly>
                             </div>
                         </div>
                     </div>
@@ -253,21 +254,21 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="employer_name" autocomplete="off"
-                                    value="{{ $view_third->employer_name ?? '' }}" readonly>
+                                    value="{{ $view_second->person_of_contact['employer']['name'] ?? '' }}" readonly>
                             </div>
                             <div class="col-span-3 border-r-2 border-black flex flex-col items-center p-3">
                                 <p>ADDRESS</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="employer_address" autocomplete="off"
-                                    value="{{ $view_third->employer_address ?? 'N/A' }}" readonly>
+                                    value="{{ $view_second->person_of_contact['employer']['address'] ?? '' }}" readonly>
                             </div>
                             <div class="col-span-3 border-black flex flex-col items-center p-3">
                                 <p>TEL. NO.</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="employer_phone" autocomplete="off"
-                                    value="{{ $view_third->employer_phone ?? 'N/A' }}" readonly>
+                                    value="{{ $view_second->person_of_contact['employer']['contact'] ?? '' }}" readonly>
                             </div>
                         </div>
 
@@ -278,14 +279,14 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="father_name" autocomplete="off"
-                                    value="{{ $view_third->father_name ?? 'N/A' }}" readonly>
+                                    value="{{ $view_second->person_of_contact['father']['name'] ?? '' }}" readonly>
                             </div>
                             <div class="col-span-3 border-r-2 border-black flex flex-col items-center p-3">
                                 <p>ADDRESS</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="father_address" autocomplete="off"
-                                    value="{{ $view_third->father_address ?? 'N/A' }}" readonly>
+                                    value="{{ $view_second->person_of_contact['father']['address'] ?? '' }}" readonly>
                             </div>
                             <div
                                 class="col-span-3
@@ -294,7 +295,7 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="father_phone" autocomplete="off"
-                                    value="{{ $view_third->father_phone ?? 'N/A' }}" readonly>
+                                    value="{{ $view_second->person_of_contact['father']['contact'] ?? '' }}" readonly>
                             </div>
                         </div>
 
@@ -305,21 +306,21 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="mother_maiden_name" autocomplete="off"
-                                    value="{{ $view_third->mother_maiden_name ?? 'N/A' }}" readonly>
+                                    value="{{ $view_second->person_of_contact['mother']['name'] ?? '' }}" readonly>
                             </div>
                             <div class="col-span-3 border-r-2 border-black flex flex-col items-center p-3">
                                 <p>ADDRESS</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="mother_address" autocomplete="off"
-                                    value="{{ $view_third->mother_address ?? 'N/A' }}" readonly>
+                                    value="{{ $view_second->person_of_contact['mother']['address'] ?? '' }}" readonly>
                             </div>
                             <div class="col-span-3 border-black flex flex-col items-center p-3">
                                 <p>TEL. NO.</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="mother_phone" autocomplete="off"
-                                    value="{{ $view_third->mother_phone ?? 'N/A' }}" readonly>
+                                    value="{{ $view_second->person_of_contact['mother']['contact'] ?? '' }}" readonly>
                             </div>
                         </div>
 
@@ -330,21 +331,21 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="spouse_name" autocomplete="off"
-                                    value="{{ $view_third->spouse_name ?? 'N/A' }}" readonly>
+                                    value="{{ $view_second->person_of_contact['spouse']['name'] ?? '' }}" readonly>
                             </div>
                             <div class="col-span-3 border-r-2 border-black flex flex-col items-center p-3">
                                 <p>ADDRESS</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="spouse_address" autocomplete="off"
-                                    value="{{ $view_third->spouse_address ?? 'N/A' }}" readonly>
+                                    value="{{ $view_second->person_of_contact['spouse']['address'] ?? '' }}" readonly>
                             </div>
                             <div class="col-span-3 border-black flex flex-col items-center p-3">
                                 <p>TEL. NO.</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="spouse_phone" autocomplete="off"
-                                    value="{{ $view_third->spouse_phone ?? 'N/A' }}" readonly>
+                                    value="{{ $view_second->person_of_contact['spouse']['contact'] ?? '' }}" readonly>
                             </div>
                         </div>
                         {{-- empty border --}}
@@ -366,7 +367,7 @@
                                                 <input type="date"
                                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                                     name="start_date" id="start_date"
-                                                    value="{{ $view_fourth->start_date }}" readonly>
+                                                    value="{{ $view_second->admission_start['start_date'] }}" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -377,7 +378,7 @@
                                                 <input type="time"
                                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                                     name="start_time" id="start_time"
-                                                    value="{{ $view_fourth->start_time }}" readonly>
+                                                    value="{{ $view_second->admission_start['start_time'] }}" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -392,8 +393,8 @@
                                             <div class="col-span-3">
                                                 <input type="date"
                                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
-                                                    name="end_date" id="end_date" value="{{ $view_fourth->end_date }}"
-                                                    readonly>
+                                                    name="end_date" id="end_date"
+                                                    value="{{ $view_second->admission_end['end_date'] }}" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -403,8 +404,8 @@
                                             <div class="col-span-3">
                                                 <input type="time"
                                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
-                                                    name="end_time" id="end_time" value="{{ $view_fourth->end_time }}"
-                                                    readonly>
+                                                    name="end_time" id="end_time"
+                                                    value="{{ $view_second->admission_end['end_time'] }}" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -415,14 +416,14 @@
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="# of days" name="total_days" id="total_days"
-                                    value="{{ $view_fourth->total_days }}" readonly>
+                                    value="{{ $view_second->admission_diff }}" readonly>
                             </div>
                             <div class="col-span-3 border-black p-3">
                                 <p>ADMITTING PHYSICIAN:</p>
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="name of physician" name="admitting_physician" id="admitting_physician"
-                                    value="{{ $view_fourth->admitting_physician }}" readonly>
+                                    value="{{ $view_second->admitting_personel['admitting_physician'] }}" readonly>
                             </div>
                         </div>
 
@@ -436,7 +437,8 @@
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="admitting_clerk" id="admitting_clerk"
-                                    value="{{ $view_fourth->admitting_clerk }}" autocomplete="off" readonly>
+                                    value="{{ $view_second->admitting_personel['admitting_clerk'] }}" autocomplete="off"
+                                    readonly>
                             </div>
                             <div class="border-black p-3">
                                 <p>ATTENDING PHYSICIAN SIGNATURE:</p>
@@ -454,19 +456,19 @@
                                     <div class="inline">
                                         <input class="scale-150 cursor-auto accent-blue-300" type="radio"
                                             value="New" name="admission_type"
-                                            {{ $view_fourth->admission_type == 'New' ? 'checked' : 'disabled' }}>
+                                            {{ $view_second->type_of_admission == 'New' ? 'checked' : 'disabled' }}>
                                         <label>New</label>
                                     </div>
                                     <div class="inline">
                                         <input class="scale-150 cursor-auto accent-blue-300" type="radio"
                                             value="Old" name="admission_type"
-                                            {{ $view_fourth->admission_type == 'Old' ? 'checked' : 'disabled' }}>
+                                            {{ $view_second->type_of_admission == 'Old' ? 'checked' : 'disabled' }}>
                                         <label>Old</label>
                                     </div>
                                     <div class="inline">
                                         <input class="scale-150 cursor-auto accent-blue-300" type="radio"
                                             value="Former OPD" name="admission_type"
-                                            {{ $view_fourth->admission_type == 'Former OPD' ? 'checked' : 'disabled' }}>
+                                            {{ $view_second->type_of_admission == 'Former OPD' ? 'checked' : 'disabled' }}>
                                         <label>Former OPD</label>
                                     </div>
                                 </div>
@@ -481,7 +483,7 @@
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="referred by" name="referred_by" id="referred_by"
-                                    value="{{ $view_fourth->referred_by }}" readonly>
+                                    value="{{ $view_second->admitting_personel['referred_by'] }}" readonly>
                                 <span class="text-base font-[sans-serif] font-medium text-red-600">
                                     @error('referred_by')
                                         {{ $message }}
@@ -501,37 +503,37 @@
                                     <div class="flex justify-center gap-2">
                                         <input class="scale-125 cursor-auto accent-blue-300" type="radio"
                                             value="a" name="ssc"
-                                            {{ $view_fifth->ssc == 'a' ? 'checked' : 'disabled' }}>
+                                            {{ $view_second->ssc == 'a' ? 'checked' : 'disabled' }}>
                                         <label>A</label>
                                     </div>
                                     <div class="flex justify-center gap-2">
                                         <input class="scale-125 cursor-auto accent-blue-300" type="radio"
                                             value="b" name="ssc"
-                                            {{ $view_fifth->ssc == 'b' ? 'checked' : 'disabled' }}>
+                                            {{ $view_second->ssc == 'b' ? 'checked' : 'disabled' }}>
                                         <label>B</label>
                                     </div>
                                     <div class="flex justify-center gap-2">
                                         <input class="scale-125 cursor-auto accent-blue-300" type="radio"
                                             value="c_one" name="ssc"
-                                            {{ $view_fifth->ssc == 'c_one' ? 'checked' : 'disabled' }}>
+                                            {{ $view_second->ssc == 'c_one' ? 'checked' : 'disabled' }}>
                                         <label>C1</label>
                                     </div>
                                     <div class="flex justify-center gap-2">
                                         <input class="scale-125 cursor-auto accent-blue-300" type="radio"
                                             value="c_two" name="ssc"
-                                            {{ $view_fifth->ssc == 'c_two' ? 'checked' : 'disabled' }}>
+                                            {{ $view_second->ssc == 'c_two' ? 'checked' : 'disabled' }}>
                                         <label>C2</label>
                                     </div>
                                     <div class="flex justify-center gap-2">
                                         <input class="scale-125 cursor-auto accent-blue-300" type="radio"
                                             value="c_three" name="ssc"
-                                            {{ $view_fifth->ssc == 'c_three' ? 'checked' : 'disabled' }}>
+                                            {{ $view_second->ssc == 'c_three' ? 'checked' : 'disabled' }}>
                                         <label>C3</label>
                                     </div>
                                     <div class="flex justify-center gap-2">
                                         <input class="scale-125 cursor-auto accent-blue-300" type="radio"
                                             value="d" name="ssc"
-                                            {{ $view_fifth->ssc == 'd' ? 'checked' : 'disabled' }}>
+                                            {{ $view_second->ssc == 'd' ? 'checked' : 'disabled' }}>
                                         <label>D</label>
                                     </div>
                                 </div>
@@ -549,7 +551,7 @@
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="allergic to" name="alert_allergic" id="alert_allergic"
-                                    autocomplete="off" value="{{ $view_fifth->alert_allergic }}" readonly>
+                                    autocomplete="off" value="{{ $view_second->allergic }}" readonly>
                             </div>
                             <div class="col-span-4 border-r-2 border-black p-3 gap-2">
                                 <p>HOSPITALIZATION PLAN</p>
@@ -558,7 +560,7 @@
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="hospitalization_plan"
                                     id="hospitalization_plan" autocomplete="off"
-                                    value="{{ $view_fifth->hospitalization_plan }}" readonly>
+                                    value="{{ $view_second->insurance['hospitalization_plan'] }}" readonly>
                             </div>
                             <div class="col-span-3 border-r-2 border-black p-3 gap-2">
                                 <p>HEALTH</p>
@@ -566,7 +568,8 @@
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     name="health_insurance" id="health_insurance" placeholder="N/A if not available"
-                                    autocomplete="off" value="{{ $view_fifth->health_insurance }}" readonly>
+                                    autocomplete="off" value="{{ $view_second->insurance['health_insurance'] }}"
+                                    readonly>
                             </div>
                             <div class="col-span-3 border-black p-3 gap-2">
                                 <p>TYPE OF INSURANCE</p>
@@ -574,7 +577,8 @@
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     name="coverage_insurance" id="coverage_insurance" placeholder="N/A if not available"
-                                    autocomplete="off" value="{{ $view_fifth->coverage_insurance }}" readonly>
+                                    autocomplete="off" value="{{ $view_second->insurance['coverage_insurance'] }}"
+                                    readonly>
                             </div>
                         </div>
 
@@ -588,14 +592,15 @@
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="name of attendant" name="furnished_by" id="furnished_by"
-                                    autocomplete="off" value="{{ $view_fifth->furnished_by }}" readonly>
+                                    autocomplete="off" value="{{ $view_second->insurance['furnished_by'] }}" readonly>
                             </div>
                             <div class="col-span-3 border-r-2 border-black p-3 gap-2">
                                 <p>ADDRESS OF INFORMANT</p>
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="informant_address" id="informant_address"
-                                    autocomplete="off" value="{{ $view_fifth->informant_address }}" readonly>
+                                    autocomplete="off" value="{{ $view_second->insurance['informant_address'] }}"
+                                    readonly>
                             </div>
                             <div class="col-span-3 border-black p-3 gap-2">
                                 <p>RELATION TO PATIENT</p>
@@ -603,7 +608,7 @@
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="relation_to_patient"
                                     id="relation_to_patient" autocomplete="off"
-                                    value="{{ $view_fifth->relation_to_patient }}" readonly>
+                                    value="{{ $view_second->insurance['relation_to_patient'] }}" readonly>
                             </div>
                         </div>
 
@@ -620,7 +625,7 @@
                                             class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                             placeholder="N/A if not available" name="admission_diagnosis"
                                             id="admission_diagnosis" autocomplete="off"
-                                            value="{{ $view_sixth->admission_diagnosis }}" readonly>
+                                            value="{{ $view_second->diagnosis['admission_diagnosis'] }}" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -644,7 +649,7 @@
                                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                                     placeholder="N/A if not available" name="principal_diagnosis"
                                                     id="principal_diagnosis" autocomplete="off"
-                                                    value="{{ $view_sixth->principal_diagnosis }}" readonly>
+                                                    value="{{ $view_second->diagnosis['principal_diagnosis'] }}" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -656,7 +661,7 @@
                                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                                     placeholder="N/A if not available" name="other_diagnosis"
                                                     id="other_diagnosis" autocomplete="off"
-                                                    value="{{ $view_sixth->other_diagnosis }}" readonly>
+                                                    value="{{ $view_second->diagnosis['other_diagnosis'] }}" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -667,7 +672,7 @@
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="idc_code" id="idc_code" autocomplete="off"
-                                    value="{{ $view_sixth->idc_code }}" readonly>
+                                    value="{{ $view_second->idc_code }}" readonly>
                             </div>
                         </div>
                         {{-- empty border --}}
@@ -685,7 +690,7 @@
                                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                                     placeholder="N/A if not available" name="principal_operation"
                                                     id="principal_operation" autocomplete="off"
-                                                    value="{{ $view_sixth->principal_operation }}" readonly>
+                                                    value="{{ $view_second->other_opt['principal_operation'] }}" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -697,7 +702,7 @@
                                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                                     placeholder="N/A if not available" name="other_operation"
                                                     id="other_operation" autocomplete="off"
-                                                    value="{{ $view_sixth->other_operation }}" readonly>
+                                                    value="{{ $view_second->other_opt['other_operation'] }}" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -708,7 +713,7 @@
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="icpm_code" id="icpm_code"
-                                    autocomplete="off" value="{{ $view_sixth->icpm_code }}" readonly>
+                                    autocomplete="off" value="{{ $view_second->icpm_code }}" readonly>
                             </div>
                         </div>
 

@@ -53,8 +53,8 @@
                                 <p>HEALTH RECORD NO :</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="enter latest record #" autocomplete="off" value="{{ $view_first->id }}"
-                                    readonly>
+                                    placeholder="enter latest record #" autocomplete="off"
+                                    value="{{ $view_first->patient_id }}" readonly>
 
                             </div>
                         </div>
@@ -66,7 +66,7 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available" name="sr_no" autocomplete="off"
-                                    value="{{ $view_first->sr_no ?? 'N/A' }}">
+                                    value="{{ $view_first->sr_no ?? '' }}">
 
                             </div>
                             <div class="col-span-2 flex justify-center items-center border-r-2 border-black">
@@ -95,7 +95,7 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="last name" name="last_name" autocomplete="off"
-                                    value="{{ $view_first->last_name ?? 'N/A' }}">
+                                    value="{{ $view_first->last_name }}">
                                 <span class="text-base font-[sans-serif] font-medium text-red-600">
                                     @error('last_name')
                                         {{ $message }}
@@ -107,7 +107,7 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="given name" name="first_name" autocomplete="off"
-                                    value="{{ $view_first->first_name ?? 'N/A' }}">
+                                    value="{{ $view_first->first_name }}">
                                 <span class="text-base font-[sans-serif] font-medium text-red-600">
                                     @error('first_name')
                                         {{ $message }}
@@ -119,7 +119,7 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available" name="middle_name" autocomplete="off"
-                                    value="{{ $view_first->middle_name ?? 'N/A' }}">
+                                    value="{{ $view_first->middle_name }}">
                             </div>
                             <div class="col-span-3 border-black p-3">
                                 <p>WARD/ROOM/BED/SERVICE* :</p>
@@ -149,7 +149,7 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="enter permanent address" name="perma_address"
-                                    value="{{ $view_second->perma_address }}">
+                                    value="{{ $view_first->perma_address ?? '' }}">
                                 <span class="text-base font-[sans-serif] font-medium text-red-600" autocomplete="off">
                                     @error('perma_address')
                                         {{ $message }}
@@ -197,43 +197,43 @@
                                     <div class="inline">
                                         <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
                                             value="Single" name="civil_status"
-                                            {{ $view_second->civil_status == 'Single' ? 'checked' : '' }}>
+                                            {{ $view_first->civil_status == 'Single' ? 'checked' : '' }}>
                                         <label>S</label>
                                     </div>
                                     <div class="inline">
                                         <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
                                             value="Divorced" name="civil_status"
-                                            {{ $view_second->civil_status == 'Divorced' ? 'checked' : '' }}>
+                                            {{ $view_first->civil_status == 'Divorced' ? 'checked' : '' }}>
                                         <label>D</label>
                                     </div>
                                     <div class="col-span-2 inline">
                                         <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
                                             value="Separated" name="civil_status"
-                                            {{ $view_second->civil_status == 'Separated' ? 'checked' : '' }}>
+                                            {{ $view_first->civil_status == 'Separated' ? 'checked' : '' }}>
                                         <label>SEP</label>
                                     </div>
                                     <div class="col-span-2 inline">
                                         <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
                                             value="Common Law" name="civil_status"
-                                            {{ $view_second->civil_status == 'Common Law' ? 'checked' : '' }}>
+                                            {{ $view_first->civil_status == 'Common Law' ? 'checked' : '' }}>
                                         <label>C</label>
                                     </div>
                                     <div class="col-span-2 inline">
                                         <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
                                             value="Widowed" name="civil_status"
-                                            {{ $view_second->civil_status == 'Widowed' ? 'checked' : '' }}>
+                                            {{ $view_first->civil_status == 'Widowed' ? 'checked' : '' }}>
                                         <label>W</label>
                                     </div>
                                     <div class="col-span-2 inline">
                                         <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
                                             value="Married" name="civil_status"
-                                            {{ $view_second->civil_status == 'Married' ? 'checked' : '' }}>
+                                            {{ $view_first->civil_status == 'Married' ? 'checked' : '' }}>
                                         <label>M</label>
                                     </div>
                                     <div class="col-span-2 inline">
                                         <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
                                             value="Neutral" name="civil_status"
-                                            {{ $view_second->civil_status == 'Neutral' ? 'checked' : '' }}>
+                                            {{ $view_first->civil_status == 'Neutral' ? 'checked' : '' }}>
                                         <label>N</label>
                                     </div>
                                 </div>
@@ -275,7 +275,7 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="birthplace" name="birthplace" autocomplete="off"
-                                    value="{{ $view_second->birthplace }}">
+                                    value="{{ $view_first->birthplace }}">
                                 <span class="text-base font-[sans-serif] font-medium text-red-600">
                                     @error('birthplace')
                                         {{ $message }}
@@ -287,7 +287,7 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="nationality" name="nationality" autocomplete="off"
-                                    value="{{ $view_second->nationality }}">
+                                    value="{{ $view_first->nationality }}">
                                 <span class="text-base font-[sans-serif] font-medium text-red-600">
                                     @error('nationality')
                                         {{ $message }}
@@ -299,7 +299,7 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="religion" name="religion" autocomplete="off"
-                                    value="{{ $view_second->religion }}">
+                                    value="{{ $view_first->religion }}">
                                 <span class="text-base font-[sans-serif] font-medium text-red-600">
                                     @error('religion')
                                         {{ $message }}
@@ -311,7 +311,7 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available" name="occupation" autocomplete="off"
-                                    value="{{ $view_second->occupation ?? 'N/A' }}">
+                                    value="{{ $view_first->occupation ?? 'Unemployed' }}">
                             </div>
                         </div>
                     </div>
@@ -326,21 +326,21 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available" name="employer_name" autocomplete="off"
-                                    value="{{ $view_third->employer_name ?? '' }}">
+                                    value="{{ $view_second->person_of_contact['employer']['name'] ?? '' }}">
                             </div>
                             <div class="col-span-3 border-r-2 border-black flex flex-col items-center p-3">
                                 <p>ADDRESS</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available" name="employer_address" autocomplete="off"
-                                    value="{{ $view_third->employer_address ?? 'N/A' }}">
+                                    value="{{ $view_second->person_of_contact['employer']['address'] ?? '' }}">
                             </div>
                             <div class="col-span-3 border-black flex flex-col items-center p-3">
                                 <p>TEL. NO.</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available" name="employer_phone" autocomplete="off"
-                                    value="{{ $view_third->employer_phone ?? 'N/A' }}">
+                                    value="{{ $view_second->person_of_contact['employer']['contact'] ?? '' }}">
                             </div>
                         </div>
 
@@ -351,14 +351,14 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available" name="father_name" autocomplete="off"
-                                    value="{{ $view_third->father_name ?? 'N/A' }}">
+                                    value="{{ $view_second->person_of_contact['father']['name'] ?? '' }}">
                             </div>
                             <div class="col-span-3 border-r-2 border-black flex flex-col items-center p-3">
                                 <p>ADDRESS</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available" name="father_address" autocomplete="off"
-                                    value="{{ $view_third->father_address ?? 'N/A' }}">
+                                    value="{{ $view_second->person_of_contact['father']['address'] ?? '' }}">
                             </div>
                             <div
                                 class="col-span-3
@@ -367,7 +367,7 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available" name="father_phone" autocomplete="off"
-                                    value="{{ $view_third->father_phone ?? 'N/A' }}">
+                                    value="{{ $view_second->person_of_contact['father']['contact'] ?? '' }}">
                             </div>
                         </div>
 
@@ -378,21 +378,21 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available" name="mother_maiden_name" autocomplete="off"
-                                    value="{{ $view_third->mother_maiden_name ?? 'N/A' }}">
+                                    value="{{ $view_second->person_of_contact['mother']['name'] ?? '' }}">
                             </div>
                             <div class="col-span-3 border-r-2 border-black flex flex-col items-center p-3">
                                 <p>ADDRESS</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available" name="mother_address" autocomplete="off"
-                                    value="{{ $view_third->mother_address ?? 'N/A' }}">
+                                    value="{{ $view_second->person_of_contact['mother']['address'] ?? '' }}">
                             </div>
                             <div class="col-span-3 border-black flex flex-col items-center p-3">
                                 <p>TEL. NO.</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available" name="mother_phone" autocomplete="off"
-                                    value="{{ $view_third->mother_phone ?? 'N/A' }}">
+                                    value="{{ $view_second->person_of_contact['mother']['contact'] ?? '' }}">
                             </div>
                         </div>
 
@@ -403,21 +403,21 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available" name="spouse_name" autocomplete="off"
-                                    value="{{ $view_third->spouse_name ?? 'N/A' }}">
+                                    value="{{ $view_second->person_of_contact['spouse']['name'] ?? '' }}">
                             </div>
                             <div class="col-span-3 border-r-2 border-black flex flex-col items-center p-3">
                                 <p>ADDRESS</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available" name="spouse_address" autocomplete="off"
-                                    value="{{ $view_third->spouse_address ?? 'N/A' }}">
+                                    value="{{ $view_second->person_of_contact['spouse']['address'] ?? '' }}">
                             </div>
                             <div class="col-span-3 border-black flex flex-col items-center p-3">
                                 <p>TEL. NO.</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available" name="spouse_phone" autocomplete="off"
-                                    value="{{ $view_third->spouse_phone ?? 'N/A' }}">
+                                    value="{{ $view_second->person_of_contact['spouse']['contact'] ?? '' }}">
                             </div>
                         </div>
                         {{-- empty border --}}
@@ -438,7 +438,7 @@
                                                 <input type="date"
                                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
                                                     name="start_date" id="start_date"
-                                                    value="{{ $view_fourth->start_date }}">
+                                                    value="{{ $view_second->admission_start['start_date'] }}">
                                             </div>
                                         </div>
                                         <div class="grid grid-cols-5">
@@ -457,7 +457,7 @@
                                                 <input type="time"
                                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
                                                     name="start_time" id="start_time"
-                                                    value="{{ $view_fourth->start_time }}">
+                                                    value="{{ $view_second->admission_start['start_time'] }}">
                                             </div>
                                         </div>
                                         <div class="grid grid-cols-5">
@@ -480,7 +480,8 @@
                                             <div class="col-span-3">
                                                 <input type="date"
                                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
-                                                    name="end_date" id="end_date" value="{{ $view_fourth->end_date }}">
+                                                    name="end_date" id="end_date"
+                                                    value="{{ $view_second->admission_end['end_date'] }}">
                                             </div>
                                         </div>
                                         <div class="grid grid-cols-5">
@@ -498,7 +499,8 @@
                                             <div class="col-span-3">
                                                 <input type="time"
                                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
-                                                    name="end_time" id="end_time" value="{{ $view_fourth->end_time }}">
+                                                    name="end_time" id="end_time"
+                                                    value="{{ $view_second->admission_end['end_time'] }}">
                                             </div>
                                         </div>
                                         <div class="grid grid-cols-5">
@@ -517,14 +519,14 @@
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="# of days" name="total_days" id="total_days"
-                                    value="{{ $view_fourth->total_days }}" readonly>
+                                    value="{{ $view_second->admission_diff }}" readonly>
                             </div>
                             <div class="col-span-3 border-black p-3">
                                 <p>ADMITTING PHYSICIAN:</p>
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="name of physician" name="admitting_physician" id="admitting_physician"
-                                    value="{{ $view_fourth->admitting_physician }}">
+                                    value="{{ $view_second->admitting_personel['admitting_physician'] }}">
                             </div>
                         </div>
 
@@ -538,7 +540,7 @@
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available" name="admitting_clerk" id="admitting_clerk"
-                                    value="{{ $view_fourth->admitting_clerk }}" autocomplete="off">
+                                    value="{{ $view_second->admitting_personel['admitting_clerk'] }}" autocomplete="off">
                                 <span class="col-start-3 col-span-3 text-base font-[sans-serif] font-medium text-red-600">
                                     @error('admitting_clerk')
                                         {{ $message }}
@@ -561,19 +563,19 @@
                                     <div class="inline">
                                         <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
                                             value="New" name="admission_type"
-                                            {{ $view_fourth->admission_type == 'New' ? 'checked' : '' }}>
+                                            {{ $view_second->type_of_admission == 'New' ? 'checked' : '' }}>
                                         <label>New</label>
                                     </div>
                                     <div class="inline">
                                         <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
                                             value="Old" name="admission_type"
-                                            {{ $view_fourth->admission_type == 'Old' ? 'checked' : '' }}>
+                                            {{ $view_second->type_of_admission == 'Old' ? 'checked' : '' }}>
                                         <label>Old</label>
                                     </div>
                                     <div class="inline">
                                         <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
                                             value="Former OPD" name="admission_type"
-                                            {{ $view_fourth->admission_type == 'Former OPD' ? 'checked' : '' }}>
+                                            {{ $view_second->type_of_admission == 'Former OPD' ? 'checked' : '' }}>
                                         <label>Former OPD</label>
                                     </div>
                                 </div>
@@ -588,7 +590,7 @@
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="referred by" name="referred_by" id="referred_by"
-                                    value="{{ $view_fourth->referred_by }}" autocomplete="off">
+                                    value="{{ $view_second->admitting_personel['referred_by'] }}" autocomplete="off">
                                 <span class="text-base font-[sans-serif] font-medium text-red-600">
                                     @error('referred_by')
                                         {{ $message }}
@@ -606,35 +608,38 @@
                                 <div class=" col-span-5 grid grid-cols-6">
                                     <div class="flex justify-center gap-2">
                                         <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
-                                            value="a" name="ssc" {{ $view_fifth->ssc == 'a' ? 'checked' : '' }}>
+                                            value="a" name="ssc"
+                                            {{ $view_second->ssc == 'a' ? 'checked' : '' }}>
                                         <label>A</label>
                                     </div>
                                     <div class="flex justify-center gap-2">
                                         <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
-                                            value="b" name="ssc" {{ $view_fifth->ssc == 'b' ? 'checked' : '' }}>
+                                            value="b" name="ssc"
+                                            {{ $view_second->ssc == 'b' ? 'checked' : '' }}>
                                         <label>B</label>
                                     </div>
                                     <div class="flex justify-center gap-2">
                                         <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
                                             value="c_one" name="ssc"
-                                            {{ $view_fifth->ssc == 'c_one' ? 'checked' : '' }}>
+                                            {{ $view_second->ssc == 'c_one' ? 'checked' : '' }}>
                                         <label>C1</label>
                                     </div>
                                     <div class="flex justify-center gap-2">
                                         <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
                                             value="c_two" name="ssc"
-                                            {{ $view_fifth->ssc == 'c_two' ? 'checked' : '' }}>
+                                            {{ $view_second->ssc == 'c_two' ? 'checked' : '' }}>
                                         <label>C2</label>
                                     </div>
                                     <div class="flex justify-center gap-2">
                                         <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
                                             value="c_three" name="ssc"
-                                            {{ $view_fifth->ssc == 'c_three' ? 'checked' : '' }}>
+                                            {{ $view_second->ssc == 'c_three' ? 'checked' : '' }}>
                                         <label>C3</label>
                                     </div>
                                     <div class="flex justify-center gap-2">
                                         <input class="scale-125 cursor-pointer accent-blue-300" type="radio"
-                                            value="d" name="ssc" {{ $view_fifth->ssc == 'd' ? 'checked' : '' }}>
+                                            value="d" name="ssc"
+                                            {{ $view_second->ssc == 'd' ? 'checked' : '' }}>
                                         <label>D</label>
                                     </div>
                                 </div>
@@ -659,7 +664,7 @@
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="allergic to" name="alert_allergic" id="alert_allergic"
-                                    autocomplete="off" value="{{ $view_fifth->alert_allergic }}">
+                                    autocomplete="off" value="{{ $view_second->allergic }}">
                                 <span class="text-base font-[sans-serif] font-medium text-red-600">
                                     @error('alert_allergic')
                                         {{ $message }}
@@ -673,7 +678,7 @@
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available" name="hospitalization_plan"
                                     id="hospitalization_plan" autocomplete="off"
-                                    value="{{ $view_fifth->hospitalization_plan }}">
+                                    value="{{ $view_second->insurance['hospitalization_plan'] }}">
                             </div>
                             <div class="col-span-3 border-r-2 border-black p-3 gap-2">
                                 <p>HEALTH</p>
@@ -681,7 +686,7 @@
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     name="health_insurance" id="health_insurance" placeholder="N/A if not available"
-                                    autocomplete="off" value="{{ $view_fifth->health_insurance }}">
+                                    autocomplete="off" value="{{ $view_second->insurance['health_insurance'] }}">
                                 <span class="text-base font-[sans-serif] font-medium text-red-600">
                                     @error('health_insurance')
                                         {{ $message }}
@@ -694,7 +699,7 @@
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     name="coverage_insurance" id="coverage_insurance" placeholder="N/A if not available"
-                                    autocomplete="off" value="{{ $view_fifth->coverage_insurance }}">
+                                    autocomplete="off" value="{{ $view_second->insurance['coverage_insurance'] }}">
                                 <span class="text-base font-[sans-serif] font-medium text-red-600">
                                     @error('coverage_insurance')
                                         {{ $message }}
@@ -713,7 +718,7 @@
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="name of attendant" name="furnished_by" id="furnished_by"
-                                    autocomplete="off" value="{{ $view_fifth->furnished_by }}">
+                                    autocomplete="off" value="{{ $view_second->insurance['furnished_by'] }}">
                                 <span class="text-base font-[sans-serif] font-medium text-red-600">
                                     @error('furnished_by')
                                         {{ $message }}
@@ -725,7 +730,7 @@
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available" name="informant_address" id="informant_address"
-                                    autocomplete="off" value="{{ $view_fifth->informant_address }}">
+                                    autocomplete="off" value="{{ $view_second->insurance['informant_address'] }}">
                                 <span class="text-base font-[sans-serif] font-medium text-red-600">
                                     @error('informant_address')
                                         {{ $message }}
@@ -738,7 +743,7 @@
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available" name="relation_to_patient"
                                     id="relation_to_patient" autocomplete="off"
-                                    value="{{ $view_fifth->relation_to_patient }}">
+                                    value="{{ $view_second->insurance['relation_to_patient'] }}">
                                 <span class="text-base font-[sans-serif] font-medium text-red-600">
                                     @error('relation_to_patient')
                                         {{ $message }}
@@ -760,7 +765,7 @@
                                             class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                             placeholder="N/A if not available" name="admission_diagnosis"
                                             id="admission_diagnosis" autocomplete="off"
-                                            value="{{ $view_sixth->admission_diagnosis }}">
+                                            value="{{ $view_second->diagnosis['admission_diagnosis'] }}">
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-10">
@@ -792,7 +797,7 @@
                                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                                     placeholder="N/A if not available" name="principal_diagnosis"
                                                     id="principal_diagnosis" autocomplete="off"
-                                                    value="{{ $view_sixth->principal_diagnosis }}">
+                                                    value="{{ $view_second->diagnosis['principal_diagnosis'] }}">
                                             </div>
                                         </div>
                                         <div class="grid grid-cols-4">
@@ -811,7 +816,7 @@
                                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                                     placeholder="N/A if not available" name="other_diagnosis"
                                                     id="other_diagnosis" autocomplete="off"
-                                                    value="{{ $view_sixth->other_diagnosis }}">
+                                                    value="{{ $view_second->diagnosis['other_diagnosis'] }}">
                                             </div>
                                         </div>
                                         <div class="grid grid-cols-4">
@@ -829,7 +834,7 @@
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available" name="idc_code" id="idc_code" autocomplete="off"
-                                    value="{{ $view_sixth->idc_code }}">
+                                    value="{{ $view_second->idc_code }}">
                                 <span class="text-base font-[sans-serif] font-medium text-red-600">
                                     @error('idc_code')
                                         {{ $message }}
@@ -853,7 +858,7 @@
                                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                                     placeholder="N/A if not available" name="principal_operation"
                                                     id="principal_operation" autocomplete="off"
-                                                    value="{{ $view_sixth->principal_operation }}">
+                                                    value="{{ $view_second->other_opt['principal_operation'] }}">
                                             </div>
                                         </div>
                                         <div class="grid grid-cols-5">
@@ -872,7 +877,7 @@
                                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                                     placeholder="N/A if not available" name="other_operation"
                                                     id="other_operation" autocomplete="off"
-                                                    value="{{ $view_sixth->other_operation }}">
+                                                    value="{{ $view_second->other_opt['other_operation'] }}">
                                             </div>
                                         </div>
                                         <div class="grid grid-cols-5">
@@ -890,7 +895,7 @@
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="N/A if not available" name="icpm_code" id="icpm_code"
-                                    autocomplete="off" value="{{ $view_sixth->icpm_code }}">
+                                    autocomplete="off" value="{{ $view_second->icpm_code }}">
                                 <span class="text-base font-[sans-serif] font-medium text-red-600">
                                     @error('icpm_code')
                                         {{ $message }}

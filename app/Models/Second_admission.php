@@ -12,12 +12,33 @@ class Second_admission extends Model
 
     protected $table = 'second_admissions';
     protected $fillable = [
-        'perma_address',
-        'civil_status',
-        'birthplace',
-        'nationality',
-        'religion',
-        'occupation',
+        'person_of_contact',
+        'admitting_personel',
+        'admission_start',
+        'admission_end',
+        'admission_diff',
+        'type_of_admission',
+        'allergic',
+        'ssc',
+        'insurance',
+        'diagnosis',
+        'idc_code',
+        'other_opt',
+        'icpm_code',
+    ];
+
+    protected $guarded = [];
+
+    protected $hidden = [];
+
+    protected $casts = [
+        'person_of_contact' => 'array',
+        'admitting_personel' => 'array',
+        'admission_start' => 'array',
+        'admission_end' => 'array',
+        'insurance' => 'array',
+        'diagnosis' => 'array',
+        'other_opt' => 'array',
     ];
 
     public function admission_first()

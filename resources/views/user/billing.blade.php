@@ -51,43 +51,75 @@
             </div>
             <div class="admissionTable pt-[5px]">
 
-                <table class="text-[1.5rem] tracking-[2px] w-full">
+                <table class="text-lg tracking-[2px] w-full">
                     <tr class="grid grid-cols-12">
-                        <th class="flex justify-center">Id</th>
-                        <th class="col-span-5 flex justify-center">Name</th>
-                        <th class="flex justify-center">Age</th>
-                        <th class="flex justify-center">Gender</th>
-                        <th class="col-span-2 flex justify-center">Phone</th>
-                        <th class="col-span-2 flex justify-center">Actions</th>
+                        <th class="grid justify-center">Date</th>
+                        <th class="grid justify-center">OR No.</th>
+                        <th class="grid justify-center col-span-3">Name</th>
+                        <th class="col-span-6 grid grid-cols-8">
+                            <div class="grid justify-center">
+                                <label>Total</label>
+                            </div>
+                            <div class="grid justify-center">
+                                <label>Medicine</label>
+                            </div>
+                            <div class="grid justify-center">
+                                <label>Lab</label>
+                            </div>
+                            <div class="grid justify-center">
+                                <label>X-ray</label>
+                            </div>
+                            <div class="grid justify-center">
+                                <label>ECG</label>
+                            </div>
+                            <div class="grid justify-center">
+                                <label>Oxygen</label>
+                            </div>
+                            <div class="grid justify-center">
+                                <label>NBS</label>
+                            </div>
+                            <div class="grid justify-center">
+                                <label>Income</label>
+                            </div>
+
+                        </th>
+                        <th class="grid justify-center">Actions</th>
                     </tr>
 
-                    <tr class="grid grid-cols-12 even:bg-gray-200 odd:bg-white text-xl">
-                        <td class="flex justify-center"></td>
-                        <td class="col-span-5 flex justify-center">
-                        </td>
-                        <td class="flex justify-center"></td>
-                        <td class="flex justify-center"></td>
-                        <td class="col-span-2 flex justify-center"></td>
-                        <td class="col-span-2 flex justify-center">
-                            <div class="grid grid-cols-2 justify-center gap-4">
-                                <a href="{{ url('/patientPage/viewAdmission') }}" class="editIcon hover:text-blue-300">
-                                    <i class="fa-solid fa-eye"></i>
-                                </a>
-                                <a href="{{ url('/patientPage/updateAdmission') }}" class="editIcon hover:text-blue-300">
-                                    <i class="fa-solid fa-edit"></i>
-                                </a>
+                    <tr class="grid grid-cols-12 even:bg-gray-200 odd:bg-white text-lg">
+                        <td class="grid justify-center">2-16-2022</td>
+                        <td class="grid justify-center">01</td>
+                        <td class="grid justify-center col-span-3">Ermengarde Rhyielle Cruz</td>
+                        <td class="col-span-6 grid grid-cols-8">
+                            <div class="grid justify-center">
+                                <label>1500.00</label>
+                            </div>
+                            <div class="grid justify-center">
+                                <label>1590.00</label>
+                            </div>
+                            <div class="grid justify-center">
+                                <label>1590.00</label>
+                            </div>
+                            <div class="grid justify-center">
+                                <label>1590.00</label>
+                            </div>
+                            <div class="grid justify-center">
+                                <label>1590.00</label>
+                            </div>
+                            <div class="grid justify-center">
+                                <label>1590.00</label>
+                            </div>
+                            <div class="grid justify-center">
+                                <label>1590.00</label>
+                            </div>
+                            <div class="grid justify-center">
+                                <label>1590.00</label>
                             </div>
                         </td>
+                        <td class="grid justify-center">Actions</td>
                     </tr>
 
                 </table>
-
-                <div class="paginator absolute bottom-0 h-16 flex justify-center py-1">
-
-                </div>
-                <div class="paginator absolute inset-x-0 bottom-0 h-16 flex justify-center py-1">
-
-                </div>
             </div>
         </div>
     </div>

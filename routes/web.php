@@ -80,7 +80,7 @@ Route::middleware(['auth'])->group(function () {
 
     ////////vitalSigns_add
     Route::get('/records/addVitals', [StationController::class, 'addVitals'])->name('addVitals');
-    Route::post('/records/addVitals', [StationController::class, 'submit_addVitals'])->name('submitVitals');
+    Route::post('/records/submitVitals', [StationController::class, 'submit_addVitals'])->name('submitVitals');
     Route::get('/records/vitalSigns', [StationController::class, 'vitalSigns'])->name('vitalSigns');
     Route::get('/records/viewVitals{id}', [StationController::class, 'viewVitalSigns'])->name('viewVitals');
 

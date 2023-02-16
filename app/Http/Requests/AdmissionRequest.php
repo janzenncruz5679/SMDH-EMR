@@ -56,18 +56,19 @@ class AdmissionRequest extends FormRequest
             'alert_allergic' => 'required',
             'health_insurance' => 'required',
             'coverage_insurance' => 'required',
+            'hospitalization_plan' => 'required',
             'furnished_by' => 'required',
             'informant_address' => 'required',
             'relation_to_patient' => 'required',
 
             //sixth_admission
             'admission_diagnosis' => 'required',
-            'principal_diagnosis' => 'required',
-            'other_diagnosis' => 'required',
-            'idc_code' => 'required',
-            'principal_operation' => 'required',
-            'other_operation' => 'required',
-            'icpm_code' => 'required',
+            // 'principal_diagnosis' => 'required',
+            // 'other_diagnosis' => 'required',
+            // 'idc_code' => 'required',
+            // 'principal_operation' => 'required',
+            // 'other_operation' => 'required',
+            // 'icpm_code' => 'required',
         ];
     }
 
@@ -107,18 +108,19 @@ class AdmissionRequest extends FormRequest
             'alert_allergic.required' => '*this field is required',
             'health_insurance.required' => '*this field is required',
             'coverage_insurance.required' => '*this field is required',
+            'hospitalization_plan.required' => '*this field is required',
             'furnished_by.required' => '*this field is required',
             'informant_address.required' => '*this field is required',
             'relation_to_patient.required' => '*this field is required',
 
             //sixth
             'admission_diagnosis.required' => '*this field is required',
-            'principal_diagnosis.required' => '*this field is required',
-            'other_diagnosis.required' => '*this field is required',
-            'idc_code.required' => '*this field is required',
-            'principal_operation.required' => '*this field is required',
-            'other_operation.required' => '*this field is required',
-            'icpm_code.required' => '*this field is required',
+            // 'principal_diagnosis.required' => '*this field is required',
+            // 'other_diagnosis.required' => '*this field is required',
+            // 'idc_code.required' => '*this field is required',
+            // 'principal_operation.required' => '*this field is required',
+            // 'other_operation.required' => '*this field is required',
+            // 'icpm_code.required' => '*this field is required',
         ];
     }
 }

@@ -265,17 +265,9 @@ class PatientController extends Controller
     {
         $view_first = First_admission::find($id);
         $view_second = Second_admission::find($id);
-        $view_third = Third_admission::find($id);
-        $view_fourth = Fourth_admission::find($id);
-        $view_fifth = Fifth_admission::find($id);
-        $view_sixth = Sixth_admission::find($id);
         $admission_pdf = PDF::loadView('user.pdf.admission_details', [
             'view_first' => $view_first,
             'view_second' => $view_second,
-            'view_third' => $view_third,
-            'view_fourth' => $view_fourth,
-            'view_fifth' => $view_fifth,
-            'view_sixth' => $view_sixth,
         ])->setPaper('a4', 'portrait');
 
         return $admission_pdf->stream("Admission_patient_" . $view_first->patient_id . ".pdf");
@@ -285,17 +277,9 @@ class PatientController extends Controller
     {
         $view_first = First_admission::find($id);
         $view_second = Second_admission::find($id);
-        $view_third = Third_admission::find($id);
-        $view_fourth = Fourth_admission::find($id);
-        $view_fifth = Fifth_admission::find($id);
-        $view_sixth = Sixth_admission::find($id);
         $admission_pdf = PDF::loadView('user.pdf.admission_details', [
             'view_first' => $view_first,
             'view_second' => $view_second,
-            'view_third' => $view_third,
-            'view_fourth' => $view_fourth,
-            'view_fifth' => $view_fifth,
-            'view_sixth' => $view_sixth,
         ])->setPaper('a4', 'portrait');
 
         return $admission_pdf->download("Admission_patient_" . $view_first->patient_id . ".pdf");

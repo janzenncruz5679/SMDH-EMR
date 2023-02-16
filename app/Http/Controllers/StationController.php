@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\First_admission;
 use App\Models\VitalSigns;
 use Illuminate\Http\Request;
 
@@ -29,9 +30,9 @@ class StationController extends Controller
         ]);
     }
 
+
     public function addVitals()
     {
-
         return view('user.stationSection.vital_sign_view.addVitals');
     }
 

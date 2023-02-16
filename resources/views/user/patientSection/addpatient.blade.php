@@ -675,6 +675,11 @@
                                     placeholder="N/A if not available" name="hospitalization_plan"
                                     id="hospitalization_plan" autocomplete="off"
                                     value="{{ old('hospitalization_plan') }}">
+                                <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                    @error('hospitalization_plan')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                             <div class="col-span-3 border-r-2 border-black p-3 gap-2">
                                 <p>HEALTH</p>

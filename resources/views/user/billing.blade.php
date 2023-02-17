@@ -85,39 +85,41 @@
                         </th>
                         <th class="grid justify-center">Actions</th>
                     </tr>
-
-                    <tr class="grid grid-cols-12 even:bg-gray-200 odd:bg-white text-lg">
-                        <td class="grid justify-center">2-16-2022</td>
-                        <td class="grid justify-center">01</td>
-                        <td class="grid justify-center col-span-3">Ermengarde Rhyielle Cruz</td>
-                        <td class="col-span-6 grid grid-cols-8">
-                            <div class="grid justify-center">
-                                <label>1500.00</label>
-                            </div>
-                            <div class="grid justify-center">
-                                <label>1590.00</label>
-                            </div>
-                            <div class="grid justify-center">
-                                <label>1590.00</label>
-                            </div>
-                            <div class="grid justify-center">
-                                <label>1590.00</label>
-                            </div>
-                            <div class="grid justify-center">
-                                <label>1590.00</label>
-                            </div>
-                            <div class="grid justify-center">
-                                <label>1590.00</label>
-                            </div>
-                            <div class="grid justify-center">
-                                <label>1590.00</label>
-                            </div>
-                            <div class="grid justify-center">
-                                <label>1590.00</label>
-                            </div>
-                        </td>
-                        <td class="grid justify-center">Actions</td>
-                    </tr>
+                    @foreach ($data_admissions as $data_admission)
+                        <tr class="grid grid-cols-12 even:bg-gray-200 odd:bg-white text-lg">
+                            <td class="grid justify-center">
+                                {{ \Carbon\Carbon::parse($data_admission->created_at)->format('Y-m-d') }}</td>
+                            <td class="grid justify-center">{{ $data_admission->patient_id }}</td>
+                            <td class="grid justify-center col-span-3">{{ $data_admission->full_name }}</td>
+                            <td class="col-span-6 grid grid-cols-8">
+                                <div class="grid justify-center">
+                                    <label>1500.00</label>
+                                </div>
+                                <div class="grid justify-center">
+                                    <label>1590.00</label>
+                                </div>
+                                <div class="grid justify-center">
+                                    <label>1590.00</label>
+                                </div>
+                                <div class="grid justify-center">
+                                    <label>1590.00</label>
+                                </div>
+                                <div class="grid justify-center">
+                                    <label>1590.00</label>
+                                </div>
+                                <div class="grid justify-center">
+                                    <label>1590.00</label>
+                                </div>
+                                <div class="grid justify-center">
+                                    <label>1590.00</label>
+                                </div>
+                                <div class="grid justify-center">
+                                    <label>1590.00</label>
+                                </div>
+                            </td>
+                            <td class="grid justify-center">Actions</td>
+                        </tr>
+                    @endforeach
 
                 </table>
             </div>

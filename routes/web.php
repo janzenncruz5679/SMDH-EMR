@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdmissionsController;
+use App\Http\Controllers\BillingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\EmergencyPatientController;
@@ -84,9 +85,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/records/vitalSigns', [StationController::class, 'vitalSigns'])->name('vitalSigns');
     Route::get('/records/viewVitals{id}', [StationController::class, 'viewVitalSigns'])->name('viewVitals');
 
-    //admission update data from db
+    //vitals update data from db
     Route::get('/records/updateVitals{id}', [StationController::class, 'updateVitals'])->name('updateVitals');
     Route::post('/records/editVitals{id}', [StationController::class, 'editVitals']);
+
+
+    //billing view
+    Route::get('/billing/billingTable', [BillingController::class, 'billingTable'])->name('billingTable');
 
     Route::resource('test-patient', AdmissionsController::class);
 });

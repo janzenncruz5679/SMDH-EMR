@@ -16,7 +16,8 @@ $(function () {
         line.style.borderColor = "#028090";
 
         const check = document.querySelector(".check" + index);
-        check.innerHTML = '<i class="fa-solid fa-check"></i>';
+        check.innerHTML =
+            '<span style="padding:0; margin: 0; font-size:1.5rem;"><i class="fa-solid fa-check" ></i></span>';
     }
     function curIndex() {
         return $sections.index($sections.filter(".current"));

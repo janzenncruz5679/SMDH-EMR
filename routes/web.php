@@ -92,6 +92,8 @@ Route::middleware(['auth'])->group(function () {
 
     //billing view
     Route::get('/billing/billingTable', [BillingController::class, 'billingTable'])->name('billingTable');
+    Route::get('/billing/billingTable/updateBilling{or_no}', [BillingController::class, 'updateBilling'])->name('updateBilling');
+    Route::post('/billing/billingTable/editBilling{or_no}', [BillingController::class, 'editBilling'])->name('editBilling');
 
     Route::resource('test-patient', AdmissionsController::class);
 });

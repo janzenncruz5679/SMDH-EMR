@@ -85,39 +85,49 @@
                         </th>
                         <th class="grid justify-center">Actions</th>
                     </tr>
-                    @foreach ($data_admissions as $data_admission)
+                    @foreach ($data_billings as $data_billing)
                         <tr class="grid grid-cols-12 even:bg-gray-200 odd:bg-white text-lg">
                             <td class="grid justify-center">
-                                {{ \Carbon\Carbon::parse($data_admission->created_at)->format('Y-m-d') }}</td>
-                            <td class="grid justify-center">{{ $data_admission->patient_id }}</td>
-                            <td class="grid justify-center col-span-3">{{ $data_admission->full_name }}</td>
+                                {{ \Carbon\Carbon::parse($data_billing->created_at)->format('Y-m-d') }}</td>
+                            <td class="grid justify-center">{{ $data_billing->or_no }}</td>
+                            <td class="grid justify-center col-span-3">{{ $data_billing->full_name }}</td>
                             <td class="col-span-6 grid grid-cols-8">
                                 <div class="grid justify-center">
-                                    <label>1500.00</label>
+                                    <label>{{ $data_billing->total }}</label>
                                 </div>
                                 <div class="grid justify-center">
-                                    <label>1590.00</label>
+                                    <label>{{ $data_billing->medicine }}</label>
                                 </div>
                                 <div class="grid justify-center">
-                                    <label>1590.00</label>
+                                    <label>{{ $data_billing->lab }}</label>
                                 </div>
                                 <div class="grid justify-center">
-                                    <label>1590.00</label>
+                                    <label>{{ $data_billing->xray }}</label>
                                 </div>
                                 <div class="grid justify-center">
-                                    <label>1590.00</label>
+                                    <label>{{ $data_billing->ecg }}</label>
                                 </div>
                                 <div class="grid justify-center">
-                                    <label>1590.00</label>
+                                    <label>{{ $data_billing->oxygen }}</label>
                                 </div>
                                 <div class="grid justify-center">
-                                    <label>1590.00</label>
+                                    <label>{{ $data_billing->nbs }}</label>
                                 </div>
                                 <div class="grid justify-center">
-                                    <label>1590.00</label>
+                                    <label>{{ $data_billing->income }}</label>
                                 </div>
                             </td>
-                            <td class="grid justify-center">Actions</td>
+                            <td class="grid justify-center">
+                                <div class="grid grid-cols-2 justify-center gap-2">
+                                    <a href="{{ route('updateBilling', ['or_no' => $data_billing->or_no]) }}"
+                                        class="editIcon hover:text-blue-300">
+                                        <i class="fa-solid fa-edit"></i>
+                                    </a>
+                                    <a href="" class="editIcon hover:text-blue-300">
+                                        <i class="fa-solid fa-file-pdf"></i>
+                                    </a>
+                                </div>
+                            </td>
                         </tr>
                     @endforeach
 

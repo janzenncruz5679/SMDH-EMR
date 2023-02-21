@@ -45,9 +45,9 @@
                                 <td class="flex justify-center">{{ $patientData->patient_id }}</td>
                                 <td class="col-span-5 flex justify-center">{{ $patientData->full_name }}
                                 </td>
-                                <td class="flex justify-center">{{ $patientData->age }}</td>
-                                <td class="flex justify-center">{{ $patientData->gender }}</td>
-                                <td class="col-span-2 flex justify-center">{{ $patientData->phone }}</td>
+                                <td class="flex justify-center">{{ $patientData->personal_info['age'] }}</td>
+                                <td class="flex justify-center">{{ $patientData->personal_info['gender'] }}</td>
+                                <td class="col-span-2 flex justify-center">{{ $patientData->personal_info['phone'] }}</td>
                                 <td class="col-span-2 flex justify-center">
                                     <div class="grid grid-cols-3 justify-center gap-4">
                                         <a href="{{ url('/patientPage/viewAdmission' . $patientData->id) }}"

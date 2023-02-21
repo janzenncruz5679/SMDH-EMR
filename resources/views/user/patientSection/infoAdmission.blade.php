@@ -7,64 +7,54 @@
             <div class="">
                 @csrf
                 <div class=" h-full w-full text-xl tracking-wider border-2 border-black font-[sans-serif]">
-                    {{-- admissionformfirst_sec --}}
+                    {{-- admissionform_sec --}}
                     <div class="">
-                        {{-- name --}}
+                        {{-- name of hospital --}}
                         <div class="grid grid-cols-8  border-b-2 border-black h-full">
                             <div class="border-r-2 border-black col-span-5 grid grid-cols-8 content-center p-3">
-                                <p class="col-span-2">NAME OF HOSPITAL :</p>
-                                <p class="col-span-6">San Miguel District Hospital</p>
+                                <label class="col-span-2">NAME OF HOSPITAL :</label>
+                                <label class="col-span-6">San Miguel District Hospital</label>
                             </div>
                             <div class="col-span-3 grid grid-cols-7 p-3">
-                                <p class="col-span-2">HOSP CODE :</p>
-                                <p class="col-span-3">0000122</p>
+                                <label class="col-span-2">HOSP CODE :</label>
+                                <label class="col-span-3">0000122</label>
                             </div>
                         </div>
 
-                        {{-- address --}}
+                        {{-- health record number --}}
                         <div class="grid grid-cols-8 border-b-2 border-black h-full">
-                            <div class="col-span-5 border-r-2 border-black p-3">
-                                <p>ADDRESS* :</p>
-                                <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
-                                    placeholder="enter address" name="address" autocomplete="off"
-                                    value="{{ $view_first->address }}" readonly>
-                            </div>
-                            <div class="col-span-3 p-3">
-                                <p>HEALTH RECORD NO :</p>
+                            <div class="col-span-2 border-r-2 border-black p-3">
+                                <label>HEALTH RECORD NO :</label>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="enter latest record #" autocomplete="off"
                                     value="{{ $view_first->patient_id }}" readonly>
 
                             </div>
-                        </div>
-
-
-                        {{-- sr citizen number --}}
-                        <div class="grid grid-cols-8 border-b-2 border-black h-full">
-                            <div class="col-span-3 border-r-2 border-black p-3">
-                                <p>SR CITIZEN NO :</p>
+                            <div class="col-span-2 border-r-2 border-black p-3">
+                                <label>SR CITIZEN NO :</label>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                     placeholder="N/A if not available" name="sr_no" autocomplete="off"
                                     value="{{ $view_first->sr_no ?? '' }}" readonly>
 
                             </div>
-                            <div class="col-span-2 flex justify-center items-center border-r-2 border-black">
-                                <p class="font-bold">CLINICAL COVER SHEET</p>
+                            <div class="col-span-2 border-r-2 border-black p-3">
+                                <label>WARD/ROOM/BED/SERVICE* :</label>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                    placeholder="enter ward/room/bed/service type" name="ward_room_bed_service"
+                                    autocomplete="off" value="{{ $view_first->ward_room_bed_service ?? 'N/A' }}" readonly>
+
                             </div>
-                            <div class="col-span-3 p-3">
-                                <p>Type:</p>
+                            <div class="col-span-2 border-r-2 border-black p-3">
+                                <label>Type:</label>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="enter old record #" name="type" value="{{ $view_first->type }}"
                                     readonly>
                             </div>
                         </div>
-
-                        {{-- empty border --}}
-                        <div class="border-b-2 border-black h-8"></div>
 
                         {{-- patients border --}}
                         <div class="grid grid-cols-12 border-b-2 border-black h-full">
@@ -95,158 +85,295 @@
                                     placeholder="N/A if not available" name="middle_name" autocomplete="off"
                                     value="{{ $view_first->middle_name }}" readonly>
                             </div>
-                            <div class="col-span-3 border-black p-3">
-                                <p>WARD/ROOM/BED/SERVICE* :</p>
+                            <div class="col-span-3 border-r-2 border-black p-3">
+                                <p>Suffix :</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
-                                    placeholder="enter ward/room/bed/service type" name="ward_room_bed_service"
-                                    autocomplete="off" value="{{ $view_first->ward_room_bed_service ?? 'N/A' }}" readonly>
-
+                                    placeholder="N/A if not available" name="suffix" autocomplete="off"
+                                    value="{{ $view_first->suffix }}" readonly>
                             </div>
 
                         </div>
-
-                        {{-- empty border --}}
-                        <div class="border-b-2 border-black h-8"></div>
-
-                        {{-- perma address --}}
-                        <div class="grid grid-cols-11 border-b-2 border-black h-full">
-                            <div class="col-span-5 border-r-2 border-black p-3">
-                                <p>PERMANENT ADDRESS* :</p>
+                        {{-- personal info --}}
+                        <div class="grid grid-cols-12 border-b-2 border-black h-full">
+                            <div class="col-span-2 border-r-2 border-black p-3">
+                                <p>BIRTHDATE* :</p>
+                                <input type="date"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
+                                    placeholder="birthday" name="birthday" id="birthday" autocomplete="off"
+                                    value="{{ $view_first->personal_info['birthday'] }}">
+                            </div>
+                            <div class="border-r-2 col-span-2 border-black p-3">
+                                <p>AGE* :</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
-                                    placeholder="enter permanent address" name="perma_address"
-                                    value="{{ $view_first->perma_address ?? '' }}" readonly>
-
+                                    placeholder="age" name="age" id="age" autocomplete="off"
+                                    value="{{ $view_first->personal_info['age'] }}" readonly>
                             </div>
+                            <div class="col-span-2 border-r-2 border-black p-3">
+                                <p>BIRTHPLACE* :</p>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="birthplace" name="birthplace" autocomplete="off"
+                                    value="{{ $view_first->personal_info['birthplace'] }}">
+                                <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                    @error('birthplace')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+                            <div class="col-span-2 border-r-2 border-black p-3">
+                                <p>NATIONALITY* :</p>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="nationality" name="nationality" autocomplete="off"
+                                    value="{{ $view_first->personal_info['nationality'] }}">
+                                <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                    @error('nationality')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+                            <div class="col-span-2 border-r-2 border-black p-3">
+                                <p>RELIGION* :</p>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="religion" name="religion" autocomplete="off"
+                                    value="{{ $view_first->personal_info['religion'] }}">
+                                <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                    @error('religion')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+                            <div class="col-span-2 border-black p-3">
+                                <p>OCCUPATION :</p>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="N/A if not available" name="occupation" autocomplete="off"
+                                    value="{{ $view_first->personal_info['occupation'] }}">
+                            </div>
+                        </div>
+
+                        {{-- personal info 2 --}}
+                        <div class="grid grid-cols-12 border-b-2 border-black h-full">
                             <div class="col-span-2 border-r-2 border-black p-3">
                                 <p>TEL. NO.* :</p>
                                 <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
-                                    placeholder="enter cellular phone #" name="phone" maxlength="11" autocomplete="off"
-                                    value="{{ $view_first->phone }}" readonly>
-
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="enter cellular phone #" name="phone" maxlength="11"
+                                    autocomplete="off" value="{{ $view_first->personal_info['phone'] }}">
+                                <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                    @error('phone')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                             <div class=" border-r-2 border-black p-3">
                                 <p class="pb-2">SEX* :</p>
                                 <div class="w-full flex justify-start gap-4">
                                     <div class="inline">
-                                        <input class="scale-150 cursor-auto accent-blue-300" type="radio" value="Male"
-                                            name="gender" {{ $view_first->gender == 'Male' ? 'checked' : 'disabled' }}>
+                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
+                                            value="Male" name="gender"
+                                            {{ $view_first->personal_info['gender'] == 'Male' ? 'checked' : 'disabled' }}>
                                         <label>M</label>
                                     </div>
                                     <div class="inline">
-                                        <input class="scale-150 cursor-auto accent-blue-300" type="radio" value="Female"
-                                            name="gender" {{ $view_first->gender == 'Female' ? 'checked' : 'disabled' }}>
+                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
+                                            value="Female" name="gender"
+                                            {{ $view_first->personal_info['gender'] == 'Female' ? 'checked' : 'disabled' }}>
                                         <label>F</label>
                                     </div>
-
                                 </div>
+                                <span class="text-base font-[sans-serif] font-medium text-red-600" autocomplete="off">
+                                    @error('gender')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                             <div class="col-span-3 border-black p-3">
                                 <p class="pb-2">CIVIL STATUS* :</p>
                                 <div class="w-full flex justify-around">
                                     <div class="inline">
-                                        <input class="scale-150 cursor-auto accent-blue-300" type="radio"
+                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
                                             value="Single" name="civil_status"
-                                            {{ $view_first->civil_status == 'Single' ? 'checked' : 'disabled' }}>
+                                            {{ $view_first->personal_info['civil_status'] == 'Single' ? 'checked' : 'disabled' }}>
                                         <label>S</label>
                                     </div>
                                     <div class="inline">
-                                        <input class="scale-150 cursor-auto accent-blue-300" type="radio"
+                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
                                             value="Divorced" name="civil_status"
-                                            {{ $view_first->civil_status == 'Divorced' ? 'checked' : 'disabled' }}>
+                                            {{ $view_first->personal_info['civil_status'] == 'Divorced' ? 'checked' : 'disabled' }}>
                                         <label>D</label>
                                     </div>
                                     <div class="col-span-2 inline">
-                                        <input class="scale-150 cursor-auto accent-blue-300" type="radio"
+                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
                                             value="Separated" name="civil_status"
-                                            {{ $view_first->civil_status == 'Separated' ? 'checked' : 'disabled' }}>
+                                            {{ $view_first->personal_info['civil_status'] == 'Separated' ? 'checked' : 'disabled' }}>
                                         <label>SEP</label>
                                     </div>
                                     <div class="col-span-2 inline">
-                                        <input class="scale-150 cursor-auto accent-blue-300" type="radio"
+                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
                                             value="Common Law" name="civil_status"
-                                            {{ $view_first->civil_status == 'Common Law' ? 'checked' : 'disabled' }}>
+                                            {{ $view_first->personal_info['civil_status'] == 'Common Law' ? 'checked' : 'disabled' }}>
                                         <label>C</label>
                                     </div>
                                     <div class="col-span-2 inline">
-                                        <input class="scale-150 cursor-auto accent-blue-300" type="radio"
+                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
                                             value="Widowed" name="civil_status"
-                                            {{ $view_first->civil_status == 'Widowed' ? 'checked' : 'disabled' }}>
+                                            {{ $view_first->personal_info['civil_status'] == 'Widowed' ? 'checked' : 'disabled' }}>
                                         <label>W</label>
                                     </div>
                                     <div class="col-span-2 inline">
-                                        <input class="scale-150 cursor-auto accent-blue-300" type="radio"
+                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
                                             value="Married" name="civil_status"
-                                            {{ $view_first->civil_status == 'Married' ? 'checked' : 'disabled' }}>
+                                            {{ $view_first->personal_info['civil_status'] == 'Married' ? 'checked' : 'disabled' }}>
                                         <label>M</label>
                                     </div>
                                     <div class="col-span-2 inline">
-                                        <input class="scale-150 cursor-auto accent-blue-300" type="radio"
+                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
                                             value="Neutral" name="civil_status"
-                                            {{ $view_first->civil_status == 'Neutral' ? 'checked' : 'disabled' }}>
+                                            {{ $view_first->personal_info['civil_status'] == 'Neutral' ? 'checked' : 'disabled' }}>
                                         <label>N</label>
                                     </div>
                                 </div>
+                                <span class="text-base font-[sans-serif] font-medium text-red-600" autocomplete="off">
+                                    @error('civil_status')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
-
                         </div>
 
                         {{-- empty border --}}
                         <div class="border-b-2 border-black h-8"></div>
-
-                        {{-- birthdate border --}}
-                        <div class="grid grid-cols-11 border-b-2 border-black h-full">
-                            <div class="col-span-2 border-r-2 border-black p-3">
-                                <p>BIRTHDATE* :</p>
-                                <input type="date"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
-                                    placeholder="birthday" name="birthday" id="birthday" autocomplete="off"
-                                    value="{{ $view_first->birthday }}" readonly>
-                            </div>
-                            <div class="border-r-2 border-black p-3">
-                                <p>AGE* :</p>
-                                <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
-                                    placeholder="age" name="age" id="age" autocomplete="off"
-                                    value="{{ $view_first->age }}" readonly>
-                            </div>
-                            <div class="col-span-2 border-r-2 border-black p-3">
-                                <p>BIRTHPLACE* :</p>
-                                <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
-                                    placeholder="birthplace" name="birthplace" autocomplete="off"
-                                    value="{{ $view_first->birthplace }}" readonly>
-                            </div>
-                            <div class="col-span-2 border-r-2 border-black p-3">
-                                <p>NATIONALITY* :</p>
-                                <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
-                                    placeholder="nationality" name="nationality" autocomplete="off"
-                                    value="{{ $view_first->nationality }}" readonly>
-                            </div>
-                            <div class="col-span-2 border-r-2 border-black p-3">
-                                <p>RELIGION* :</p>
-                                <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
-                                    placeholder="religion" name="religion" autocomplete="off"
-                                    value="{{ $view_first->religion }}" readonly>
-                            </div>
-                            <div class="col-span-2 border-black p-3">
-                                <p>OCCUPATION :</p>
-                                <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
-                                    placeholder="N/A if not available" name="occupation" autocomplete="off"
-                                    value="{{ $view_first->occupation ?? 'Unemployed' }}" readonly>
-                            </div>
-                        </div>
                     </div>
 
-                    {{-- admissionformsecond_sec --}}
+                    {{-- admissionforms_sec --}}
                     <div class="">
+                        {{-- full_address --}}
+                        <div class="grid grid-cols-7 border-b-2 border-black h-full">
+                            <div class=" border-r-2 border-black p-3">
+                                <label>STREET* :</label>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
+                                    placeholder="street" name="street" id="street" autocomplete="off"
+                                    value="{{ $view_first->full_address['street'] }}">
+                            </div>
+                            <div class=" border-r-2 border-black p-3">
+                                <label>MUNICIPALITY* :</label>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                    placeholder="municipality" name="municipality" id="municipality" autocomplete="off"
+                                    value="{{ $view_first->full_address['municipality'] }}">
+                            </div>
+                            <div class=" border-r-2 border-black p-3">
+                                <label>PROVINCE :</label>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="province" name="province" autocomplete="off"
+                                    value="{{ $view_first->full_address['province'] }}">
+                            </div>
+                            <div class=" border-r-2 border-black p-3">
+                                <label>REGION* :</label>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="region" name="region" autocomplete="off"
+                                    value="{{ $view_first->full_address['region'] }}">
+                            </div>
+                            <div class=" border-r-2 border-black p-3">
+                                <label>BARANGAY* :</label>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="barangay" name="barangay" autocomplete="off"
+                                    value="{{ $view_first->full_address['barangay'] }}">
+                            </div>
+                            <div class="border-r-2 border-black p-3">
+                                <label>ZIP CODE :</label>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="zip code" name="zip_code" autocomplete="off"
+                                    value="{{ $view_first->full_address['zip_code'] }}">
+                            </div>
+                            <div class=" border-black p-3">
+                                <label>COUNTRY :</label>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="country" name="country" autocomplete="off"
+                                    value="{{ $view_first->full_address['country'] }}">
+                            </div>
+                        </div>
+                        {{-- empty border --}}
+                        <div class="border-b-2 border-black h-8">
+                            <label>CONTACT PERSON</label>
+                        </div>
+                        <div class="grid grid-cols-7 border-b-2 border-black h-full">
+                            <div class=" border-r-2 border-black p-3">
+                                <label>LAST NAME :</label>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                    placeholder="contact last name" name="contact_last" id="contact_last"
+                                    autocomplete="off" value="{{ $view_first->contact_person['contact_last'] }}">
+                            </div>
+                            <div class=" border-r-2 border-black p-3">
+                                <label>FIRST NAME :</label>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                    placeholder="contact first name" name="contact_first" id="contact_first"
+                                    autocomplete="off" value="{{ $view_first->contact_person['contact_first'] }}">
+                            </div>
+                            <div class=" border-r-2 border-black p-3">
+                                <label>MIDDLE NAME :</label>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                    placeholder="contact middle name" name="contact_middle" id="contact_middle"
+                                    autocomplete="off" value="{{ $view_first->contact_person['contact_middle'] }}">
+                            </div>
+                            <div class=" border-r-2 border-black p-3">
+                                <label>SUFFIX :</label>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                    placeholder="contact suffix" name="contact_suffix" id="contact_suffix"
+                                    autocomplete="off" value="{{ $view_first->contact_person['contact_suffix'] }}">
+                            </div>
+                            <div class=" border-r-2 border-black p-3">
+                                <label>ADDRESS :</label>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                    placeholder="contact address" name="contact_address" id="contact_address"
+                                    autocomplete="off" value="{{ $view_first->contact_person['contact_address'] }}">
+                            </div>
+                            <div class=" border-r-2 border-black p-3">
+                                <label>PHONE :</label>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                    placeholder="contact address" name="contact_phone" id="contact_phone"
+                                    autocomplete="off" value="{{ $view_first->contact_person['contact_phone'] }}">
+                            </div>
+                            <div class=" border-r-2 border-black p-3">
+                                <label>RELATION TO PATIENT :</label>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                    placeholder="relation to patient" name="contact_rtp" id="contact_rtp"
+                                    autocomplete="off" value="{{ $view_first->contact_person['contact_rtp'] }}">
+                            </div>
+                        </div>
+
+                        <div class="grid border-b-2 border-black h-full">
+                            <div class=" border-r-2 border-black p-3">
+                                <p>PERMANENT ADDRESS* :</p>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="enter permanent address" name="perma_address" autocomplete="off"
+                                    value="{{ $view_first->perma_address }}">
+                            </div>
+                        </div>
                         {{-- empty border --}}
                         <div class="border-b-2 border-black h-8"></div>
+                    </div>
+
+                    {{-- admissionform_sec --}}
+                    <div class="">
                         {{-- employee --}}
                         <div class="grid grid-cols-9 border-b-2 border-black h-full">
                             <div class="col-span-3 border-r-2 border-black p-3">
@@ -351,7 +478,6 @@
                         {{-- empty border --}}
                         <div class="border-b-2 border-black h-8"></div>
                     </div>
-
 
                     {{-- admissionform_sec --}}
                     <div class="">
@@ -586,7 +712,7 @@
                         <div class="border-b-2 border-black h-8"></div>
 
                         {{-- data furnished by --}}
-                        <div class="grid grid-cols-12 border-b-2 border-black h-full">
+                        {{-- <div class="grid grid-cols-12 border-b-2 border-black h-full">
                             <div class="col-span-6 border-r-2 border-black p-3 gap-2">
                                 <p>DATA FURNISHED BY(signature over printed name)</p>
                                 <input type="text"
@@ -610,7 +736,7 @@
                                     id="relation_to_patient" autocomplete="off"
                                     value="{{ $view_second->insurance['relation_to_patient'] }}" readonly>
                             </div>
-                        </div>
+                        </div> --}}
 
                         {{-- empty border --}}
                         <div class="border-b-2 border-black h-8"></div>

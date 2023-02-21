@@ -1096,7 +1096,11 @@
         HOSP CODE:0000122
     </div>
     <div class="address">
-        ADDRESS: {{ $view_first->address }}
+        ADDRESS: {{ $view_first->full_address['street'] }} {{ $view_first->full_address['barangay'] }}
+        {{ $view_first->full_address['municipality'] }}
+        {{ $view_first->full_address['province'] }}
+        {{ $view_first->full_address['country'] }}
+        {{ $view_first->full_address['zip_code'] }}
     </div>
     <div class="health_rec">
         HEALTH REC NO.: {{ $view_first->patient_id }}
@@ -1147,21 +1151,21 @@
         TEL. NO.:
     </div>
     <div class="tel_no-value">
-        {{ $view_first->phone }}
+        {{ $view_first->personal_info['phone'] }}
     </div>
     <div class="gender">
         SEX:
     </div>
     <div class="gender_input">
         <input class="" type="checkbox" value="Male" name="gender"
-            {{ $view_first->gender == 'Male' ? 'checked' : 'disabled' }}>
+            {{ $view_first->personal_info['gender'] == 'Male' ? 'checked' : 'disabled' }}>
     </div>
     <div class="gender_label">
         M
     </div>
     <div class="gender_input_two">
         <input class="" type="checkbox" value="Female" name="gender"
-            {{ $view_first->gender == 'Female' ? 'checked' : 'disabled' }}>
+            {{ $view_first->personal_info['gender'] == 'Female' ? 'checked' : 'disabled' }}>
     </div>
     <div class="gender_label_two">
         F
@@ -1171,7 +1175,7 @@
     </div>
     <div class="civil_single">
         <input class="" type="checkbox" value="Single" name="gender"
-            {{ $view_first->civil_status == 'Single' ? 'checked' : 'disabled' }}>
+            {{ $view_first->personal_info['civil_status'] == 'Single' ? 'checked' : 'disabled' }}>
     </div>
     <div class="civil_single_label">
         S
@@ -1179,7 +1183,7 @@
 
     <div class="civil_divorced">
         <input class="" type="checkbox" value="Divorced" name="gender"
-            {{ $view_first->civil_status == 'Divorced' ? 'checked' : 'disabled' }}>
+            {{ $view_first->personal_info['civil_status'] == 'Divorced' ? 'checked' : 'disabled' }}>
     </div>
     <div class="civil_divorced_label">
         D
@@ -1187,7 +1191,7 @@
 
     <div class="civil_separated">
         <input class="" type="checkbox" value="Separated" name="gender"
-            {{ $view_first->civil_status == 'Separated' ? 'checked' : 'disabled' }}>
+            {{ $view_first->personal_info['civil_status'] == 'Separated' ? 'checked' : 'disabled' }}>
     </div>
     <div class="civil_separated_label">
         SEP
@@ -1195,7 +1199,7 @@
 
     <div class="civil_commonlaw">
         <input class="" type="checkbox" value="Common Law" name="gender"
-            {{ $view_first->civil_status == 'Common Law' ? 'checked' : 'disabled' }}>
+            {{ $view_first->personal_info['civil_status'] == 'Common Law' ? 'checked' : 'disabled' }}>
     </div>
     <div class="civil_commonlaw_label">
         C
@@ -1203,7 +1207,7 @@
 
     <div class="civil_widowed">
         <input class="" type="checkbox" value="Widowed" name="gender"
-            {{ $view_first->civil_status == 'Widowed' ? 'checked' : 'disabled' }}>
+            {{ $view_first->personal_info['civil_status'] == 'Widowed' ? 'checked' : 'disabled' }}>
     </div>
     <div class="civil_widowed_label">
         W
@@ -1211,7 +1215,7 @@
 
     <div class="civil_married">
         <input class="" type="checkbox" value="Married" name="gender"
-            {{ $view_first->civil_status == 'Married' ? 'checked' : 'disabled' }}>
+            {{ $view_first->personal_info['civil_status'] == 'Married' ? 'checked' : 'disabled' }}>
     </div>
     <div class="civil_married_label">
         M
@@ -1219,7 +1223,7 @@
 
     <div class="civil_neutral">
         <input class="" type="checkbox" value="Neutral" name="gender"
-            {{ $view_first->civil_status == 'Neutral' ? 'checked' : 'disabled' }}>
+            {{ $view_first->personal_info['civil_status'] == 'Neutral' ? 'checked' : 'disabled' }}>
     </div>
     <div class="civil_neutral_label">
         N
@@ -1229,42 +1233,42 @@
         BIRTHDATE:
     </div>
     <div class="birthdate_value">
-        {{ $view_first->birthday }}
+        {{ $view_first->personal_info['birthday'] }}
     </div>
 
     <div class="age">
         AGE:
     </div>
     <div class="age_value">
-        {{ $view_first->age }}
+        {{ $view_first->personal_info['age'] }}
     </div>
 
     <div class="birthplace">
         BIRTHPLACE:
     </div>
     <div class="birthplace_value">
-        {{ $view_first->birthplace }}
+        {{ $view_first->personal_info['birthplace'] }}
     </div>
 
     <div class="nationality">
         NATIONALITY:
     </div>
     <div class="nationality_value">
-        {{ $view_first->nationality }}
+        {{ $view_first->personal_info['nationality'] }}
     </div>
 
     <div class="religion">
         RELIGION:
     </div>
     <div class="religion_value">
-        {{ $view_first->religion }}
+        {{ $view_first->personal_info['religion'] }}
     </div>
 
     <div class="occupation">
         OCCUPATION:
     </div>
     <div class="occupation_value">
-        {{ $view_first->occupation }}
+        {{ $view_first->personal_info['occupation'] }}
     </div>
 
     <div class="employer_name">
@@ -1516,21 +1520,24 @@
         DATA FURNISHED BY: (signature over printed name)
     </div>
     <div class="data_furnished_value">
-        {{ $view_second->insurance['furnished_by'] }}
+        {{ $view_first->contact_person['contact_first'] }}
+        {{ $view_first->contact_person['contact_middle'] }}
+        {{ $view_first->contact_person['contact_last'] }}
+        {{ $view_first->contact_person['contact_suffix'] }}
     </div>
 
     <div class="address_informant">
         ADDRESS OF INFORMANT
     </div>
     <div class="address_informant_value">
-        {{ $view_second->insurance['informant_address'] }}
+        {{ $view_first->contact_person['contact_address'] }}
     </div>
 
     <div class="rtp">
         RELATION TO PATIENT
     </div>
     <div class="rtp_value">
-        {{ $view_second->insurance['relation_to_patient'] }}
+        {{ $view_first->contact_person['contact_rtp'] }}
     </div>
 
     <div class="admission_diagnosis">

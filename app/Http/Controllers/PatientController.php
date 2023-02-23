@@ -34,6 +34,7 @@ class PatientController extends Controller
         if ($request->search) {
             $searchTerms = explode(' ', $request->search);
             $patientDatas = First_admission::where('type', '=', 'Admission')
+                // ->orwhere('type', '=', 'Emergency')
                 ->where(function ($q) use ($searchTerms) {
                     foreach ($searchTerms as $term) {
                         $q->orWhere('full_name', 'LIKE', '%' . $term . '%');
@@ -73,23 +74,45 @@ class PatientController extends Controller
         $patients_Dummy = $patients_base->admission_table()->create([
             'patient_id' => $patients_base->id,
             'full_name' =>  $request->full_name,
+            'suffix' =>  $request->suffix,
+            'last_name' => $request->last_name,
             'first_name' => $request->first_name,
             'middle_name' => $request->middle_name,
-            'last_name' => $request->last_name,
-            'address' => $request->address,
             'ward_room_bed_service' => $request->ward_room_bed_service,
-            'perma_address' => $request->perma_address,
             'sr_no' => $request->sr_no,
-            'gender' => $request->gender,
-            'phone' => $request->phone,
-            'civil_status' => $request->civil_status,
-            'birthday' => $request->birthday,
-            'age' => $request->age,
-            'birthplace' => $request->birthplace,
-            'nationality' => $request->nationality,
-            'religion' => $request->religion,
-            'occupation' => $request->occupation,
             'type' => $request->type,
+
+            'personal_info' => [
+                'gender' => $request->gender,
+                'phone' => $request->phone,
+                'age' => $request->age,
+                'birthday' => $request->birthday,
+                'birthplace' => $request->birthplace,
+                'nationality' => $request->nationality,
+                'occupation' => $request->occupation,
+                'religion' => $request->religion,
+                'civil_status' => $request->civil_status,
+            ],
+            'full_address' => [
+                'street' => $request->street,
+                'municipality' => $request->municipality,
+                'province' => $request->province,
+                'region' => $request->region,
+                'barangay' => $request->barangay,
+                'zip_code' => $request->zip_code,
+                'country' => $request->country,
+            ],
+            'contact_person' => [
+                'contact_last' => $request->contact_last,
+                'contact_first' => $request->contact_first,
+                'contact_middle' => $request->contact_middle,
+                'contact_suffix' => $request->contact_suffix,
+                'contact_address' => $request->contact_address,
+                'contact_phone' => $request->contact_phone,
+                'contact_rtp' => $request->contact_rtp,
+            ],
+
+            'perma_address' => $request->perma_address,
         ]);
         $patients_Dummy->admission_two()->create([
             'record_id' => $patients_Dummy->record_no,
@@ -137,9 +160,9 @@ class PatientController extends Controller
                 'hospitalization_plan' => $request->hospitalization_plan,
                 'health_insurance' => $request->health_insurance,
                 'coverage_insurance' => $request->coverage_insurance,
-                'furnished_by' => $request->furnished_by,
-                'informant_address' => $request->informant_address,
-                'relation_to_patient' => $request->relation_to_patient,
+                // 'furnished_by' => $request->furnished_by,
+                // 'informant_address' => $request->informant_address,
+                // 'relation_to_patient' => $request->relation_to_patient,
             ],
             'diagnosis' => [
                 'admission_diagnosis' => $request->admission_diagnosis,
@@ -222,9 +245,9 @@ class PatientController extends Controller
             'hospitalization_plan' => $request->hospitalization_plan,
             'health_insurance' => $request->health_insurance,
             'coverage_insurance' => $request->coverage_insurance,
-            'furnished_by' => $request->furnished_by,
-            'informant_address' => $request->informant_address,
-            'relation_to_patient' => $request->relation_to_patient,
+            // 'furnished_by' => $request->furnished_by,
+            // 'informant_address' => $request->informant_address,
+            // 'relation_to_patient' => $request->relation_to_patient,
         ];
 
         $edit_second->diagnosis = [
@@ -240,22 +263,47 @@ class PatientController extends Controller
 
         $edit_second->save();
 
+        $edit_first->full_name =  $request->full_name;
+        $edit_first->suffix = $request->suffix;
         $edit_first->last_name = $request->last_name;
         $edit_first->first_name = $request->first_name;
         $edit_first->middle_name = $request->middle_name;
-        $edit_first->address = $request->address;
         $edit_first->ward_room_bed_service = $request->ward_room_bed_service;
-        $edit_first->perma_address = $request->perma_address;
         $edit_first->sr_no = $request->sr_no;
-        $edit_first->gender = $request->gender;
-        $edit_first->phone = $request->phone;
-        $edit_first->civil_status = $request->civil_status;
-        $edit_first->birthday = $request->birthday;
-        $edit_first->age = $request->age;
-        $edit_first->birthplace = $request->birthplace;
-        $edit_first->nationality = $request->nationality;
-        $edit_first->religion = $request->religion;
-        $edit_first->occupation = $request->occupation;
+        $edit_first->type = $request->type;
+
+        $edit_first->personal_info = [
+            'gender' => $request->gender,
+            'phone' => $request->phone,
+            'age' => $request->age,
+            'birthday' => $request->birthday,
+            'birthplace' => $request->birthplace,
+            'nationality' => $request->nationality,
+            'occupation' => $request->occupation,
+            'religion' => $request->religion,
+            'civil_status' => $request->civil_status,
+        ];
+        $edit_first->full_address = [
+            'street' => $request->street,
+            'municipality' => $request->municipality,
+            'province' => $request->province,
+            'region' => $request->region,
+            'barangay' => $request->barangay,
+            'zip_code' => $request->zip_code,
+            'country' => $request->country,
+        ];
+
+        $edit_first->contact_person = [
+            'contact_last' => $request->contact_last,
+            'contact_first' => $request->contact_first,
+            'contact_middle' => $request->contact_middle,
+            'contact_suffix' => $request->contact_suffix,
+            'contact_address' => $request->contact_address,
+            'contact_phone' => $request->contact_phone,
+            'contact_rtp' => $request->contact_rtp,
+        ];
+
+        $edit_first->perma_address = $request->perma_address;
         $edit_first->save();
 
         return redirect('/patientPage/admission');

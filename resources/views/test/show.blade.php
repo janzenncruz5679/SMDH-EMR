@@ -76,8 +76,7 @@
                                 <p>Type:</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="enter old record #" name="type" value="{{ $admission->type }}"
-                                    readonly>
+                                    placeholder="enter old record #" name="type" value="{{ $admission->type }}" readonly>
                             </div>
                         </div>
 
@@ -480,7 +479,8 @@
                                             <div class="col-span-3">
                                                 <input type="date"
                                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
-                                                    name="end_date" id="end_date" value="{{ $admission->admission_end->toDateString() }}">
+                                                    name="end_date" id="end_date"
+                                                    value="{{ $admission->admission_end->toDateString() }}">
                                             </div>
                                         </div>
                                         <div class="grid grid-cols-5">
@@ -498,7 +498,8 @@
                                             <div class="col-span-3">
                                                 <input type="time"
                                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
-                                                    name="end_time" id="end_time" value="{{ $admission->admission_end->toTimeString() }}">
+                                                    name="end_time" id="end_time"
+                                                    value="{{ $admission->admission_end->toTimeString() }}">
                                             </div>
                                         </div>
                                         <div class="grid grid-cols-5">

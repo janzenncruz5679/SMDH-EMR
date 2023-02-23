@@ -24,7 +24,7 @@ class AdmissionRequest extends FormRequest
     public function rules()
     {
         return [
-            'address' => 'required',
+            // 'address' => 'required',
             'last_name' => 'required',
             'first_name' => 'required',
             'ward_room_bed_service' => 'required',
@@ -32,8 +32,8 @@ class AdmissionRequest extends FormRequest
             'phone' => 'required',
             'birthday' => 'required',
 
-            //second_admission
-            'perma_address' => 'required',
+            // //second_admission
+            // 'perma_address' => 'required',
             'civil_status' => 'required',
             'birthplace' => 'required',
             'nationality' => 'required',
@@ -57,18 +57,18 @@ class AdmissionRequest extends FormRequest
             'health_insurance' => 'required',
             'coverage_insurance' => 'required',
             'hospitalization_plan' => 'required',
-            'furnished_by' => 'required',
-            'informant_address' => 'required',
-            'relation_to_patient' => 'required',
+            // // 'furnished_by' => 'required',
+            // // 'informant_address' => 'required',
+            // // 'relation_to_patient' => 'required',
 
-            //sixth_admission
+            // //sixth_admission
             'admission_diagnosis' => 'required',
-            // 'principal_diagnosis' => 'required',
-            // 'other_diagnosis' => 'required',
-            // 'idc_code' => 'required',
-            // 'principal_operation' => 'required',
-            // 'other_operation' => 'required',
-            // 'icpm_code' => 'required',
+            // // 'principal_diagnosis' => 'required',
+            // // 'other_diagnosis' => 'required',
+            // // 'idc_code' => 'required',
+            // // 'principal_operation' => 'required',
+            // // 'other_operation' => 'required',
+            // // 'icpm_code' => 'required',
         ];
     }
 
@@ -76,7 +76,7 @@ class AdmissionRequest extends FormRequest
     {
         return [
             //first
-            'address.required' => '*this field is required',
+            // 'address.required' => '*this field is required',
             'last_name.required' => '*this field is required',
             'first_name.required' => '*this field is required',
             'ward_room_bed_service.required' => '*this field is required',
@@ -84,8 +84,8 @@ class AdmissionRequest extends FormRequest
             'phone' => '*this field is required',
             'birthday' => '*this field is required',
 
-            //second
-            'perma_address.required' => '*this field is required',
+            // //second
+            // 'perma_address.required' => '*this field is required',
             'civil_status.required' => '*this field is required',
             'birthplace' => '*this field is required',
             'nationality' => '*this field is required',
@@ -109,18 +109,18 @@ class AdmissionRequest extends FormRequest
             'health_insurance.required' => '*this field is required',
             'coverage_insurance.required' => '*this field is required',
             'hospitalization_plan.required' => '*this field is required',
-            'furnished_by.required' => '*this field is required',
-            'informant_address.required' => '*this field is required',
-            'relation_to_patient.required' => '*this field is required',
+            // // 'furnished_by.required' => '*this field is required',
+            // // 'informant_address.required' => '*this field is required',
+            // // 'relation_to_patient.required' => '*this field is required',
 
-            //sixth
+            // //sixth
             'admission_diagnosis.required' => '*this field is required',
-            // 'principal_diagnosis.required' => '*this field is required',
-            // 'other_diagnosis.required' => '*this field is required',
-            // 'idc_code.required' => '*this field is required',
-            // 'principal_operation.required' => '*this field is required',
-            // 'other_operation.required' => '*this field is required',
-            // 'icpm_code.required' => '*this field is required',
+            // // 'principal_diagnosis.required' => '*this field is required',
+            // // 'other_diagnosis.required' => '*this field is required',
+            // // 'idc_code.required' => '*this field is required',
+            // // 'principal_operation.required' => '*this field is required',
+            // // 'other_operation.required' => '*this field is required',
+            // // 'icpm_code.required' => '*this field is required',
         ];
     }
 }

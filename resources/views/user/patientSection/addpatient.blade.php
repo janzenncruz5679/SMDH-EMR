@@ -12,139 +12,388 @@
 
         .parsley-errors-list {
             color: red;
+            font-size: 1rem;
         }
     </style>
-    <div class="addPatient absolute top-[59px] left-[275px] h-full w-[85.3vw] p-12 ">
+    <div class="addPatient fixed top-[59px] left-[275px] h-fit w-[85%] p-12">
         @include('layouts.stepper')
-        <div class=" h-full w-full">
+        <div class="grid h-full w-full">
             <form action="{{ url('/patientPage/admission') }}" method="POST" enctype="multipart/form-data"
-                class="admission-form">
+                class="admission-form ">
                 @csrf
-                <div class="h-full
-                 w-full text-xl tracking-wider border-2 border-black font-[sans-serif]">
+                <div
+                    class="w-full text-lg tracking-widest font-[sans-serif] bg-[#ECECEC] rounded-3xl shadow-xl shadow-gray-400">
                     {{-- admissionform_sec --}}
-                    <div class="form-section">
-                        {{-- name --}}
-                        <div class="grid grid-cols-8  border-b-2 border-black h-full">
-                            <div class="border-r-2 border-black col-span-5 grid grid-cols-8 content-center p-3">
-                                <p class="col-span-2">NAME OF HOSPITAL :</p>
-                                <p class="col-span-6">San Miguel District Hospital</p>
-                            </div>
-                            <div class="col-span-3 grid grid-cols-7 p-3">
-                                <p class="col-span-2">HOSP CODE :</p>
-                                <p class="col-span-3">0000122</p>
+                    {{-- name --}}
+                    <div class="form-section ">
+                        <div
+                            class="grid justify-center text-3xl font-semibold tracking-widest rounded-t-3xl bg-[#A0DDD3] p-3 text-[#003D33]">
+                            <label>Clinical Cover Sheet</label>
+                        </div>
+
+                        <div class=" grid px-3 pt-4 text-xl text-[#003D33] font-semibold tracking-wider">
+                            <label>Patient Full Name</label>
+                        </div>
+                        {{-- patients name --}}
+                        <div class="grid gap-2">
+                            <div class="grid grid-cols-5 h-full">
+                                <div class="px-3">
+                                    <label>Last Name* :</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="last name" name="last_name" autocomplete="off"
+                                        value="{{ old('last_name') }}">
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                        @error('last_name')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                </div>
+                                <div class="col-span-2 px-3">
+                                    <label>Given Name* :</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="given name" name="first_name" autocomplete="off"
+                                        value="{{ old('first_name') }}">
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                        @error('first_name')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                </div>
+                                <div class="px-3">
+                                    <label>Middle Name :</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="N/A if not available" name="middle_name" autocomplete="off"
+                                        value="{{ old('middle_name') }}">
+
+                                </div>
+                                <div class="px-3">
+                                    <label>Suffix :</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="N/A if not available" name="suffix" autocomplete="off"
+                                        value="{{ old('suffix') }}">
+                                </div>
                             </div>
                         </div>
 
-                        {{-- address --}}
-                        <div class="grid grid-cols-8 border-b-2 border-black h-full">
-                            <div class="col-span-5 border-r-2 border-black p-3">
-                                <p>ADDRESS* :</p>
-                                <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="enter address" name="address" autocomplete="off"
-                                    value="{{ old('address') }}">
-                                <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                    @error('address')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-                            <div class="col-span-3 p-3">
-                                <p>HEALTH RECORD NO :</p>
-                                <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="enter latest record #" autocomplete="off">
 
+                        <div class=" grid px-3 pt-4 text-xl text-[#003D33] font-semibold tracking-wider">
+                            <label>Personal Information</label>
+                        </div>
+                        <div class="grid gap-2 pb-4">
+                            {{-- personal info --}}
+                            <div class="grid grid-cols-4 h-full w-full">
+                                <div class="px-3">
+                                    <label>SR CITIZEN NO :</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="N/A if not available" name="sr_no" autocomplete="off"
+                                        value="{{ old('sr_no') }}">
+
+                                </div>
+                                <div class="px-3">
+                                    <label>WARD/ROOM/BED/SERVICE* :</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="enter ward/room/bed/service type" name="ward_room_bed_service"
+                                        autocomplete="off" value="{{ old('ward_room_bed_service') }}">
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                        @error('ward_room_bed_service')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                </div>
+                                <div class="px-3">
+                                    <label>CONTACT NUMBER* :</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="enter cellular phone #" name="phone" maxlength="11"
+                                        autocomplete="off" value="{{ old('phone') }}">
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                        @error('phone')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                </div>
+                                <div class="px-3">
+                                    <label>Type:</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="enter old record #" name="type" value="Admission" readonly>
+                                </div>
+                            </div>
+
+                            {{-- personal info 2 --}}
+                            <div class="grid grid-cols-3 h-full w-full">
+                                <div class="px-3">
+                                    <label>BIRTHDATE* :</label>
+                                    <input type="date"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
+                                        placeholder="birthday" name="birthday" id="birthday" autocomplete="off"
+                                        value="{{ old('birthday') }}">
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                        @error('birthday')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                </div>
+                                <div class="px-3">
+                                    <label>AGE* :</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                        placeholder="age" name="age" id="age" autocomplete="off"
+                                        value="{{ old('age') }}" readonly>
+                                </div>
+                                <div class="px-3">
+                                    <label>BIRTHPLACE* :</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="birthplace" name="birthplace" autocomplete="off"
+                                        value="{{ old('birthplace') }}">
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                        @error('birthplace')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                </div>
+                            </div>
+
+                            {{-- personal info 3 --}}
+                            <div class="grid grid-cols-6 h-full w-full">
+                                <div class="col-span-2 px-3">
+                                    <label class="pb-2">CIVIL STATUS* :</label>
+                                    <div class="w-full flex justify-around">
+                                        <div class="inline">
+                                            <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
+                                                value="Single" name="civil_status"
+                                                {{ old('civil_status') == 'Single' ? 'checked' : '' }}>
+                                            <label>S</label>
+                                        </div>
+                                        <div class="inline">
+                                            <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
+                                                value="Divorced" name="civil_status"
+                                                {{ old('civil_status') == 'Divorced' ? 'checked' : '' }}>
+                                            <label>D</label>
+                                        </div>
+                                        <div class="col-span-2 inline">
+                                            <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
+                                                value="Separated" name="civil_status"
+                                                {{ old('civil_status') == 'Separated' ? 'checked' : '' }}>
+                                            <label>SEP</label>
+                                        </div>
+                                        <div class="col-span-2 inline">
+                                            <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
+                                                value="Common Law" name="civil_status"
+                                                {{ old('civil_status') == 'Common Law' ? 'checked' : '' }}>
+                                            <label>C</label>
+                                        </div>
+                                        <div class="col-span-2 inline">
+                                            <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
+                                                value="Widowed" name="civil_status"
+                                                {{ old('civil_status') == 'Widowed' ? 'checked' : '' }}>
+                                            <label>W</label>
+                                        </div>
+                                        <div class="col-span-2 inline">
+                                            <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
+                                                value="Married" name="civil_status"
+                                                {{ old('civil_status') == 'Married' ? 'checked' : '' }}>
+                                            <label>M</label>
+                                        </div>
+                                        <div class="col-span-2 inline">
+                                            <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
+                                                value="Neutral" name="civil_status"
+                                                {{ old('civil_status') == 'Neutral' ? 'checked' : '' }}>
+                                            <label>N</label>
+                                        </div>
+                                    </div>
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600" autocomplete="off">
+                                        @error('civil_status')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                </div>
+                                <div class="px-3 ">
+                                    <label>RELIGION* :</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="religion" name="religion" autocomplete="off"
+                                        value="{{ old('religion') }}" req>
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                        @error('religion')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                </div>
+                                <div class="px-3">
+                                    <label>OCCUPATION :</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="N/A if not available" name="occupation" autocomplete="off"
+                                        value="{{ old('occupation') }}">
+                                </div>
+                                <div class="px-3">
+                                    <label>NATIONALITY :</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                        placeholder="nationality" name="nationality" id="nationality" autocomplete="off"
+                                        value="{{ old('nationality') }}">
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600" autocomplete="off">
+                                        @error('nationality')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                </div>
+                                <div class="px-3">
+                                    <label class="pb-2">SEX* :</label>
+                                    <div class="w-full flex justify-start gap-4">
+                                        <div class="inline">
+                                            <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
+                                                value="Male" name="gender"
+                                                {{ old('gender') == 'Male' ? 'checked' : '' }}>
+                                            <label>M</label>
+                                        </div>
+                                        <div class="inline">
+                                            <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
+                                                value="Female" name="gender"
+                                                {{ old('gender') == 'Female' ? 'checked' : '' }}>
+                                            <label>F</label>
+                                        </div>
+                                    </div>
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600" autocomplete="off">
+                                        @error('gender')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                </div>
                             </div>
                         </div>
 
-
-                        {{-- sr citizen number --}}
-                        <div class="grid grid-cols-8 border-b-2 border-black h-full">
-                            <div class="col-span-3 border-r-2 border-black p-3">
-                                <p>SR CITIZEN NO :</p>
-                                <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="N/A if not available" name="sr_no" autocomplete="off"
-                                    value="{{ old('sr_no') }}">
-
-                            </div>
-                            <div class="col-span-2 flex justify-center items-center border-r-2 border-black">
-                                <p class="font-bold">CLINICAL COVER SHEET</p>
-                            </div>
-                            <div class="col-span-3 p-3">
-                                <p>Type:</p>
-                                <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="enter old record #" name="type" value="Admission" readonly>
-                            </div>
-                        </div>
-
-                        {{-- empty border --}}
-                        <div class="border-b-2 border-black h-8"></div>
-
-                        {{-- patients border --}}
-                        <div class="grid grid-cols-12 border-b-2 border-black h-full">
-                            <div class="border-r-2 border-black flex flex-col items-center justify-center p-3">
-                                <p>PATIENT'S</p>
-                                <p>NAME</p>
-                            </div>
-                            <div class="col-span-2 border-r-2 border-black p-3">
-                                <p>Last Name* :</p>
-                                <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="last name" name="last_name" autocomplete="off"
-                                    value="{{ old('last_name') }}">
-                                <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                    @error('last_name')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-                            <div class="col-span-3 border-r-2 border-black p-3">
-                                <p>Given Name* :</p>
-                                <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="given name" name="first_name" autocomplete="off"
-                                    value="{{ old('first_name') }}">
-                                <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                    @error('first_name')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-                            <div class="col-span-3 border-r-2 border-black p-3">
-                                <p>Middle Name :</p>
-                                <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="N/A if not available" name="middle_name" autocomplete="off"
-                                    value="{{ old('middle_name') }}">
-                            </div>
-                            <div class="col-span-3 border-black p-3">
-                                <p>WARD/ROOM/BED/SERVICE* :</p>
-                                <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="enter ward/room/bed/service type" name="ward_room_bed_service"
-                                    autocomplete="off" value="{{ old('ward_room_bed_service') }}">
-                                <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                    @error('ward_room_bed_service')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-
-                        </div>
-
-                        {{-- empty border --}}
-                        <div class="border-b-2 border-black h-8"></div>
                     </div>
 
                     {{-- admissionform_sec --}}
                     <div class="form-section">
-                        {{-- perma address --}}
-                        <div class="grid grid-cols-11 border-b-2 border-black h-full">
-                            <div class="col-span-5 border-r-2 border-black p-3">
+                        <div
+                            class="grid justify-center text-3xl font-semibold tracking-widest rounded-t-3xl bg-[#A0DDD3] p-3 text-[#003D33]">
+                            <label>Clinical Cover Sheet</label>
+                        </div>
+                        <div class=" grid p-3 text-2xl text-[#003D33] font-semibold tracking-wider">
+                            <label>Full Address</label>
+                        </div>
+                        {{-- full_address --}}
+                        <div class="grid grid-cols-4 h-full w-full ">
+                            <div class="col-span-2  px-3 py-2">
+                                <label>STREET* :</label>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="street" name="street" id="street" autocomplete="off"
+                                    value="{{ old('street') }}">
+                            </div>
+                            <div class=" px-3 py-2">
+                                <label>BARANGAY* :</label>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="barangay" name="barangay" autocomplete="off"
+                                    value="{{ old('barangay') }}">
+                            </div>
+                            <div class="  p-3">
+                                <label>MUNICIPALITY* :</label>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                    placeholder="municipality" name="municipality" id="municipality" autocomplete="off"
+                                    value="{{ old('municipality') }}">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-4  h-full">
+
+                            <div class="p-3">
+                                <label>PROVINCE :</label>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="province" name="province" autocomplete="off"
+                                    value="{{ old('province') }}">
+                            </div>
+                            <div class=" p-3">
+                                <label>REGION* :</label>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="region" name="region" autocomplete="off" value="{{ old('region') }}">
+                            </div>
+                            <div class="p-3">
+                                <label>ZIP CODE :</label>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="zip code" name="zip_code" autocomplete="off"
+                                    value="{{ old('zip_code') }}">
+                            </div>
+                            <div class=" p-3">
+                                <label>COUNTRY :</label>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="country" name="country" autocomplete="off"
+                                    value="{{ old('country') }}">
+                            </div>
+                        </div>
+                        {{-- empty border --}}
+                        <div class=" h-8">
+                            <label>CONTACT PERSON</label>
+                        </div>
+                        <div class="grid grid-cols-7  h-full">
+                            <div class="  p-3">
+                                <label>LAST NAME :</label>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                    placeholder="contact last name" name="contact_last" id="contact_last"
+                                    autocomplete="off" value="{{ old('contact_last') }}">
+                            </div>
+                            <div class="  p-3">
+                                <label>FIRST NAME :</label>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                    placeholder="contact first name" name="contact_first" id="contact_first"
+                                    autocomplete="off" value="{{ old('contact_first') }}">
+                            </div>
+                            <div class="p-3">
+                                <label>MIDDLE NAME :</label>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                    placeholder="contact middle name" name="contact_middle" id="contact_middle"
+                                    autocomplete="off" value="{{ old('contact_middle') }}">
+                            </div>
+                            <div class="p-3">
+                                <label>SUFFIX :</label>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                    placeholder="contact suffix" name="contact_suffix" id="contact_suffix"
+                                    autocomplete="off" value="{{ old('contact_suffix') }}">
+                            </div>
+                            <div class="p-3">
+                                <label>ADDRESS :</label>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                    placeholder="contact address" name="contact_address" id="contact_address"
+                                    autocomplete="off" value="{{ old('contact_address') }}">
+                            </div>
+                            <div class="p-3">
+                                <label>PHONE :</label>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                    placeholder="contact address" name="contact_phone" id="contact_phone"
+                                    autocomplete="off" value="{{ old('contact_phone') }}">
+                            </div>
+                            <div class="p-3">
+                                <label>RELATION TO PATIENT :</label>
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                    placeholder="relation to patient" name="contact_rtp" id="contact_rtp"
+                                    autocomplete="off" value="{{ old('contact_rtp') }}">
+                            </div>
+                        </div>
+
+                        <div class="grid h-full">
+                            <div class="p-3">
                                 <p>PERMANENT ADDRESS* :</p>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
@@ -156,166 +405,24 @@
                                     @enderror
                                 </span>
                             </div>
-                            <div class="col-span-2 border-r-2 border-black p-3">
-                                <p>TEL. NO.* :</p>
-                                <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="enter cellular phone #" name="phone" maxlength="11" autocomplete="off"
-                                    value="{{ old('phone') }}">
-                                <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                    @error('phone')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-                            <div class=" border-r-2 border-black p-3">
-                                <p class="pb-2">SEX* :</p>
-                                <div class="w-full flex justify-start gap-4">
-                                    <div class="inline">
-                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
-                                            value="Male" name="gender" {{ old('gender') == 'Male' ? 'checked' : '' }}>
-                                        <label>M</label>
-                                    </div>
-                                    <div class="inline">
-                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
-                                            value="Female" name="gender"
-                                            {{ old('gender') == 'Female' ? 'checked' : '' }}>
-                                        <label>F</label>
-                                    </div>
-                                </div>
-                                <span class="text-base font-[sans-serif] font-medium text-red-600" autocomplete="off">
-                                    @error('gender')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-                            <div class="col-span-3 border-black p-3">
-                                <p class="pb-2">CIVIL STATUS* :</p>
-                                <div class="w-full flex justify-around">
-                                    <div class="inline">
-                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
-                                            value="Single" name="civil_status"
-                                            {{ old('civil_status') == 'Single' ? 'checked' : '' }}>
-                                        <label>S</label>
-                                    </div>
-                                    <div class="inline">
-                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
-                                            value="Divorced" name="civil_status"
-                                            {{ old('civil_status') == 'Divorced' ? 'checked' : '' }}>
-                                        <label>D</label>
-                                    </div>
-                                    <div class="col-span-2 inline">
-                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
-                                            value="Separated" name="civil_status"
-                                            {{ old('civil_status') == 'Separated' ? 'checked' : '' }}>
-                                        <label>SEP</label>
-                                    </div>
-                                    <div class="col-span-2 inline">
-                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
-                                            value="Common Law" name="civil_status"
-                                            {{ old('civil_status') == 'Common Law' ? 'checked' : '' }}>
-                                        <label>C</label>
-                                    </div>
-                                    <div class="col-span-2 inline">
-                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
-                                            value="Widowed" name="civil_status"
-                                            {{ old('civil_status') == 'Widowed' ? 'checked' : '' }}>
-                                        <label>W</label>
-                                    </div>
-                                    <div class="col-span-2 inline">
-                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
-                                            value="Married" name="civil_status"
-                                            {{ old('civil_status') == 'Married' ? 'checked' : '' }}>
-                                        <label>M</label>
-                                    </div>
-                                    <div class="col-span-2 inline">
-                                        <input class="scale-150 cursor-pointer accent-blue-300" type="radio"
-                                            value="Neutral" name="civil_status"
-                                            {{ old('civil_status') == 'Neutral' ? 'checked' : '' }}>
-                                        <label>N</label>
-                                    </div>
-                                </div>
-                                <span class="text-base font-[sans-serif] font-medium text-red-600" autocomplete="off">
-                                    @error('civil_status')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-
                         </div>
 
                         {{-- empty border --}}
                         <div class="border-b-2 border-black h-8"></div>
 
+
                         {{-- birthdate border --}}
                         <div class="grid grid-cols-11 h-full">
-                            <div class="col-span-2 border-r-2 border-black p-3">
-                                <p>BIRTHDATE* :</p>
-                                <input type="date"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
-                                    placeholder="birthday" name="birthday" id="birthday" autocomplete="off"
-                                    value="{{ old('birthday') }}">
-                                <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                    @error('birthday')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-                            <div class="border-r-2 border-black p-3">
-                                <p>AGE* :</p>
-                                <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
-                                    placeholder="age" name="age" id="age" autocomplete="off"
-                                    value="{{ old('age') }}" readonly>
-                            </div>
-                            <div class="col-span-2 border-r-2 border-black p-3">
-                                <p>BIRTHPLACE* :</p>
-                                <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="birthplace" name="birthplace" autocomplete="off"
-                                    value="{{ old('birthplace') }}">
-                                <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                    @error('birthplace')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-                            <div class="col-span-2 border-r-2 border-black p-3">
-                                <p>NATIONALITY* :</p>
-                                <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="nationality" name="nationality" autocomplete="off"
-                                    value="{{ old('nationality') }}">
-                                <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                    @error('nationality')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-                            <div class="col-span-2 border-r-2 border-black p-3">
-                                <p>RELIGION* :</p>
-                                <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="religion" name="religion" autocomplete="off"
-                                    value="{{ old('religion') }}">
-                                <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                    @error('religion')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-                            <div class="col-span-2 border-black p-3">
-                                <p>OCCUPATION :</p>
-                                <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="N/A if not available" name="occupation" autocomplete="off"
-                                    value="{{ old('occupation') }}">
-                            </div>
+
                         </div>
                     </div>
 
                     {{-- admissionform_sec --}}
                     <div class="form-section">
+                        <div
+                            class="grid justify-center text-3xl font-semibold tracking-widest rounded-t-3xl bg-[#A0DDD3] p-3 text-[#003D33]">
+                            <label>Clinical Cover Sheet</label>
+                        </div>
                         {{-- empty border --}}
                         <div class="border-b-2 border-black h-8"></div>
                         {{-- employee --}}
@@ -425,6 +532,10 @@
 
                     {{-- admissionform_sec --}}
                     <div class="form-section">
+                        <div
+                            class="grid justify-center text-3xl font-semibold tracking-widest rounded-t-3xl bg-[#A0DDD3] p-3 text-[#003D33]">
+                            <label>Clinical Cover Sheet</label>
+                        </div>
                         {{-- Admission --}}
                         <div class="grid grid-cols-12 border-b-2 border-black h-full">
                             <div class="col-span-3 border-r-2 border-black grid gap-2 p-3">
@@ -713,7 +824,7 @@
                         <div class="border-b-2 border-black h-8"></div>
 
                         {{-- data furnished by --}}
-                        <div class="grid grid-cols-12 border-b-2 border-black h-full">
+                        {{-- <div class="grid grid-cols-12 border-b-2 border-black h-full">
                             <div class="col-span-6 border-r-2 border-black p-3 gap-2">
                                 <p>DATA FURNISHED BY(signature over printed name)</p>
                                 <input type="text"
@@ -751,7 +862,7 @@
                                     @enderror
                                 </span>
                             </div>
-                        </div>
+                        </div> --}}
 
                         {{-- empty border --}}
                         <div class="border-b-2 border-black h-8"></div>

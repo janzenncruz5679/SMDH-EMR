@@ -19,23 +19,29 @@ return new class extends Migration
             $table->foreign('patient_id')->references('id')->on('patient_ids');
 
             $table->string('full_name')->nullable();
+            $table->string('suffix')->nullable();
             $table->string('last_name')->nullable();
             $table->string('first_name')->nullable();
             $table->string('middle_name')->nullable();
-            $table->string('address')->nullable();
-            $table->string('ward_room_bed_service')->nullable();
-            $table->string('perma_address')->nullable();
+
             $table->string('sr_no')->nullable();
-            $table->string('gender')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('civil_status')->nullable();
-            $table->string('birthday')->nullable();
-            $table->string('age')->nullable();
-            $table->string('birthplace')->nullable();
-            $table->string('nationality')->nullable();
-            $table->string('religion')->nullable();
-            $table->string('occupation')->nullable();
             $table->string('type')->nullable();
+            $table->string('ward_room_bed_service')->nullable();
+
+            $table->longText('personal_info')->nullable();
+            // $table->string('gender')->nullable();
+            // $table->string('phone')->nullable();
+            // $table->string('age')->nullable();
+            // $table->string('birthday')->nullable();
+            // $table->string('birthplace')->nullable();
+            // $table->string('nationality')->nullable();
+            // $table->string('occupation')->nullable();
+            // $table->string('religion')->nullable();
+            // $table->string('civil_status')->nullable();
+
+            $table->longText('full_address')->nullable();
+            $table->longText('contact_person')->nullable();
+            $table->string('perma_address')->nullable();
             $table->timestamps();
         });
     }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdmissionsController;
 use App\Http\Controllers\BillingController;
+use App\Http\Controllers\DischargeSummaryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\EmergencyPatientController;
@@ -67,6 +68,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('stations/labOptions/vitalSigns', [StationController::class, 'vitalSigns'])->name('vitalsTab');
     ////nursenotes view
     Route::get('stations/labOptions/nurseNotes', [NurseNoteController::class, 'nurseNotesview'])->name('nurseNotes');
+    ////dischargeSummary view
+    Route::get('stations/labOptions/dischargeSummary', [DischargeSummaryController::class, 'dischargeSummaryview'])->name('dischargeSummary');
 
 
     ///////////////emergency patients section
@@ -91,6 +94,15 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/records/addNurseNotes', [NurseNoteController::class, 'addNurseNotes'])->name('addNurseNotes');
     Route::post('/records/submitNurseNotes', [NurseNoteController::class, 'submit_addNurseNotes'])->name('submitNurseNotes');
     Route::get('/records/viewNurseNotes{id}', [NurseNoteController::class, 'viewNurseNotes'])->name('viewNurseNotes');
+    ////////nurseNotes_add_and_view
+    Route::get('/records/addDischargeSummary', [DischargeSummaryController::class, 'addDischargeSummary'])->name('addDischargeSummary');
+    Route::post('/records/submitDischargeSummary', [DischargeSummaryController::class, 'submit_addDischargeSummary'])->name('submit_addDischargeSummary');
+    Route::get('/records/viewDischargeSummary{id}', [DischargeSummaryController::class, 'viewDischargeSummary'])->name('viewDischargeSummary');
+
+
+
+
+
 
     //vitals update data from db
     Route::get('/records/updateVitals{id}', [StationController::class, 'updateVitals'])->name('updateVitals');
@@ -98,6 +110,12 @@ Route::middleware(['auth'])->group(function () {
     //nursenotes update data from db
     Route::get('/records/updateNurseNotes{id}', [NurseNoteController::class, 'updateNurseNotes'])->name('updateNurseNotes');
     Route::post('/records/editNurseNotes{id}', [NurseNoteController::class, 'editNurseNotes'])->name('editNurseNotes');
+    //discharge_summary update data from db
+    Route::get('/records/updateDischargeSummary{id}', [DischargeSummaryController::class, 'updateDischargeSummary'])->name('updateDischargeSummary');
+    Route::post('/records/editDischargeSummary{id}', [DischargeSummaryController::class, 'editDischargeSummary'])->name('editDischargeSummary');
+
+
+
 
     //billing view
     Route::get('/billing/billingTable', [BillingController::class, 'billingTable'])->name('billingTable');

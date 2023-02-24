@@ -6,13 +6,24 @@
         <div class="grid grid-rows-6 w-full">
             <div class="grid grid-cols-12 gap-14 ">
                 <a class="col-span-2 grid items-center p-6 text-zinc-900 hover:text-white bg-blue-100 hover:bg-blue-300 rounded-3xl shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition"
-                    href="{{ url('patientPage') }}">
+                    href="{{ route('vitalsTab') }}">
                     <div class="grid gap-3">
                         <div class="grid place-items-center">
-                            <i class="fa-solid fa-x-ray text-[7rem]"></i>
+                            <i class="fa-solid fa-heart-pulse text-[7rem]"></i>
                         </div>
                         <div class="grid justify-center text-2xl font-[sans-serif]">
-                            <p class="grid justify-center">{{ __('X-ray') }}</p>
+                            <p class="grid justify-center">{{ __('Vital Signs') }}</p>
+                        </div>
+                    </div>
+                </a>
+                <a class="col-span-2 grid items-center p-6 text-zinc-900 hover:text-white bg-blue-100 hover:bg-blue-300 rounded-3xl shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition"
+                    href="{{ route('nurseNotes') }}">
+                    <div class="grid gap-3">
+                        <div class="grid place-items-center">
+                            <i class="fa-solid fa-heart-pulse text-[7rem]"></i>
+                        </div>
+                        <div class="grid justify-center text-2xl font-[sans-serif]">
+                            <p class="grid justify-center">{{ __('Nurse Notes') }}</p>
                         </div>
                     </div>
                 </a>

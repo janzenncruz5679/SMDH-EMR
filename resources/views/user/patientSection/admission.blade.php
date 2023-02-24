@@ -4,8 +4,8 @@
     <div class="fixed h-auto w-[86%] left-[275px] top-[59px] p-12 grid gap-8">
         <div class="admissionDisplay h-full w-full grid gap-4">
             <div class="h-20 bg-blue-300 flex items-center justify-center">
-                <p class="font-[sans-serif] font-semibold text-white tracking-wide text-4xl">
-                    {{ __('Admission Patients') }}</p>
+                <label class="font-[sans-serif] font-semibold text-white tracking-wide text-4xl">
+                    {{ __('Admission Patients') }}</label>
             </div>
             <div class="searchBar h-12 w-full flex justify-start items-center">
                 <form action="{{ url('/patientPage/admission/search') }}" method="GET"

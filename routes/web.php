@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\EmergencyPatientController;
 use App\Http\Controllers\StationController;
+use App\Http\Controllers\NurseNoteController;
 use App\Http\Controllers\TestingController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -60,10 +61,12 @@ Route::middleware(['auth'])->group(function () {
 
 
 
-    ////////////////////station section
+    //////////////////////////////////station section
     Route::get('stations/labOptions', [StationController::class, 'labOptions']);
     ////vitalsigns view
-    Route::get('stations/labOptions/vitalSigns', [StationController::class, 'vitalSigns']);
+    Route::get('stations/labOptions/vitalSigns', [StationController::class, 'vitalSigns'])->name('vitalsTab');
+    ////nursenotes view
+    Route::get('stations/labOptions/nurseNotes', [NurseNoteController::class, 'nurseNotesview'])->name('nurseNotes');
 
 
     ///////////////emergency patients section
@@ -79,16 +82,22 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/patientPage/viewEmergency{id}', [EmergencyPatientController::class, 'viewEmergency']);
 
 
-    ////////vitalSigns_add
+    ////////vitalSigns_add_and_view
     Route::get('/records/addVitals', [StationController::class, 'addVitals'])->name('addVitals');
     Route::post('/records/submitVitals', [StationController::class, 'submit_addVitals'])->name('submitVitals');
     Route::get('/records/vitalSigns', [StationController::class, 'vitalSigns'])->name('vitalSigns');
     Route::get('/records/viewVitals{id}', [StationController::class, 'viewVitalSigns'])->name('viewVitals');
+    ////////nurseNotes_add_and_view
+    Route::get('/records/addNurseNotes', [NurseNoteController::class, 'addNurseNotes'])->name('addNurseNotes');
+    Route::post('/records/submitNurseNotes', [NurseNoteController::class, 'submit_addNurseNotes'])->name('submitNurseNotes');
+    Route::get('/records/viewNurseNotes{id}', [NurseNoteController::class, 'viewNurseNotes'])->name('viewNurseNotes');
 
     //vitals update data from db
     Route::get('/records/updateVitals{id}', [StationController::class, 'updateVitals'])->name('updateVitals');
     Route::post('/records/editVitals{id}', [StationController::class, 'editVitals']);
-
+    //nursenotes update data from db
+    Route::get('/records/updateNurseNotes{id}', [NurseNoteController::class, 'updateNurseNotes'])->name('updateNurseNotes');
+    Route::post('/records/editNurseNotes{id}', [NurseNoteController::class, 'editNurseNotes'])->name('editNurseNotes');
 
     //billing view
     Route::get('/billing/billingTable', [BillingController::class, 'billingTable'])->name('billingTable');

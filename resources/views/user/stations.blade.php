@@ -39,7 +39,19 @@
                         </div>
                     </div>
                 </a>
-                <a class="col-span-2 grid items-start p-6 text-zinc-900 hover:text-white bg-blue-100 hover:bg-blue-300 rounded-3xl shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition"
+                <a class="col-span-2 grid items-center p-6 text-zinc-900 hover:text-white bg-blue-100 hover:bg-blue-300 rounded-3xl shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition"
+                    href="{{ route('physicianOrder') }}">
+                    <div class="grid gap-3">
+                        <div class="grid place-items-center">
+                            <i class="fa-solid fa-notes-medical text-[7rem]"></i>
+                        </div>
+                        <div class="grid justify-center text-2xl font-[sans-serif]">
+                            <p class="grid justify-center">{{ __('Physician') }}</p>
+                            <p class="grid justify-center">{{ __('Order') }}</p>
+                        </div>
+                    </div>
+                </a>
+                {{-- <a class="col-span-2 grid items-start p-6 text-zinc-900 hover:text-white bg-blue-100 hover:bg-blue-300 rounded-3xl shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition"
                     href="{{ url('stations/labOptions') }}">
                     <div class="grid gap-3">
                         <div class="grid place-items-center">
@@ -61,7 +73,7 @@
                             <p class="grid justify-center">{{ __('Pharmacy') }}</p>
                         </div>
                     </div>
-                </a>
+                </a> --}}
 
             </div>
         </div>

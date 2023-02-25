@@ -8,6 +8,7 @@ use App\Http\Controllers\PatientController;
 use App\Http\Controllers\EmergencyPatientController;
 use App\Http\Controllers\StationController;
 use App\Http\Controllers\NurseNoteController;
+use App\Http\Controllers\PhysicianOrderController;
 use App\Http\Controllers\TestingController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -70,6 +71,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('stations/labOptions/nurseNotes', [NurseNoteController::class, 'nurseNotesview'])->name('nurseNotes');
     ////dischargeSummary view
     Route::get('stations/labOptions/dischargeSummary', [DischargeSummaryController::class, 'dischargeSummaryview'])->name('dischargeSummary');
+    ////physicianOrder view
+    Route::get('stations/labOptions/physicianOrder', [PhysicianOrderController::class, 'physicianOrderview'])->name('physicianOrder');
+
+
+
 
 
     ///////////////emergency patients section
@@ -98,7 +104,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/records/addDischargeSummary', [DischargeSummaryController::class, 'addDischargeSummary'])->name('addDischargeSummary');
     Route::post('/records/submitDischargeSummary', [DischargeSummaryController::class, 'submit_addDischargeSummary'])->name('submit_addDischargeSummary');
     Route::get('/records/viewDischargeSummary{id}', [DischargeSummaryController::class, 'viewDischargeSummary'])->name('viewDischargeSummary');
-
+    ////////physician_order_add_and_view
+    Route::get('/records/addPhysicianOrder', [PhysicianOrderController::class, 'addPhysicianOrder'])->name('addPhysicianOrder');
+    Route::post('/records/submitPhysicianOrder', [PhysicianOrderController::class, 'submit_addPhysicianOrder'])->name('submit_addPhysicianOrder');
+    Route::get('/records/viewPhysicianOrder{id}', [PhysicianOrderController::class, 'viewPhysicianOrder'])->name('viewPhysicianOrder');
 
 
 
@@ -113,6 +122,9 @@ Route::middleware(['auth'])->group(function () {
     //discharge_summary update data from db
     Route::get('/records/updateDischargeSummary{id}', [DischargeSummaryController::class, 'updateDischargeSummary'])->name('updateDischargeSummary');
     Route::post('/records/editDischargeSummary{id}', [DischargeSummaryController::class, 'editDischargeSummary'])->name('editDischargeSummary');
+    //physician_order update data from db
+    Route::get('/records/updatePhysicianOrder{id}', [PhysicianOrderController::class, 'updatePhysicianOrder'])->name('updatePhysicianOrder');
+    Route::post('/records/editPhysicianOrder{id}', [PhysicianOrderController::class, 'editPhysicianOrder'])->name('editPhysicianOrder');
 
 
 

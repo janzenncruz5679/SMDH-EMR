@@ -6,6 +6,7 @@ use App\Http\Controllers\DischargeSummaryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\EmergencyPatientController;
+use App\Http\Controllers\FluidIntakeController;
 use App\Http\Controllers\StationController;
 use App\Http\Controllers\NurseNoteController;
 use App\Http\Controllers\PhysicianOrderController;
@@ -73,6 +74,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('stations/labOptions/dischargeSummary', [DischargeSummaryController::class, 'dischargeSummaryview'])->name('dischargeSummary');
     ////physicianOrder view
     Route::get('stations/labOptions/physicianOrder', [PhysicianOrderController::class, 'physicianOrderview'])->name('physicianOrder');
+    ////fluidIntake view
+    Route::get('stations/labOptions/fluidIntake', [FluidIntakeController::class, 'fluidIntakeview'])->name('fluidIntake');
 
 
 
@@ -108,6 +111,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/records/addPhysicianOrder', [PhysicianOrderController::class, 'addPhysicianOrder'])->name('addPhysicianOrder');
     Route::post('/records/submitPhysicianOrder', [PhysicianOrderController::class, 'submit_addPhysicianOrder'])->name('submit_addPhysicianOrder');
     Route::get('/records/viewPhysicianOrder{id}', [PhysicianOrderController::class, 'viewPhysicianOrder'])->name('viewPhysicianOrder');
+    ////////fluid_intake_add_and_view
+    Route::get('/records/addFluidIntake', [FluidIntakeController::class, 'addFluidIntake'])->name('addFluidIntake');
+    Route::post('/records/submitFluidIntake', [FluidIntakeController::class, 'submit_addFluidIntake'])->name('submit_addFluidIntake');
+    Route::get('/records/viewFluidIntake{id}', [FluidIntakeController::class, 'viewFluidIntake'])->name('viewFluidIntake');
 
 
 
@@ -125,6 +132,9 @@ Route::middleware(['auth'])->group(function () {
     //physician_order update data from db
     Route::get('/records/updatePhysicianOrder{id}', [PhysicianOrderController::class, 'updatePhysicianOrder'])->name('updatePhysicianOrder');
     Route::post('/records/editPhysicianOrder{id}', [PhysicianOrderController::class, 'editPhysicianOrder'])->name('editPhysicianOrder');
+    //fluid_intake update data from db
+    Route::get('/records/updateFluidIntake{id}', [FluidIntakeController::class, 'updateFluidIntake'])->name('updateFluidIntake');
+    Route::post('/records/editFluidIntake{id}', [FluidIntakeController::class, 'editFluidIntake'])->name('editFluidIntake');
 
 
 

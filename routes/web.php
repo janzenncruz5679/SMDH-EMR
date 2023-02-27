@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\EmergencyPatientController;
 use App\Http\Controllers\FluidIntakeController;
+use App\Http\Controllers\KardexController;
 use App\Http\Controllers\StationController;
 use App\Http\Controllers\NurseNoteController;
 use App\Http\Controllers\PhysicianOrderController;
@@ -76,7 +77,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('stations/labOptions/physicianOrder', [PhysicianOrderController::class, 'physicianOrderview'])->name('physicianOrder');
     ////fluidIntake view
     Route::get('stations/labOptions/fluidIntake', [FluidIntakeController::class, 'fluidIntakeview'])->name('fluidIntake');
-
+    ////fluidIntake view
+    Route::get('stations/labOptions/Kardex', [KardexController::class, 'kardexview'])->name('kardex');
 
 
 
@@ -115,6 +117,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/records/addFluidIntake', [FluidIntakeController::class, 'addFluidIntake'])->name('addFluidIntake');
     Route::post('/records/submitFluidIntake', [FluidIntakeController::class, 'submit_addFluidIntake'])->name('submit_addFluidIntake');
     Route::get('/records/viewFluidIntake{id}', [FluidIntakeController::class, 'viewFluidIntake'])->name('viewFluidIntake');
+    ////////fluid_intake_add_and_view
+    Route::get('/records/addKardex', [KardexController::class, 'addKardex'])->name('addKardex');
+    Route::post('/records/submitKardex', [KardexController::class, 'submit_addKardex'])->name('submit_addKardex');
+    Route::get('/records/viewKardex{id}', [KardexController::class, 'viewKardex'])->name('viewKardex');
 
 
 
@@ -135,6 +141,9 @@ Route::middleware(['auth'])->group(function () {
     //fluid_intake update data from db
     Route::get('/records/updateFluidIntake{id}', [FluidIntakeController::class, 'updateFluidIntake'])->name('updateFluidIntake');
     Route::post('/records/editFluidIntake{id}', [FluidIntakeController::class, 'editFluidIntake'])->name('editFluidIntake');
+    //fluid_intake update data from db
+    Route::get('/records/updateKardex{id}', [KardexController::class, 'updateKardex'])->name('updateKardex');
+    Route::post('/records/editKardex{id}', [KardexController::class, 'editKardex'])->name('editKardex');
 
 
 

@@ -53,7 +53,7 @@
                             </div>
                             <div class="col-span-3 border-r-2 border-black p-3">
                                 <p>BIRTHDATE* :</p>
-                                <input type="text"
+                                <input type="date"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="enter address" name="birthdate" autocomplete="off"
                                     value="{{ $vitals->birthdate ?? 'N/A' }}">

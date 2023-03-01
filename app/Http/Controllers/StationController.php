@@ -6,6 +6,7 @@ use App\Models\First_admission;
 use App\Models\VitalSigns;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class StationController extends Controller
 {
@@ -131,5 +132,15 @@ class StationController extends Controller
 
 
         return redirect('/records/vitalSigns');
+    }
+
+    public function viewpdfVitals($id)
+    {
+        $pdf_vitals = vitalSigns::find($id);
+        $admission_pdf = PDF::loadView('user.stationSection.vital_sign_view.pdfVitals', [
+            'pdf_vitals' => $pdf_vitals,
+        ])->setPaper('a4', 'portrait');
+
+        return $admission_pdf->stream($pdf_vitals->name . " Vital Sign" . ".pdf");
     }
 }

@@ -125,6 +125,11 @@ Route::middleware(['auth'])->group(function () {
 
 
 
+    //vitalSigns view pdf
+    Route::get('/records/pdfVitals{id}', [StationController::class, 'viewpdfVitals'])->name('viewpdfVitals');
+
+
+
 
     //vitals update data from db
     Route::get('/records/updateVitals{id}', [StationController::class, 'updateVitals'])->name('updateVitals');

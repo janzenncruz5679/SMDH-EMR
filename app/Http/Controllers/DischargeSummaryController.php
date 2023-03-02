@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\DischargeSummary;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class DischargeSummaryController extends Controller
 {
@@ -81,5 +82,15 @@ class DischargeSummaryController extends Controller
         }
 
         return redirect()->route('dischargeSummary');
+    }
+
+    public function viewpdfDischargeSummary($id)
+    {
+        $pdf_dischargesummary = DischargeSummary::find($id);
+        $pdf_discharge = PDF::loadView('user.stationSection.discharge_summary_view.pdfDischargeSummary', [
+            'pdf_dischargesummary' => $pdf_dischargesummary,
+        ])->setPaper('a4', 'portrait');
+
+        return $pdf_discharge->stream($pdf_dischargesummary->name . " Discharge Summary" . ".pdf");
     }
 }

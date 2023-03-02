@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\NurseNote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class NurseNoteController extends Controller
 {
@@ -92,5 +93,14 @@ class NurseNoteController extends Controller
         }
 
         return redirect()->route('nurseNotes');
+    }
+    public function viewpdfNurseNotes($id)
+    {
+        $pdf_nursenotes = NurseNote::find($id);
+        $nursenotes_pdf = PDF::loadView('user.stationSection.nurse_note_view.pdfNurseNotes', [
+            'pdf_nursenotes' => $pdf_nursenotes,
+        ])->setPaper('a4', 'portrait');
+
+        return $nursenotes_pdf->stream($pdf_nursenotes->patient_fullname . " Nurse Notes" . ".pdf");
     }
 }

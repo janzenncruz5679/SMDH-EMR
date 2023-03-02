@@ -127,8 +127,10 @@ Route::middleware(['auth'])->group(function () {
 
     //vitalSigns view pdf
     Route::get('/records/pdfVitals{id}', [StationController::class, 'viewpdfVitals'])->name('viewpdfVitals');
-    //vitalSigns view pdf
+    //nurseNotes view pdf
     Route::get('/records/pdfNurseNotes{id}', [NurseNoteController::class, 'viewpdfNurseNotes'])->name('viewpdfNurseNotes');
+    //nurseNotes view pdf
+    Route::get('/records/pdfDischargeSummary{id}', [DischargeSummaryController::class, 'viewpdfDischargeSummary'])->name('viewpdfDischargeSummary');
 
 
 

@@ -137,10 +137,10 @@ class StationController extends Controller
     public function viewpdfVitals($id)
     {
         $pdf_vitals = vitalSigns::find($id);
-        $admission_pdf = PDF::loadView('user.stationSection.vital_sign_view.pdfVitals', [
+        $vitals_pdf = PDF::loadView('user.stationSection.vital_sign_view.pdfVitals', [
             'pdf_vitals' => $pdf_vitals,
         ])->setPaper('a4', 'portrait');
 
-        return $admission_pdf->stream($pdf_vitals->name . " Vital Sign" . ".pdf");
+        return $vitals_pdf->stream($pdf_vitals->name . " Vital Sign" . ".pdf");
     }
 }

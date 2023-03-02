@@ -127,7 +127,8 @@ Route::middleware(['auth'])->group(function () {
 
     //vitalSigns view pdf
     Route::get('/records/pdfVitals{id}', [StationController::class, 'viewpdfVitals'])->name('viewpdfVitals');
-
+    //vitalSigns view pdf
+    Route::get('/records/pdfNurseNotes{id}', [NurseNoteController::class, 'viewpdfNurseNotes'])->name('viewpdfNurseNotes');
 
 
 

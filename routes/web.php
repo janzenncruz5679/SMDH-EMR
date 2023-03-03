@@ -117,7 +117,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/records/addFluidIntake', [FluidIntakeController::class, 'addFluidIntake'])->name('addFluidIntake');
     Route::post('/records/submitFluidIntake', [FluidIntakeController::class, 'submit_addFluidIntake'])->name('submit_addFluidIntake');
     Route::get('/records/viewFluidIntake{id}', [FluidIntakeController::class, 'viewFluidIntake'])->name('viewFluidIntake');
-    ////////fluid_intake_add_and_view
+    ////////kardex_add_and_view
     Route::get('/records/addKardex', [KardexController::class, 'addKardex'])->name('addKardex');
     Route::post('/records/submitKardex', [KardexController::class, 'submit_addKardex'])->name('submit_addKardex');
     Route::get('/records/viewKardex{id}', [KardexController::class, 'viewKardex'])->name('viewKardex');
@@ -131,7 +131,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/records/pdfNurseNotes{id}', [NurseNoteController::class, 'viewpdfNurseNotes'])->name('viewpdfNurseNotes');
     //nurseNotes view pdf
     Route::get('/records/pdfDischargeSummary{id}', [DischargeSummaryController::class, 'viewpdfDischargeSummary'])->name('viewpdfDischargeSummary');
-
+    //nurseNotes view pdf
+    Route::get('/records/pdfFluidIntake{id}', [FluidIntakeController::class, 'viewpdfFluidIntake'])->name('viewpdfFluidIntake');
 
 
     //vitals update data from db

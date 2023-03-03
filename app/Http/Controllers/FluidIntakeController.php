@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\FluidIntake;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class FluidIntakeController extends Controller
 {
@@ -145,5 +146,15 @@ class FluidIntakeController extends Controller
         }
 
         return redirect()->route('fluidIntake');
+    }
+
+    public function viewpdfFluidIntake($id)
+    {
+        $pdf_fluidintake = FluidIntake::find($id);
+        $fluid_pdf = PDF::loadView('user.stationSection.fluid_intake_view.pdfFluidIntake', [
+            'pdf_fluidintake' => $pdf_fluidintake,
+        ])->setPaper('a4', 'portrait');
+
+        return $fluid_pdf->stream($pdf_fluidintake->full_name . " Fluid Intake" . ".pdf");
     }
 }

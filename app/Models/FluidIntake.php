@@ -9,6 +9,8 @@ class FluidIntake extends Model
 {
     use HasFactory;
 
+    protected $table = "fluid_intakes";
+
     protected $guarded = [];
 
     protected $hidden = [];

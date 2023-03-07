@@ -134,7 +134,6 @@ Route::middleware(['auth'])->group(function () {
     //nurseNotes view pdf
     Route::get('/records/pdfFluidIntake{id}', [FluidIntakeController::class, 'viewpdfFluidIntake'])->name('viewpdfFluidIntake');
 
-
     //vitals update data from db
     Route::get('/records/updateVitals{id}', [StationController::class, 'updateVitals'])->name('updateVitals');
     Route::post('/records/editVitals{id}', [StationController::class, 'editVitals']);

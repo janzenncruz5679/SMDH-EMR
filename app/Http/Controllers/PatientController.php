@@ -4,11 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\First_admission;
 use App\Models\Second_admission;
-use App\Models\Third_admission;
-use App\Models\Fourth_admission;
-use App\Models\Fifth_admission;
 use App\Models\Patient_id;
-use App\Models\Sixth_admission;
 use App\Http\Requests\AdmissionRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;

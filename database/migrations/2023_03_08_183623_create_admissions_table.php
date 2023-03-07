@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -13,10 +12,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('new_admissions', function (Blueprint $table) {
+        Schema::create('admissions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('patient_id');
-            $table->foreign('patient_id')->references('id')->on('new_patients');
+            $table->foreignId('patient_id')->constrained('patients');
 
             $table->string('ward_room', 255);
             $table->string('type', 255);
@@ -30,7 +28,6 @@ return new class extends Migration
 
             $table->string('referred_by', 255);
             $table->string('ssc', 255);
-            $table->longText('hospitalization_plan');
             $table->longText('alergy')->nullable();
             $table->longText('insurance')->nullable();
 
@@ -41,8 +38,6 @@ return new class extends Migration
 
             $table->string('idc_code')->nullable();
             $table->string('icpm_code')->nullable();
-
-
             $table->timestamps();
         });
     }
@@ -54,6 +49,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('new_admissions');
+        Schema::dropIfExists('admissions');
     }
 };

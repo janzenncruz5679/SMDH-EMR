@@ -12,14 +12,15 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('new_patients', function (Blueprint $table) {
+        Schema::create('patients', function (Blueprint $table) {
             $table->id();
 
             $table->string('fname', 255);
             $table->string('mname', 255)->nullable();
-            $table->string('lnamename', 255);
-            $table->date('bdate');
+            $table->string('lname', 255);
+            $table->string('suffix', 255);
             $table->string('birth_place', 255);
+            $table->date('bdate');
 
             $table->string('contact_num', 255);
             $table->string('nationality', 255);
@@ -27,11 +28,11 @@ return new class extends Migration {
             $table->string('civil_status', 255);
             $table->string('sex', 255);
             $table->string('occupation', 255)->nullable();
+            $table->string('senior_num', 255)->nullable();
 
             $table->longText('perma_address');
+            $table->longText('emergency_contact');
             $table->longText('address');
-
-            $table->string('senior_num', 255)->nullable()->unique();
             $table->longText('relatives')->nullable();
 
             $table->timestamps();
@@ -45,6 +46,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('new_patients');
+        Schema::dropIfExists('patients');
     }
 };

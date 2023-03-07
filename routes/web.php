@@ -1,17 +1,20 @@
 <?php
 
-use App\Http\Controllers\AdmissionsController;
-use App\Http\Controllers\BillingController;
-use App\Http\Controllers\DischargeSummaryController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PatientController;
-use App\Http\Controllers\EmergencyPatientController;
-use App\Http\Controllers\FluidIntakeController;
-use App\Http\Controllers\KardexController;
-use App\Http\Controllers\StationController;
-use App\Http\Controllers\NurseNoteController;
-use App\Http\Controllers\PhysicianOrderController;
-use App\Http\Controllers\TestingController;
+use App\Http\Controllers\{
+    AdmissionsController,
+    BillingController,
+    DischargeSummaryController,
+    HomeController,
+    PatientController,
+    PatientsController,
+    EmergencyPatientController,
+    FluidIntakeController,
+    KardexController,
+    StationController,
+    NurseNoteController,
+    PhysicianOrderController,
+    TestingController,
+};
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -35,9 +38,12 @@ Route::get('/test', [TestingController::class, 'index']);
 
 
 Route::middleware(['auth'])->group(function () {
+
+    Route::resource('patients', PatientsController::class);
+    Route::resource('admissions', AdmissionsController::class);
+
     Route::get('/home', [HomeController::class, 'index']);
     Route::get('/homePage', [HomeController::class, 'homePage']);
-    Route::get('/patientPage', [HomeController::class, 'patientPage']);
     Route::get('/stations', [HomeController::class, 'stations']);
     Route::get('/billing', [HomeController::class, 'billing']);
 

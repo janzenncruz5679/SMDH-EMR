@@ -11,21 +11,6 @@ class Second_admission extends Model
     use HasFactory;
 
     protected $table = 'second_admissions';
-    protected $fillable = [
-        'person_of_contact',
-        'admitting_personel',
-        'admission_start',
-        'admission_end',
-        'admission_diff',
-        'type_of_admission',
-        'allergic',
-        'ssc',
-        'insurance',
-        'diagnosis',
-        'idc_code',
-        'other_opt',
-        'icpm_code',
-    ];
 
     protected $guarded = [];
 
@@ -45,12 +30,6 @@ class Second_admission extends Model
     {
         return $this->belongsTo(First_admission::class);
     }
-
-    public function admission_third()
-    {
-        return $this->hasOne(Third_admission::class, 'record_id');
-    }
-
 
     ///test
     public function admission_two()

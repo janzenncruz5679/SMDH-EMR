@@ -12,4 +12,8 @@ trait PatientsRelationships
     {
         return $this->hasMany(Admissions::class);
     }
+    public function nurseNotes()
+    {
+        return $this->hasMany(NurseNotes::class);
+    }
 }

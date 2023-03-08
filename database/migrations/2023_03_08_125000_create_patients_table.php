@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->string('fname', 255);
             $table->string('mname', 255)->nullable();
             $table->string('lname', 255);
-            $table->string('suffix', 255);
+            $table->string('suffix', 255)->nullable();
             $table->string('birth_place', 255);
             $table->date('bdate');
 

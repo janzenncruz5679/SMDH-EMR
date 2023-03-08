@@ -15,6 +15,7 @@ use App\Http\Controllers\{
     PhysicianOrderController,
     TestingController,
 };
+use App\Http\Controllers\VitalSignsController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -42,6 +43,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('patients', PatientsController::class);
     Route::resource('admissions', AdmissionsController::class);
     Route::resource('patients.billing', BillingController::class)->except(['edit', 'update']);
+    Route::resource('patients.vital-signs', VitalSignsController::class)->except(['edit', 'update']);
 
     Route::get('/home', [HomeController::class, 'index']);
     Route::get('/homePage', [HomeController::class, 'homePage']);

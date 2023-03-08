@@ -20,11 +20,13 @@ class AdmissionsController extends Controller
     {
     }
 
-
     public function index()
     {
-        $admissions = Admissions::query()->with(['patient'])
-            ->latest()->paginate(20);
+        $admissions = Admissions::query()
+            ->with(['patient'])
+            ->latest()
+            ->paginate(20);
+
         return view('pages.admissions.index')
             ->with(compact('admissions'));
     }

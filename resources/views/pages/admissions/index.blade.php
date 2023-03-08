@@ -11,8 +11,11 @@
 				<form action="{{ url('/patientPage/admission/search') }}" method="GET" class="flex gap-4 m-0 h-full items-center">
 					@csrf
 					<input type="text" placeholder="Search Patient Name" name="search" value="{{ Request::get('search') }}"
-						class="h-full w-96 text-[1.5rem] border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 focus:outline-offset-2 rounded-[10px] px-[10px]" required autocomplete="off">
-					<button class="h-full w-32 text-[1.5rem] bg-blue-300 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-100" type="submit" value="search">
+						class="h-full w-96 text-[1.5rem] border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 focus:outline-offset-2 rounded-[10px] px-[10px]"
+						required autocomplete="off">
+					<button
+						class="h-full w-32 text-[1.5rem] bg-blue-300 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-100"
+						type="submit" value="search">
 						<p class="hover:text-zinc-900">Search</p>
 					</button>
 				</form>
@@ -35,7 +38,7 @@
 						<th class="col-span-2 flex justify-center">Phone</th>
 						<th class="col-span-2 flex justify-center">Actions</th>
 					</tr>
-					@forelse ($admissions as $admission)
+					@forelse ($admissions->unique('patient_id') as $admission)
 						@php
 							$patient = $admission->patient;
 						@endphp

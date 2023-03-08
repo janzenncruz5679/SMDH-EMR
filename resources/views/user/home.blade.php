@@ -6,7 +6,7 @@
         <div class="grid grid-rows-6 w-full">
             <div class="grid grid-cols-12 gap-14 ">
                 <a class="col-span-2 grid items-center p-6 text-zinc-900 hover:text-white bg-blue-100 hover:bg-blue-300 rounded-3xl shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition"
-                    href="{{ url('patientPage') }}">
+                    href="{{ route('patients.index') }}">
                     <div class="grid gap-3">
                         <div class="grid place-items-center">
                             <i class="fa-solid fa-hospital-user text-[7rem]"></i>

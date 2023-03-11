@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\{
     AdmissionsController,
-    BillingController,
+    BillingsController,
     DischargeSummaryController,
     HomeController,
     PatientController,
@@ -43,7 +43,7 @@ Route::get('/test', [TestingController::class, 'index']);
 Route::middleware(['auth'])->group(function () {
 
     Route::resource('patients.admissions', AdmissionsController::class)->only(['show']);
-    Route::resource('patients.billing', BillingController::class)->except(['edit', 'update']);
+    Route::resource('patients.billing', BillingsController::class)->except(['edit', 'update']);
     Route::resource('patients.vital-signs', VitalSignsController::class)->except(['edit', 'update']);
     Route::resource('patients.nurse-notes', NurseNotesController::class)->only(['index', 'create', 'store', 'show']);
 
@@ -51,6 +51,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('patients', PatientsController::class);
     Route::name('records.')->prefix('records')->group(
         function () {
+            Route::resource('billings', BillingsController::class);
             Route::resource('nurse-notes', NurseNotesController::class)->except(['show', 'delete']);
             Route::resource('/', RecordsController::class);
         }

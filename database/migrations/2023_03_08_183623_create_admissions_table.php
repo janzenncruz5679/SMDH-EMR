@@ -38,6 +38,8 @@ return new class extends Migration {
 
             $table->string('idc_code')->nullable();
             $table->string('icpm_code')->nullable();
+
+            $table->boolean('is_billed')->default(false);
             $table->timestamps();
         });
     }

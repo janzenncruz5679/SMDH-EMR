@@ -16,6 +16,7 @@ class Admissions extends Model
     protected $hidden = [];
 
     protected $casts = [
+        'is_billed' => 'boolean',
         'admission_start' => 'datetime',
         'admission_end' => 'datetime',
         'insurance' => 'array',

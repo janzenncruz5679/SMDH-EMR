@@ -14,7 +14,7 @@
 				<x-sidebar-menu :url="route('home')" :active-url="request()->routeIs('home')" text="Home" fontAwesomeIcon="fa-solid fa-house" />
 				<x-sidebar-menu :url="route('patients.index')" :active-url="request()->routeIs('patients*') | request()->routeIs('admissions*')" text="Patients" fontAwesomeIcon="fa-solid fa-hospital-user" />
 				<x-sidebar-menu :url="route('records.index')" :active-url="request()->routeIs('records.index')" text="Records" fontAwesomeIcon="fa-solid fa-notes-medical" />
-				<x-sidebar-menu :url="url('billing')" :active-url="request()->routeIs('billing')" text="Billing"
+				<x-sidebar-menu :url="route('records.billings.index')" :active-url="request()->routeIs('records.billings.index')" text="Billing"
 					fontAwesomeIcon="fa-solid fa-hand-holding-dollar" />
 			</ul>
 		</nav>

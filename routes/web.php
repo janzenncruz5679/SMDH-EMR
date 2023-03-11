@@ -43,7 +43,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('admissions', AdmissionsController::class);
     Route::resource('patients.billing', BillingController::class)->except(['edit', 'update']);
 
-    Route::get('/home', [HomeController::class, 'index']);
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/homePage', [HomeController::class, 'homePage']);
     Route::get('/stations', [HomeController::class, 'stations']);
     // Route::get('/billing', [HomeController::class, 'billing']);

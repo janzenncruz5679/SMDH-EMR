@@ -16,17 +16,14 @@ class AdmissionsController extends Controller
         private StorePatients $storePatient,
         private StoreAdmission $storeAdmission,
         private UpdateAdmission $updateAdmission
-    )
-    {
+    ) {
     }
+
 
     public function index()
     {
-        $admissions = Admissions::query()
-            ->with(['patient'])
-            ->latest()
-            ->paginate(20);
-
+        $admissions = Admissions::query()->with(['patient'])
+            ->latest()->paginate(20);
         return view('pages.admissions.index')
             ->with(compact('admissions'));
     }
@@ -44,7 +41,6 @@ class AdmissionsController extends Controller
             DB::commit();
 
             return redirect()->route('admissions.index');
-
         } catch (\Exception $err) {
             DB::rollBack();
             dd($err);
@@ -68,7 +64,6 @@ class AdmissionsController extends Controller
             DB::commit();
 
             return redirect()->route('admissions.index');
-
         } catch (\Exception $err) {
             DB::rollBack();
             dd($err);

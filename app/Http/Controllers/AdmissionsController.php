@@ -6,6 +6,7 @@ use App\Actions\Admissions\StoreAdmission;
 use App\Actions\Admissions\UpdateAdmission;
 use App\Actions\Patients\StorePatients;
 use App\Models\Admissions;
+use App\Models\Patients;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,7 +17,8 @@ class AdmissionsController extends Controller
         private StorePatients $storePatient,
         private StoreAdmission $storeAdmission,
         private UpdateAdmission $updateAdmission
-    ) {
+    )
+    {
     }
 
 
@@ -47,7 +49,7 @@ class AdmissionsController extends Controller
             return redirect()->back()->withErrors($err->getMessage());
         }
     }
-    public function show($id)
+    public function show(Patients $patient, Admissions $admission)
     {
         //
     }
@@ -69,9 +71,5 @@ class AdmissionsController extends Controller
             dd($err);
             return redirect()->back()->withErrors($err->getMessage());
         }
-    }
-    public function destroy($id)
-    {
-        //
     }
 }

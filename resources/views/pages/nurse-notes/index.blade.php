@@ -1,6 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
+	@php
+		$_routeIsIndex = request()->routeIs('patients.nurse-notes.index');
+	@endphp
 	<div class="fixed h-full w-[86%] left-[275px] top-[59px] p-12 text-2xl font-[sans-serif]">
 		<div class="h-16 w-full z-0">
 			<div class="h-20 bg-blue-300 flex items-center justify-center">
@@ -22,13 +25,17 @@
 							</button>
 						</form>
 					</div>
-					<div class="addpatientBar h-full w-full flex items-center justify-end">
-						<button
-							class="btnAddpatient h-[4.7vh] w-[10vw] text-[1.5rem] bg-blue-300 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-100"><a
-								href="{{ route('patients.nurse-notes.create', $patient->id) }}" class='hover:text-white'>
-								<p class="hover:text-zinc-900">Add New Notes</p>
-							</a></button>
-					</div>
+					@isset($_routeIsIndex)
+						<div class="addpatientBar h-full w-full flex items-center justify-end">
+							<button
+								class="btnAddpatient h-[4.7vh] w-[10vw] text-[1.5rem] bg-blue-300 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-100"><a
+									href="{{ $_routeIsIndex ? route('patients.nurse-notes.create', $patient->id) : route('records.nurse-notes.create') }}"
+									class='hover:text-white'>
+									<p class="hover:text-zinc-900">Add New Notes</p>
+								</a>
+							</button>
+						</div>
+					@endisset
 				</div>
 				<div class="admissionTable pt-[5px]">
 					<table class="tracking-[2px] w-full table-auto">
@@ -52,7 +59,7 @@
 									<td class="">{{ $nurseNote->action }}</td>
 									<td class="">
 										<div class="flex gap-4">
-											<a href="{{ route('patients.nurse-notes.show', [$patient->id, $nurseNote->id]) }}"
+											<a href="{{ route('patients.nurse-notes.show', [$nurseNote->patient->id, $nurseNote->id]) }}"
 												class="editIcon hover:text-blue-300">
 												<i class="fa-solid fa-eye"></i>
 											</a>

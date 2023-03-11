@@ -17,13 +17,23 @@ class NurseNotesController extends Controller
     }
     public function index(Patients $patient)
     {
+        if (request()->routeIs('patients.nurse-notes.index')) {
+            $nurseNotes = NurseNotes::query()
+                ->with('patient')
+                ->where('patient_id', $patient->id)
+                ->paginate(20);
+
+            return view('pages.nurse-notes.index')
+                ->with(compact('patient'))
+                ->with(compact('nurseNotes'));
+        }
+
         $nurseNotes = NurseNotes::query()
             ->with('patient')
-            ->where('patient_id', $patient->id)
+            ->latest()
             ->paginate(20);
 
         return view('pages.nurse-notes.index')
-            ->with(compact('patient'))
             ->with(compact('nurseNotes'));
     }
     public function create(Patients $patient)

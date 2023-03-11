@@ -16,6 +16,7 @@ use App\Http\Controllers\{
     PhysicianOrderController,
     TestingController,
 };
+use App\Http\Controllers\RecordsController;
 use App\Http\Controllers\VitalSignsController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -41,11 +42,19 @@ Route::get('/test', [TestingController::class, 'index']);
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::resource('admissions', AdmissionsController::class);
-    Route::resource('patients', PatientsController::class);
+    Route::resource('patients.admissions', AdmissionsController::class)->only(['show']);
     Route::resource('patients.billing', BillingController::class)->except(['edit', 'update']);
     Route::resource('patients.vital-signs', VitalSignsController::class)->except(['edit', 'update']);
     Route::resource('patients.nurse-notes', NurseNotesController::class)->only(['index', 'create', 'store', 'show']);
+
+    Route::resource('admissions', AdmissionsController::class)->except(['show', 'delete']);
+    Route::resource('patients', PatientsController::class);
+    Route::name('records.')->prefix('records')->group(
+        function () {
+            Route::resource('nurse-notes', NurseNotesController::class)->except(['show', 'delete']);
+            Route::resource('/', RecordsController::class);
+        }
+    );
 
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/homePage', [HomeController::class, 'homePage']);

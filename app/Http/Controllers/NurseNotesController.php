@@ -45,4 +45,10 @@ class NurseNotesController extends Controller
             return redirect()->back()->withErrors($e->getMessage());
         }
     }
+    public function show(Patients $patient, NurseNotes $nurseNote)
+    {
+        return view('pages.nurse-notes.show')
+            ->with(compact('patient'))
+            ->with(compact('nurseNote'));
+    }
 }

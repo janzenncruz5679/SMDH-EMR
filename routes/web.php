@@ -45,7 +45,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('patients', PatientsController::class);
     Route::resource('patients.billing', BillingController::class)->except(['edit', 'update']);
     Route::resource('patients.vital-signs', VitalSignsController::class)->except(['edit', 'update']);
-    Route::resource('patients.nurse-notes', NurseNotesController::class)->only(['index', 'create', 'store']);
+    Route::resource('patients.nurse-notes', NurseNotesController::class)->only(['index', 'create', 'store', 'show']);
 
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/homePage', [HomeController::class, 'homePage']);

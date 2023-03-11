@@ -31,31 +31,34 @@
 					</div>
 				</div>
 				<div class="admissionTable pt-[5px]">
-					<table class="tracking-[2px] w-full">
+					<table class="tracking-[2px] w-full table-auto">
 						<thead>
-							<tr class="flex justify-between">
-								<th class="shrink">Id</th>
-								<th>Name</th>
-								<th>Age</th>
+							<tr class="">
+								<th class="shrink"></th>
 								<th>Ward</th>
-								<th>Actions</th>
+								<th class="">Date-Time</th>
+								<th>Focus</th>
+								<th>Action</th>
+								<th></th>
 							</tr>
 						</thead>
 						<tbody class="">
 							@forelse ($nurseNotes as $nurseNote)
-								<tr class="flex justify-between even:bg-gray-200 odd:bg-white text-xl text-center">
-									<td class="shrink">{{ $nurseNote->id }}</td>
-									<td class="">{{ $nurseNote->patient_fullname }}</td>
-									<td class="">{{ $nurseNote->age }}</td>
-									<td class="">{{ $nurseNote->ward }}</td>
+								<tr class="  even:bg-gray-200 odd:bg-white text-xl text-center">
+									<td class="shrink">{{ $loop->iteration }}</td>
+									<td class="">{{ $nurseNote->ward_room }}</td>
+									<td class="">{{ $nurseNote->date_time->format('M d, Y - H:i A') }}</td>
+									<td class="">{{ $nurseNote->focus }}</td>
+									<td class="">{{ $nurseNote->action }}</td>
 									<td class="">
-										<div class=" ">
-											<a href="{{ route('viewNurseNotes', ['id' => $nurseNote->id]) }}" class="editIcon hover:text-blue-300">
+										<div class="flex gap-4">
+											<a href="{{ route('patients.nurse-notes.show', [$patient->id, $nurseNote->id]) }}"
+												class="editIcon hover:text-blue-300">
 												<i class="fa-solid fa-eye"></i>
 											</a>
-											<a href="{{ route('updateNurseNotes', ['id' => $nurseNote->id]) }}" class="editIcon hover:text-blue-300">
+											{{-- <a href="{{ route('updateNurseNotes', ['id' => $nurseNote->id]) }}" class="editIcon hover:text-blue-300">
 												<i class="fa-solid fa-edit"></i>
-											</a>
+											</a> --}}
 											<a href="{{ route('viewpdfNurseNotes', ['id' => $nurseNote->id]) }}" class="editIcon hover:text-blue-300"
 												target="_blank">
 												<i class="fa-solid fa-file-pdf"></i>

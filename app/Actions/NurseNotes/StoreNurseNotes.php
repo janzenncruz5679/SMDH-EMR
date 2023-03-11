@@ -13,7 +13,7 @@ class StoreNurseNotes
     public function handle(Request $request, Patients $patient): Collection
     {
         $_results = collect();
-        foreach (range(0, sizeof($request->obsDate)-1) as $k) {
+        foreach (range(0, sizeof($request->obsDate) - 1) as $k) {
             $_results->push(
                 NurseNotes::create([
                     'patient_id' => $patient->id,

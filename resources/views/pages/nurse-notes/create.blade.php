@@ -18,7 +18,7 @@
 									<label>NAME :</label>
 									<input type="text" readonly
 										class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-										placeholder="Patient Full Name" name="patient_fullname" autocomplete="off" value="{{ $patient->full_name }}">
+										placeholder="Patient Full Name" name="patient_fullname[]" autocomplete="off" value="{{ $patient->full_name }}">
 									{{-- <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('patient_fullname')
                                             {{ $message }}
@@ -27,9 +27,9 @@
 								</div>
 								<div class="col-span-2 border-r-2 border-black p-3">
 									<label>AGE* :</label>
-									<input type="text"
+									<input type="text" readonly
 										class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-										placeholder="Patient Age" name="age" autocomplete="off" value="{{ $patient->bdate->age }}">
+										placeholder="Patient Age" name="age[]" autocomplete="off" value="{{ $patient->bdate->age }}">
 									{{-- <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('patient_fullname')
                                             {{ $message }}

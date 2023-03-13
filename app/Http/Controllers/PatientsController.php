@@ -17,7 +17,7 @@ class PatientsController extends Controller
         $patient = $patient->load(['admissions', 'nurseNotes']);
         $records = collect([])->merge($patient->admissions);
         $records = $records->merge($patient->nurseNotes)->sortByDesc('created_at');
-        dump($records->toArray());
+        // dump($records->toArray());
         return view('pages.patients.show')
             ->with(compact('records'))
             ->with(compact('patient'));

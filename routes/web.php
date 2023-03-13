@@ -45,15 +45,18 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('patients.admissions', AdmissionsController::class)->only(['show']);
     Route::resource('patients.billing', BillingsController::class)->except(['edit', 'update']);
-    Route::resource('patients.vital-signs', VitalSignsController::class)->except(['edit', 'update']);
+    Route::get('patients/{patient}/vital-signs/physicians', [VitalSignsController::class, 'showPhysicians'])->name('patients.vital-signs.show-physicians');
+    Route::get('patients/{patient}/vital-signs/physicians/{physician}', [VitalSignsController::class, 'show'])->name('patients.vital-signs.show');
+    Route::resource('patients.vital-signs', VitalSignsController::class)->except(['edit', 'update', 'destroy', 'show']);
     Route::resource('patients.nurse-notes', NurseNotesController::class)->only(['index', 'create', 'store', 'show']);
 
     Route::resource('admissions', AdmissionsController::class)->except(['show', 'destroy']);
     Route::resource('patients', PatientsController::class);
     Route::name('records.')->prefix('records')->group(
         function () {
+            Route::resource('vital-signs', BillingsController::class);
             Route::resource('billings', BillingsController::class);
-            Route::get('nurse-notes/{patient_id}/ward/{ward_room}',[NurseNotesController::class,'showAll'])->name('nurse-notes.show-all');
+            Route::get('nurse-notes/{patient_id}/ward/{ward_room}', [NurseNotesController::class, 'showAll'])->name('nurse-notes.show-all');
             Route::resource('nurse-notes', NurseNotesController::class)->except(['destroy', 'show', 'update', 'edit']);
             Route::resource('/', RecordsController::class);
         }

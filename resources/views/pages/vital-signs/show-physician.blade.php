@@ -5,7 +5,8 @@
 		<div class="h-16 w-full z-0">
 			<div class="h-20 bg-blue-300 flex items-center justify-center">
 				<label class="font-[sans-serif] font-semibold text-white tracking-wide text-4xl">
-					{{ __('Vital Signs') }}</label>
+					{{ __('Vital Signs') }}
+				</label>
 			</div>
 			<div class="admissionDisplay w-full relative pt-4 -z-10">
 				<div class="admissionSearchbar h-[7%] flex">
@@ -23,35 +24,40 @@
 						</form>
 
 					</div>
+					<div class="addpatientBar h-full w-full flex items-center justify-end">
+						<button
+							class="btnAddpatient h-[4.7vh] w-[10vw] text-[1.5rem] bg-blue-300 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-100">
+							<a href="{{ route('patients.vital-signs.create', $patient->id) }}" class='hover:text-white'>
+								<p class="hover:text-zinc-900">Add New Vitals</p>
+							</a>
+						</button>
+					</div>
 				</div>
 				<div class="admissionTable pt-[5px]">
-					<table class="text-[1.5rem] tracking-[2px] w-full table-auto text-center">
-						<tr class=" ">
-							<th class=""></th>
-							<th class=" ">Name</th>
-							<th class="">Age</th>
-							<th class="">Gender</th>
-							<th class=" "></th>
-						</tr>
-						@foreach ($patients as $patient)
-							<tr class="  even:bg-gray-200 odd:bg-white text-xl">
-								<th class="">{{ $loop->iteration }}</td>
-								<td class="capitalize">
-									{{ $patient->full_name }}
-								</td>
-								<td class="">{{ $patient->bdate->age }}</td>
-								<td class="">{{ $patient->sex }}</td>
-								<td class=" ">
-									<div class=" ">
-										<a href="{{ route('patients.vital-signs.show-physicians', $patient->id) }}"
+					<table class="text-[1.5rem] tracking-[2px] w-full table-auto">
+						<thead>
+							<tr class="">
+								<th class=" "></th>
+								<th class=" ">Physicians</th>
+								<th class=" "></th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach ($physicians as $physician)
+								<tr class="text-center ">
+									<th class=" ">{{ $loop->iteration }}</th>
+									<td class="capitalize">
+										{{ $physician->physician }}
+									</td>
+									<td class=" ">
+										<a href="{{ route('patients.vital-signs.show', [$patient->id, $physician->physician]) }}"
 											class="editIcon hover:text-blue-300">
 											<i class="fa-solid fa-eye"></i>
 										</a>
-									</div>
-								</td>
-							</tr>
-						@endforeach
-
+									</td>
+								</tr>
+							@endforeach
+						</tbody>
 					</table>
 				</div>
 			</div>

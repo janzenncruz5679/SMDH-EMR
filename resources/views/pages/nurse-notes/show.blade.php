@@ -27,7 +27,7 @@
 						<div class="grid grid-cols-8 border-b-2 border-black h-full">
 							<div class="col-span-4 border-r-2 border-black p-3">
 								<label>NAME :</label>
-								<input type="text"
+								<input type="text" readonly
 									class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
 									placeholder="Patient Full Name" name="patient_fullname" autocomplete="off"
 									value="{{ $nurseNote->patient->full_name }}">
@@ -39,7 +39,7 @@
 							</div>
 							<div class="col-span-2 border-r-2 border-black p-3">
 								<label>AGE* :</label>
-								<input type="text"
+								<input type="text" readonly
 									class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
 									placeholder="Patient Age" name="age" autocomplete="off" value="{{ $nurseNote->patient->bdate->age }}">
 								{{-- <span class="text-base font-[sans-serif] font-medium text-red-600">
@@ -50,7 +50,7 @@
 							</div>
 							<div class="col-span-2 border-r-2 border-black p-3">
 								<label>WARD* :</label>
-								<input type="text"
+								<input type="text" readonly
 									class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
 									placeholder="Ward #" name="ward" autocomplete="off" value="{{ $nurseNote->ward_room }}">
 								{{-- <span class="text-base font-[sans-serif] font-medium text-red-600">
@@ -66,7 +66,7 @@
 								<div class="grid gap-3">
 									<div class="grid">
 										<label>DATE* :</label>
-										<input type="date"
+										<input type="date" readonly
 											class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
 											name="obsDate[]" autocomplete="off" value="{{ $nurseNote->date_time->toDateString() ?? '' }}">
 									</div>
@@ -77,20 +77,20 @@
                                     </span> --}}
 									<div class="grid">
 										<label>TIME* :</label>
-										<input type="time"
+										<input type="time" readonly
 											class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
 											name="obsTime[]" autocomplete="off" value="{{ $nurseNote->date_time->toTImeString() ?? '' }}">
 									</div>
 								</div>
 								<div class="col-span-2">
 									<label>FOCUS* :</label>
-									<textarea type="text"
+									<textarea type="text" readonly
 									 class="w-full h-[82%] resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
 									 placeholder="focus" name="obsFocus[]" autocomplete="off" readonly>{{ $nurseNote->focus ?? '' }}</textarea>
 								</div>
 								<div class="col-span-5">
 									<label>DATA ACTION AND RESPONSE* :</label>
-									<textarea type="text"
+									<textarea type="text" readonly
 									 class="w-full h-[82%] resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
 									 placeholder="action response" name="obsDar[]" autocomplete="off" readonly>{{ $nurseNote->action ?? '' }}</textarea>
 

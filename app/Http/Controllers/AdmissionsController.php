@@ -17,8 +17,7 @@ class AdmissionsController extends Controller
         private StorePatients $storePatient,
         private StoreAdmission $storeAdmission,
         private UpdateAdmission $updateAdmission
-    )
-    {
+    ) {
     }
 
 

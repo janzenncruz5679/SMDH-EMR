@@ -54,7 +54,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('patients', PatientsController::class);
     Route::name('records.')->prefix('records')->group(
         function () {
-            Route::resource('vital-signs', BillingsController::class);
+            Route::resource('vital-signs', VitalSignsController::class)->only(['index']);
             Route::resource('billings', BillingsController::class);
             Route::get('nurse-notes/{patient_id}/ward/{ward_room}', [NurseNotesController::class, 'showAll'])->name('nurse-notes.show-all');
             Route::resource('nurse-notes', NurseNotesController::class)->except(['destroy', 'show', 'update', 'edit']);

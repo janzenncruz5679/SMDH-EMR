@@ -16,14 +16,15 @@ class VitalSignsController extends Controller
     )
     {
     }
-    public function index(Patients $patient)
+    public function index()
     {
-        if (request()->routeIs('patients.vital-signs.index')) {
-            return view('pages.vital-signs.index')
-                ->with(compact('patient'));
-        }
-        // $vitaSigns = VitalSigns;
-        return view('pages.vital-signs.index');
+        $patients = Patients::query()
+            ->has('vitalSigns')
+            ->latest()
+            ->paginate(20);
+
+        return view('pages.vital-signs.index')
+            ->with(compact('patients'));
     }
     public function create(Patients $patient)
     {
@@ -65,6 +66,7 @@ class VitalSignsController extends Controller
             = $initials
             = [];
         $dataRows = collect();
+        $notes = collect();
         foreach ($vitalSign as $vital) {
             foreach (range(0, count($vital->date) - 1) as $k) {
                 $dataRows->push([
@@ -78,26 +80,26 @@ class VitalSignsController extends Controller
                     'initials' => $vital->initials[$k],
                 ]);
             }
+            $notes->push($vital->notes);
         }
+        $notes = $notes->implode('' . PHP_EOL);
         $dataRows = $dataRows->sortByDesc('date');
         return view('pages.vital-signs.show')
             ->with(compact('patient'))
             ->with(compact('dataRows'))
+            ->with(compact('notes'))
             ->with(compact('vitalSign'));
     }
     public function showPhysicians(Patients $patient)
     {
         $physicians = VitalSigns::query()
             ->where('patient_id', $patient->id)
+            ->groupBy('physician')
             ->latest()
             ->paginate(20);
 
         return view('pages.vital-signs.show-physician')
             ->with(compact('patient'))
             ->with(compact('physicians'));
-    }
-    public function showAll(Patients $patient)
-    {
-        //
     }
 }

@@ -70,8 +70,8 @@
 							<div class="grid p-3">
 								<label class="pb-2">DOCTOR'S NOTE :</label>
 								<textarea type="text"
-								 class="w-full h-20 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-								 placeholder="enter doctor's note to the patient" name="notes" autocomplete="off" readonly></textarea>
+								 class="whitespace-pre-wrap w-full h-20 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+								 placeholder="enter doctor's note to the patient" name="notes" autocomplete="off" readonly>{{ $notes }}</textarea>
 
 							</div>
 						</div>
@@ -93,7 +93,8 @@
 									<label>Weight:</label>
 									<input type="text" readonly
 										class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-										placeholder="weight" name="weight[{{ $loop->index }}]" autocomplete="off" value="{{ $data['weight'] ?? '' }}">
+										placeholder="weight" name="weight[{{ $loop->index }}]" autocomplete="off"
+										value="{{ $data['weight'] ?? '' }}">
 								</div>
 								<div>
 									<label>Temperature:</label>

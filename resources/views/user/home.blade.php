@@ -1,13 +1,14 @@
 @extends('layouts.main')
-{{-- test responsiveness using these colors sm:bg-red-200 md:bg-violet-300 lg:bg-blue-800 xl:bg-yellow-500 --}}
+
 @section('content')
-    <div class="fixed h-[93.65%] w-[85.7%] left-[275px] top-[59px] p-12 grid">
-        <div class="h-full w-full row-span-2 grid grid-cols-2 gap-8">
+    <div class="absolute h-[93%] w-[84%] left-[16%] top-[7%] p-12 grid">
+        <div class="h-full w-full row-span-2 grid grid-cols-2 gap-8 bg-red-400">
             <div class="h-full w-full">
                 <div class="h-full ">
                     <div class="grid grid-cols-3 gap-6">
                         <div class="">
                             <x-menu-card :url="route('vitalsTab')" text="Vital Signs" fontAwesomeIcon="fa-solid fa-heart-pulse" />
+
                         </div>
                         <div class="">
                             <x-menu-card :url="route('nurseNotes')" text="Nurse Notes" fontAwesomeIcon="fa-solid fa-heart-pulse" />

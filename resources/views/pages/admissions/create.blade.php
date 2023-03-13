@@ -15,7 +15,7 @@
             font-size: 1rem;
         }
     </style>
-    <div class="addPatient fixed top-[59px] left-[275px] h-fit w-[85%] p-12">
+    <div class="fixed h-[93%] w-[84%] left-[16%] top-[7%] p-12">
         <h2 class="text-center text-4xl font-semibold">Admit New Patient</h2>
         @include('layouts.stepper')
         <div class="grid h-full w-full">

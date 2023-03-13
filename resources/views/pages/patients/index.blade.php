@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="fixed h-[93.65%] w-[85.7%] left-[275px] top-[59px] p-12 grid">
+    <div class="absolute h-[93%] w-[84%] left-[16%] top-[7%] p-12 grid">
         <div class="h-full w-full row-span-2 grid grid-cols-2 gap-8">
             <div class="h-full w-full">
                 <div class="h-full ">

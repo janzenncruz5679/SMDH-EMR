@@ -1,25 +1,9 @@
 @props(['url', 'text', 'fontAwesomeIcon'])
 
-{{-- <a href="{{ $url }}"
-    class="col-span-2 grid items-center p-6 text-zinc-900 hover:text-white bg-blue-100 hover:bg-blue-300 rounded-3xl shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
-    <div class="grid gap-3">
-        <div class="grid place-items-center">
-            <i class="{{ $fontAwesomeIcon }} text-[7rem]"></i>
-        </div>
-        <div class="grid justify-center text-2xl font-[sans-serif]">
-            <p class="grid justify-center">{{ $text }}</p>
-        </div>
-    </div>
-</a> --}}
 
 <a href="{{ $url }}"
-    class="grid items-center p-6 text-zinc-900 hover:text-white bg-blue-100 hover:bg-blue-300 rounded-3xl shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
-    <div class="grid gap-3">
-        <div class="grid place-items-center">
-            <i class="{{ $fontAwesomeIcon }} text-[7rem]"></i>
-        </div>
-        <div class="grid justify-center text-2xl font-[sans-serif]">
-            <label class="grid justify-center">{{ $text }}</label>
-        </div>
-    </div>
+    class="overflow-hidden p-6 flex flex-col gap-2 items-center justify-center text-zinc-900 hover:text-white bg-blue-100 hover:bg-blue-300 rounded-3xl shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
+
+    <i class="{{ $fontAwesomeIcon }} h-24"></i>
+    <label class="text-2xl">{{ $text }}</label>
 </a>

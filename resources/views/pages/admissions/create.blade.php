@@ -12,7 +12,7 @@
 
         .parsley-errors-list {
             color: red;
-            font-size: 1rem;
+            font-size: 1.1rem;
         }
     </style>
     <div class="absolute h-[93%] w-[84%] left-[16%] top-[7%] p-12 flex flex-col">
@@ -211,7 +211,7 @@
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="religion" name="religion" autocomplete="off"
-                                        value="{{ old('religion') }}" req>
+                                        value="{{ old('religion') }}">
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('religion')
                                             {{ $message }}

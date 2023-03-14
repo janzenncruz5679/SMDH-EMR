@@ -2,13 +2,12 @@
 
 @section('content')
     <div class="absolute h-[93%] w-[84%] left-[16%] top-[7%] p-12 grid">
-        <div class="h-full w-full row-span-2 grid grid-cols-2 gap-8 bg-red-400">
+        <div class="h-full w-full row-span-2 grid grid-cols-2 gap-8 ">
             <div class="h-full w-full">
                 <div class="h-full ">
                     <div class="grid grid-cols-3 gap-6">
                         <div class="">
                             <x-menu-card :url="route('vitalsTab')" text="Vital Signs" fontAwesomeIcon="fa-solid fa-heart-pulse" />
-
                         </div>
                         <div class="">
                             <x-menu-card :url="route('nurseNotes')" text="Nurse Notes" fontAwesomeIcon="fa-solid fa-heart-pulse" />

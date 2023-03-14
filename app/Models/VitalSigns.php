@@ -8,8 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class VitalSigns extends Model
 {
     use HasFactory;
-
-    protected $table = 'vital_signs';
+    public function patient()
+    {
+        return $this->belongsTo(Patients::class, 'patient_id');
+    }
 
     protected $guarded = [];
 
@@ -18,11 +20,11 @@ class VitalSigns extends Model
     protected $casts = [
         'date' => 'array',
         'weight' => 'array',
-        'temp' => 'array',
-        'bp' => 'array',
+        'temperature' => 'array',
+        'blood_pressure' => 'array',
         'pulse' => 'array',
         'respiration' => 'array',
-        'pains' => 'array',
+        'pain' => 'array',
         'initials' => 'array',
     ];
 }

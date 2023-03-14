@@ -1,17 +1,24 @@
 <?php
 
-use App\Http\Controllers\AdmissionsController;
-use App\Http\Controllers\BillingController;
-use App\Http\Controllers\DischargeSummaryController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PatientController;
-use App\Http\Controllers\EmergencyPatientController;
-use App\Http\Controllers\FluidIntakeController;
-use App\Http\Controllers\KardexController;
-use App\Http\Controllers\StationController;
-use App\Http\Controllers\NurseNoteController;
-use App\Http\Controllers\PhysicianOrderController;
-use App\Http\Controllers\TestingController;
+use App\Http\Controllers\{
+    AdmissionsController,
+    BillingController,
+    BillingsController,
+    DischargeSummaryController,
+    HomeController,
+    PatientController,
+    PatientsController,
+    EmergencyPatientController,
+    FluidIntakeController,
+    KardexController,
+    StationController,
+    NurseNoteController,
+    NurseNotesController,
+    PhysicianOrderController,
+    TestingController,
+};
+use App\Http\Controllers\RecordsController;
+use App\Http\Controllers\VitalSignsController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -35,11 +42,30 @@ Route::get('/test', [TestingController::class, 'index']);
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/home', [HomeController::class, 'index']);
+
+    Route::resource('patients.admissions', AdmissionsController::class)->only(['show']);
+    Route::resource('patients.billing', BillingsController::class)->except(['edit', 'update']);
+    Route::get('patients/{patient}/vital-signs/physicians', [VitalSignsController::class, 'showPhysicians'])->name('patients.vital-signs.show-physicians');
+    Route::get('patients/{patient}/vital-signs/physicians/{physician}', [VitalSignsController::class, 'show'])->name('patients.vital-signs.show');
+    Route::resource('patients.vital-signs', VitalSignsController::class)->except(['edit', 'update', 'destroy', 'show']);
+    Route::resource('patients.nurse-notes', NurseNotesController::class)->only(['index', 'create', 'store', 'show']);
+
+    Route::resource('admissions', AdmissionsController::class)->except(['show', 'destroy']);
+    Route::resource('patients', PatientsController::class);
+    Route::name('records.')->prefix('records')->group(
+        function () {
+            Route::resource('vital-signs', VitalSignsController::class)->only(['index']);
+            Route::resource('billings', BillingsController::class);
+            Route::get('nurse-notes/{patient_id}/ward/{ward_room}', [NurseNotesController::class, 'showAll'])->name('nurse-notes.show-all');
+            Route::resource('nurse-notes', NurseNotesController::class)->except(['destroy', 'show', 'update', 'edit']);
+            Route::resource('/', RecordsController::class);
+        }
+    );
+
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/homePage', [HomeController::class, 'homePage']);
-    Route::get('/patientPage', [HomeController::class, 'patientPage']);
     Route::get('/stations', [HomeController::class, 'stations']);
-    Route::get('/billing', [HomeController::class, 'billing']);
+    // Route::get('/billing', [HomeController::class, 'billing']);
 
 
     ///////////////admission patients section
@@ -134,7 +160,6 @@ Route::middleware(['auth'])->group(function () {
     //nurseNotes view pdf
     Route::get('/records/pdfFluidIntake{id}', [FluidIntakeController::class, 'viewpdfFluidIntake'])->name('viewpdfFluidIntake');
 
-
     //vitals update data from db
     Route::get('/records/updateVitals{id}', [StationController::class, 'updateVitals'])->name('updateVitals');
     Route::post('/records/editVitals{id}', [StationController::class, 'editVitals']);
@@ -158,9 +183,9 @@ Route::middleware(['auth'])->group(function () {
 
 
     //billing view
-    Route::get('/billing/billingTable', [BillingController::class, 'billingTable'])->name('billingTable');
-    Route::get('/billing/billingTable/updateBilling{or_no}', [BillingController::class, 'updateBilling'])->name('updateBilling');
-    Route::post('/billing/billingTable/editBilling{or_no}', [BillingController::class, 'editBilling'])->name('editBilling');
+    // Route::get('/billing/billingTable', [BillingController::class, 'billingTable'])->name('billingTable');
+    // Route::get('/billing/billingTable/updateBilling{or_no}', [BillingController::class, 'updateBilling'])->name('updateBilling');
+    // Route::post('/billing/billingTable/editBilling{or_no}', [BillingController::class, 'editBilling'])->name('editBilling');
 
     Route::resource('test-patient', AdmissionsController::class);
 });

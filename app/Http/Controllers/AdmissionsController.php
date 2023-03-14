@@ -2,57 +2,73 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Admissions as FormRequest;
-use App\Actions\Admissions as Actions;
+use App\Actions\Admissions\StoreAdmission;
+use App\Actions\Admissions\UpdateAdmission;
+use App\Actions\Patients\StorePatients;
 use App\Models\Admissions;
-use App\Models\First_admission;
+use App\Models\Patients;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class AdmissionsController
+class AdmissionsController extends Controller
 {
+
     public function __construct(
-        private Actions\Store $storeAdmission,
+        private StorePatients $storePatient,
+        private StoreAdmission $storeAdmission,
+        private UpdateAdmission $updateAdmission
     ) {
     }
 
+
     public function index()
     {
-        // $patientDatas = First_admission::select('id', 'patient_id', 'first_name', 'middle_name', 'last_name', 'age', 'gender', 'phone')->paginate(18);
-        dump(Admissions::query()->with('patient')->get()->toArray());
-        $patientDatas = Admissions::query()->with('patient')->paginate(20);
-        // $patientDatas = collect($patientDatas)->paginate(15);
-
-        return view('test.index', [
-            'patientDatas' => $patientDatas,
-        ]);
+        $admissions = Admissions::query()->with(['patient'])
+            ->latest()->paginate(20);
+        return view('pages.admissions.index')
+            ->with(compact('admissions'));
+    }
+    public function create()
+    {
+        return view('pages.admissions.create');
     }
     public function store(Request $request)
     {
         try {
             DB::beginTransaction();
-            $this->storeAdmission->execute($request);
+            $patient = $this->storePatient->handle($request);
+
+            $admission = $this->storeAdmission->handle($request, $patient);
             DB::commit();
-            dump('hit');
-            return redirect()->route('test-patient.index');
+
+            return redirect()->route('admissions.index');
         } catch (\Exception $err) {
             DB::rollBack();
             dd($err);
-            return redirect()->back()->withErrors([
-                'error' => 'there are asdawd'
-            ]);
+            return redirect()->back()->withErrors($err->getMessage());
         }
     }
-
-    public function create()
+    public function show(Patients $patient, Admissions $admission)
     {
-        return view('test.create');
+        //
     }
-
-    public function show(Request $request, Admissions $test_patient)
+    public function edit(Admissions $admission)
     {
-        $admission = $test_patient;
-        return view('test.show')
-            ->with(compact('admission'));
+        return view('pages.admissions.edit')->with(compact('admission'));
+    }
+    public function update(Request $request, Admissions $admission)
+    {
+        try {
+            DB::beginTransaction();
+            $update = $this->updateAdmission->handle($request, $admission);
+            // dd($update->wasChanged(), $update->patient->wasChanged(), $update->toArray(), $update->patient->toArray());
+            DB::commit();
+
+            return redirect()->route('admissions.index');
+        } catch (\Exception $err) {
+            DB::rollBack();
+            dd($err);
+            return redirect()->back()->withErrors($err->getMessage());
+        }
     }
 }

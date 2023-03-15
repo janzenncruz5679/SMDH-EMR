@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Actions\Admissions\StoreAdmission;
 use App\Actions\Admissions\UpdateAdmission;
 use App\Actions\Patients\StorePatients;
+use App\Http\Requests\Patients\Admissions\StoreAdmissionForm;
 use App\Models\Admissions;
 use App\Models\Patients;
 use Illuminate\Http\Request;
@@ -32,13 +33,14 @@ class AdmissionsController extends Controller
     {
         return view('pages.admissions.create');
     }
-    public function store(Request $request)
+    public function store(StoreAdmissionForm $request)
     {
         try {
             DB::beginTransaction();
             $patient = $this->storePatient->handle($request);
 
             $admission = $this->storeAdmission->handle($request, $patient);
+            // dd($admission->toArray());
             DB::commit();
 
             return redirect()->route('admissions.index');
@@ -56,14 +58,14 @@ class AdmissionsController extends Controller
     {
         return view('pages.admissions.edit')->with(compact('admission'));
     }
-    public function update(Request $request, Admissions $admission)
+    public function update(StoreAdmissionForm $request, Admissions $admission)
     {
         try {
             DB::beginTransaction();
             $update = $this->updateAdmission->handle($request, $admission);
+            // dd($update->toArray());
             // dd($update->wasChanged(), $update->patient->wasChanged(), $update->toArray(), $update->patient->toArray());
             DB::commit();
-
             return redirect()->route('admissions.index');
         } catch (\Exception $err) {
             DB::rollBack();

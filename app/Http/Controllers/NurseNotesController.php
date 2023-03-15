@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Actions\NurseNotes\StoreNurseNotes;
+use App\Http\Requests\Records\NurseNotes\StoreNurseNotesForm;
 use App\Models\NurseNotes;
 use App\Models\Patients;
 use Carbon\Carbon;
@@ -13,8 +14,7 @@ class NurseNotesController extends Controller
 {
     public function __construct(
         private StoreNurseNotes $storeNurseNotes,
-    )
-    {
+    ) {
     }
     public function index(Patients $patient)
     {
@@ -55,14 +55,14 @@ class NurseNotesController extends Controller
         return view('pages.nurse-notes.create')
             ->with(compact('patient'));
     }
-    public function store(Patients $patient, Request $request)
+    public function store(Patients $patient, StoreNurseNotesForm $request)
     {
         try {
             DB::beginTransaction();
             $nurseNote = $this->storeNurseNotes->handle($request, $patient);
+            // dd($nurseNote->toArray());
             DB::commit();
             return redirect()->route('patients.nurse-notes.index', $patient->id);
-
         } catch (\Exception $e) {
             DB::rollBack();
             dd($e);
@@ -74,7 +74,6 @@ class NurseNotesController extends Controller
         return view('pages.nurse-notes.show')
             ->with(compact('patient'))
             ->with(compact('nurseNote'));
-
     }
     public function showAll($nurseNote, $wardRoom)
     {

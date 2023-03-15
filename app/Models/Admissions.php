@@ -21,7 +21,6 @@ class Admissions extends Model
         'admission_end' => 'datetime',
         'insurance' => 'array',
         'diagnosis' => 'array',
-        'data_origin' => 'array',
         'additional_diagnosis' => 'array',
         'additional_operation_procedure' => 'array',
     ];

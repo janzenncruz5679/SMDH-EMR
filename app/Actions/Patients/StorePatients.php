@@ -2,11 +2,12 @@
 
 namespace App\Actions\Patients;
 
+use App\Http\Requests\Patients\Admissions\StoreAdmissionForm;
 use App\Models\Patients;
 
 class StorePatients
 {
-    public function handle($request)
+    public function handle(StoreAdmissionForm $request)
     {
         return Patients::create([
             'fname' => $request->first_name,
@@ -43,33 +44,33 @@ class StorePatients
             'senior_num' => $request->sr_no,
             'relatives' => [
                 'employer' => $request->employer_name
-                ? [
-                    'name' => $request->employer_name,
-                    'address' => $request->employer_address,
-                    'contact' => $request->employer_phone,
-                ]
-                : null,
+                    ? [
+                        'name' => $request->employer_name,
+                        'address' => $request->employer_address,
+                        'contact' => $request->employer_phone,
+                    ]
+                    : null,
                 'father' => $request->father_name
-                ? [
-                    'name' => $request->father_name,
-                    'address' => $request->father_address,
-                    'contact' => $request->father_phone,
-                ]
-                : null,
+                    ? [
+                        'name' => $request->father_name,
+                        'address' => $request->father_address,
+                        'contact' => $request->father_phone,
+                    ]
+                    : null,
                 'mother' => $request->mother_maiden_name
-                ? [
-                    'name' => $request->mother_maiden_name,
-                    'address' => $request->mother_address,
-                    'contact' => $request->mother_phone,
-                ]
-                : null,
+                    ? [
+                        'name' => $request->mother_maiden_name,
+                        'address' => $request->mother_address,
+                        'contact' => $request->mother_phone,
+                    ]
+                    : null,
                 'spouse' => $request->spouse_name
-                ? [
-                    'name' => $request->spouse_name,
-                    'address' => $request->spouse_address,
-                    'contact' => $request->spouse_phone,
-                ]
-                : null,
+                    ? [
+                        'name' => $request->spouse_name,
+                        'address' => $request->spouse_address,
+                        'contact' => $request->spouse_phone,
+                    ]
+                    : null,
             ],
         ]);
     }

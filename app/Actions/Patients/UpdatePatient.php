@@ -1,12 +1,14 @@
 <?php
+
 namespace App\Actions\Patients;
 
+use App\Http\Requests\Patients\Admissions\StoreAdmissionForm;
 use App\Models\Admissions;
 use Illuminate\Http\Request;
 
 class UpdatePatient
 {
-    public function handle(Request $request, Admissions $admission)
+    public function handle(StoreAdmissionForm $request, Admissions $admission)
     {
         $admission->patient->fname = $request->first_name;
         $admission->patient->mname = $request->middle_name;
@@ -46,25 +48,41 @@ class UpdatePatient
 
 
         $newRelatives = $admission->patient->relatives;
-        $newRelatives['father']['fname'] = $request->father_first ?? null;
-        $newRelatives['father']['mname'] = $request->father_middle ?? null;
-        $newRelatives['father']['lname'] = $request->father_last ?? null;
-        $newRelatives['father']['suffix'] = $request->father_suffix ?? null;
-        $newRelatives['father']['occupation'] = $request->father_occupation ?? null;
-        $newRelatives['father']['contact'] = $request->father_contact ?? null;
-        $newRelatives['mother']['fname'] = $request->mother_first ?? null;
-        $newRelatives['mother']['mname'] = $request->mother_middle ?? null;
-        $newRelatives['mother']['lname'] = $request->mother_last ?? null;
-        $newRelatives['mother']['suffix'] = $request->mother_suffix ?? null;
-        $newRelatives['mother']['occupation'] = $request->mother_occupation ?? null;
-        $newRelatives['mother']['contact'] = $request->mother_contact ?? null;
-        $newRelatives['spouse']['fname'] = $request->spouse_first ?? null;
-        $newRelatives['spouse']['mname'] = $request->spouse_middle ?? null;
-        $newRelatives['spouse']['lname'] = $request->spouse_last ?? null;
-        $newRelatives['spouse']['suffix'] = $request->spouse_suffix ?? null;
-        $newRelatives['spouse']['occupation'] = $request->spouse_occupation ?? null;
-        $newRelatives['spouse']['contact'] = $request->spouse_contact ?? null;
+        $newRelatives['employer']['name'] = $request->employer_name ?? null;
+        $newRelatives['employer']['address'] = $request->employer_address ?? null;
+        $newRelatives['employer']['contact'] = $request->employer_phone ?? null;
+        $newRelatives['father']['name'] = $request->father_name ?? null;
+        $newRelatives['father']['address'] = $request->father_address ?? null;
+        $newRelatives['father']['contact'] = $request->father_phone ?? null;
+        $newRelatives['mother']['name'] = $request->mother_maiden_name ?? null;
+        $newRelatives['mother']['address'] = $request->mother_address ?? null;
+        $newRelatives['mother']['contact'] = $request->mother_phone ?? null;
+        $newRelatives['spouse']['name'] = $request->spouse_name ?? null;
+        $newRelatives['spouse']['address'] = $request->spouse_address ?? null;
+        $newRelatives['spouse']['contact'] = $request->spouse_phone ?? null;
         $admission->patient->relatives = $newRelatives;
+
+
+        // $newRelatives = $admission->patient->relatives;
+        // $newRelatives['father']['fname'] = $request->father_first ?? null;
+        // $newRelatives['father']['mname'] = $request->father_middle ?? null;
+        // $newRelatives['father']['lname'] = $request->father_last ?? null;
+        // $newRelatives['father']['suffix'] = $request->father_suffix ?? null;
+        // $newRelatives['father']['occupation'] = $request->father_occupation ?? null;
+        // $newRelatives['father']['contact'] = $request->father_contact ?? null;
+        // $newRelatives['mother']['fname'] = $request->mother_first ?? null;
+        // $newRelatives['mother']['mname'] = $request->mother_middle ?? null;
+        // $newRelatives['mother']['lname'] = $request->mother_last ?? null;
+        // $newRelatives['mother']['suffix'] = $request->mother_suffix ?? null;
+        // $newRelatives['mother']['occupation'] = $request->mother_occupation ?? null;
+        // $newRelatives['mother']['contact'] = $request->mother_contact ?? null;
+        // $newRelatives['spouse']['fname'] = $request->spouse_first ?? null;
+        // $newRelatives['spouse']['mname'] = $request->spouse_middle ?? null;
+        // $newRelatives['spouse']['lname'] = $request->spouse_last ?? null;
+        // $newRelatives['spouse']['suffix'] = $request->spouse_suffix ?? null;
+        // $newRelatives['spouse']['occupation'] = $request->spouse_occupation ?? null;
+        // $newRelatives['spouse']['contact'] = $request->spouse_contact ?? null;
+        // $admission->patient->relatives = $newRelatives;
 
         return $admission->patient->save();
     }

@@ -2,6 +2,7 @@
 
 namespace App\Actions\NurseNotes;
 
+use App\Http\Requests\Records\NurseNotes\StoreNurseNotesForm;
 use App\Models\NurseNotes;
 use App\Models\Patients;
 use Carbon\Carbon;
@@ -10,7 +11,7 @@ use Illuminate\Http\Request;
 
 class StoreNurseNotes
 {
-    public function handle(Request $request, Patients $patient): Collection
+    public function handle(StoreNurseNotesForm $request, Patients $patient): Collection
     {
         $_results = collect();
         foreach (range(0, sizeof($request->obsDate) - 1) as $k) {

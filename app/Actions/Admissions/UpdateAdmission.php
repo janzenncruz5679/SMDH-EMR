@@ -58,11 +58,11 @@ class UpdateAdmission
                 'other_diagnosis' => $request->other_diagnosis,
             ],
             'alergy' => $request->alert_allergic,
-            'data_origin' => [
-                'from' => $request->furnished_by,
-                'address' => $request->informant_address,
-                'relation' => $request->relation_to_patient,
-            ],
+            // 'data_origin' => [
+            //     'from' => $request->furnished_by,
+            //     'address' => $request->informant_address,
+            //     'relation' => $request->relation_to_patient,
+            // ],
             'additional_diagnosis' => [
                 'principal_diagnosis' => $request->principal_diagnosis,
                 'other_diagnosis' => $request->other_diagnosis

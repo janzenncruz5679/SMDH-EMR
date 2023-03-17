@@ -5,7 +5,7 @@
         <div class="h-full w-full bg-white p-4 shadow-md shadow-blue-200 rounded-3xl">
         </div>
         <div class="h-full w-full row-span-2 grid grid-cols-2 gap-8">
-            <div class="h-full w-full bg-white p-4 shadow-lg shadow-blue-200 rounded-3xl grid gap-6">
+            <div class="h-full w-full bg-white p-4 shadow-lg shadow-blue-200 rounded-3xl flex flex-col gap-4">
                 <table class="text-xl tracking-[2px] w-full table-auto">
                     <thead>
                         <tr class=" ">
@@ -29,7 +29,7 @@
                                 </td>
                                 <td class=" ">
                                     @php
-                                        $_url = class_basename($record) == 'Admissions' ? route('patients.admissions.show', [$patient->id, $record->id]) : ('NurseNotes' ? route('patients.nurse-notes.show', [$patient->id, $record->id]) : '#');
+                                        $_url = class_basename($record) == 'Admissions' ? route('patients.admissions.show', [$patient->id, $record->id]) : ('Nurse Notes' ? route('patients.nurse-notes.show', [$patient->id, $record->id]) : '#');
                                     @endphp
                                     <a href="{{ $_url }}" class="editIcon hover:text-blue-300">
                                         <i class="fa-solid fa-eye"></i>
@@ -52,7 +52,7 @@
                     </tbody>
                 </table>
                 @isset($records)
-                    <div class="flex justify-center">
+                    <div class="grid place-items-center">
                         {{ $records->links('pagination::custom_tailwind') }}
                     </div>
                 @endisset

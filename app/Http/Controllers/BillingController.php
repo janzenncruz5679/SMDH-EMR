@@ -15,7 +15,6 @@ class BillingController extends Controller
             ->orderBy('or_no', 'asc')
             ->paginate(18);
 
-
         $data_admissions = DB::table('first_admissions')->select('id', 'full_name', 'patient_id', 'created_at')->get();
 
         foreach ($data_admissions as $data_admission) {
@@ -47,44 +46,8 @@ class BillingController extends Controller
                 }
             }
         }
-        // foreach ($data_admissions as $data_admission) {
-        //     $count = DB::table('billings')
-        //         ->where('or_no', $data_admission->patient_id)
-        //         ->where('full_name', $data_admission->full_name)
-        //         ->count();
-        //     $admission = DB::table('first_admissions')
-        //         ->where('patient_id', $data_admission->patient_id)
-        //         ->first();
-        //     if ($count == 0 && $admission->full_name == $data_admission->full_name) {
-        //         // delete old data
-        //         DB::table('billings')
-        //             ->where('or_no', $data_admission->patient_id)
-        //             ->delete();
-        //         // insert new data
-        //         DB::table('billings')->insert([
-        //             'full_name' => $data_admission->full_name,
-        //             'or_no' => $data_admission->patient_id,
-        //             'created_at' => now(),
-        //             'updated_at' => now()
-        //         ]);
-        //     }
-        // }
 
-        // $data_admissions = First_admission::all();
-
-        // foreach ($data_admissions as $data_admission) {
-        //     $billing = Billing::where('full_name', $data_admission->full_name)->first();
-        //     if ($billing) {
-        //         // Update the existing billing record with the new full_name
-        //         $billing->full_name = $data_admission->full_name;
-        //         $billing->save(); // Save the updated record to the database
-        //     } else {
-        //         // Create a new billing record if it doesn't exist
-        //         $billing = new Billing;
-        //         $billing->full_name = $data_admission->full_name;
-        //         $billing->save(); // Save the new record to the database
-        //     }
-        // }
+        // dd($data_admissions->toArray());
 
         return view('user.billing', [
             'data_admissions' => $data_admissions,

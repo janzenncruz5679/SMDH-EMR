@@ -35,11 +35,11 @@ Route::get('/test', [TestingController::class, 'index']);
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/home', [HomeController::class, 'index']);
-    Route::get('/homePage', [HomeController::class, 'homePage']);
-    Route::get('/patientPage', [HomeController::class, 'patientPage']);
-    Route::get('/stations', [HomeController::class, 'stations']);
-    Route::get('/billing', [HomeController::class, 'billing']);
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/homePage', [HomeController::class, 'homePage'])->name('homePage');
+    Route::get('/patientPage', [HomeController::class, 'patientPage'])->name('patientPage');
+    Route::get('/stations', [HomeController::class, 'stations'])->name('stations');
+    Route::get('/billing', [HomeController::class, 'billing'])->name('billing');
 
 
     ///////////////admission patients section

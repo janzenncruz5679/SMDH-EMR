@@ -2,7 +2,7 @@
 <div class="sidebar z-50 fixed w-[275px] h-screen left-0 top-[59px] bg-zinc-900">
     <div class="user pt-[30px] pb-[10px] px-0 h-[25vh] flex flex-col justify-center">
         <div class="user-pic flex justify-center">
-            <img src="/assets/img/paimon.jpg" alt="" class="rounded-[100%] h-[13vh] w-[6.5vw]">
+            <img src="{{ Vite::image('paimon.jpg') }}" alt="" class="rounded-[100%] h-[13vh] w-[6.5vw]">
         </div>
         <div class="user-name p-0 text-center">
             <a href="{{ url('home') }}"

@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="fixed h-auto w-[86%] left-[275px] top-[59px] p-12 grid gap-8">
+    <div class="absolute h-auto w-[84%] left-[16%] top-[7%] p-12 grid gap-8">
         <div class="admissionDisplay h-full w-full grid gap-4">
             <div class="h-20 bg-blue-300 flex items-center justify-center">
                 <label class="font-[sans-serif] font-semibold text-white tracking-wide text-4xl">

@@ -22,7 +22,7 @@ class NurseNotesController extends Controller
             $nurseNotes = NurseNotes::query()
                 ->with('patient')
                 ->where('patient_id', $patient->id)
-                ->paginate(20);
+                ->paginate(18);
 
             return view('pages.nurse-notes.index')
                 ->with(compact('patient'))
@@ -84,7 +84,7 @@ class NurseNotesController extends Controller
             ->where('ward_room', $wardRoom)
             ->where('date_time', '>=', Carbon::now()->subDays(365))
             ->latest('date_time')
-            ->paginate(20);
+            ->paginate(2);
         if (sizeof($nurseNotes->items()) < 1) {
             return abort(404);
         }

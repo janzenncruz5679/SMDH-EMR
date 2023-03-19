@@ -66,7 +66,7 @@ Route::middleware(['auth'])->group(function () {
 
 
     //////////////////////////////////station section
-    Route::get('stations/labOptions', [StationController::class, 'labOptions']);
+    Route::get('stations/labOptions', [StationController::class, 'labOptions'])->name('labOptions');
     ////vitalsigns view
     Route::get('stations/labOptions/vitalSigns', [StationController::class, 'vitalSigns'])->name('vitalsTab');
     ////nursenotes view

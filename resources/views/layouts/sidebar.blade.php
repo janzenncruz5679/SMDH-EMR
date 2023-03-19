@@ -11,7 +11,7 @@
                     fontAwesomeIcon="fa-solid fa-house" />
                 <x-sidebar-menu :url="route('patientPage')" :active-url="request()->routeIs('patientPage*') | request()->routeIs('admissions*')" text="Patients"
                     fontAwesomeIcon="fa-solid fa-hospital-user" />
-                <x-sidebar-menu :url="route('stations')" :active-url="request()->routeIs('stations*')" text="Records"
+                <x-sidebar-menu :url="route('stations')" :active-url="request()->routeIs('stations*') | request()->routeIs('vitalsTab')" text="Records"
                     fontAwesomeIcon="fa-solid fa-notes-medical" />
                 <x-sidebar-menu :url="route('billingTable')" :active-url="request()->routeIs('billing*') |
                     request()->routeIs('billingTable*') |

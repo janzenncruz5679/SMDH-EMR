@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="absolute h-auto w-[84%] left-[16%] top-[7%] p-12 grid gap-8">
-        <div class="admissionDisplay h-full w-full grid gap-4">
+        <div class="admissionDisplay h-full w-full grid gap-4 text-2xl">
             <div class="h-20 bg-blue-300 flex items-center justify-center">
                 <label class="font-[sans-serif] font-semibold text-white tracking-wide text-4xl">
                     {{ __('Admission Patients') }}</label>
@@ -31,7 +31,7 @@
             </div>
             <div class="admissionTable">
                 @if (isset($patientDatas))
-                    <table class="text-[1.5rem] tracking-[2px] w-full">
+                    <table class="tracking-[2px] w-full">
                         <tr class="grid grid-cols-12">
                             <th class="flex justify-center">Id</th>
                             <th class="col-span-5 flex justify-center">Name</th>

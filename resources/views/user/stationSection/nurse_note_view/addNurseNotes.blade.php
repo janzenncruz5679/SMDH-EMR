@@ -18,7 +18,7 @@
     </style>
     <div class="fixed h-[93%] w-[84%] left-[16%] top-[7%] p-12 flex flex-col">
         <div>
-            @include('layouts.stepper')
+            @include('layouts.nurseStepper')
         </div>
         <div class=" h-full w-full">
             <form action="{{ route('submitNurseNotes') }}" method="POST" enctype="multipart/form-data"

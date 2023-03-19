@@ -25,7 +25,7 @@ class NurseNoteController extends Controller
     public function submit_addNurseNotes(Request $request)
     {
         // dd($request->toArray());
-        NurseNote::create([
+        $nursenote = NurseNote::create([
             'patient_fullname' => $request->patient_fullname,
             'age' => $request->age,
             'ward' => $request->ward,
@@ -43,6 +43,7 @@ class NurseNoteController extends Controller
             ],
         ]);
 
+        // dd($nursenote->toArray());
         return redirect()->route('nurseNotes');
     }
 

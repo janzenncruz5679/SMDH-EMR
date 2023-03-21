@@ -18,7 +18,14 @@
         @include('layouts.header')
     </div>
     <div>
-        <div class="max-h-full max-w-full overflow-hidden">@include('layouts.sidebar')</div>
+        @php
+            if (Auth::user()->usertype == '0') {
+                $sidebar = 'layouts.sidebar';
+            } else {
+                $sidebar = 'layouts.adminSidebar';
+            }
+        @endphp
+        <div class="max-h-full max-w-full overflow-hidden">@include($sidebar)</div>
         <div class="max-h-full max-w-full overflow-hidden">@yield('content')</div>
     </div>
     @include('layouts.allScripts')

@@ -54,7 +54,7 @@
                                             class="editIcon hover:text-blue-300">
                                             <i class="fa-solid fa-eye"></i>
                                         </a>
-                                        <a href="{{ url('/patientPage/updateAdmission' . $emergency->id) }}"
+                                        <a href="{{ route('emergency.edit', $emergency->id) }}"
                                             class="editIcon hover:text-blue-300">
                                             <i class="fa-solid fa-edit"></i>
                                         </a>

@@ -11,6 +11,7 @@ use App\Http\Controllers\KardexController;
 use App\Http\Controllers\StationController;
 use App\Http\Controllers\NurseNoteController;
 use App\Http\Controllers\PhysicianOrderController;
+use App\Http\Controllers\StaffsController;
 use App\Http\Controllers\TestingController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -163,4 +164,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/billing/billingTable/editBilling{or_no}', [BillingController::class, 'editBilling'])->name('editBilling');
 
     Route::resource('test-patient', AdmissionsController::class);
+
+    Route::get('users/archive', [StaffsController::class, 'archive'])->name('users.archive');
+    Route::resource('users', StaffsController::class)->except(['create', 'store']);
 });

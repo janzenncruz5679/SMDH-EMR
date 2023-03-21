@@ -10,7 +10,7 @@
                             <x-menu-card :url="url('/patientPage/admission')" text="Admission" fontAwesomeIcon="fa-solid fa-bed"></x-menu-card>
                         </div>
                         <div class="">
-                            <x-menu-card :url="url('/patientPage/emergency')" text="Emergency" fontAwesomeIcon="fa-solid fa-truck-medical">
+                            <x-menu-card :url="route('emergency.index')" text="Emergency" fontAwesomeIcon="fa-solid fa-truck-medical">
                             </x-menu-card>
                         </div>
                         <div class="">

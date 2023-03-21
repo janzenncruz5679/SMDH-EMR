@@ -47,7 +47,7 @@ class EmergencyController extends Controller
 
     public function show(Emergency $emergency)
     {
-        //
+        return view('user.emergency.show', compact('emergency'));
     }
 
 

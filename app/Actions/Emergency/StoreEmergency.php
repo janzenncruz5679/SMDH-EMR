@@ -2,6 +2,7 @@
 
 namespace App\Actions\Emergency;
 
+use App\Http\Requests\Records\Emergency\StoreEmergencyForm;
 use App\Models\Emergency;
 use App\Models\Patient_id;
 use Carbon\Carbon;
@@ -10,7 +11,7 @@ use Illuminate\Http\Request;
 
 class StoreEmergency
 {
-    public function handle(Request $request)
+    public function handle(StoreEmergencyForm $request)
     {
         $emergency = Patient_id::create();
         $emergency->emergency_table()->create([

@@ -2,6 +2,7 @@
 
 namespace App\Actions\Emergency;
 
+use App\Http\Requests\Records\Emergency\StoreEmergencyForm;
 use App\Models\Emergency;
 use App\Models\Patient_id;
 use Carbon\Carbon;
@@ -10,14 +11,14 @@ use Illuminate\Http\Request;
 class UpdateEmergency
 {
 
-    public function handle(Request $request, Emergency $emergency)
+    public function handle(StoreEmergencyForm $request, Emergency $emergency)
     {
         $this->UpdateEmergency($request, $emergency);
 
         return $emergency;
     }
 
-    private function UpdateEmergency(Request $request, Emergency $emergency)
+    private function UpdateEmergency(StoreEmergencyForm $request, Emergency $emergency)
     {
         $emergency_id = Patient_id::findorfail($emergency->patient_id);
         $emergency_id->emergency_table()->update([

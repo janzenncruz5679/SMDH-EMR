@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Actions\Emergency\StoreEmergency;
 use App\Actions\Emergency\UpdateEmergency;
+use App\Http\Requests\Records\Emergency\StoreEmergencyForm;
 use App\Models\Emergency;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -30,7 +31,7 @@ class EmergencyController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(StoreEmergencyForm $request)
     {
         try {
             DB::beginTransaction();
@@ -59,7 +60,7 @@ class EmergencyController extends Controller
     }
 
 
-    public function update(Request $request, Emergency $emergency)
+    public function update(StoreEmergencyForm $request, Emergency $emergency)
     {
         try {
             DB::beginTransaction();

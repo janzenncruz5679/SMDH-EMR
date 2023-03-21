@@ -39,24 +39,24 @@
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="last name" name="last_name" autocomplete="off"
-                                        value="{{ old('last_name') }}">
-                                    {{-- <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                        value="{{ old('last_name') }}" required>
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('last_name')
                                             {{ $message }}
                                         @enderror
-                                    </span> --}}
+                                    </span>
                                 </div>
                                 <div class="col-span-2 px-3">
                                     <label>GIVEN NAME: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="given name" name="first_name" autocomplete="off"
-                                        value="{{ old('first_name') }}">
-                                    {{-- <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                        value="{{ old('first_name') }}" required>
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('first_name')
                                             {{ $message }}
                                         @enderror
-                                    </span> --}}
+                                    </span>
                                 </div>
                                 <div class="px-3">
                                     <label>MIDDLE NAME :</label>
@@ -94,30 +94,31 @@
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="ward/room #" name="ward_room_bed_service" autocomplete="off"
-                                        value="{{ old('ward_room_bed_service') }}">
-                                    {{-- <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                        value="{{ old('ward_room_bed_service') }}" required>
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('ward_room_bed_service')
                                             {{ $message }}
                                         @enderror
-                                    </span> --}}
+                                    </span>
                                 </div>
                                 <div class="px-3">
                                     <label>CONTACT NUMBER: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="contact #" name="phone" maxlength="11" autocomplete="off"
-                                        value="{{ old('phone') }}">
-                                    {{-- <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                        value="{{ old('phone') }}" required>
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('phone')
                                             {{ $message }}
                                         @enderror
-                                    </span> --}}
+                                    </span>
                                 </div>
                                 <div class="px-3">
                                     <label>SEX: <span class="text-red-600 font-bold">*</span></label>
                                     <div class="w-full">
                                         <select name="gender"
-                                            class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2">
+                                            class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            required>
                                             <option value="" disabled selected>gender</option>
                                             <option value="Male" {{ old('gender') == 'Male' ? 'selected' : '' }}>Male
                                             </option>
@@ -125,11 +126,11 @@
                                                 Female
                                             </option>
                                         </select>
-                                        {{-- <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                        <span class="text-base font-[sans-serif] font-medium text-red-600">
                                             @error('gender')
                                                 {{ $message }}
                                             @enderror
-                                        </span> --}}
+                                        </span>
                                     </div>
                                 </div>
 
@@ -137,7 +138,8 @@
                                     <label>CIVIL STATUS: <span class="text-red-600 font-bold">*</span></label>
                                     <div class="w-full">
                                         <select name="civil_status"
-                                            class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2">
+                                            class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            required>
                                             <option value="" disabled selected>civil status</option>
                                             <option value="Single" {{ old('civil_status') == 'Single' ? 'selected' : '' }}>
                                                 Single</option>
@@ -156,18 +158,18 @@
                                             <option value="Neutral"
                                                 {{ old('civil_status') == 'Neutral' ? 'selected' : '' }}>Neutral</option>
                                         </select>
-                                        {{-- <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                        <span class="text-base font-[sans-serif] font-medium text-red-600">
                                             @error('civil_status')
                                                 {{ $message }}
                                             @enderror
-                                        </span> --}}
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="px-3">
                                     <label>Type:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="enter old record #" name="type" value="Admission" readonly>
+                                        placeholder="enter old record #" name="type" value="Emergency" readonly>
                                 </div>
                             </div>
 
@@ -178,12 +180,12 @@
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
                                         placeholder="birthday" name="birthday" id="birthday" autocomplete="off"
-                                        value="{{ old('birthday') }}">
-                                    {{-- <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                        value="{{ old('birthday') }}" required>
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('birthday')
                                             {{ $message }}
                                         @enderror
-                                    </span> --}}
+                                    </span>
                                 </div>
                                 <div class="px-3">
                                     <label>AGE:</label>
@@ -197,24 +199,24 @@
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="birthplace" name="birthplace" autocomplete="off"
-                                        value="{{ old('birthplace') }}">
-                                    {{-- <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                        value="{{ old('birthplace') }}" required>
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('birthplace')
                                             {{ $message }}
                                         @enderror
-                                    </span> --}}
+                                    </span>
                                 </div>
                                 <div class="px-3 ">
                                     <label>RELIGION: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="religion" name="religion" autocomplete="off"
-                                        value="{{ old('religion') }}">
-                                    {{-- <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                        value="{{ old('religion') }}" required>
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('religion')
                                             {{ $message }}
                                         @enderror
-                                    </span> --}}
+                                    </span>
                                 </div>
                                 <div class="px-3">
                                     <label>OCCUPATION :</label>
@@ -228,12 +230,12 @@
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                         placeholder="nationality" name="nationality" id="nationality" autocomplete="off"
-                                        value="{{ old('nationality') }}">
-                                    {{-- <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                        value="{{ old('nationality') }}" required>
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('nationality')
                                             {{ $message }}
                                         @enderror
-                                    </span> --}}
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -252,36 +254,36 @@
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="street" name="street" id="street" autocomplete="off"
-                                        value="{{ old('street') }}">
-                                    {{-- <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                        value="{{ old('street') }}" required>
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('street')
                                             {{ $message }}
                                         @enderror
-                                    </span> --}}
+                                    </span>
                                 </div>
                                 <div class="px-3">
                                     <label>BARANGAY: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="barangay" name="barangay" autocomplete="off"
-                                        value="{{ old('barangay') }}">
-                                    {{-- <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                        value="{{ old('barangay') }}" required>
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('barangay')
                                             {{ $message }}
                                         @enderror
-                                    </span> --}}
+                                    </span>
                                 </div>
                                 <div class="px-3">
                                     <label>MUNICIPALITY: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                         placeholder="municipality" name="municipality" id="municipality"
-                                        autocomplete="off" value="{{ old('municipality') }}">
-                                    {{-- <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                        autocomplete="off" value="{{ old('municipality') }}" required>
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('municipality')
                                             {{ $message }}
                                         @enderror
-                                    </span> --}}
+                                    </span>
                                 </div>
                             </div>
                             <div class="grid grid-cols-4 h-full">
@@ -291,48 +293,48 @@
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="province" name="province" autocomplete="off"
-                                        value="{{ old('province') }}">
-                                    {{-- <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                        value="{{ old('province') }}" required>
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('province')
                                             {{ $message }}
                                         @enderror
-                                    </span> --}}
+                                    </span>
                                 </div>
                                 <div class=" px-3">
                                     <label>REGION: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="region" name="region" autocomplete="off"
-                                        value="{{ old('region') }}">
-                                    {{-- <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                        value="{{ old('region') }}" required>
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('region')
                                             {{ $message }}
                                         @enderror
-                                    </span> --}}
+                                    </span>
                                 </div>
                                 <div class="px-3">
                                     <label>ZIP CODE: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="zip code" name="zip_code" autocomplete="off"
-                                        value="{{ old('zip_code') }}">
-                                    {{-- <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                        value="{{ old('zip_code') }}" required>
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('zip_code')
                                             {{ $message }}
                                         @enderror
-                                    </span> --}}
+                                    </span>
                                 </div>
                                 <div class=" px-3">
                                     <label>COUNTRY: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="country" name="country" autocomplete="off"
-                                        value="{{ old('country') }}">
-                                    {{-- <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                        value="{{ old('country') }}" required>
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('country')
                                             {{ $message }}
                                         @enderror
-                                    </span> --}}
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -350,7 +352,7 @@
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                         placeholder="contact last name" name="contact_last" id="contact_last"
-                                        autocomplete="off" value="{{ old('contact_last') }}">
+                                        autocomplete="off" value="{{ old('contact_last') }}" required>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('contact_last')
                                             {{ $message }}
@@ -362,7 +364,7 @@
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                         placeholder="contact first name" name="contact_first" id="contact_first"
-                                        autocomplete="off" value="{{ old('contact_first') }}">
+                                        autocomplete="off" value="{{ old('contact_first') }}" required>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('contact_first')
                                             {{ $message }}
@@ -390,7 +392,7 @@
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                         placeholder="contact address" name="contact_address" id="contact_address"
-                                        autocomplete="off" value="{{ old('contact_address') }}">
+                                        autocomplete="off" value="{{ old('contact_address') }}" required>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('contact_address')
                                             {{ $message }}
@@ -402,7 +404,7 @@
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                         placeholder="contact address" name="contact_phone" id="contact_phone"
-                                        autocomplete="off" value="{{ old('contact_phone') }}">
+                                        autocomplete="off" value="{{ old('contact_phone') }}" required>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('contact_phone')
                                             {{ $message }}
@@ -414,7 +416,7 @@
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                         placeholder="relation to patient" name="contact_rtp" id="contact_rtp"
-                                        autocomplete="off" value="{{ old('contact_rtp') }}">
+                                        autocomplete="off" value="{{ old('contact_rtp') }}" required>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('contact_rtp')
                                             {{ $message }}

@@ -172,6 +172,8 @@ class PatientController extends Controller
             ],
             'icpm_code' => $request->icpm_code,
         ]);
+
+        // dd($patients_base, $patients_Dummy->toArray());
         return redirect('/patientPage/admission');
     }
 

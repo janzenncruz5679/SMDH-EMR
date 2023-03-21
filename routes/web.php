@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdmissionsController;
 use App\Http\Controllers\BillingController;
 use App\Http\Controllers\DischargeSummaryController;
+use App\Http\Controllers\EmergencyController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\EmergencyPatientController;
@@ -167,4 +168,6 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('users/archive', [StaffsController::class, 'archive'])->name('users.archive');
     Route::resource('users', StaffsController::class)->except(['create', 'store']);
+
+    Route::resource('emergency', EmergencyController::class);
 });

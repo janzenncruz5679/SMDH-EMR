@@ -6,6 +6,7 @@ use App\Actions\Emergency\StoreEmergency;
 use App\Actions\Emergency\UpdateEmergency;
 use App\Http\Requests\Records\Emergency\StoreEmergencyForm;
 use App\Models\Emergency;
+use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -42,7 +43,7 @@ class EmergencyController extends Controller
             return redirect()->route('emergency.index');
         } catch (\Exception $err) {
             DB::rollBack();
-            // dd($err);
+            dd($err);
             return redirect()->back()->withErrors($err->getMessage());
         }
     }
@@ -79,5 +80,16 @@ class EmergencyController extends Controller
     public function destroy(Emergency $emergency)
     {
         //
+    }
+
+    public function pdf(Emergency $emergency)
+    {
+        $emergency_view = Emergency::findorFail($emergency->id);
+        // dd($emergency_view);
+        $emergency_pdf = PDF::loadView('pdf.emergency', [
+            'emergency_view' => $emergency_view,
+        ])->setPaper('a4', 'portrait');
+
+        return $emergency_pdf->stream("Emergency Form" . $emergency_view->patient_id . ".pdf");
     }
 }

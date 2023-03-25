@@ -17,6 +17,7 @@ class Emergency extends Model
 
     protected $casts = [
         'personal_info' => 'array',
+        'hospital_visit' => 'array',
         'full_address' => 'array',
         'contact_person' => 'array',
         'case_summary' => 'array',

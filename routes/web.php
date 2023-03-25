@@ -169,5 +169,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('users/archive', [StaffsController::class, 'archive'])->name('users.archive');
     Route::resource('users', StaffsController::class)->except(['create', 'store']);
 
+    Route::get('emergency/pdf{emergency}', [EmergencyController::class, 'pdf'])->name('emergency.pdf');
     Route::resource('emergency', EmergencyController::class);
 });

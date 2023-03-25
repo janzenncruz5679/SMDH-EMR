@@ -24,7 +24,7 @@
                 @csrf
                 <div
                     class="grid justify-center text-4xl font-semibold tracking-widest rounded-t-3xl bg-[#A0DDD3] p-3 text-[#003D33]">
-                    <label>Admission Record # {{ $emergency->patient_id }}</label>
+                    <label>Emergency Record # {{ $emergency->patient_id }}</label>
                 </div>
                 <div class="form-section">
                     <div class="p-4 bg-slate-200 rounded-b-3xl">
@@ -265,7 +265,7 @@
                                         value="{{ $emergency->contact_person['contact_last'] }}" readonly>
                                 </div>
                                 <div class="px-3">
-                                    <label>FIRST NAME :</label>
+                                    <label>FIRST NAME: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                         placeholder="contact first name" name="contact_first" id="contact_first"
@@ -310,19 +310,179 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="grid px-3 pb-3 text-2xl text-[#003D33] font-semibold tracking-widest">
+                            <label>Patient Visitation and Recommendation</label>
+                        </div>
+                        <div class="grid gap-2 pb-3">
+                            <div class="grid grid-cols-5 h-full">
+                                <div class="px-3">
+                                    <div>
+                                        <label>VISIT DATE: <span class="text-red-600 font-bold">*</span></label>
+                                        <input type="date"
+                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
+                                            name="start_date" id="start_date"
+                                            value="{{ $emergency->hospital_visit['visit_start']['start_date'] }}"
+                                            readonly>
+                                        <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                            @error('start_date')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="px-3">
+                                    <div>
+                                        <label>VISIT TIME: <span class="text-red-600 font-bold">*</span></label>
+                                        <input type="time"
+                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
+                                            name="start_time" id="start_time"
+                                            value="{{ $emergency->hospital_visit['visit_start']['start_time'] }}"
+                                            readonly>
+                                    </div>
+                                </div>
+                                <div class="px-3">
+                                    <div>
+                                        <label>DISCHARGE DATE: <span class="text-red-600 font-bold">*</span></label>
+                                        <input type="date"
+                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
+                                            name="end_date" id="end_date"
+                                            value="{{ $emergency->hospital_visit['visit_end']['end_date'] }}" readonly>
+                                    </div>
+                                </div>
+                                <div class="px-3">
+                                    <div>
+                                        <label>DISCHARGE TIME: <span class="text-red-600 font-bold">*</span></label>
+                                        <input type="time"
+                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
+                                            name="end_time" id="end_time"
+                                            value="{{ $emergency->hospital_visit['visit_end']['end_time'] }}" readonly>
+                                    </div>
+                                </div>
+                                <div class="px-3">
+                                    <label>DISPOSITION: <span class="text-red-600 font-bold">*</span></label>
+                                    <div class="w-full">
+                                        <select name="disposition"
+                                            class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            readonly>
+                                            <option value="" disabled selected>disposition</option>
+                                            @php
+                                                $_disposition = [
+                                                    'Treated and Sent Home' => 'Treated and Sent Home',
+                                                    'For Admission' => 'For Admission',
+                                                    'Refused Admission' => 'Refused Admission',
+                                                    'Referred' => 'Referred',
+                                                    'Out When Called' => 'Out When Called',
+                                                ];
+                                            @endphp
+                                            @foreach ($_disposition as $k => $v)
+                                                <option value="{{ $v }}"
+                                                    {{ $emergency->case_summary['disposition'] == $v ? 'selected' : '' }}>
+                                                    {{ $k }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid px-3 pb-3 text-2xl text-[#003D33] font-semibold tracking-widest">
+                            <label>Emergency Vitals</label>
+                        </div>
+                        <div class="grid gap-2 pb-3">
+                            <div class="grid h-full">
+                                <div class=" grid grid-cols-6 h-full w-full px-3 gap-4">
+                                    <div>
+                                        <label>HEIGHT:</label>
+                                        <input type="text"
+                                            class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            placeholder="height" name="height" autocomplete="off"
+                                            value="{{ $emergency->case_summary['latest_vitals']['height'] }}">
+                                    </div>
+                                    <div>
+                                        <label>WEIGHT:</label>
+                                        <input type="text"
+                                            class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            placeholder="weight" name="weight" autocomplete="off"
+                                            value="{{ $emergency->case_summary['latest_vitals']['weight'] }}" readonly>
+                                    </div>
+                                    <div>
+                                        <label>TEMPERATURE:</label>
+                                        <input type="text"
+                                            class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            placeholder="temperature" name="temperature" autocomplete="off"
+                                            value="{{ $emergency->case_summary['latest_vitals']['temperature'] }}"
+                                            readonly>
+                                    </div>
+                                    <div>
+                                        <label>PULSE:</label>
+                                        <input type="text"
+                                            class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            placeholder="pulse rate" name="pulse_rate" autocomplete="off"
+                                            value="{{ $emergency->case_summary['latest_vitals']['pulse_rate'] }}"
+                                            readonly>
+                                    </div>
+                                    <div>
+                                        <label>BLOOD PRESSURE:</label>
+                                        <input type="text"
+                                            class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            placeholder="blood pressure" name="blood_pressure" autocomplete="off"
+                                            value="{{ $emergency->case_summary['latest_vitals']['blood_pressure'] }}"
+                                            readonly>
+                                    </div>
+                                    <div>
+                                        <label>RESPIRATION:</label>
+                                        <input type="text"
+                                            class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            placeholder="respiration rate" name="respiratory_rate" autocomplete="off"
+                                            value="{{ $emergency->case_summary['latest_vitals']['respiratory_rate'] }}"
+                                            readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid px-3 pb-3 text-2xl text-[#003D33] font-semibold tracking-widest">
+                            <label>Patient Case Summary</label>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 px-3">
+                            <div>
+                                <label>PRESENT ILLINESS: <span class="text-red-600 font-bold">*</span></label>
+                                <textarea type="text"
+                                    class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="present illness" name="present_illness" autocomplete="off" readonly>{{ $emergency->case_summary['present_illness'] }}</textarea>
+                            </div>
+                            <div>
+                                <label>CHIEF COMPLAINT: <span class="text-red-600 font-bold">*</span></label>
+                                <textarea type="text"
+                                    class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="chief complaint" name="chief_complaint" autocomplete="off" readonly>{{ $emergency->case_summary['chief_complaint'] }}</textarea>
+                            </div>
+                            <div>
+                                <label>DIAGNOSIS: <span class="text-red-600 font-bold">*</span></label>
+                                <textarea type="text"
+                                    class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="diagnosis" name="diagnosis" autocomplete="off" readonly>{{ $emergency->case_summary['diagnosis'] }}</textarea>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="form-navigation py-8 grid grid-cols-8 gap-4">
                     <button
-                        class="previous h-full col-start-6 text-2xl p-2 bg-blue-300 tracking-[2px] text-white rounded-xl transform transition hover:-translate-y-0.5 hover:bg-blue-200 shadow-md shadow-blue-200"
+                        class="previous h-full col-start-5 text-2xl p-2 bg-blue-300 tracking-[2px] text-white rounded-xl transform transition hover:-translate-y-0.5 hover:bg-blue-200 shadow-md shadow-blue-200"
                         type="button">
                         Previous
                     </button>
                     <button
-                        class="next h-full col-start-7 text-2xl p-2 bg-blue-300 tracking-[2px] text-white rounded-xl transform transition hover:-translate-y-0.5 hover:bg-blue-200 shadow-md shadow-blue-200"
+                        class="next h-full col-start-6 text-2xl p-2 bg-blue-300 tracking-[2px] text-white rounded-xl transform transition hover:-translate-y-0.5 hover:bg-blue-200 shadow-md shadow-blue-200"
                         type="button">
                         Next
                     </button>
+                    <a class=" col-start-7 text-zinc-900 hover:text-white tracking-[2px] text-2xl font-[sans-serif]"
+                        href="{{ route('emergency.edit', $emergency->id) }}">
+                        <div
+                            class=" h-full bg-blue-300 hover:bg-blue-200 p-2 text-2xl font-[sans-serif] flex items-center justify-center text-white rounded-xl  shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
+                            Edit
+                        </div>
+                    </a>
                     <a class=" col-start-8 text-zinc-900 hover:text-white tracking-[2px] text-2xl font-[sans-serif]"
                         href="{{ route('emergency.index') }}">
                         <div

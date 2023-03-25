@@ -11,6 +11,7 @@ use App\Http\Controllers\FluidIntakeController;
 use App\Http\Controllers\KardexController;
 use App\Http\Controllers\StationController;
 use App\Http\Controllers\NurseNoteController;
+use App\Http\Controllers\OutpatientController;
 use App\Http\Controllers\PhysicianOrderController;
 use App\Http\Controllers\StaffsController;
 use App\Http\Controllers\TestingController;
@@ -171,4 +172,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('emergency/pdf{emergency}', [EmergencyController::class, 'pdf'])->name('emergency.pdf');
     Route::resource('emergency', EmergencyController::class);
+
+    Route::get('outpatient/pdf{outpatient}', [OutpatientController::class, 'pdf'])->name('outpatient.pdf');
+    Route::resource('outpatient', OutpatientController::class);
 });

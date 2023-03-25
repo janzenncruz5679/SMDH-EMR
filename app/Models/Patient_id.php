@@ -21,4 +21,9 @@ class Patient_id extends Model
     {
         return $this->hasOne(Emergency::class, 'patient_id');
     }
+
+    public function outpatient_table()
+    {
+        return $this->hasOne(Outpatient::class, 'patient_id');
+    }
 }

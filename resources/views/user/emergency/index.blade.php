@@ -58,7 +58,7 @@
                                             class="editIcon hover:text-blue-300">
                                             <i class="fa-solid fa-edit"></i>
                                         </a>
-                                        <a href="{{ url('/patientPage/savepdfAdmission' . $emergency->id) }}"
+                                        <a href="{{ route('emergency.pdf', $emergency->id) }}"
                                             class="editIcon hover:text-blue-300">
                                             <i class="fa-solid fa-file-pdf"></i>
                                         </a>

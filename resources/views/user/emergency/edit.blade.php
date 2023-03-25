@@ -17,7 +17,7 @@
     </style>
     <div class="absolute h-[93%] w-[84%] left-[16%] top-[7%] p-12 flex flex-col">
         <div>
-            @include('layouts.stepper')
+            @include('layouts.emergencyStepper')
         </div>
         <div class=" h-full w-full">
             <form action="{{ route('emergency.update', $emergency->id) }}" method="POST" enctype="multipart/form-data"
@@ -169,10 +169,16 @@
                                     </div>
                                 </div>
                                 <div class="px-3">
-                                    <label>Type:</label>
+                                    <label>NATIONALITY: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="enter old record #" name="type" value="Admission" readonly>
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                        placeholder="nationality" name="nationality" id="nationality" autocomplete="off"
+                                        value="{{ $emergency->personal_info['nationality'] }}" required>
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                        @error('nationality')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
                                 </div>
                             </div>
 
@@ -225,20 +231,15 @@
                                     <label>OCCUPATION :</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="N/A if not available" name="occupation" autocomplete="off"
-                                        value="{{ $emergency->personal_info['occupation'] }}">
+                                        placeholder="occupation" name="occupation" autocomplete="off"
+                                        value="{{ $emergency->personal_info['occupation'] ?? '' }}">
                                 </div>
                                 <div class="px-3">
-                                    <label>NATIONALITY: <span class="text-red-600 font-bold">*</span></label>
+                                    <label>COMPANY:</label>
                                     <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
-                                        placeholder="nationality" name="nationality" id="nationality" autocomplete="off"
-                                        value="{{ $emergency->personal_info['nationality'] }}" required>
-                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                        @error('nationality')
-                                            {{ $message }}
-                                        @enderror
-                                    </span>
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="company" name="company"
+                                        value="{{ $emergency->personal_info['company'] ?? '' }}">
                                 </div>
                             </div>
                         </div>
@@ -249,7 +250,6 @@
                         <div class="grid px-3 pb-3 text-2xl text-[#003D33] font-semibold tracking-widest">
                             <label>Patient Full Address</label>
                         </div>
-                        {{-- full_address --}}
                         <div class="grid gap-2">
                             <div class="grid grid-cols-4 h-full">
                                 <div class="col-span-2 px-3">
@@ -365,7 +365,7 @@
                                     </span>
                                 </div>
                                 <div class="px-3">
-                                    <label>FIRST NAME :</label>
+                                    <label>FIRST NAME: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                         placeholder="contact first name" name="contact_first" id="contact_first"
@@ -433,8 +433,197 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="grid px-3 pb-3 text-2xl text-[#003D33] font-semibold tracking-widest">
+                            <label>Patient Visitation and Recommendation</label>
+                        </div>
+                        <div class="grid gap-2 pb-3">
+                            <div class="grid grid-cols-5 h-full">
+                                <div class="px-3">
+                                    <div>
+                                        <label>VISIT DATE: <span class="text-red-600 font-bold">*</span></label>
+                                        <input type="date"
+                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
+                                            name="start_date" id="start_date"
+                                            value="{{ $emergency->hospital_visit['visit_start']['start_date'] }}"
+                                            required>
+                                        <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                            @error('start_date')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="px-3">
+                                    <div>
+                                        <label>VISIT TIME: <span class="text-red-600 font-bold">*</span></label>
+                                        <input type="time"
+                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
+                                            name="start_time" id="start_time"
+                                            value="{{ $emergency->hospital_visit['visit_start']['start_time'] }}"
+                                            required>
+                                        <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                            @error('start_time')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="px-3">
+                                    <div>
+                                        <label>DISCHARGE DATE: <span class="text-red-600 font-bold">*</span></label>
+                                        <input type="date"
+                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
+                                            name="end_date" id="end_date"
+                                            value="{{ $emergency->hospital_visit['visit_end']['end_date'] }}" required>
+                                        <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                            @error('end_date')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="px-3">
+                                    <div>
+                                        <label>DISCHARGE TIME: <span class="text-red-600 font-bold">*</span></label>
+                                        <input type="time"
+                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
+                                            name="end_time" id="end_time"
+                                            value="{{ $emergency->hospital_visit['visit_end']['end_time'] }}" required>
+                                        <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                            @error('end_time')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="px-3">
+                                    <label>DISPOSITION: <span class="text-red-600 font-bold">*</span></label>
+                                    <div class="w-full">
+                                        <select name="disposition"
+                                            class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            required>
+                                            <option value="" disabled selected>disposition</option>
+                                            @php
+                                                $_disposition = [
+                                                    'Treated and Sent Home' => 'Treated and Sent Home',
+                                                    'For Admission' => 'For Admission',
+                                                    'Refused Admission' => 'Refused Admission',
+                                                    'Referred' => 'Referred',
+                                                    'Out When Called' => 'Out When Called',
+                                                ];
+                                            @endphp
+                                            @foreach ($_disposition as $k => $v)
+                                                <option value="{{ $v }}"
+                                                    {{ $emergency->case_summary['disposition'] == $v ? 'selected' : '' }}>
+                                                    {{ $k }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                            @error('disposition')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div class="form-section">
+                    <div class="p-4 bg-slate-200 rounded-b-3xl">
+                        <div class="grid px-3 pb-3 text-2xl text-[#003D33] font-semibold tracking-widest">
+                            <label>Emergency Vitals</label>
+                        </div>
+                        <div class="grid gap-2 pb-3">
+                            <div class="grid h-full">
+                                <div class=" grid grid-cols-6 h-full w-full px-3 gap-4">
+                                    <div>
+                                        <label>HEIGHT:</label>
+                                        <input type="text"
+                                            class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            placeholder="height" name="height" autocomplete="off"
+                                            value="{{ $emergency->case_summary['latest_vitals']['height'] }}">
+                                    </div>
+                                    <div>
+                                        <label>WEIGHT:</label>
+                                        <input type="text"
+                                            class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            placeholder="weight" name="weight" autocomplete="off"
+                                            value="{{ $emergency->case_summary['latest_vitals']['weight'] }}">
+                                    </div>
+                                    <div>
+                                        <label>TEMPERATURE:</label>
+                                        <input type="text"
+                                            class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            placeholder="temperature" name="temperature" autocomplete="off"
+                                            value="{{ $emergency->case_summary['latest_vitals']['temperature'] }}">
+                                    </div>
+                                    <div>
+                                        <label>PULSE:</label>
+                                        <input type="text"
+                                            class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            placeholder="pulse rate" name="pulse_rate" autocomplete="off"
+                                            value="{{ $emergency->case_summary['latest_vitals']['pulse_rate'] }}">
+                                    </div>
+                                    <div>
+                                        <label>BLOOD PRESSURE:</label>
+                                        <input type="text"
+                                            class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            placeholder="blood pressure" name="blood_pressure" autocomplete="off"
+                                            value="{{ $emergency->case_summary['latest_vitals']['blood_pressure'] }}">
+                                    </div>
+                                    <div>
+                                        <label>RESPIRATION:</label>
+                                        <input type="text"
+                                            class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            placeholder="respiration rate" name="respiratory_rate" autocomplete="off"
+                                            value="{{ $emergency->case_summary['latest_vitals']['respiratory_rate'] }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid px-3 pb-3 text-2xl text-[#003D33] font-semibold tracking-widest">
+                            <label>Patient Case Summary</label>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 px-3">
+                            <div>
+                                <label>PRESENT ILLINESS: <span class="text-red-600 font-bold">*</span></label>
+                                <textarea type="text"
+                                    class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="present illness" name="present_illness" autocomplete="off" required>{{ $emergency->case_summary['present_illness'] }}</textarea>
+                                <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                    @error('present_illness')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+                            <div>
+                                <label>CHIEF COMPLAINT: <span class="text-red-600 font-bold">*</span></label>
+                                <textarea type="text"
+                                    class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="chief complaint" name="chief_complaint" autocomplete="off" required>{{ $emergency->case_summary['chief_complaint'] }}</textarea>
+                                <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                    @error('chief_complaint')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+                            <div>
+                                <label>DIAGNOSIS: <span class="text-red-600 font-bold">*</span></label>
+                                <textarea type="text"
+                                    class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    placeholder="diagnosis" name="diagnosis" autocomplete="off" required>{{ $emergency->case_summary['diagnosis'] }}</textarea>
+                                <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                    @error('diagnosis')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="form-navigation py-8 grid grid-cols-8 gap-4">
                     <button
                         class="previous h-full col-start-5 text-2xl p-2 bg-blue-300 tracking-[2px] text-white rounded-xl transform transition hover:-translate-y-0.5 hover:bg-blue-200 shadow-md shadow-blue-200"

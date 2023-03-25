@@ -17,7 +17,6 @@ class PatientController extends Controller
     {
         $patientDatas = First_admission::query()->paginate(18);
 
-
         // $patientDatas = collect($patientDatas)->paginate(15);
         return view('user.patientSection.admission', [
             'patientDatas' => $patientDatas,

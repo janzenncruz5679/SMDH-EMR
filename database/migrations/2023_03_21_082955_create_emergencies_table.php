@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('type')->nullable();
             $table->string('ward_room_bed_service')->nullable();
 
+            $table->longText('hospital_visit')->nullable();
             $table->longText('personal_info')->nullable();
             // $table->string('gender')->nullable();
             // $table->string('phone')->nullable();

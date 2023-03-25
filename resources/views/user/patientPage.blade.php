@@ -14,7 +14,7 @@
                             </x-menu-card>
                         </div>
                         <div class="">
-                            <x-menu-card :url="url('/patientPage')" text="Outpatients" fontAwesomeIcon="fa-solid fa-kit-medical">
+                            <x-menu-card :url="route('outpatient.index')" text="Outpatients" fontAwesomeIcon="fa-solid fa-kit-medical">
                             </x-menu-card>
                         </div>
                     </div>

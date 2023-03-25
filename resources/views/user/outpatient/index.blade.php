@@ -5,7 +5,7 @@
         <div class="admissionDisplay h-full w-full grid gap-4 text-2xl">
             <div class="h-20 bg-blue-300 flex items-center justify-center">
                 <label class="font-[sans-serif] font-semibold text-white tracking-wide text-4xl">
-                    {{ __('Emergency Patients') }}</label>
+                    {{ __('Outpatient Patients') }}</label>
             </div>
             <div class="searchBar h-12 w-full flex justify-start items-center">
                 <form action="{{ url('/patientPage/admission/search') }}" method="GET"
@@ -24,13 +24,13 @@
                 <div class="addpatientBar h-full w-full flex items-center justify-end">
                     <button
                         class="btnAddpatient h-full w-48 text-[1.5rem] bg-blue-300 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-100"><a
-                            href="{{ route('emergency.create') }}">
+                            href="{{ route('outpatient.create') }}">
                             <label class="hover:text-zinc-900">{{ __('Add Patient') }}</label>
                         </a></button>
                 </div>
             </div>
             <div class="admissionTable">
-                @if (isset($emergencies))
+                @if (isset($outpatients))
                     <table class="tracking-[2px] w-full">
                         <tr class="grid grid-cols-12">
                             <th class="flex justify-center">Id</th>
@@ -40,25 +40,25 @@
                             <th class="col-span-2 flex justify-center">Phone</th>
                             <th class="col-span-2 flex justify-center">Actions</th>
                         </tr>
-                        @foreach ($emergencies as $emergency)
+                        @foreach ($outpatients as $outpatient)
                             <tr class="grid grid-cols-12 even:bg-gray-200 odd:bg-white text-xl">
-                                <td class="flex justify-center">{{ $emergency->patient_id }}</td>
-                                <td class="col-span-5 flex justify-center">{{ $emergency->full_name }}
+                                <td class="flex justify-center">{{ $outpatient->patient_id }}</td>
+                                <td class="col-span-5 flex justify-center">{{ $outpatient->full_name }}
                                 </td>
-                                <td class="flex justify-center">{{ $emergency->personal_info['age'] }}</td>
-                                <td class="flex justify-center">{{ $emergency->personal_info['gender'] }}</td>
-                                <td class="col-span-2 flex justify-center">{{ $emergency->personal_info['phone'] }}</td>
+                                <td class="flex justify-center">{{ $outpatient->personal_info['age'] }}</td>
+                                <td class="flex justify-center">{{ $outpatient->personal_info['gender'] }}</td>
+                                <td class="col-span-2 flex justify-center">{{ $outpatient->personal_info['phone'] }}</td>
                                 <td class="col-span-2 flex justify-center">
                                     <div class="grid grid-cols-3 justify-center gap-4">
-                                        <a href="{{ route('emergency.show', $emergency->id) }}"
+                                        <a href="{{ route('outpatient.show', $outpatient->id) }}"
                                             class="editIcon hover:text-blue-300">
                                             <i class="fa-solid fa-eye"></i>
                                         </a>
-                                        <a href="{{ route('emergency.edit', $emergency->id) }}"
+                                        <a href="{{ route('outpatient.edit', $outpatient->id) }}"
                                             class="editIcon hover:text-blue-300">
                                             <i class="fa-solid fa-edit"></i>
                                         </a>
-                                        <a href="{{ route('emergency.pdf', $emergency->id) }}"
+                                        <a href="{{ route('outpatient.pdf', $outpatient->id) }}"
                                             class="editIcon hover:text-blue-300" target="_blank">
                                             <i class="fa-solid fa-file-pdf"></i>
                                         </a>
@@ -71,7 +71,7 @@
             </div>
         </div>
         <div class="inset-y-0 right-0 left-[275px] flex justify-center">
-            {{ $emergencies->links('pagination::custom_tailwind') }}
+            {{ $outpatients->links('pagination::custom_tailwind') }}
         </div>
     </div>
 @endsection

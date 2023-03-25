@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('middle_name')->nullable();
 
             $table->string('sr_no')->nullable();
-            $table->string('type')->nullable();
+            $table->string('type')->default('Emergency');
             $table->string('ward_room_bed_service')->nullable();
 
             $table->longText('hospital_visit')->nullable();

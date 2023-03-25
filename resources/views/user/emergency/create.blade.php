@@ -177,12 +177,6 @@
                                         @enderror
                                     </span>
                                 </div>
-                                <div class="hidden px-3">
-                                    <label>Type:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        name="type" value="Emergency" readonly>
-                                </div>
                             </div>
 
                             {{-- personal info 2 --}}

@@ -28,7 +28,7 @@ class UpdateOutpatient
             'middle_name' => $request->middle_name,
             'ward_room_bed_service' => $request->ward_room_bed_service,
             'sr_no' => $request->sr_no,
-            'type' => $request->type,
+            'type' => 'Outpatient',
 
             'personal_info' => [
                 'gender' => $request->gender,

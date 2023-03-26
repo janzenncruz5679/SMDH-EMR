@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\First_admission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Actions\Dashboard\PatientChart;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -25,15 +28,34 @@ class HomeController extends Controller
      */
     public function index()
     {
+        [$labels, $data] = PatientChart::getDataForCharts();
+
         if (Auth::id()) {
             if (Auth::user()->usertype == '0') {
-                return view('user.home');
-            } else {
-                return view('admin.home');
+                return view('user.home', [
+                    'labels' => $labels,
+                    'data' => $data
+                ]);
+            } else if (Auth::user()->usertype == '1') {
+                return view('admin.home', [
+                    'labels' => $labels,
+                    'data' => $data
+                ]);
             }
         } else {
             return redirect()->back();
         }
+    }
+
+    public function piechart()
+    {
+        // $record = DB::table('first_admissions')
+        //     ->select(DB::raw('perma_address'))
+        //     ->get();
+
+        //dd($record->toArray());
+        // $data['chart'] = json_encode($record);
+        return view('user.home');
     }
 
     public function homePage()

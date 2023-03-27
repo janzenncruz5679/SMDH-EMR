@@ -38,7 +38,7 @@
                             <th class="col-span-5 flex justify-center">Name</th>
                             <th class="flex justify-center">Age</th>
                             <th class="flex justify-center">Gender</th>
-                            <th class="col-span-2 flex justify-center">Phone</th>
+                            <th class="col-span-2 flex justify-center">Physician</th>
                             <th class="col-span-2 flex justify-center">Actions</th>
                         </tr>
                         @foreach ($vitalsignsDatas as $vitalsignsData)

@@ -29,10 +29,10 @@
         <div class="h-72 w-[55%] absolute left-0 top-56 font-[sans-serif] text-white px-28">
             <p class="text-9xl font-bold">{{ __('Welcome!') }}</p>
             <p class="text-6xl pb-2">{{ __('Health is utmost priority') }}</p>
-            <a class="h-14 w-48 bg-blue-300 hover:bg-blue-200 p-2 text-2xl font-[sans-serif] flex items-center justify-center text-white rounded-xl shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition"
+            {{-- <a class="h-14 w-48 bg-blue-300 hover:bg-blue-200 p-2 text-2xl font-[sans-serif] flex items-center justify-center text-white rounded-xl shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition"
                 href="">
                 <p>{{ __('About Us') }}</p>
-            </a>
+            </a> --}}
 
         </div>
         <div class="h-75 absolute right-0 bottom-0">

@@ -1,5 +1,4 @@
 var admission_canvas = document.getElementById("admission_canvas");
-var admission_canvas_two = document.getElementById("admission_canvas_two");
 
 var admissionData = {
     labels: _labels,
@@ -16,7 +15,7 @@ var pieChart = new Chart(admission_canvas, {
     data: admissionData,
 });
 
-var doughnutChart = new Chart(admission_canvas_two, {
-    type: "doughnut",
-    data: admissionData,
-});
+// var doughnutChart = new Chart(admission_canvas_two, {
+//     type: "doughnut",
+//     data: admissionData,
+// });

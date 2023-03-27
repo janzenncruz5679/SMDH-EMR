@@ -25,6 +25,17 @@ class EmergencyController extends Controller
         return view('user.emergency.index', compact('emergencies'));
     }
 
+    public function searchEmergency(Request $request)
+    {
+        $emergencies = Emergency::all();
+        if ($request->keyword != '') {
+            $emergencies = Emergency::where('full_name', 'LIKE', '%' . $request->keyword . '%')->get();
+        }
+        return response()->json([
+            'emergencies' => $emergencies
+        ]);
+    }
+
 
     public function create()
     {

@@ -1,14 +1,14 @@
 <div class="fixed w-[16%] h-full left-0 top-[7%] bg-zinc-900 overflow-hidden">
     <div class="grid min-h-full">
         <div class="flex flex-col items-center justify-center gap-6">
-            <img src="{{ Vite::image('paimon.jpg') }}" alt="" class="rounded-full h-36 w-36">
+            {{-- <img src="{{ Vite::image('paimon.jpg') }}" alt="" class="rounded-full h-36 w-36"> --}}
+            <i class="fa-solid fa-user text-white h-32 w-32"></i>
             <a href="{{ url('home') }}"
                 class=" text-white hover:text-white text-4xl tracking-widest">{{ Auth::user()->name }}</a>
         </div>
         <div class="row-span-2 grid items-start">
             <div class="grid">
-                <x-sidebar-menu :url="route('home')" :active-url="request()->routeIs('home')" text="Home"
-                    fontAwesomeIcon="fa-solid fa-house" />
+                <x-sidebar-menu :url="route('home')" :active-url="request()->routeIs('home')" text="Home" fontAwesomeIcon="fa-solid fa-house" />
                 <x-sidebar-menu :url="route('patientPage')" :active-url="request()->routeIs('patientPage*') |
                     request()->routeIs('admissions*') |
                     request()->routeIs('emergency*') |

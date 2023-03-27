@@ -48,11 +48,11 @@ Route::middleware(['auth'])->group(function () {
 
     ///////////////admission patients section
     //admission add data from db
-    Route::get('/patientPage/addPatient', [PatientController::class, 'addPatient']);
+    Route::get('/patientPage/addPatient', [PatientController::class, 'addPatient'])->name('addPatient');
     Route::post('/patientPage/admission', [PatientController::class, 'submit_admit_patient']);
 
     //admission read data from db
-    Route::get('/patientPage/admission', [PatientController::class, 'admission']);
+    Route::get('/patientPage/admission', [PatientController::class, 'admission'])->name('admission.index');
     Route::get('/patientPage/admission/search', [PatientController::class, 'admissionSearch']);
 
     //view data from db
@@ -171,6 +171,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('users/archive', [StaffsController::class, 'archive'])->name('users.archive');
     Route::resource('users', StaffsController::class)->except(['create', 'store']);
 
+    Route::post('emergency/searc', [EmergencyController::class, 'searchEmergency'])->name('emergency.searchEmergency');
     Route::get('emergency/pdf{emergency}', [EmergencyController::class, 'pdf'])->name('emergency.pdf');
     Route::resource('emergency', EmergencyController::class);
 

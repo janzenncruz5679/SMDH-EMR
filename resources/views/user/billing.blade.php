@@ -7,7 +7,7 @@
                 <label class="font-[sans-serif] font-semibold text-white tracking-wide text-4xl">
                     {{ __('Billing Summary') }}</label>
             </div>
-            <div class="searchBar h-12 w-full flex justify-start items-center">
+            {{-- <div class="searchBar h-12 w-full flex justify-start items-center">
                 <form action="{{ url('/patientPage/admission/search') }}" method="GET"
                     class="flex gap-4 m-0 h-full items-center">
                     @csrf
@@ -21,7 +21,7 @@
                         <p class="hover:text-zinc-900">{{ __('Search') }}</p>
                     </button>
                 </form>
-            </div>
+            </div> --}}
             <div class="admissionTable text-lg">
 
                 <table class="tracking-[2px] w-full">
@@ -91,14 +91,14 @@
                                 </div>
                             </td>
                             <td class="grid justify-center">
-                                <div class="grid grid-cols-2 justify-center gap-2">
+                                <div class="grid justify-center gap-2">
                                     <a href="{{ route('updateBilling', ['or_no' => $data_billing->or_no]) }}"
                                         class="editIcon hover:text-blue-300">
                                         <i class="fa-solid fa-edit"></i>
                                     </a>
-                                    <a href="" class="editIcon hover:text-blue-300">
+                                    {{-- <a href="" class="editIcon hover:text-blue-300">
                                         <i class="fa-solid fa-file-pdf"></i>
-                                    </a>
+                                    </a> --}}
                                 </div>
                             </td>
                         </tr>

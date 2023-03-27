@@ -11,7 +11,7 @@
                 <form action="{{ url('/patientPage/admission/search') }}" method="GET"
                     class="flex gap-4 m-0 h-full items-center">
                     @csrf
-                    <input type="text" placeholder="Search Patient Name" name="search"
+                    {{-- <input type="text" placeholder="Search Patient Name" name="search"
                         value="{{ Request::get('search') }}"
                         class="h-full w-96 text-[1.5rem] border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 focus:outline-offset-2 rounded-[10px] px-[10px]"
                         required autocomplete="off">
@@ -19,13 +19,13 @@
                         class="h-full w-32 text-[1.5rem] bg-blue-300 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-100"
                         type="submit" value="search">
                         <p class="hover:text-zinc-900">{{ __('Search') }}</p>
-                    </button>
+                    </button> --}}
                 </form>
                 <div class="addpatientBar h-full w-full flex items-center justify-end">
                     <button
                         class="btnAddpatient h-full w-48 text-[1.5rem] bg-blue-300 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-100"><a
-                            href="{{ route('users.archive') }}">
-                            <p class="hover:text-zinc-900">{{ __('Add Patient') }}</p>
+                            href="{{ route('users.index') }}">
+                            <label class="hover:text-zinc-900">{{ __('Back') }}</label>
                         </a></button>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                                 <td class="flex justify-center">{{ $staff->usertype }}</td>
                                 <td class="col-span-2 flex justify-center">{{ $staff->phone }}</td>
                                 <td class="col-span-2 flex justify-center">
-                                    <div class="grid grid-cols-3 justify-center gap-4">
+                                    <div class="grid justify-center gap-4">
                                         {{-- <a href="{{ route('users.destroy', ['id' => $staff->id]) }}"
                                             class="editIcon hover:text-blue-300">
                                             <i class="fa-solid fa-eye"></i>
@@ -57,7 +57,8 @@
                                         <form action="{{ route('users.destroy', $staff->id) }}" method="POST">
                                             @csrf
                                             @method('delete')
-                                            <button type="submit">delete
+                                            <button type="submit" class="hover:text-blue-300"><i
+                                                    class="fa-solid fa-rotate-right"></i>
 
                                             </button>
                                         </form>

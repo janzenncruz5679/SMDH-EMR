@@ -8,6 +8,7 @@ export default defineConfig({
                 "resources/sass/app.scss",
                 "resources/js/app.js",
                 "resources/js/charts/sampleChart.js",
+                "resources/js/charts/notesChart.js",
                 "resources/js/billingPage/dropdown.js",
                 "resources/js/billingPage/totalBilling.js",
                 "resources/js/patientPage/birthdate.js",

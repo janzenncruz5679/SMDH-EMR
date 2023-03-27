@@ -8,7 +8,7 @@
                     {{ __('Admission Patients') }}</label>
             </div>
             <div class="searchBar h-12 w-full flex justify-start items-center">
-                <form action="{{ url('/patientPage/admission/search') }}" method="GET"
+                {{-- <form action="{{ url('/patientPage/admission/search') }}" method="GET"
                     class="flex gap-4 m-0 h-full items-center">
                     @csrf
                     <input type="text" placeholder="Search Patient Name" name="search"
@@ -20,7 +20,7 @@
                         type="submit" value="search">
                         <p class="hover:text-zinc-900">{{ __('Search') }}</p>
                     </button>
-                </form>
+                </form> --}}
                 <div class="addpatientBar h-full w-full flex items-center justify-end">
                     <button
                         class="btnAddpatient h-full w-48 text-[1.5rem] bg-blue-300 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-100"><a

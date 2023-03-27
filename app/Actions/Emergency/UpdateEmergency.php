@@ -22,6 +22,7 @@ class UpdateEmergency
     {
         $emergency_id = Patient_id::findorfail($emergency->patient_id);
         $emergency_id->emergency_table()->update([
+            'full_name' => $request->first_name . ' ' . $request->middle_name . ' ' . $request->last_name . ' ' . $request->suffix,
             'suffix' =>  $request->suffix,
             'last_name' => $request->last_name,
             'first_name' => $request->first_name,

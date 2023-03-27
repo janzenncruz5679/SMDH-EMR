@@ -24,6 +24,17 @@ class OutpatientController extends Controller
         return view('user.outpatient.index', compact('outpatients'));
     }
 
+    public function searchOutpatient(Request $request)
+    {
+        $outpatients = Outpatient::all();
+        if ($request->keyword != '') {
+            $outpatients = Outpatient::where('full_name', 'LIKE', '%' . $request->keyword . '%')->get();
+        }
+        return response()->json([
+            'outpatients' => $outpatients
+        ]);
+    }
+
     public function create()
     {
         return view('user.outpatient.create');

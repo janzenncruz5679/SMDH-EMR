@@ -171,10 +171,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('users/archive', [StaffsController::class, 'archive'])->name('users.archive');
     Route::resource('users', StaffsController::class)->except(['create', 'store']);
 
-    Route::post('emergency/searc', [EmergencyController::class, 'searchEmergency'])->name('emergency.searchEmergency');
+    Route::post('emergency/search', [EmergencyController::class, 'searchEmergency'])->name('emergency.searchEmergency');
     Route::get('emergency/pdf{emergency}', [EmergencyController::class, 'pdf'])->name('emergency.pdf');
     Route::resource('emergency', EmergencyController::class);
 
+    Route::post('outpatient/search', [OutpatientController::class, 'searchOutpatient'])->name('emergency.searchOutpatient');
     Route::get('outpatient/pdf{outpatient}', [OutpatientController::class, 'pdf'])->name('outpatient.pdf');
     Route::resource('outpatient', OutpatientController::class);
 });

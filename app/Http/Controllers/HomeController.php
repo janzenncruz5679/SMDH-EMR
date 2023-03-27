@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Actions\Dashboard\PatientChart;
+use App\Actions\Dashboard\PatientNotes;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -29,27 +30,7 @@ class HomeController extends Controller
     public function index()
     {
         [$labels, $data] = PatientChart::getDataForCharts();
-        $lastVitalSignsId = DB::table('vital_signs')->latest('id')->value('id');
-        $lastNurseNotesId = DB::table('nurse_notes')->latest('id')->value('id');
-        $lastDischargeId = DB::table('discharge_summaries')->latest('id')->value('id');
-        $lastFluidIntakeId = DB::table('fluid_intakes')->latest('id')->value('id');
-
-        $result = [
-            'Nurse Notes' => $lastNurseNotesId,
-            'Vital Signs' => $lastVitalSignsId,
-            'Discharge Summaries' => $lastDischargeId,
-            'Fluid Intakes' => $lastFluidIntakeId,
-
-        ];
-        // dd($result);
-
-        $labels_donut = [];
-        $data_donut = [];
-
-        foreach ($result as $key => $value) {
-            $labels_donut[] = $key;
-            $data_donut[] = $value;
-        }
+        [$labels_donut, $data_donut] = PatientNotes::getDataForNotes();
 
         if (Auth::id()) {
             if (Auth::user()->usertype == '0') {

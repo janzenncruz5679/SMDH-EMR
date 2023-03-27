@@ -22,6 +22,7 @@ class UpdateOutpatient
     {
         $outpatient_id = Patient_id::findorfail($outpatient->patient_id);
         $outpatient_id->outpatient_table()->update([
+            'full_name' => $request->first_name . ' ' . $request->middle_name . ' ' . $request->last_name . ' ' . $request->suffix,
             'suffix' =>  $request->suffix,
             'last_name' => $request->last_name,
             'first_name' => $request->first_name,

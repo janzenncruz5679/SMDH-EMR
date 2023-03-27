@@ -15,6 +15,7 @@ class StoreOutpatient
     {
         $outpatient = Patient_id::create();
         $outpatient->outpatient_table()->create([
+            'full_name' => $request->first_name . ' ' . $request->middle_name . ' ' . $request->last_name . ' ' . $request->suffix,
             'suffix' =>  $request->suffix,
             'last_name' => $request->last_name,
             'first_name' => $request->first_name,

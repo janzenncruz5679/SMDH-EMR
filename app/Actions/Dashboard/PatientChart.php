@@ -8,7 +8,7 @@ class PatientChart
 {
     public static function getDataForCharts()
     {
-        $firstQuery = DB::table('first_admissions')
+        $firstQuery = DB::table('admissions')
             ->select('type', DB::raw('count(*) as count'))
             ->groupBy('type');
 

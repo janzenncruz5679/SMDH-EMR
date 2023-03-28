@@ -263,10 +263,11 @@
                                 </div>
                                 <div class="px-3">
                                     <label>BARANGAY: <span class="text-red-600 font-bold">*</span></label>
-                                    <input type="text"
+                                    <select name="barangay" id="barangay"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="barangay" name="barangay" autocomplete="off"
-                                        value="{{ old('barangay') }}" required>
+                                        required>
+                                        <option value="" disabled selected>Barangay</option>
+                                    </select>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('barangay')
                                             {{ $message }}
@@ -275,10 +276,15 @@
                                 </div>
                                 <div class="px-3">
                                     <label>MUNICIPALITY: <span class="text-red-600 font-bold">*</span></label>
-                                    <input type="text"
+                                    <select name="municipality" id="municipality"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        required>
+                                        <option value="" disabled selected>Municipality</option>
+                                    </select>
+                                    {{-- <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
-                                        placeholder="municipality" name="municipality" id="municipality"
-                                        autocomplete="off" value="{{ old('municipality') }}" required>
+                                        placeholder="municipality" name="municipality" id="municipality" autocomplete="off"
+                                        value="{{ old('municipality') }}" required> --}}
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('municipality')
                                             {{ $message }}
@@ -290,10 +296,11 @@
 
                                 <div class="px-3">
                                     <label>PROVINCE: <span class="text-red-600 font-bold">*</span></label>
-                                    <input type="text"
+                                    <select name="province" id="province"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="province" name="province" autocomplete="off"
-                                        value="{{ old('province') }}" required>
+                                        required>
+                                        <option value="" disabled selected>Province</option>
+                                    </select>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('province')
                                             {{ $message }}
@@ -302,10 +309,15 @@
                                 </div>
                                 <div class=" px-3">
                                     <label>REGION: <span class="text-red-600 font-bold">*</span></label>
-                                    <input type="text"
+                                    <select name="region" id="region"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="region" name="region" autocomplete="off"
-                                        value="{{ old('region') }}" required>
+                                        required>
+                                        <option value="" disabled selected>Region</option>
+                                    </select>
+                                    {{-- <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="region" name="region" id="region" autocomplete="off"
+                                        value="{{ old('region') }}" required> --}}
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('region')
                                             {{ $message }}
@@ -326,10 +338,14 @@
                                 </div>
                                 <div class=" px-3">
                                     <label>COUNTRY: <span class="text-red-600 font-bold">*</span></label>
-                                    <input type="text"
+                                    <select name="country" id="country"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="country" name="country" autocomplete="off"
-                                        value="{{ old('country') }}" required>
+                                        required>
+                                        <option value="" disabled selected>Country</option>
+                                        {{-- <option value="Philippines"
+                                            {{ old('country') == 'Philippines' ? 'selected' : '' }}>Philippines
+                                        </option> --}}
+                                    </select>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('country')
                                             {{ $message }}
@@ -849,9 +865,9 @@
         </div>
     </div>
 @endsection
-
 @push('custom_scripts')
     @vite('resources/js/patientPage/birthdate.js')
     @vite('resources/js/patientPage/admission_days.js')
     @vite('resources/js/patientPage/multi-step-form.js')
+    @vite('resources/js/patientPage/dependentDropdown.js')
 @endpush

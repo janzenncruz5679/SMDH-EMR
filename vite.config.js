@@ -15,6 +15,7 @@ export default defineConfig({
                 "resources/js/patientPage/admission_days.js",
                 "resources/js/patientPage/multi-step-form.js",
                 "resources/js/stationPage/addInput.js",
+                "resources/js/patientPage/dependentDropdown.js",
                 "resources/js/calendar.js",
                 "resources/css/app.css",
                 "node_modules/@fortawesome/fontawesome-free/js/all.min.js",

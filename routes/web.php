@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdmissionController;
 use App\Http\Controllers\AdmissionsController;
 use App\Http\Controllers\BillingController;
 use App\Http\Controllers\DischargeSummaryController;
@@ -170,6 +171,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('users/archive', [StaffsController::class, 'archive'])->name('users.archive');
     Route::resource('users', StaffsController::class)->except(['create', 'store']);
+
+    Route::get('admission/pdf{admission}', [AdmissionController::class, 'pdf'])->name('admission.pdf');
+    Route::resource('admission', AdmissionController::class);
 
     Route::post('emergency/search', [EmergencyController::class, 'searchEmergency'])->name('emergency.searchEmergency');
     Route::get('emergency/pdf{emergency}', [EmergencyController::class, 'pdf'])->name('emergency.pdf');

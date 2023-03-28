@@ -23,6 +23,17 @@ class AdmissionController extends Controller
         return view('user.admission.index', compact('admissions'));
     }
 
+    public function searchAdmission(Request $request)
+    {
+        $admissions = Admission::all();
+        if ($request->keyword != '') {
+            $admissions = Admission::where('full_name', 'LIKE', '%' . $request->keyword . '%')->get();
+        }
+        return response()->json([
+            'admissions' => $admissions
+        ]);
+    }
+
     public function create()
     {
         return view('user.admission.create');

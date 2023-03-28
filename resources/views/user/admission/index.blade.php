@@ -72,13 +72,13 @@
             {{ $admissions->links('pagination::custom_tailwind') }}
         </div>
     </div>
-    {{-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> --}}
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> --}}
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-    </script> --}}
-    {{-- <script>
+    </script>
+    <script>
         var currentPage = 1;
 
         $('#search').on('keyup', function() {
@@ -100,13 +100,13 @@
 
         function search(page = 1) {
             var keyword = $('#search').val();
-            $.post('{{ route('emergency.searchEmergency') }}', {
+            $.post('{{ route('admission.searchAdmission') }}', {
                 _token: $('meta[name="csrf-token"]').attr('content'),
                 keyword: keyword,
                 page: page
             }, function(data) {
                 if (keyword === '') {
-                    data.emergencies = data.emergencies.slice(0,
+                    data.admissions = data.admissions.slice(0,
                         10); // slice
                 }
                 table_post_row(data);
@@ -116,29 +116,29 @@
 
         function table_post_row(res) {
             let htmlView = '';
-            if (res.emergencies.length <= 0) {
+            if (res.admissions.length <= 0) {
                 htmlView += `
                     <tr>
                         <td class="col-span-12 flex justify-center">No data available</td>
                     </tr>`;
             }
-            for (let i = 0; i < res.emergencies.length; i++) {
+            for (let i = 0; i < res.admissions.length; i++) {
                 htmlView += `
                     <tr class="grid grid-cols-12 even:bg-gray-200 odd:bg-white text-xl">
-                        <td class="flex justify-center">` + res.emergencies[i].patient_id + `</td>
-                        <td class="col-span-5 flex justify-center">` + res.emergencies[i].full_name + `</td>
-                        <td class="flex justify-center">` + res.emergencies[i].personal_info['age'] + `</td>
-                        <td class="flex justify-center">` + res.emergencies[i].personal_info['gender'] + `</td>
-                        <td class="col-span-2 flex justify-center">` + res.emergencies[i].personal_info['phone'] + `</td>
+                        <td class="flex justify-center">` + res.admissions[i].patient_id + `</td>
+                        <td class="col-span-5 flex justify-center">` + res.admissions[i].full_name + `</td>
+                        <td class="flex justify-center">` + res.admissions[i].personal_info['age'] + `</td>
+                        <td class="flex justify-center">` + res.admissions[i].personal_info['gender'] + `</td>
+                        <td class="col-span-2 flex justify-center">` + res.admissions[i].personal_info['phone'] + `</td>
                         <td class="col-span-2 flex justify-center">
                         <div class="grid grid-cols-3 justify-center gap-4">
-                            <a href="/emergency/` + res.emergencies[i].id + `" class="editIcon hover:text-blue-300">
+                            <a href="/admission/` + res.admissions[i].id + `" class="editIcon hover:text-blue-300">
                             <i class="fa-solid fa-eye"></i>
                             </a>
-                            <a href="/emergency/` + res.emergencies[i].id + `/edit" + res.emergencies[i].id class="editIcon hover:text-blue-300">
+                            <a href="/admission/` + res.admissions[i].id + `/edit" class="editIcon hover:text-blue-300">
                             <i class="fa-solid fa-edit"></i>
                             </a>
-                            <a href="/emergency/pdf` + res.emergencies[i].id + `" + res.emergencies[i].id class="editIcon hover:text-blue-300" target="_blank">
+                            <a href="/admission/pdf` + res.admissions[i].id + `"class="editIcon hover:text-blue-300" target="_blank">
                             <i class="fa-solid fa-file-pdf"></i>
                             </a>
                         </div>
@@ -148,5 +148,5 @@
             $('tbody').html(htmlView);
             $('.pagination').html(res.links);
         }
-    </script> --}}
+    </script>
 @endsection

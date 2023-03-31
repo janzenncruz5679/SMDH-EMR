@@ -7,7 +7,7 @@
                 <div class="h-full">
                     <div class="grid grid-cols-3 gap-6">
                         <div class="">
-                            <x-menu-card :url="url('/patientPage/admission')" text="Admission" fontAwesomeIcon="fa-solid fa-bed"></x-menu-card>
+                            <x-menu-card :url="route('admission.index')" text="Admission" fontAwesomeIcon="fa-solid fa-bed"></x-menu-card>
                         </div>
                         <div class="">
                             <x-menu-card :url="route('emergency.index')" text="Emergency" fontAwesomeIcon="fa-solid fa-truck-medical">

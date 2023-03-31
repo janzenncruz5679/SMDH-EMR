@@ -14,7 +14,7 @@ class Patient_id extends Model
 
     public function admission_table()
     {
-        return $this->hasOne(First_admission::class, 'patient_id');
+        return $this->hasOne(Admission::class, 'patient_id');
     }
 
     public function emergency_table()

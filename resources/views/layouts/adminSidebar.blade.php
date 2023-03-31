@@ -10,7 +10,7 @@
             <div class="grid">
                 <x-sidebar-menu :url="route('home')" :active-url="request()->routeIs('home')" text="Home" fontAwesomeIcon="fa-solid fa-house" />
                 <x-sidebar-menu :url="route('patientPage')" :active-url="request()->routeIs('patientPage*') |
-                    request()->routeIs('admissions*') |
+                    request()->routeIs('admission*') |
                     request()->routeIs('emergency*') |
                     request()->routeIs('outpatient*')" text="Patients"
                     fontAwesomeIcon="fa-solid fa-hospital-user" />

@@ -10,8 +10,8 @@ use App\Http\Controllers\PatientController;
 use App\Http\Controllers\EmergencyPatientController;
 use App\Http\Controllers\FluidIntakeController;
 use App\Http\Controllers\KardexController;
-use App\Http\Controllers\StationController;
 use App\Http\Controllers\NurseNoteController;
+use App\Http\Controllers\StationController;
 use App\Http\Controllers\OutpatientController;
 use App\Http\Controllers\PhysicianOrderController;
 use App\Http\Controllers\StaffsController;
@@ -74,8 +74,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('stations/labOptions', [StationController::class, 'labOptions'])->name('labOptions');
     ////vitalsigns view
     Route::get('stations/labOptions/vitalSigns', [StationController::class, 'vitalSigns'])->name('vitalsTab');
-    ////nursenotes view
-    Route::get('stations/labOptions/nurseNotes', [NurseNoteController::class, 'nurseNotesview'])->name('nurseNotes');
     ////dischargeSummary view
     Route::get('stations/labOptions/dischargeSummary', [DischargeSummaryController::class, 'dischargeSummaryview'])->name('dischargeSummary');
     ////physicianOrder view
@@ -107,10 +105,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/records/vitalSigns', [StationController::class, 'vitalSigns'])->name('vitalSigns');
     Route::get('/records/viewVitals{id}', [StationController::class, 'viewVitalSigns'])->name('viewVitals');
     ////////nurseNotes_add_and_view
-    Route::get('/records/addNurseNotes', [NurseNoteController::class, 'addNurseNotes'])->name('addNurseNotes');
-    Route::post('/records/submitNurseNotes', [NurseNoteController::class, 'submit_addNurseNotes'])->name('submitNurseNotes');
-    Route::get('/records/viewNurseNotes{id}', [NurseNoteController::class, 'viewNurseNotes'])->name('viewNurseNotes');
-    ////////nurseNotes_add_and_view
     Route::get('/records/addDischargeSummary', [DischargeSummaryController::class, 'addDischargeSummary'])->name('addDischargeSummary');
     Route::post('/records/submitDischargeSummary', [DischargeSummaryController::class, 'submit_addDischargeSummary'])->name('submit_addDischargeSummary');
     Route::get('/records/viewDischargeSummary{id}', [DischargeSummaryController::class, 'viewDischargeSummary'])->name('viewDischargeSummary');
@@ -133,8 +127,6 @@ Route::middleware(['auth'])->group(function () {
     //vitalSigns view pdf
     Route::get('/records/pdfVitals{id}', [StationController::class, 'viewpdfVitals'])->name('viewpdfVitals');
     //nurseNotes view pdf
-    Route::get('/records/pdfNurseNotes{id}', [NurseNoteController::class, 'viewpdfNurseNotes'])->name('viewpdfNurseNotes');
-    //nurseNotes view pdf
     Route::get('/records/pdfDischargeSummary{id}', [DischargeSummaryController::class, 'viewpdfDischargeSummary'])->name('viewpdfDischargeSummary');
     //nurseNotes view pdf
     Route::get('/records/pdfFluidIntake{id}', [FluidIntakeController::class, 'viewpdfFluidIntake'])->name('viewpdfFluidIntake');
@@ -143,9 +135,6 @@ Route::middleware(['auth'])->group(function () {
     //vitals update data from db
     Route::get('/records/updateVitals{id}', [StationController::class, 'updateVitals'])->name('updateVitals');
     Route::post('/records/editVitals{id}', [StationController::class, 'editVitals']);
-    //nursenotes update data from db
-    Route::get('/records/updateNurseNotes{id}', [NurseNoteController::class, 'updateNurseNotes'])->name('updateNurseNotes');
-    Route::post('/records/editNurseNotes{id}', [NurseNoteController::class, 'editNurseNotes'])->name('editNurseNotes');
     //discharge_summary update data from db
     Route::get('/records/updateDischargeSummary{id}', [DischargeSummaryController::class, 'updateDischargeSummary'])->name('updateDischargeSummary');
     Route::post('/records/editDischargeSummary{id}', [DischargeSummaryController::class, 'editDischargeSummary'])->name('editDischargeSummary');
@@ -183,4 +172,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('outpatient/search', [OutpatientController::class, 'searchOutpatient'])->name('emergency.searchOutpatient');
     Route::get('outpatient/pdf{outpatient}', [OutpatientController::class, 'pdf'])->name('outpatient.pdf');
     Route::resource('outpatient', OutpatientController::class);
+
+
+    Route::resource('nurseNote', NurseNoteController::class);
 });

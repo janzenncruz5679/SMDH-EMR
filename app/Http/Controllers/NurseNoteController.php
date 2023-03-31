@@ -2,106 +2,80 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\Records\NurseNote\StoreNurseNote;
+use App\Actions\Records\NurseNote\UpdateNurseNote;
 use App\Models\NurseNote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use PDF;
+use Termwind\Components\Dd;
 
 class NurseNoteController extends Controller
 {
-    public function nurseNotesview()
-    {
-        $nursenotesDatas = NurseNote::query()->paginate(20);
-        return view('user.stationSection.nurse_note_view.nurseNotes', [
-            'nursenotesDatas' => $nursenotesDatas,
-        ]);
+    public function __construct(
+        private StoreNurseNote $storeNurseNote,
+        private UpdateNurseNote $updateNurseNote,
+    ) {
     }
 
-    public function addNurseNotes()
+    public function index()
     {
-        return view('user.stationSection.nurse_note_view.addNurseNotes');
+        $nurseNote = NurseNote::all()->paginate(10);
+        return view('user.records.nurseNote.index', compact('nurseNote'));
     }
 
-    public function submit_addNurseNotes(Request $request)
-    {
-        // dd($request->toArray());
-        $nursenote = NurseNote::create([
-            'patient_fullname' => $request->patient_fullname,
-            'age' => $request->age,
-            'ward' => $request->ward,
-            'record_date' => [
-                'obsDate' => $request->obsDate,
-            ],
-            'record_time' => [
-                'obsTime' => $request->obsTime,
-            ],
-            'focus' => [
-                'obsFocus' => $request->obsFocus,
-            ],
-            'data_action_response' => [
-                'obsDar' => $request->obsDar,
-            ],
-        ]);
 
-        // dd($nursenote->toArray());
-        return redirect()->route('nurseNotes');
+    public function create()
+    {
+        return view('user.records.nurseNote.create');
     }
 
-    public function viewNurseNotes($id)
-    {
-        $nursenotes = NurseNote::find($id);
-        return view('user.stationSection.nurse_note_view.infoNurseNotes', [
-            'nursenotes' => $nursenotes,
-        ]);
-    }
 
-    public function updateNurseNotes($id)
+    public function store(Request $request)
     {
-        $nursenotes = NurseNote::find($id);
-        // dd($nursenotes->toArray());
-        return view('user.stationSection.nurse_note_view.updateNurseNotes', [
-            'nursenotes' => $nursenotes,
-        ]);
-    }
-
-    public function editNurseNotes(Request $request, $id)
-    {
-        // dd($request->toArray());
         try {
             DB::beginTransaction();
-            NurseNote::where('id', $id)->update([
-                'patient_fullname' => $request->patient_fullname,
-                'age' => $request->age,
-                'ward' => $request->ward,
-                'record_date' => [
-                    'obsDate' => $request->obsDate,
-                ],
-                'record_time' => [
-                    'obsTime' => $request->obsTime,
-                ],
-                'focus' => [
-                    'obsFocus' => $request->obsFocus,
-                ],
-                'data_action_response' => [
-                    'obsDar' => $request->obsDar,
-                ],
-            ]);
+            $add = $this->storeNurseNote->handle($request);
+            // dd($add);
             DB::commit();
-        } catch (\Throwable $th) {
+            return redirect()->route('nurseNote.index');
+        } catch (\Exception $err) {
             DB::rollBack();
-            dd($th);
-            return redirect()->back()->withErrors($th);
+            dd($err);
+            return redirect()->back()->withErrors($err->getMessage());
         }
-
-        return redirect()->route('nurseNotes');
     }
-    public function viewpdfNurseNotes($id)
-    {
-        $pdf_nursenotes = NurseNote::find($id);
-        $nursenotes_pdf = PDF::loadView('user.stationSection.nurse_note_view.pdfNurseNotes', [
-            'pdf_nursenotes' => $pdf_nursenotes,
-        ])->setPaper('a4', 'portrait');
 
-        return $nursenotes_pdf->stream($pdf_nursenotes->patient_fullname . " Nurse Notes" . ".pdf");
+
+    public function show(NurseNote $nurseNote)
+    {
+        return view('user.records.nurseNote.show', compact('nurseNote'));
+    }
+
+
+    public function edit(NurseNote $nurseNote)
+    {
+        return view('user.records.nurseNote.edit', compact('nurseNote'));
+    }
+
+
+    public function update(Request $request, NurseNote $nurseNote)
+    {
+        try {
+            DB::beginTransaction();
+            $update = $this->updateNurseNote->handle($request, $nurseNote);
+            // dd($update);
+            DB::commit();
+            return redirect()->route('nurseNote.index');
+        } catch (\Exception $err) {
+            DB::rollBack();
+            dd($err);
+            return redirect()->back()->withErrors($err->getMessage());
+        }
+    }
+
+
+    public function destroy(NurseNote $nurseNote)
+    {
+        //
     }
 }

@@ -28,7 +28,7 @@
                 <div class="addpatientBar h-full w-full flex items-center justify-end">
                     <button
                         class="btnAddpatient h-full w-48 text-[1.5rem] bg-blue-300 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-100"><a
-                            href="{{ route('addNurseNotes') }}">
+                            href="{{ route('nurseNote.create') }}">
                             <label class="hover:text-zinc-900">{{ __('Add Notes') }}</label>
                         </a></button>
                 </div>
@@ -42,26 +42,26 @@
                         <th class="col-span-2 flex justify-center">Ward</th>
                         <th class="col-span-2 flex justify-center">Actions</th>
                     </tr>
-                    @foreach ($nursenotesDatas as $nursenotesData)
+                    @foreach ($nurseNote as $nurseNotesData)
                         <tr class="grid grid-cols-12 even:bg-gray-200 odd:bg-white text-xl">
-                            <td class="flex justify-center">{{ $nursenotesData->id }}</td>
-                            <td class="col-span-5 flex justify-center">{{ $nursenotesData->patient_fullname }}</td>
-                            <td class="col-span-2 flex justify-center">{{ $nursenotesData->age }}</td>
-                            <td class="col-span-2 flex justify-center">{{ $nursenotesData->ward }}</td>
+                            <td class="flex justify-center">{{ $nurseNotesData->id }}</td>
+                            <td class="col-span-5 flex justify-center">{{ $nurseNotesData->patient_fullname }}</td>
+                            <td class="col-span-2 flex justify-center">{{ $nurseNotesData->age }}</td>
+                            <td class="col-span-2 flex justify-center">{{ $nurseNotesData->ward }}</td>
                             <td class="col-span-2 flex justify-center">
                                 <div class="grid grid-cols-3 justify-center gap-4">
-                                    <a href="{{ route('viewNurseNotes', ['id' => $nursenotesData->id]) }}"
+                                    <a href="{{ route('nurseNote.show', $nurseNotesData->id) }}"
                                         class="editIcon hover:text-blue-300">
                                         <i class="fa-solid fa-eye"></i>
                                     </a>
-                                    <a href="{{ route('updateNurseNotes', ['id' => $nursenotesData->id]) }}"
+                                    <a href="{{ route('nurseNote.edit', $nurseNotesData->id) }}"
                                         class="editIcon hover:text-blue-300">
                                         <i class="fa-solid fa-edit"></i>
                                     </a>
-                                    <a href="{{ route('viewpdfNurseNotes', ['id' => $nursenotesData->id]) }}"
+                                    {{-- <a href="{{ route('viewpdfNurseNotes', ['id' => $nursenotesData->id]) }}"
                                         class="editIcon hover:text-blue-300" target="_blank">
                                         <i class="fa-solid fa-file-pdf"></i>
-                                    </a>
+                                    </a> --}}
                                 </div>
                             </td>
                         </tr>
@@ -70,7 +70,7 @@
             </div>
         </div>
         <div class="inset-y-0 right-0 left-[275px] flex justify-center">
-            {{ $nursenotesDatas->links('pagination::custom_tailwind') }}
+            {{ $nurseNote->links('pagination::custom_tailwind') }}
         </div>
     </div>
 @endsection

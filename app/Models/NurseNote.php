@@ -9,6 +9,8 @@ class NurseNote extends Model
 {
     use HasFactory;
 
+    protected $table = "nurse_notes";
+
     protected $guarded = [];
 
     protected $hidden = [];

@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Actions\Records\NurseNote\StoreNurseNote;
 use App\Actions\Records\NurseNote\UpdateNurseNote;
 use App\Models\NurseNote;
+use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Termwind\Components\Dd;
 
 class NurseNoteController extends Controller
 {
@@ -77,5 +77,14 @@ class NurseNoteController extends Controller
     public function destroy(NurseNote $nurseNote)
     {
         //
+    }
+
+    public function pdf(NurseNote $nurseNote)
+    {
+        $nurseNote_view = NurseNote::findorfail($nurseNote->id);
+        $nurseNote_pdf = PDF::loadView('pdf.NurseNote', compact('nurseNote_view'))
+            ->setPaper('a4', 'portrait');
+
+        return $nurseNote_pdf->stream("Nurse Note " . $nurseNote_view->id . ".pdf");
     }
 }

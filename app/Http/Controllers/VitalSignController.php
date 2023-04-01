@@ -24,6 +24,17 @@ class VitalSignController extends Controller
         return view('user.records.vitalSign.index', compact('vitalSign'));
     }
 
+    public function searchVitalSign(Request $request)
+    {
+        $vitalSign = VitalSign::all();
+        if ($request->keyword != '') {
+            $vitalSign = VitalSign::where('patient_fullname', 'LIKE', '%' . $request->keyword . '%')->get();
+        }
+        return response()->json([
+            'vitalSign' => $vitalSign
+        ]);
+    }
+
     public function create()
     {
         return view('user.records.vitalSign.create');

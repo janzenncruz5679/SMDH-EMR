@@ -175,6 +175,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('outpatient', OutpatientController::class);
 
     /////stations
+    Route::post('vitalSign/search', [VitalSignController::class, 'searchVitalSign'])->name('vitalSign.searchVitalSign');
     Route::get('vitalSign/pdf{vitalSign}', [VitalSignController::class, 'pdf'])->name('vitalSign.pdf');
     Route::resource('vitalSign', VitalSignController::class);
 

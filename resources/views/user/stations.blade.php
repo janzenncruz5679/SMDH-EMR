@@ -13,7 +13,7 @@
                             <x-menu-card :url="route('nurseNote.index')" text="Nurse Notes" fontAwesomeIcon="fa-solid fa-notes-medical" />
                         </div>
                         <div class="">
-                            <x-menu-card :url="route('dischargeSummary')" text="Discharge"
+                            <x-menu-card :url="route('dischargeSummary.index')" text="Discharge"
                                 fontAwesomeIcon="fa-solid fa-house-medical-circle-xmark" />
                         </div>
                         {{-- <div class="">

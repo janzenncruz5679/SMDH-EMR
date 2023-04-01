@@ -23,6 +23,17 @@ class NurseNoteController extends Controller
         return view('user.records.nurseNote.index', compact('nurseNote'));
     }
 
+    public function searchNurseNote(Request $request)
+    {
+        $nurseNote = NurseNote::all();
+        if ($request->keyword != '') {
+            $nurseNote = NurseNote::where('patient_fullname', 'LIKE', '%' . $request->keyword . '%')->get();
+        }
+        return response()->json([
+            'nurseNote' => $nurseNote
+        ]);
+    }
+
 
     public function create()
     {

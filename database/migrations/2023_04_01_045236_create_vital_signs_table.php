@@ -28,7 +28,6 @@ return new class extends Migration
             $table->longText('respiration')->nullable();
             $table->longText('pains')->nullable();
             $table->longText('initials')->nullable();
-
             $table->timestamps();
         });
     }

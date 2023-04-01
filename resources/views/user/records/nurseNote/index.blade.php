@@ -58,10 +58,10 @@
                                         class="editIcon hover:text-blue-300">
                                         <i class="fa-solid fa-edit"></i>
                                     </a>
-                                    {{-- <a href="{{ route('viewpdfNurseNotes', ['id' => $nursenotesData->id]) }}"
+                                    <a href="{{ route('nurseNote.pdf', $nurseNotesData->id) }}"
                                         class="editIcon hover:text-blue-300" target="_blank">
                                         <i class="fa-solid fa-file-pdf"></i>
-                                    </a> --}}
+                                    </a>
                                 </div>
                             </td>
                         </tr>

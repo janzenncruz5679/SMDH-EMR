@@ -174,8 +174,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('outpatient/pdf{outpatient}', [OutpatientController::class, 'pdf'])->name('outpatient.pdf');
     Route::resource('outpatient', OutpatientController::class);
 
-    /////statoons
-
+    /////stations
+    Route::get('vitalSign/pdf{vitalSign}', [VitalSignController::class, 'pdf'])->name('vitalSign.pdf');
     Route::resource('vitalSign', VitalSignController::class);
 
     Route::post('nurseNote/search', [NurseNoteController::class, 'searchNurseNote'])->name('nurseNote.searchNurseNote');

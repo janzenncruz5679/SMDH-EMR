@@ -93,7 +93,7 @@ class NurseNoteController extends Controller
     public function pdf(NurseNote $nurseNote)
     {
         $nurseNote_view = NurseNote::findorfail($nurseNote->id);
-        $nurseNote_pdf = PDF::loadView('pdf.NurseNote', compact('nurseNote_view'))
+        $nurseNote_pdf = PDF::loadView('pdf.nurseNote', compact('nurseNote_view'))
             ->setPaper('a4', 'portrait');
 
         return $nurseNote_pdf->stream("Nurse Note " . $nurseNote_view->id . ".pdf");

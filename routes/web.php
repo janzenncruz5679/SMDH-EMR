@@ -156,5 +156,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('nurseNote/pdf{nurseNote}', [NurseNoteController::class, 'pdf'])->name('nurseNote.pdf');
     Route::resource('nurseNote', NurseNoteController::class);
 
+    Route::get('dischargeSummary/pdf{dischargeSummary}', [DischargeSummaryController::class, 'pdf'])->name('dischargeSummary.pdf');
     Route::resource('dischargeSummary', DischargeSummaryController::class);
 });

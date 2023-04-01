@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Actions\Records\VitalSign\StoreVital;
 use App\Actions\Records\VitalSign\UpdateVital;
 use App\Models\VitalSign;
+use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -74,5 +75,14 @@ class VitalSignController extends Controller
     public function destroy(VitalSign $vitalSign)
     {
         //
+    }
+
+    public function pdf(VitalSign $vitalSign)
+    {
+        $vitalSign_view = VitalSign::findorfail($vitalSign->id);
+        $vitalSign_pdf = PDF::loadView('pdf.vitalSign', compact('vitalSign_view'))
+            ->setPaper('a4', 'portrait');
+
+        return $vitalSign_pdf->stream("Vital Signs  " . $vitalSign_view->id . ".pdf");
     }
 }

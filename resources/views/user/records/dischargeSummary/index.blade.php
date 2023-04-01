@@ -55,7 +55,8 @@
                                             class="editIcon hover:text-blue-300">
                                             <i class="fa-solid fa-edit"></i>
                                         </a>
-                                        <a href="" class="editIcon hover:text-blue-300" target="_blank">
+                                        <a href="{{ route('dischargeSummary.pdf', $dischargeSummaryData->id) }}"
+                                            class="editIcon hover:text-blue-300" target="_blank">
                                             <i class="fa-solid fa-file-pdf"></i>
                                         </a>
                                     </div>

@@ -21,12 +21,11 @@
             @include('layouts.stepper')
         </div>
         <div class=" h-full w-full">
-            <form action="{{ url('/records/editVitals' . $vitals->id) }}" method="POST" enctype="multipart/form-data"
-                class="admission-form text-xl tracking-wider">
+            <form action="" method="POST" enctype="multipart/form-data" class="admission-form text-xl tracking-wider">
                 @csrf
                 <div
                     class="grid justify-center text-4xl font-semibold tracking-widest rounded-t-3xl bg-[#A0DDD3] p-3 text-[#003D33]">
-                    <label>Vital Signs Record # {{ $vitals->id }}</label>
+                    <label>Vital Signs Record # {{ $vitalSign->id }}</label>
                 </div>
                 {{-- admissionform_sec --}}
                 <div class="form-section">
@@ -40,7 +39,7 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="Patient Full Name" name="patient_fullname" readonly
-                                    value="{{ $vitals->patient_fullname ?? '' }}" required>
+                                    value="{{ $vitalSign->patient_fullname ?? '' }}" required>
                                 <span class="text-base font-[sans-serif] font-medium text-red-600">
                                     @error('patient_fullname')
                                         {{ $message }}
@@ -52,7 +51,7 @@
                                 <input type="date"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="enter address" name="birthdate" readonly
-                                    value="{{ $vitals->birthdate ?? '' }}" required>
+                                    value="{{ $vitalSign->birthdate ?? '' }}" required>
                                 <span class="text-base font-[sans-serif] font-medium text-red-600">
                                     @error('birthdate')
                                         {{ $message }}
@@ -62,21 +61,10 @@
                             <div class="px-3">
                                 <label>SEX: <span class="text-red-600 font-bold">*</span></label>
                                 <div class="w-full">
-                                    <select name="gender"
+                                    <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        required>
-                                        <option value="" disabled selected>gender</option>
-                                        <option value="Male" {{ $vitals->gender == 'Male' ? 'selected' : '' }}>Male
-                                        </option>
-                                        <option value="Female" {{ $vitals->gender == 'Female' ? 'selected' : '' }}>
-                                            Female
-                                        </option>
-                                    </select>
-                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                        @error('gender')
-                                            {{ $message }}
-                                        @enderror
-                                    </span>
+                                        placeholder="enter address" name="birthdate" readonly
+                                        value="{{ $vitalSign->gender }}">
                                 </div>
                             </div>
                             <div class="col-span-2 px-3">
@@ -84,7 +72,7 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="enter address" name="physician" readonly
-                                    value="{{ $vitals->physician ?? '' }}" required>
+                                    value="{{ $vitalSign->physician ?? '' }}" required>
                                 <span class="text-base font-[sans-serif] font-medium text-red-600">
                                     @error('physician')
                                         {{ $message }}
@@ -98,7 +86,7 @@
                                     <label>DOCTOR'S NOTE: <span class="text-red-600 font-bold">*</span></label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="doctor's note" name="notes" readonly required>{{ $vitals->notes ?? '' }}</textarea>
+                                        placeholder="doctor's note" name="notes" readonly required>{{ $vitalSign->notes ?? '' }}</textarea>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('notes')
                                             {{ $message }}
@@ -120,56 +108,246 @@
                                     <label>Date:</label>
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        name="dateRecord[1]" readonly value="{{ $vitals->date['dateRecord'][1] ?? '' }}">
+                                        name="dateRecord[1]" autocomplete="off"
+                                        value="{{ $vitalSign->date['dateRecord'][1] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Weight:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="weight" name="weightRecord[1]" readonly
-                                        value="{{ $vitals->weight['weightRecord'][1] ?? '' }}">
+                                        placeholder="weight" name="weightRecord[1]" autocomplete="off"
+                                        value="{{ $vitalSign->weight['weightRecord'][1] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Temperature:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="temperature" name="tempRecord[1]" readonly
-                                        value="{{ $vitals->temp['tempRecord'][1] ?? '' }}">
+                                        placeholder="temperature" name="tempRecord[1]" autocomplete="off"
+                                        value="{{ $vitalSign->temp['tempRecord'][1] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Blood Pressure:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="blood pressure" name="bpRecord[1]" readonly
-                                        value="{{ $vitals->bp['bpRecord'][1] ?? '' }}">
+                                        placeholder="blood pressure" name="bpRecord[1]" autocomplete="off"
+                                        value="{{ $vitalSign->bp['bpRecord'][1] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pulse:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="pulse rate" name="pulseRecord[1]" readonly
-                                        value="{{ $vitals->pulse['pulseRecord'][1] ?? '' }}">
+                                        placeholder="pulse rate" name="pulseRecord[1]" autocomplete="off"
+                                        value="{{ $vitalSign->pulse['pulseRecord'][1] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Respiration</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="respiration" name="respirationRecord[1]" readonly
-                                        value="{{ $vitals->respiration['respirationRecord'][1] ?? '' }}">
+                                        placeholder="respiration" name="respirationRecord[1]" autocomplete="off"
+                                        value="{{ $vitalSign->respiration['respirationRecord'][1] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pain</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="pain" name="painRecord[1]" readonly
-                                        value="{{ $vitals->pains['painRecord'][1] ?? '' }}">
+                                        placeholder="pain" name="painRecord[1]" autocomplete="off"
+                                        value="{{ $vitalSign->pains['painRecord'][1] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Initials</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="initials" name="initialsRecord[1]" readonly
-                                        value="{{ $vitals->initials['initialsRecord'][1] ?? '' }}">
+                                        placeholder="initials" name="initialsRecord[1]" autocomplete="off"
+                                        value="{{ $vitalSign->initials['initialsRecord'][1] ?? '' }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pb-3">
+                            <div class=" grid px-3 pb-3 text-2xl text-[#003D33] font-semibold tracking-widest">
+                                <label>Day 2 Observation</label>
+                            </div>
+                            <div class=" grid grid-cols-8 h-full w-full px-3 gap-4">
+                                <div>
+                                    <label>Date:</label>
+                                    <input type="date"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        name="dateRecord[2]" autocomplete="off"
+                                        value="{{ $vitalSign->date['dateRecord'][2] ?? '' }}">
+                                </div>
+                                <div>
+                                    <label>Weight:</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="weight" name="weightRecord[2]" autocomplete="off"
+                                        value="{{ $vitalSign->weight['weightRecord'][2] ?? '' }}">
+                                </div>
+                                <div>
+                                    <label>Temperature:</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="temperature" name="tempRecord[2]" autocomplete="off"
+                                        value="{{ $vitalSign->temp['tempRecord'][2] ?? '' }}">
+                                </div>
+                                <div>
+                                    <label>Blood Pressure:</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="blood pressure" name="bpRecord[2]" autocomplete="off"
+                                        value="{{ $vitalSign->bp['bpRecord'][2] ?? '' }}">
+                                </div>
+                                <div>
+                                    <label>Pulse:</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="pulse rate" name="pulseRecord[2]" autocomplete="off"
+                                        value="{{ $vitalSign->pulse['pulseRecord'][2] ?? '' }}">
+                                </div>
+                                <div>
+                                    <label>Respiration</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="respiration" name="respirationRecord[2]" autocomplete="off"
+                                        value="{{ $vitalSign->respiration['respirationRecord'][2] ?? '' }}">
+                                </div>
+                                <div>
+                                    <label>Pain</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="pain" name="painRecord[2]" autocomplete="off"
+                                        value="{{ $vitalSign->pains['painRecord'][2] ?? '' }}">
+                                </div>
+                                <div>
+                                    <label>Initials</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="initials" name="initialsRecord[2]" autocomplete="off"
+                                        value="{{ $vitalSign->initials['initialsRecord'][2] ?? '' }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pb-3">
+                            <div class=" grid px-3 pb-3 text-2xl text-[#003D33] font-semibold tracking-widest">
+                                <label>Day 3 Observation</label>
+                            </div>
+                            <div class=" grid grid-cols-8 h-full w-full px-3 gap-4">
+                                <div>
+                                    <label>Date:</label>
+                                    <input type="date"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        name="dateRecord[3]" autocomplete="off"
+                                        value="{{ $vitalSign->date['dateRecord'][3] ?? '' }}">
+                                </div>
+                                <div>
+                                    <label>Weight:</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="weight" name="weightRecord[3]" autocomplete="off"
+                                        value="{{ $vitalSign->weight['weightRecord'][3] ?? '' }}">
+                                </div>
+                                <div>
+                                    <label>Temperature:</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="temperature" name="tempRecord[3]" autocomplete="off"
+                                        value="{{ $vitalSign->temp['tempRecord'][3] ?? '' }}">
+                                </div>
+                                <div>
+                                    <label>Blood Pressure:</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="blood pressure" name="bpRecord[3]" autocomplete="off"
+                                        value="{{ $vitalSign->bp['bpRecord'][3] ?? '' }}">
+                                </div>
+                                <div>
+                                    <label>Pulse:</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="pulse rate" name="pulseRecord[3]" autocomplete="off"
+                                        value="{{ $vitalSign->pulse['pulseRecord'][3] ?? '' }}">
+                                </div>
+                                <div>
+                                    <label>Respiration</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="respiration" name="respirationRecord[3]" autocomplete="off"
+                                        value="{{ $vitalSign->respiration['respirationRecord'][3] ?? '' }}">
+                                </div>
+                                <div>
+                                    <label>Pain</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="pain" name="painRecord[3]" autocomplete="off"
+                                        value="{{ $vitalSign->pains['painRecord'][3] ?? '' }}">
+                                </div>
+                                <div>
+                                    <label>Initials</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="initials" name="initialsRecord[3]" autocomplete="off"
+                                        value="{{ $vitalSign->initials['initialsRecord'][3] ?? '' }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pb-3">
+                            <div class=" grid px-3 pb-3 text-2xl text-[#003D33] font-semibold tracking-widest">
+                                <label>Day 4 Observation</label>
+                            </div>
+                            <div class=" grid grid-cols-8 h-full w-full px-3 gap-4">
+                                <div>
+                                    <label>Date:</label>
+                                    <input type="date"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        name="dateRecord[4]" autocomplete="off"
+                                        value="{{ $vitalSign->date['dateRecord'][4] ?? '' }}">
+                                </div>
+                                <div>
+                                    <label>Weight:</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="weight" name="weightRecord[4]" autocomplete="off"
+                                        value="{{ $vitalSign->weight['weightRecord'][4] ?? '' }}">
+                                </div>
+                                <div>
+                                    <label>Temperature:</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="temperature" name="tempRecord[4]" autocomplete="off"
+                                        value="{{ $vitalSign->temp['tempRecord'][4] ?? '' }}">
+                                </div>
+                                <div>
+                                    <label>Blood Pressure:</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="blood pressure" name="bpRecord[4]" autocomplete="off"
+                                        value="{{ $vitalSign->bp['bpRecord'][4] ?? '' }}">
+                                </div>
+                                <div>
+                                    <label>Pulse:</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="pulse rate" name="pulseRecord[4]" autocomplete="off"
+                                        value="{{ $vitalSign->pulse['pulseRecord'][4] ?? '' }}">
+                                </div>
+                                <div>
+                                    <label>Respiration</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="respiration" name="respirationRecord[4]" autocomplete="off"
+                                        value="{{ $vitalSign->respiration['respirationRecord'][4] ?? '' }}">
+                                </div>
+                                <div>
+                                    <label>Pain</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="pain" name="painRecord[4]" autocomplete="off"
+                                        value="{{ $vitalSign->pains['painRecord'][4] ?? '' }}">
+                                </div>
+                                <div>
+                                    <label>Initials</label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="initials" name="initialsRecord[4]" autocomplete="off"
+                                        value="{{ $vitalSign->initials['initialsRecord'][4] ?? '' }}">
                                 </div>
                             </div>
                         </div>
@@ -186,56 +364,57 @@
                                     <label>Date:</label>
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        name="dateRecord[5]" readonly value="{{ $vitals->date['dateRecord'][5] ?? '' }}">
+                                        name="dateRecord[5]" readonly
+                                        value="{{ $vitalSign->date['dateRecord'][5] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Weight:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="weight" name="weightRecord[5]" readonly
-                                        value="{{ $vitals->weight['weightRecord'][5] ?? '' }}">
+                                        value="{{ $vitalSign->weight['weightRecord'][5] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Temperature:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="temperature" name="tempRecord[5]" readonly
-                                        value="{{ $vitals->temp['tempRecord'][5] ?? '' }}">
+                                        value="{{ $vitalSign->temp['tempRecord'][5] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Blood Pressure:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="blood pressure" name="bpRecord[5]" readonly
-                                        value="{{ $vitals->bp['bpRecord'][5] ?? '' }}">
+                                        value="{{ $vitalSign->bp['bpRecord'][5] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pulse:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pulse rate" name="pulseRecord[5]" readonly
-                                        value="{{ $vitals->pulse['pulseRecord'][5] ?? '' }}">
+                                        value="{{ $vitalSign->pulse['pulseRecord'][5] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Respiration</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="respiration" name="respirationRecord[5]" readonly
-                                        value="{{ $vitals->respiration['respirationRecord'][5] ?? '' }}">
+                                        value="{{ $vitalSign->respiration['respirationRecord'][5] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pain</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pain" name="painRecord[5]" readonly
-                                        value="{{ $vitals->pains['painRecord'][5] ?? '' }}">
+                                        value="{{ $vitalSign->pains['painRecord'][5] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Initials</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="initials" name="initialsRecord[5]" readonly
-                                        value="{{ $vitals->initials['initialsRecord'][5] ?? '' }}">
+                                        value="{{ $vitalSign->initials['initialsRecord'][5] ?? '' }}">
                                 </div>
                             </div>
                         </div>
@@ -248,56 +427,57 @@
                                     <label>Date:</label>
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        name="dateRecord[6]" readonly value="{{ $vitals->date['dateRecord'][6] ?? '' }}">
+                                        name="dateRecord[6]" readonly
+                                        value="{{ $vitalSign->date['dateRecord'][6] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Weight:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="weight" name="weightRecord[6]" readonly
-                                        value="{{ $vitals->weight['weightRecord'][6] ?? '' }}">
+                                        value="{{ $vitalSign->weight['weightRecord'][6] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Temperature:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="temperature" name="tempRecord[6]" readonly
-                                        value="{{ $vitals->temp['tempRecord'][6] ?? '' }}">
+                                        value="{{ $vitalSign->temp['tempRecord'][6] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Blood Pressure:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="blood pressure" name="bpRecord[6]" readonly
-                                        value="{{ $vitals->bp['bpRecord'][6] ?? '' }}">
+                                        value="{{ $vitalSign->bp['bpRecord'][6] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pulse:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pulse rate" name="pulseRecord[6]" readonly
-                                        value="{{ $vitals->pulse['pulseRecord'][6] ?? '' }}">
+                                        value="{{ $vitalSign->pulse['pulseRecord'][6] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Respiration</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="respiration" name="respirationRecord[6]" readonly
-                                        value="{{ $vitals->respiration['respirationRecord'][6] ?? '' }}">
+                                        value="{{ $vitalSign->respiration['respirationRecord'][6] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pain</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pain" name="painRecord[6]" readonly
-                                        value="{{ $vitals->pains['painRecord'][6] ?? '' }}">
+                                        value="{{ $vitalSign->pains['painRecord'][6] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Initials</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="initials" name="initialsRecord[6]" readonly
-                                        value="{{ $vitals->initials['initialsRecord'][6] ?? '' }}">
+                                        value="{{ $vitalSign->initials['initialsRecord'][6] ?? '' }}">
                                 </div>
                             </div>
                         </div>
@@ -310,56 +490,57 @@
                                     <label>Date:</label>
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        name="dateRecord[7]" readonly value="{{ $vitals->date['dateRecord'][7] ?? '' }}">
+                                        name="dateRecord[7]" readonly
+                                        value="{{ $vitalSign->date['dateRecord'][7] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Weight:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="weight" name="weightRecord[7]" readonly
-                                        value="{{ $vitals->weight['weightRecord'][7] ?? '' }}">
+                                        value="{{ $vitalSign->weight['weightRecord'][7] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Temperature:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="temperature" name="tempRecord[7]" readonly
-                                        value="{{ $vitals->temp['tempRecord'][7] ?? '' }}">
+                                        value="{{ $vitalSign->temp['tempRecord'][7] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Blood Pressure:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="blood pressure" name="bpRecord[7]" readonly
-                                        value="{{ $vitals->bp['bpRecord'][7] ?? '' }}">
+                                        value="{{ $vitalSign->bp['bpRecord'][7] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pulse:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pulse rate" name="pulseRecord[7]" readonly
-                                        value="{{ $vitals->pulse['pulseRecord'][7] ?? '' }}">
+                                        value="{{ $vitalSign->pulse['pulseRecord'][7] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Respiration</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="respiration" name="respirationRecord[7]" readonly
-                                        value="{{ $vitals->respiration['respirationRecord'][7] ?? '' }}">
+                                        value="{{ $vitalSign->respiration['respirationRecord'][7] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pain</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pain" name="painRecord[7]" readonly
-                                        value="{{ $vitals->pains['painRecord'][7] ?? '' }}">
+                                        value="{{ $vitalSign->pains['painRecord'][7] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Initials</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="initials" name="initialsRecord[7]" readonly
-                                        value="{{ $vitals->initials['initialsRecord'][7] ?? '' }}">
+                                        value="{{ $vitalSign->initials['initialsRecord'][7] ?? '' }}">
                                 </div>
                             </div>
                         </div>
@@ -372,56 +553,57 @@
                                     <label>Date:</label>
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        name="dateRecord[8]" readonly value="{{ $vitals->date['dateRecord'][8] ?? '' }}">
+                                        name="dateRecord[8]" readonly
+                                        value="{{ $vitalSign->date['dateRecord'][8] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Weight:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="weight" name="weightRecord[8]" readonly
-                                        value="{{ $vitals->weight['weightRecord'][8] ?? '' }}">
+                                        value="{{ $vitalSign->weight['weightRecord'][8] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Temperature:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="temperature" name="tempRecord[8]" readonly
-                                        value="{{ $vitals->temp['tempRecord'][8] ?? '' }}">
+                                        value="{{ $vitalSign->temp['tempRecord'][8] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Blood Pressure:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="blood pressure" name="bpRecord[8]" readonly
-                                        value="{{ $vitals->bp['bpRecord'][8] ?? '' }}">
+                                        value="{{ $vitalSign->bp['bpRecord'][8] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pulse:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pulse rate" name="pulseRecord[8]" readonly
-                                        value="{{ $vitals->pulse['pulseRecord'][8] ?? '' }}">
+                                        value="{{ $vitalSign->pulse['pulseRecord'][8] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Respiration</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="respiration" name="respirationRecord[8]" readonly
-                                        value="{{ $vitals->respiration['respirationRecord'][8] ?? '' }}">
+                                        value="{{ $vitalSign->respiration['respirationRecord'][8] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pain</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pain" name="painRecord[8]" readonly
-                                        value="{{ $vitals->pains['painRecord'][8] ?? '' }}">
+                                        value="{{ $vitalSign->pains['painRecord'][8] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Initials</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="initials" name="initialsRecord[8]" readonly
-                                        value="{{ $vitals->initials['initialsRecord'][8] ?? '' }}">
+                                        value="{{ $vitalSign->initials['initialsRecord'][8] ?? '' }}">
                                 </div>
                             </div>
                         </div>
@@ -438,56 +620,57 @@
                                     <label>Date:</label>
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        name="dateRecord[9]" readonly value="{{ $vitals->date['dateRecord'][9] ?? '' }}">
+                                        name="dateRecord[9]" readonly
+                                        value="{{ $vitalSign->date['dateRecord'][9] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Weight:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="weight" name="weightRecord[9]" readonly
-                                        value="{{ $vitals->weight['weightRecord'][9] ?? '' }}">
+                                        value="{{ $vitalSign->weight['weightRecord'][9] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Temperature:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="temperature" name="tempRecord[9]" readonly
-                                        value="{{ $vitals->temp['tempRecord'][9] ?? '' }}">
+                                        value="{{ $vitalSign->temp['tempRecord'][9] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Blood Pressure:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="blood pressure" name="bpRecord[9]" readonly
-                                        value="{{ $vitals->bp['bpRecord'][9] ?? '' }}">
+                                        value="{{ $vitalSign->bp['bpRecord'][9] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pulse:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pulse rate" name="pulseRecord[9]" readonly
-                                        value="{{ $vitals->pulse['pulseRecord'][9] ?? '' }}">
+                                        value="{{ $vitalSign->pulse['pulseRecord'][9] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Respiration</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="respiration" name="respirationRecord[9]" readonly
-                                        value="{{ $vitals->respiration['respirationRecord'][9] ?? '' }}">
+                                        value="{{ $vitalSign->respiration['respirationRecord'][9] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pain</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pain" name="painRecord[9]" readonly
-                                        value="{{ $vitals->pains['painRecord'][9] ?? '' }}">
+                                        value="{{ $vitalSign->pains['painRecord'][9] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Initials</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="initials" name="initialsRecord[9]" readonly
-                                        value="{{ $vitals->initials['initialsRecord'][9] ?? '' }}">
+                                        value="{{ $vitalSign->initials['initialsRecord'][9] ?? '' }}">
                                 </div>
                             </div>
                         </div>
@@ -501,56 +684,56 @@
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         name="dateRecord[10]" readonly
-                                        value="{{ $vitals->date['dateRecord'][10] ?? '' }}">
+                                        value="{{ $vitalSign->date['dateRecord'][10] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Weight:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="weight" name="weightRecord[10]" readonly
-                                        value="{{ $vitals->weight['weightRecord'][10] ?? '' }}">
+                                        value="{{ $vitalSign->weight['weightRecord'][10] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Temperature:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="temperature" name="tempRecord[10]" readonly
-                                        value="{{ $vitals->temp['tempRecord'][10] ?? '' }}">
+                                        value="{{ $vitalSign->temp['tempRecord'][10] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Blood Pressure:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="blood pressure" name="bpRecord[10]" readonly
-                                        value="{{ $vitals->bp['bpRecord'][10] ?? '' }}">
+                                        value="{{ $vitalSign->bp['bpRecord'][10] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pulse:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pulse rate" name="pulseRecord[10]" readonly
-                                        value="{{ $vitals->pulse['pulseRecord'][10] ?? '' }}">
+                                        value="{{ $vitalSign->pulse['pulseRecord'][10] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Respiration</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="respiration" name="respirationRecord[10]" readonly
-                                        value="{{ $vitals->respiration['respirationRecord'][10] ?? '' }}">
+                                        value="{{ $vitalSign->respiration['respirationRecord'][10] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pain</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pain" name="painRecord[10]" readonly
-                                        value="{{ $vitals->pains['painRecord'][10] ?? '' }}">
+                                        value="{{ $vitalSign->pains['painRecord'][10] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Initials</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="initials" name="initialsRecord[10]" readonly
-                                        value="{{ $vitals->initials['initialsRecord'][10] ?? '' }}">
+                                        value="{{ $vitalSign->initials['initialsRecord'][10] ?? '' }}">
                                 </div>
                             </div>
                         </div>
@@ -564,56 +747,56 @@
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         name="dateRecord[11]" readonly
-                                        value="{{ $vitals->date['dateRecord'][11] ?? '' }}">
+                                        value="{{ $vitalSign->date['dateRecord'][11] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Weight:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="weight" name="weightRecord[11]" readonly
-                                        value="{{ $vitals->weight['weightRecord'][11] ?? '' }}">
+                                        value="{{ $vitalSign->weight['weightRecord'][11] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Temperature:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="temperature" name="tempRecord[11]" readonly
-                                        value="{{ $vitals->temp['tempRecord'][11] ?? '' }}">
+                                        value="{{ $vitalSign->temp['tempRecord'][11] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Blood Pressure:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="blood pressure" name="bpRecord[11]" readonly
-                                        value="{{ $vitals->bp['bpRecord'][11] ?? '' }}">
+                                        value="{{ $vitalSign->bp['bpRecord'][11] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pulse:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pulse rate" name="pulseRecord[11]" readonly
-                                        value="{{ $vitals->pulse['pulseRecord'][11] ?? '' }}">
+                                        value="{{ $vitalSign->pulse['pulseRecord'][11] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Respiration</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="respiration" name="respirationRecord[11]" readonly
-                                        value="{{ $vitals->respiration['respirationRecord'][11] ?? '' }}">
+                                        value="{{ $vitalSign->respiration['respirationRecord'][11] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pain</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pain" name="painRecord[11]" readonly
-                                        value="{{ $vitals->pains['painRecord'][11] ?? '' }}">
+                                        value="{{ $vitalSign->pains['painRecord'][11] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Initials</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="initials" name="initialsRecord[11]" readonly
-                                        value="{{ $vitals->initials['initialsRecord'][11] ?? '' }}">
+                                        value="{{ $vitalSign->initials['initialsRecord'][11] ?? '' }}">
                                 </div>
                             </div>
                         </div>
@@ -627,56 +810,56 @@
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         name="dateRecord[12]" readonly
-                                        value="{{ $vitals->date['dateRecord'][12] ?? '' }}">
+                                        value="{{ $vitalSign->date['dateRecord'][12] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Weight:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="weight" name="weightRecord[12]" readonly
-                                        value="{{ $vitals->weight['weightRecord'][12] ?? '' }}">
+                                        value="{{ $vitalSign->weight['weightRecord'][12] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Temperature:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="temperature" name="tempRecord[12]" readonly
-                                        value="{{ $vitals->temp['tempRecord'][12] ?? '' }}">
+                                        value="{{ $vitalSign->temp['tempRecord'][12] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Blood Pressure:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="blood pressure" name="bpRecord[12]" readonly
-                                        value="{{ $vitals->bp['bpRecord'][12] ?? '' }}">
+                                        value="{{ $vitalSign->bp['bpRecord'][12] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pulse:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pulse rate" name="pulseRecord[12]" readonly
-                                        value="{{ $vitals->pulse['pulseRecord'][12] ?? '' }}">
+                                        value="{{ $vitalSign->pulse['pulseRecord'][12] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Respiration</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="respiration" name="respirationRecord[12]" readonly
-                                        value="{{ $vitals->respiration['respirationRecord'][12] ?? '' }}">
+                                        value="{{ $vitalSign->respiration['respirationRecord'][12] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pain</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pain" name="painRecord[12]" readonly
-                                        value="{{ $vitals->pains['painRecord'][12] ?? '' }}">
+                                        value="{{ $vitalSign->pains['painRecord'][12] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Initials</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="initials" name="initialsRecord[12]" readonly
-                                        value="{{ $vitals->initials['initialsRecord'][12] ?? '' }}">
+                                        value="{{ $vitalSign->initials['initialsRecord'][12] ?? '' }}">
                                 </div>
                             </div>
                         </div>
@@ -694,56 +877,56 @@
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         name="dateRecord[13]" readonly
-                                        value="{{ $vitals->date['dateRecord'][13] ?? '' }}">
+                                        value="{{ $vitalSign->date['dateRecord'][13] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Weight:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="weight" name="weightRecord[13]" readonly
-                                        value="{{ $vitals->weight['weightRecord'][13] ?? '' }}">
+                                        value="{{ $vitalSign->weight['weightRecord'][13] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Temperature:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="temperature" name="tempRecord[13]" readonly
-                                        value="{{ $vitals->temp['tempRecord'][13] ?? '' }}">
+                                        value="{{ $vitalSign->temp['tempRecord'][13] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Blood Pressure:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="blood pressure" name="bpRecord[13]" readonly
-                                        value="{{ $vitals->bp['bpRecord'][13] ?? '' }}">
+                                        value="{{ $vitalSign->bp['bpRecord'][13] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pulse:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pulse rate" name="pulseRecord[13]" readonly
-                                        value="{{ $vitals->pulse['pulseRecord'][13] ?? '' }}">
+                                        value="{{ $vitalSign->pulse['pulseRecord'][13] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Respiration</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="respiration" name="respirationRecord[13]" readonly
-                                        value="{{ $vitals->respiration['respirationRecord'][13] ?? '' }}">
+                                        value="{{ $vitalSign->respiration['respirationRecord'][13] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pain</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pain" name="painRecord[13]" readonly
-                                        value="{{ $vitals->pains['painRecord'][13] ?? '' }}">
+                                        value="{{ $vitalSign->pains['painRecord'][13] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Initials</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="initials" name="initialsRecord[13]" readonly
-                                        value="{{ $vitals->initials['initialsRecord'][13] ?? '' }}">
+                                        value="{{ $vitalSign->initials['initialsRecord'][13] ?? '' }}">
                                 </div>
                             </div>
                         </div>
@@ -757,56 +940,56 @@
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         name="dateRecord[14]" readonly
-                                        value="{{ $vitals->date['dateRecord'][14] ?? '' }}">
+                                        value="{{ $vitalSign->date['dateRecord'][14] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Weight:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="weight" name="weightRecord[14]" readonly
-                                        value="{{ $vitals->weight['weightRecord'][14] ?? '' }}">
+                                        value="{{ $vitalSign->weight['weightRecord'][14] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Temperature:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="temperature" name="tempRecord[14]" readonly
-                                        value="{{ $vitals->temp['tempRecord'][14] ?? '' }}">
+                                        value="{{ $vitalSign->temp['tempRecord'][14] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Blood Pressure:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="blood pressure" name="bpRecord[14]" readonly
-                                        value="{{ $vitals->bp['bpRecord'][14] ?? '' }}">
+                                        value="{{ $vitalSign->bp['bpRecord'][14] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pulse:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pulse rate" name="pulseRecord[14]" readonly
-                                        value="{{ $vitals->pulse['pulseRecord'][14] ?? '' }}">
+                                        value="{{ $vitalSign->pulse['pulseRecord'][14] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Respiration</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="respiration" name="respirationRecord[14]" readonly
-                                        value="{{ $vitals->respiration['respirationRecord'][14] ?? '' }}">
+                                        value="{{ $vitalSign->respiration['respirationRecord'][14] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pain</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pain" name="painRecord[14]" readonly
-                                        value="{{ $vitals->pains['painRecord'][14] ?? '' }}">
+                                        value="{{ $vitalSign->pains['painRecord'][14] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Initials</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="initials" name="initialsRecord[14]" readonly
-                                        value="{{ $vitals->initials['initialsRecord'][14] ?? '' }}">
+                                        value="{{ $vitalSign->initials['initialsRecord'][14] ?? '' }}">
                                 </div>
                             </div>
                         </div>
@@ -820,56 +1003,56 @@
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         name="dateRecord[15]" readonly
-                                        value="{{ $vitals->date['dateRecord'][15] ?? '' }}">
+                                        value="{{ $vitalSign->date['dateRecord'][15] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Weight:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="weight" name="weightRecord[15]" readonly
-                                        value="{{ $vitals->weight['weightRecord'][15] ?? '' }}">
+                                        value="{{ $vitalSign->weight['weightRecord'][15] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Temperature:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="temperature" name="tempRecord[15]" readonly
-                                        value="{{ $vitals->temp['tempRecord'][15] ?? '' }}">
+                                        value="{{ $vitalSign->temp['tempRecord'][15] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Blood Pressure:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="blood pressure" name="bpRecord[15]" readonly
-                                        value="{{ $vitals->bp['bpRecord'][15] ?? '' }}">
+                                        value="{{ $vitalSign->bp['bpRecord'][15] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pulse:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pulse rate" name="pulseRecord[15]" readonly
-                                        value="{{ $vitals->pulse['pulseRecord'][15] ?? '' }}">
+                                        value="{{ $vitalSign->pulse['pulseRecord'][15] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Respiration</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="respiration" name="respirationRecord[15]" readonly
-                                        value="{{ $vitals->respiration['respirationRecord'][15] ?? '' }}">
+                                        value="{{ $vitalSign->respiration['respirationRecord'][15] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pain</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pain" name="painRecord[15]" readonly
-                                        value="{{ $vitals->pains['painRecord'][15] ?? '' }}">
+                                        value="{{ $vitalSign->pains['painRecord'][15] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Initials</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="initials" name="initialsRecord[15]" readonly
-                                        value="{{ $vitals->initials['initialsRecord'][15] ?? '' }}">
+                                        value="{{ $vitalSign->initials['initialsRecord'][15] ?? '' }}">
                                 </div>
                             </div>
                         </div>
@@ -883,56 +1066,56 @@
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         name="dateRecord[16]" readonly
-                                        value="{{ $vitals->date['dateRecord'][16] ?? '' }}">
+                                        value="{{ $vitalSign->date['dateRecord'][16] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Weight:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="weight" name="weightRecord[16]" readonly
-                                        value="{{ $vitals->weight['weightRecord'][16] ?? '' }}">
+                                        value="{{ $vitalSign->weight['weightRecord'][16] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Temperature:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="temperature" name="tempRecord[16]" readonly
-                                        value="{{ $vitals->temp['tempRecord'][16] ?? '' }}">
+                                        value="{{ $vitalSign->temp['tempRecord'][16] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Blood Pressure:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="blood pressure" name="bpRecord[16]" readonly
-                                        value="{{ $vitals->bp['bpRecord'][16] ?? '' }}">
+                                        value="{{ $vitalSign->bp['bpRecord'][16] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pulse:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pulse rate" name="pulseRecord[16]" readonly
-                                        value="{{ $vitals->pulse['pulseRecord'][16] ?? '' }}">
+                                        value="{{ $vitalSign->pulse['pulseRecord'][16] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Respiration</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="respiration" name="respirationRecord[16]" readonly
-                                        value="{{ $vitals->respiration['respirationRecord'][16] ?? '' }}">
+                                        value="{{ $vitalSign->respiration['respirationRecord'][16] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pain</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pain" name="painRecord[16]" readonly
-                                        value="{{ $vitals->pains['painRecord'][16] ?? '' }}">
+                                        value="{{ $vitalSign->pains['painRecord'][16] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Initials</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="initials" name="initialsRecord[16]" readonly
-                                        value="{{ $vitals->initials['initialsRecord'][16] ?? '' }}">
+                                        value="{{ $vitalSign->initials['initialsRecord'][16] ?? '' }}">
                                 </div>
                             </div>
                         </div>
@@ -950,56 +1133,56 @@
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         name="dateRecord[17]" readonly
-                                        value="{{ $vitals->date['dateRecord'][17] ?? '' }}">
+                                        value="{{ $vitalSign->date['dateRecord'][17] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Weight:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="weight" name="weightRecord[17]" readonly
-                                        value="{{ $vitals->weight['weightRecord'][17] ?? '' }}">
+                                        value="{{ $vitalSign->weight['weightRecord'][17] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Temperature:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="temperature" name="tempRecord[17]" readonly
-                                        value="{{ $vitals->temp['tempRecord'][17] ?? '' }}">
+                                        value="{{ $vitalSign->temp['tempRecord'][17] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Blood Pressure:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="blood pressure" name="bpRecord[17]" readonly
-                                        value="{{ $vitals->bp['bpRecord'][17] ?? '' }}">
+                                        value="{{ $vitalSign->bp['bpRecord'][17] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pulse:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pulse rate" name="pulseRecord[17]" readonly
-                                        value="{{ $vitals->pulse['pulseRecord'][17] ?? '' }}">
+                                        value="{{ $vitalSign->pulse['pulseRecord'][17] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Respiration</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="respiration" name="respirationRecord[17]" readonly
-                                        value="{{ $vitals->respiration['respirationRecord'][17] ?? '' }}">
+                                        value="{{ $vitalSign->respiration['respirationRecord'][17] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pain</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pain" name="painRecord[17]" readonly
-                                        value="{{ $vitals->pains['painRecord'][17] ?? '' }}">
+                                        value="{{ $vitalSign->pains['painRecord'][17] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Initials</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="initials" name="initialsRecord[17]" readonly
-                                        value="{{ $vitals->initials['initialsRecord'][17] ?? '' }}">
+                                        value="{{ $vitalSign->initials['initialsRecord'][17] ?? '' }}">
                                 </div>
                             </div>
                         </div>
@@ -1013,56 +1196,56 @@
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         name="dateRecord[18]" readonly
-                                        value="{{ $vitals->date['dateRecord'][18] ?? '' }}">
+                                        value="{{ $vitalSign->date['dateRecord'][18] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Weight:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="weight" name="weightRecord[18]" readonly
-                                        value="{{ $vitals->weight['weightRecord'][18] ?? '' }}">
+                                        value="{{ $vitalSign->weight['weightRecord'][18] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Temperature:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="temperature" name="tempRecord[18]" readonly
-                                        value="{{ $vitals->temp['tempRecord'][18] ?? '' }}">
+                                        value="{{ $vitalSign->temp['tempRecord'][18] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Blood Pressure:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="blood pressure" name="bpRecord[18]" readonly
-                                        value="{{ $vitals->bp['bpRecord'][18] ?? '' }}">
+                                        value="{{ $vitalSign->bp['bpRecord'][18] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pulse:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pulse rate" name="pulseRecord[18]" readonly
-                                        value="{{ $vitals->pulse['pulseRecord'][18] ?? '' }}">
+                                        value="{{ $vitalSign->pulse['pulseRecord'][18] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Respiration</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="respiration" name="respirationRecord[18]" readonly
-                                        value="{{ $vitals->respiration['respirationRecord'][18] ?? '' }}">
+                                        value="{{ $vitalSign->respiration['respirationRecord'][18] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pain</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pain" name="painRecord[18]" readonly
-                                        value="{{ $vitals->pains['painRecord'][18] ?? '' }}">
+                                        value="{{ $vitalSign->pains['painRecord'][18] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Initials</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="initials" name="initialsRecord[18]" readonly
-                                        value="{{ $vitals->initials['initialsRecord'][18] ?? '' }}">
+                                        value="{{ $vitalSign->initials['initialsRecord'][18] ?? '' }}">
                                 </div>
                             </div>
                         </div>
@@ -1076,56 +1259,56 @@
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         name="dateRecord[19]" readonly
-                                        value="{{ $vitals->date['dateRecord'][19] ?? '' }}">
+                                        value="{{ $vitalSign->date['dateRecord'][19] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Weight:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="weight" name="weightRecord[19]" readonly
-                                        value="{{ $vitals->weight['weightRecord'][19] ?? '' }}">
+                                        value="{{ $vitalSign->weight['weightRecord'][19] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Temperature:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="temperature" name="tempRecord[19]" readonly
-                                        value="{{ $vitals->temp['tempRecord'][19] ?? '' }}">
+                                        value="{{ $vitalSign->temp['tempRecord'][19] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Blood Pressure:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="blood pressure" name="bpRecord[19]" readonly
-                                        value="{{ $vitals->bp['bpRecord'][19] ?? '' }}">
+                                        value="{{ $vitalSign->bp['bpRecord'][19] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pulse:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pulse rate" name="pulseRecord[19]" readonly
-                                        value="{{ $vitals->pulse['pulseRecord'][19] ?? '' }}">
+                                        value="{{ $vitalSign->pulse['pulseRecord'][19] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Respiration</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="respiration" name="respirationRecord[19]" readonly
-                                        value="{{ $vitals->respiration['respirationRecord'][19] ?? '' }}">
+                                        value="{{ $vitalSign->respiration['respirationRecord'][19] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pain</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pain" name="painRecord[19]" readonly
-                                        value="{{ $vitals->pains['painRecord'][19] ?? '' }}">
+                                        value="{{ $vitalSign->pains['painRecord'][19] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Initials</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="initials" name="initialsRecord[19]" readonly
-                                        value="{{ $vitals->initials['initialsRecord'][19] ?? '' }}">
+                                        value="{{ $vitalSign->initials['initialsRecord'][19] ?? '' }}">
                                 </div>
                             </div>
                         </div>
@@ -1139,56 +1322,56 @@
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         name="dateRecord[20]" readonly
-                                        value="{{ $vitals->date['dateRecord'][20] ?? '' }}">
+                                        value="{{ $vitalSign->date['dateRecord'][20] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Weight:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="weight" name="weightRecord[20]" readonly
-                                        value="{{ $vitals->weight['weightRecord'][20] ?? '' }}">
+                                        value="{{ $vitalSign->weight['weightRecord'][20] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Temperature:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="temperature" name="tempRecord[20]" readonly
-                                        value="{{ $vitals->temp['tempRecord'][20] ?? '' }}">
+                                        value="{{ $vitalSign->temp['tempRecord'][20] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Blood Pressure:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="blood pressure" name="bpRecord[20]" readonly
-                                        value="{{ $vitals->bp['bpRecord'][20] ?? '' }}">
+                                        value="{{ $vitalSign->bp['bpRecord'][20] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pulse:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pulse rate" name="pulseRecord[20]" readonly
-                                        value="{{ $vitals->pulse['pulseRecord'][20] ?? '' }}">
+                                        value="{{ $vitalSign->pulse['pulseRecord'][20] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Respiration</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="respiration" name="respirationRecord[20]" readonly
-                                        value="{{ $vitals->respiration['respirationRecord'][20] ?? '' }}">
+                                        value="{{ $vitalSign->respiration['respirationRecord'][20] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Pain</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="pain" name="painRecord[20]" readonly
-                                        value="{{ $vitals->pains['painRecord'][20] ?? '' }}">
+                                        value="{{ $vitalSign->pains['painRecord'][20] ?? '' }}">
                                 </div>
                                 <div>
                                     <label>Initials</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="initials" name="initialsRecord[20]" readonly
-                                        value="{{ $vitals->initials['initialsRecord'][20] ?? '' }}">
+                                        value="{{ $vitalSign->initials['initialsRecord'][20] ?? '' }}">
                                 </div>
                             </div>
                         </div>

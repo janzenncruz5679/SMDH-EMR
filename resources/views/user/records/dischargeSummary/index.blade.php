@@ -130,7 +130,8 @@
                     <tr class="grid grid-cols-12 even:bg-gray-200 odd:bg-white text-xl">
                         <td class="flex justify-center">` + res.dischargeSummary[i].id + `</td>
                         <td class="col-span-4 flex justify-center">` + res.dischargeSummary[i].patients_identity + `</td>
-                        <td class="col-span-2 flex justify-center">` + res.dischargeSummary[i].discharge_date + `</td>
+                        <td class="col-span-2 flex justify-center">` + moment.utc(res.dischargeSummary[i]
+                    .discharge_date).local().format('MM/DD/YY') + `</td>
                         <td class="col-span-3 flex justify-center">` + res.dischargeSummary[i].doctor_name + `</td>
                         <td class="col-span-2 flex justify-center">
                         <div class="grid grid-cols-3 justify-center gap-4">

@@ -7,7 +7,7 @@
                 <div class="h-full ">
                     <div class="grid grid-cols-6 gap-6">
                         <div class="">
-                            <x-menu-card :url="route('vitalsTab')" text="Vital Signs" fontAwesomeIcon="fa-solid fa-heart-pulse" />
+                            <x-menu-card :url="route('vitalSign.index')" text="Vital Signs" fontAwesomeIcon="fa-solid fa-heart-pulse" />
                         </div>
                         <div class="">
                             <x-menu-card :url="route('nurseNote.index')" text="Nurse Notes" fontAwesomeIcon="fa-solid fa-notes-medical" />

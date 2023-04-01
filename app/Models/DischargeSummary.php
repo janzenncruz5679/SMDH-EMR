@@ -9,6 +9,8 @@ class DischargeSummary extends Model
 {
     use HasFactory;
 
+    protected $table = 'discharge_summaries';
+
     protected $guarded = [];
 
     protected $hidden = [];

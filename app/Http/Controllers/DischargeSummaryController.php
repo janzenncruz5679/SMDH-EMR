@@ -2,95 +2,80 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\Records\DischargeSummary\StoreDischargeSummary;
+use App\Actions\Records\DischargeSummary\UpdateDischargeSummary;
 use App\Models\DischargeSummary;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use PDF;
 
 class DischargeSummaryController extends Controller
 {
-    public function dischargeSummaryview()
-    {
-        $dischargeSummaryDatas = DischargeSummary::query()->paginate(20);
-        return view('user.stationSection.discharge_summary_view.dischargeSummary', [
-            'dischargeSummaryDatas' => $dischargeSummaryDatas,
-        ]);
+
+    public function __construct(
+        private StoreDischargeSummary $storeDischargeSummary,
+        private UpdateDischargeSummary $updateDischargeSummary,
+    ) {
     }
 
-    public function addDischargeSummary()
+    public function index()
     {
-        return view('user.stationSection.discharge_summary_view.addDischargeSummary');
+        $dischargeSummary = DischargeSummary::all()->paginate(10);
+        return view('user.records.dischargeSummary.index', compact('dischargeSummary'));
     }
 
-    public function submit_addDischargeSummary(Request $request)
+
+    public function create()
     {
-        // dd($request->toArray());
-        DischargeSummary::create([
-            'discharge_date' => $request->discharge_date,
-            'patients_identity' => $request->patients_identity,
-            'positive_finding' => $request->positive_finding,
-            'treatment' => $request->treatment,
-            'course_in_hospital' => $request->course_in_hospital,
-            'final_diagnosis' => $request->final_diagnosis,
-            'plan' => $request->plan,
-            'doctor_name' => $request->doctor_name,
-            'license_number' => $request->license_number,
-        ]);
-
-
-        return redirect()->route('dischargeSummary');
+        return view('user.records.dischargeSummary.create');
     }
 
-    public function viewDischargeSummary($id)
-    {
-        $dischargeSummary = DischargeSummary::find($id);
-        return view('user.stationSection.discharge_summary_view.infoDischargeSummary', [
-            'dischargeSummary' => $dischargeSummary,
-        ]);
-    }
 
-    public function updateDischargeSummary($id)
+    public function store(Request $request)
     {
-        $dischargeSummary = DischargeSummary::find($id);
-        // dd($nursenotes->toArray());
-        return view('user.stationSection.discharge_summary_view.updateDischargeSummary', [
-            'dischargeSummary' => $dischargeSummary,
-        ]);
-    }
-
-    public function editDischargeSummary(Request $request, $id)
-    {
-        // dd($request->toArray());
         try {
             DB::beginTransaction();
-            DischargeSummary::where('id', $id)->update([
-                'discharge_date' => $request->discharge_date,
-                'patients_identity' => $request->patients_identity,
-                'positive_finding' => $request->positive_finding,
-                'treatment' => $request->treatment,
-                'course_in_hospital' => $request->course_in_hospital,
-                'final_diagnosis' => $request->final_diagnosis,
-                'plan' => $request->plan,
-                'doctor_name' => $request->doctor_name,
-                'license_number' => $request->license_number,
-            ]);
+            $add = $this->storeDischargeSummary->handle($request);
+            // dd($add);
             DB::commit();
-        } catch (\Throwable $th) {
+            return redirect()->route('dischargeSummary.index');
+        } catch (\Exception $err) {
             DB::rollBack();
-            dd($th);
-            return redirect()->back()->withErrors($th);
+            dd($err);
+            return redirect()->back()->withErrors($err->getMessage());
         }
-
-        return redirect()->route('dischargeSummary');
     }
 
-    public function viewpdfDischargeSummary($id)
-    {
-        $pdf_dischargesummary = DischargeSummary::find($id);
-        $pdf_discharge = PDF::loadView('user.stationSection.discharge_summary_view.pdfDischargeSummary', [
-            'pdf_dischargesummary' => $pdf_dischargesummary,
-        ])->setPaper('a4', 'portrait');
 
-        return $pdf_discharge->stream($pdf_dischargesummary->name . " Discharge Summary" . ".pdf");
+    public function show(DischargeSummary $dischargeSummary)
+    {
+        return view('user.records.dischargeSummary.show', compact('dischargeSummary'));
+    }
+
+
+    public function edit(DischargeSummary $dischargeSummary)
+    {
+        return view('user.records.dischargeSummary.edit', compact('dischargeSummary'));
+    }
+
+
+    public function update(Request $request, DischargeSummary $dischargeSummary)
+    {
+        try {
+            DB::beginTransaction();
+            $update = $this->updateDischargeSummary->handle($request, $dischargeSummary);
+            // dd($update);
+            DB::commit();
+            return redirect()->route('dischargeSummary.index');
+        } catch (\Exception $err) {
+            DB::rollBack();
+            dd($err);
+            return redirect()->back()->withErrors($err->getMessage());
+        }
+    }
+
+
+    public function destroy(DischargeSummary $dischargeSummary)
+    {
+        //
     }
 }

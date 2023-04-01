@@ -21,9 +21,10 @@
             @include('layouts.dischargeStepper')
         </div>
         <div class=" h-full w-full">
-            <form action="{{ route('editDischargeSummary', ['id' => $dischargeSummary->id]) }}" method="POST"
+            <form action="{{ route('dischargeSummary.update', $dischargeSummary->id) }}" method="POST"
                 enctype="multipart/form-data" class="admission-form text-xl tracking-wider">
                 @csrf
+                @method('PATCH')
                 <div
                     class="grid justify-center text-4xl font-semibold tracking-widest rounded-t-3xl bg-[#A0DDD3] p-3 text-[#003D33]">
                     <label>Discharge Summary Info</label>
@@ -171,7 +172,7 @@
                         class="h-full col-start-7 text-2xl p-2 bg-blue-300 tracking-[2px] text-white rounded-xl transform transition hover:-translate-y-0.5 hover:bg-blue-200 shadow-md shadow-blue-200"
                         type="submit">Submit</button>
                     <a class=" col-start-8 text-zinc-900 hover:text-white tracking-[2px] text-2xl font-[sans-serif]"
-                        href="{{ route('dischargeSummary') }}">
+                        href="{{ route('dischargeSummary.index') }}">
                         <div
                             class=" h-full bg-blue-300 hover:bg-blue-200 p-2 text-2xl font-[sans-serif] flex items-center justify-center text-white rounded-xl  shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
                             Back

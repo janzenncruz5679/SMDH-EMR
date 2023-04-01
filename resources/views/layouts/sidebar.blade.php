@@ -14,7 +14,9 @@
                     request()->routeIs('emergency*') |
                     request()->routeIs('outpatient*')" text="Patients"
                     fontAwesomeIcon="fa-solid fa-hospital-user" />
-                <x-sidebar-menu :url="route('stations')" :active-url="request()->routeIs('stations*') | request()->routeIs('vitalsTab')" text="Records"
+                <x-sidebar-menu :url="route('stations')" :active-url="request()->routeIs('stations*') |
+                    request()->routeIs('vitalsTab') |
+                    request()->routeIs('nurseNote*')" text="Records"
                     fontAwesomeIcon="fa-solid fa-notes-medical" />
                 <x-sidebar-menu :url="route('billingTable')" :active-url="request()->routeIs('billing*') |
                     request()->routeIs('billingTable*') |

@@ -24,6 +24,17 @@ class DischargeSummaryController extends Controller
         return view('user.records.dischargeSummary.index', compact('dischargeSummary'));
     }
 
+    public function searchDischargeSummary(Request $request)
+    {
+        $dischargeSummary = DischargeSummary::all();
+        if ($request->keyword != '') {
+            $dischargeSummary = DischargeSummary::where('patients_identity', 'LIKE', '%' . $request->keyword . '%')->get();
+        }
+        return response()->json([
+            'dischargeSummary' => $dischargeSummary
+        ]);
+    }
+
 
     public function create()
     {

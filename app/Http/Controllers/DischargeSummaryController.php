@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Actions\Records\DischargeSummary\StoreDischargeSummary;
 use App\Actions\Records\DischargeSummary\UpdateDischargeSummary;
 use App\Models\DischargeSummary;
+use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -77,5 +78,14 @@ class DischargeSummaryController extends Controller
     public function destroy(DischargeSummary $dischargeSummary)
     {
         //
+    }
+
+    public function pdf(DischargeSummary $dischargeSummary)
+    {
+        $dischargeSummary_view = DischargeSummary::findorfail($dischargeSummary->id);
+        $dischargeSummary_pdf = PDF::loadView('pdf.dischargeSummary', compact('dischargeSummary_view'))
+            ->setPaper('a4', 'portrait');
+
+        return $dischargeSummary_pdf->stream("Dsicharge Summary " . $dischargeSummary_view->id . ".pdf");
     }
 }

@@ -59,7 +59,8 @@
                                         class="editIcon hover:text-blue-300">
                                         <i class="fa-solid fa-edit"></i>
                                     </a>
-                                    <a href="" target="_blank" class="editIcon hover:text-blue-300">
+                                    <a href="{{ route('fluidIntake.pdf', $fluidIntakeData->id) }}" target="_blank"
+                                        class="editIcon hover:text-blue-300">
                                         <i class="fa-solid fa-file-pdf"></i>
                                     </a>
                                 </div>

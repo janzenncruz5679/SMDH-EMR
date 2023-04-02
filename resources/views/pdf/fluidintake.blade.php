@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ $pdf_fluidintake->fullname }} Fluid Intake Info</title>
+    <title>{{ 'Fluid Intake Info ' . $fluidIntake_view->id . '.pdf' }}</title>
     <style>
         @page {
             margin: 20px 45px;
@@ -58,7 +58,7 @@
         .name_value {
             position: absolute;
             top: 14.8%;
-            left: 7%;
+            left: 5.8%;
             font-size: 1.1rem;
 
         }
@@ -72,7 +72,7 @@
         .age_value {
             position: absolute;
             top: 14.8%;
-            left: 58%;
+            left: 57.5%;
             font-size: 1.1rem;
 
         }
@@ -86,7 +86,7 @@
         .sex_value {
             position: absolute;
             top: 14.8%;
-            left: 69.1%;
+            left: 68.2%;
             font-size: 1.1rem;
 
         }
@@ -100,7 +100,7 @@
         .ward_value {
             position: absolute;
             top: 14.8%;
-            left: 82%;
+            left: 80.8%;
             font-size: 1.1rem;
         }
 
@@ -113,7 +113,7 @@
         .bed_value {
             position: absolute;
             top: 14.8%;
-            left: 94%;
+            left: 92.8%;
             font-size: 1.1rem;
         }
 
@@ -125,7 +125,7 @@
         .diagnosis_value {
             position: absolute;
             top: 17.25%;
-            left: 11.3%;
+            left: 10.2%;
             font-size: 1.1rem;
         }
 
@@ -1549,49 +1549,49 @@
         CASE NO:_____________
     </div>
     <div class="case_value">
-        {{ $pdf_fluidintake->id }}
+        {{ $fluidIntake_view->id }}
     </div>
     <div class="name_label">
         NAME:___________________________________________________
     </div>
     <div class="name_value">
-        {{ $pdf_fluidintake->full_name }}
+        {{ $fluidIntake_view->full_name }}
     </div>
     <div class="age_label">
         AGE:_______
     </div>
     <div class="age_value">
-        {{ $pdf_fluidintake->patient_info['age'] }}
+        {{ $fluidIntake_view->patient_info['age'] }}
     </div>
     <div class="sex_label">
         SEX:_______
     </div>
     <div class="sex_value">
-        {{ $pdf_fluidintake->patient_info['gender'] }}
+        {{ $fluidIntake_view->patient_info['gender'] }}
     </div>
     <div class="ward_label">
         WARD:________
     </div>
     <div class="ward_value">
-        {{ $pdf_fluidintake->patient_info['ward'] }}
+        {{ $fluidIntake_view->patient_info['ward'] }}
     </div>
     <div class="bed_label">
         BED:________
     </div>
     <div class="bed_value">
-        {{ $pdf_fluidintake->patient_info['bed'] }}
+        {{ $fluidIntake_view->patient_info['bed'] }}
     </div>
     <div class="diagnosis_label">
         DIAGNOSIS:__________________________________________________________________________________________________
     </div>
     <div class="diagnosis_value">
-        {{ $pdf_fluidintake->patient_info['diagnosis'] }}
+        {{ $fluidIntake_view->patient_info['diagnosis'] }}
     </div>
     <div class="date_intake_label_one">
         DATE:
     </div>
     <div class="date_intake_value_one">
-        {{ $pdf_fluidintake->date_of_intake['intake_dateArray'][1] ?? '' }}
+        {{ $fluidIntake_view->date_of_intake['intake_dateArray'][1] ?? '' }}
     </div>
     <div class="intake_label_one">
         INTAKE
@@ -1667,7 +1667,7 @@
         DATE:
     </div>
     <div class="date_intake_value_two">
-        {{ $pdf_fluidintake->date_of_intake['intake_dateArray'][2] ?? '' }}
+        {{ $fluidIntake_view->date_of_intake['intake_dateArray'][2] ?? '' }}
     </div>
     <div class="intake_label_two">
         INTAKE
@@ -1743,7 +1743,7 @@
         DATE
     </div>
     <div class="date_intake_value_three">
-        {{ $pdf_fluidintake->date_of_intake['intake_dateArray'][3] ?? '' }}
+        {{ $fluidIntake_view->date_of_intake['intake_dateArray'][3] ?? '' }}
     </div>
     <div class="intake_label_three">
         INTAKE
@@ -1818,7 +1818,7 @@
         DATE
     </div>
     <div class="date_intake_value_four">
-        {{ $pdf_fluidintake->date_of_intake['intake_dateArray'][4] ?? '' }}
+        {{ $fluidIntake_view->date_of_intake['intake_dateArray'][4] ?? '' }}
     </div>
     <div class="intake_label_four">
         INTAKE
@@ -1893,7 +1893,7 @@
         DATE
     </div>
     <div class="date_intake_value_five">
-        {{ $pdf_fluidintake->date_of_intake['intake_dateArray'][5] ?? '' }}
+        {{ $fluidIntake_view->date_of_intake['intake_dateArray'][5] ?? '' }}
     </div>
     <div class="intake_label_five">
         INTAKE
@@ -2157,430 +2157,430 @@
         TOTAL
     </div>
     <div class="tbl_oralvalue_one">
-        {{ $pdf_fluidintake->oral['oralArray'][1][1] ?? '' }}
+        {{ $fluidIntake_view->oral['oralArray'][1][1] ?? '' }}
     </div>
     <div class="tbl_oralvalue_two">
-        {{ $pdf_fluidintake->oral['oralArray'][1][2] ?? '' }}
+        {{ $fluidIntake_view->oral['oralArray'][1][2] ?? '' }}
     </div>
     <div class="tbl_oralvalue_three">
-        {{ $pdf_fluidintake->oral['oralArray'][1][3] ?? '' }}
+        {{ $fluidIntake_view->oral['oralArray'][1][3] ?? '' }}
     </div>
     <div class="tbl_oralvalue_four">
-        {{ $pdf_fluidintake->oral['oralArray'][1][4] ?? '' }}
+        {{ $fluidIntake_view->oral['oralArray'][1][4] ?? '' }}
     </div>
     <div class="tbl_oralvalue_five">
-        {{ $pdf_fluidintake->oral['oralArray'][2][1] ?? '' }}
+        {{ $fluidIntake_view->oral['oralArray'][2][1] ?? '' }}
     </div>
     <div class="tbl_oralvalue_six">
-        {{ $pdf_fluidintake->oral['oralArray'][2][2] ?? '' }}
+        {{ $fluidIntake_view->oral['oralArray'][2][2] ?? '' }}
     </div>
     <div class="tbl_oralvalue_seven">
-        {{ $pdf_fluidintake->oral['oralArray'][2][3] ?? '' }}
+        {{ $fluidIntake_view->oral['oralArray'][2][3] ?? '' }}
     </div>
     <div class="tbl_oralvalue_eight">
-        {{ $pdf_fluidintake->oral['oralArray'][2][4] ?? '' }}
+        {{ $fluidIntake_view->oral['oralArray'][2][4] ?? '' }}
     </div>
     <div class="tbl_oralvalue_nine">
-        {{ $pdf_fluidintake->oral['oralArray'][3][1] ?? '' }}
+        {{ $fluidIntake_view->oral['oralArray'][3][1] ?? '' }}
     </div>
     <div class="tbl_oralvalue_ten">
-        {{ $pdf_fluidintake->oral['oralArray'][3][2] ?? '' }}
+        {{ $fluidIntake_view->oral['oralArray'][3][2] ?? '' }}
     </div>
     <div class="tbl_oralvalue_eleven">
-        {{ $pdf_fluidintake->oral['oralArray'][3][3] ?? '' }}
+        {{ $fluidIntake_view->oral['oralArray'][3][3] ?? '' }}
     </div>
     <div class="tbl_oralvalue_twelve">
-        {{ $pdf_fluidintake->oral['oralArray'][3][4] ?? '' }}
+        {{ $fluidIntake_view->oral['oralArray'][3][4] ?? '' }}
     </div>
     <div class="tbl_oralvalue_thirteen">
-        {{ $pdf_fluidintake->oral['oralArray'][4][1] ?? '' }}
+        {{ $fluidIntake_view->oral['oralArray'][4][1] ?? '' }}
     </div>
     <div class="tbl_oralvalue_fourteen">
-        {{ $pdf_fluidintake->oral['oralArray'][4][2] ?? '' }}
+        {{ $fluidIntake_view->oral['oralArray'][4][2] ?? '' }}
     </div>
     <div class="tbl_oralvalue_fifteen">
-        {{ $pdf_fluidintake->oral['oralArray'][4][3] ?? '' }}
+        {{ $fluidIntake_view->oral['oralArray'][4][3] ?? '' }}
     </div>
     <div class="tbl_oralvalue_sixteen">
-        {{ $pdf_fluidintake->oral['oralArray'][4][4] ?? '' }}
+        {{ $fluidIntake_view->oral['oralArray'][4][4] ?? '' }}
     </div>
     <div class="tbl_oralvalue_seventeen">
-        {{ $pdf_fluidintake->oral['oralArray'][5][1] ?? '' }}
+        {{ $fluidIntake_view->oral['oralArray'][5][1] ?? '' }}
     </div>
     <div class="tbl_oralvalue_eighteen">
-        {{ $pdf_fluidintake->oral['oralArray'][5][2] ?? '' }}
+        {{ $fluidIntake_view->oral['oralArray'][5][2] ?? '' }}
     </div>
     <div class="tbl_oralvalue_nineteen">
-        {{ $pdf_fluidintake->oral['oralArray'][5][3] ?? '' }}
+        {{ $fluidIntake_view->oral['oralArray'][5][3] ?? '' }}
     </div>
     <div class="tbl_oralvalue_twenty">
-        {{ $pdf_fluidintake->oral['oralArray'][5][4] ?? '' }}
+        {{ $fluidIntake_view->oral['oralArray'][5][4] ?? '' }}
     </div>
 
     <div class="tbl_parentalvalue_one">
-        {{ $pdf_fluidintake->parental['parentalArray'][1][1] ?? '' }}
+        {{ $fluidIntake_view->parental['parentalArray'][1][1] ?? '' }}
     </div>
     <div class="tbl_parentalvalue_two">
-        {{ $pdf_fluidintake->parental['parentalArray'][1][2] ?? '' }}
+        {{ $fluidIntake_view->parental['parentalArray'][1][2] ?? '' }}
     </div>
     <div class="tbl_parentalvalue_three">
-        {{ $pdf_fluidintake->parental['parentalArray'][1][3] ?? '' }}
+        {{ $fluidIntake_view->parental['parentalArray'][1][3] ?? '' }}
     </div>
     <div class="tbl_parentalvalue_four">
-        {{ $pdf_fluidintake->parental['parentalArray'][1][4] ?? '' }}
+        {{ $fluidIntake_view->parental['parentalArray'][1][4] ?? '' }}
     </div>
     <div class="tbl_parentalvalue_five">
-        {{ $pdf_fluidintake->parental['parentalArray'][2][1] ?? '' }}
+        {{ $fluidIntake_view->parental['parentalArray'][2][1] ?? '' }}
     </div>
     <div class="tbl_parentalvalue_six">
-        {{ $pdf_fluidintake->parental['parentalArray'][2][2] ?? '' }}
+        {{ $fluidIntake_view->parental['parentalArray'][2][2] ?? '' }}
     </div>
     <div class="tbl_parentalvalue_seven">
-        {{ $pdf_fluidintake->parental['parentalArray'][2][3] ?? '' }}
+        {{ $fluidIntake_view->parental['parentalArray'][2][3] ?? '' }}
     </div>
     <div class="tbl_parentalvalue_eight">
-        {{ $pdf_fluidintake->parental['parentalArray'][2][4] ?? '' }}
+        {{ $fluidIntake_view->parental['parentalArray'][2][4] ?? '' }}
     </div>
     <div class="tbl_parentalvalue_nine">
-        {{ $pdf_fluidintake->parental['parentalArray'][3][1] ?? '' }}
+        {{ $fluidIntake_view->parental['parentalArray'][3][1] ?? '' }}
     </div>
     <div class="tbl_parentalvalue_ten">
-        {{ $pdf_fluidintake->parental['parentalArray'][3][2] ?? '' }}
+        {{ $fluidIntake_view->parental['parentalArray'][3][2] ?? '' }}
     </div>
     <div class="tbl_parentalvalue_eleven">
-        {{ $pdf_fluidintake->parental['parentalArray'][3][3] ?? '' }}
+        {{ $fluidIntake_view->parental['parentalArray'][3][3] ?? '' }}
     </div>
     <div class="tbl_parentalvalue_twelve">
-        {{ $pdf_fluidintake->parental['parentalArray'][3][4] ?? '' }}
+        {{ $fluidIntake_view->parental['parentalArray'][3][4] ?? '' }}
     </div>
     <div class="tbl_parentalvalue_thirteen">
-        {{ $pdf_fluidintake->parental['parentalArray'][4][1] ?? '' }}
+        {{ $fluidIntake_view->parental['parentalArray'][4][1] ?? '' }}
     </div>
     <div class="tbl_parentalvalue_fourteen">
-        {{ $pdf_fluidintake->parental['parentalArray'][4][2] ?? '' }}
+        {{ $fluidIntake_view->parental['parentalArray'][4][2] ?? '' }}
     </div>
     <div class="tbl_parentalvalue_fifteen">
-        {{ $pdf_fluidintake->parental['parentalArray'][4][3] ?? '' }}
+        {{ $fluidIntake_view->parental['parentalArray'][4][3] ?? '' }}
     </div>
     <div class="tbl_parentalvalue_sixteen">
-        {{ $pdf_fluidintake->parental['parentalArray'][4][4] ?? '' }}
+        {{ $fluidIntake_view->parental['parentalArray'][4][4] ?? '' }}
     </div>
     <div class="tbl_parentalvalue_seventeen">
-        {{ $pdf_fluidintake->parental['parentalArray'][5][1] ?? '' }}
+        {{ $fluidIntake_view->parental['parentalArray'][5][1] ?? '' }}
     </div>
     <div class="tbl_parentalvalue_eighteen">
-        {{ $pdf_fluidintake->parental['parentalArray'][5][2] ?? '' }}
+        {{ $fluidIntake_view->parental['parentalArray'][5][2] ?? '' }}
     </div>
     <div class="tbl_parentalvalue_nineteen">
-        {{ $pdf_fluidintake->parental['parentalArray'][5][3] ?? '' }}
+        {{ $fluidIntake_view->parental['parentalArray'][5][3] ?? '' }}
     </div>
     <div class="tbl_parentalvalue_twenty">
-        {{ $pdf_fluidintake->parental['parentalArray'][5][4] ?? '' }}
+        {{ $fluidIntake_view->parental['parentalArray'][5][4] ?? '' }}
     </div>
 
     <div class="tbl_intaketotalvalue_one">
-        {{ $pdf_fluidintake->oral_parental_total['oralparentaltotalArray'][1][1] ?? '' }}
+        {{ $fluidIntake_view->oral_parental_total['oralparentaltotalArray'][1][1] ?? '' }}
     </div>
     <div class="tbl_intaketotalvalue_two">
-        {{ $pdf_fluidintake->oral_parental_total['oralparentaltotalArray'][1][2] ?? '' }}
+        {{ $fluidIntake_view->oral_parental_total['oralparentaltotalArray'][1][2] ?? '' }}
     </div>
     <div class="tbl_intaketotalvalue_three">
-        {{ $pdf_fluidintake->oral_parental_total['oralparentaltotalArray'][1][3] ?? '' }}
+        {{ $fluidIntake_view->oral_parental_total['oralparentaltotalArray'][1][3] ?? '' }}
     </div>
     <div class="tbl_intaketotalvalue_four">
-        {{ $pdf_fluidintake->oral_parental_total['oralparentaltotalArray'][1][4] ?? '' }}
+        {{ $fluidIntake_view->oral_parental_total['oralparentaltotalArray'][1][4] ?? '' }}
     </div>
     <div class="tbl_intaketotalvalue_five">
-        {{ $pdf_fluidintake->oral_parental_total['oralparentaltotalArray'][2][1] ?? '' }}
+        {{ $fluidIntake_view->oral_parental_total['oralparentaltotalArray'][2][1] ?? '' }}
     </div>
     <div class="tbl_intaketotalvalue_six">
-        {{ $pdf_fluidintake->oral_parental_total['oralparentaltotalArray'][2][2] ?? '' }}
+        {{ $fluidIntake_view->oral_parental_total['oralparentaltotalArray'][2][2] ?? '' }}
     </div>
     <div class="tbl_intaketotalvalue_seven">
-        {{ $pdf_fluidintake->oral_parental_total['oralparentaltotalArray'][2][3] ?? '' }}
+        {{ $fluidIntake_view->oral_parental_total['oralparentaltotalArray'][2][3] ?? '' }}
     </div>
     <div class="tbl_intaketotalvalue_eight">
-        {{ $pdf_fluidintake->oral_parental_total['oralparentaltotalArray'][2][4] ?? '' }}
+        {{ $fluidIntake_view->oral_parental_total['oralparentaltotalArray'][2][4] ?? '' }}
     </div>
     <div class="tbl_intaketotalvalue_nine">
-        {{ $pdf_fluidintake->oral_parental_total['oralparentaltotalArray'][3][1] ?? '' }}
+        {{ $fluidIntake_view->oral_parental_total['oralparentaltotalArray'][3][1] ?? '' }}
     </div>
     <div class="tbl_intaketotalvalue_ten">
-        {{ $pdf_fluidintake->oral_parental_total['oralparentaltotalArray'][3][2] ?? '' }}
+        {{ $fluidIntake_view->oral_parental_total['oralparentaltotalArray'][3][2] ?? '' }}
     </div>
     <div class="tbl_intaketotalvalue_eleven">
-        {{ $pdf_fluidintake->oral_parental_total['oralparentaltotalArray'][3][3] ?? '' }}
+        {{ $fluidIntake_view->oral_parental_total['oralparentaltotalArray'][3][3] ?? '' }}
     </div>
     <div class="tbl_intaketotalvalue_twelve">
-        {{ $pdf_fluidintake->oral_parental_total['oralparentaltotalArray'][3][4] ?? '' }}
+        {{ $fluidIntake_view->oral_parental_total['oralparentaltotalArray'][3][4] ?? '' }}
     </div>
     <div class="tbl_intaketotalvalue_thirteen">
-        {{ $pdf_fluidintake->oral_parental_total['oralparentaltotalArray'][4][1] ?? '' }}
+        {{ $fluidIntake_view->oral_parental_total['oralparentaltotalArray'][4][1] ?? '' }}
     </div>
     <div class="tbl_intaketotalvalue_fourteen">
-        {{ $pdf_fluidintake->oral_parental_total['oralparentaltotalArray'][4][2] ?? '' }}
+        {{ $fluidIntake_view->oral_parental_total['oralparentaltotalArray'][4][2] ?? '' }}
     </div>
     <div class="tbl_intaketotalvalue_fifteen">
-        {{ $pdf_fluidintake->oral_parental_total['oralparentaltotalArray'][4][3] ?? '' }}
+        {{ $fluidIntake_view->oral_parental_total['oralparentaltotalArray'][4][3] ?? '' }}
     </div>
     <div class="tbl_intaketotalvalue_sixteen">
-        {{ $pdf_fluidintake->oral_parental_total['oralparentaltotalArray'][4][4] ?? '' }}
+        {{ $fluidIntake_view->oral_parental_total['oralparentaltotalArray'][4][4] ?? '' }}
     </div>
     <div class="tbl_intaketotalvalue_seventeen">
-        {{ $pdf_fluidintake->oral_parental_total['oralparentaltotalArray'][5][1] ?? '' }}
+        {{ $fluidIntake_view->oral_parental_total['oralparentaltotalArray'][5][1] ?? '' }}
     </div>
     <div class="tbl_intaketotalvalue_eighteen">
-        {{ $pdf_fluidintake->oral_parental_total['oralparentaltotalArray'][5][2] ?? '' }}
+        {{ $fluidIntake_view->oral_parental_total['oralparentaltotalArray'][5][2] ?? '' }}
     </div>
     <div class="tbl_intaketotalvalue_nineteen">
-        {{ $pdf_fluidintake->oral_parental_total['oralparentaltotalArray'][5][3] ?? '' }}
+        {{ $fluidIntake_view->oral_parental_total['oralparentaltotalArray'][5][3] ?? '' }}
     </div>
     <div class="tbl_intaketotalvalue_twenty">
-        {{ $pdf_fluidintake->oral_parental_total['oralparentaltotalArray'][5][4] ?? '' }}
+        {{ $fluidIntake_view->oral_parental_total['oralparentaltotalArray'][5][4] ?? '' }}
     </div>
 
     <div class="tbl_urinevalue_one">
-        {{ $pdf_fluidintake->urine['urineArray'][1][1] ?? '' }}
+        {{ $fluidIntake_view->urine['urineArray'][1][1] ?? '' }}
     </div>
     <div class="tbl_urinevalue_two">
-        {{ $pdf_fluidintake->urine['urineArray'][1][2] ?? '' }}
+        {{ $fluidIntake_view->urine['urineArray'][1][2] ?? '' }}
     </div>
     <div class="tbl_urinevalue_three">
-        {{ $pdf_fluidintake->urine['urineArray'][1][3] ?? '' }}
+        {{ $fluidIntake_view->urine['urineArray'][1][3] ?? '' }}
     </div>
     <div class="tbl_urinevalue_four">
-        {{ $pdf_fluidintake->urine['urineArray'][1][4] ?? '' }}
+        {{ $fluidIntake_view->urine['urineArray'][1][4] ?? '' }}
     </div>
     <div class="tbl_urinevalue_five">
-        {{ $pdf_fluidintake->urine['urineArray'][2][1] ?? '' }}
+        {{ $fluidIntake_view->urine['urineArray'][2][1] ?? '' }}
     </div>
     <div class="tbl_urinevalue_six">
-        {{ $pdf_fluidintake->urine['urineArray'][2][2] ?? '' }}
+        {{ $fluidIntake_view->urine['urineArray'][2][2] ?? '' }}
     </div>
     <div class="tbl_urinevalue_seven">
-        {{ $pdf_fluidintake->urine['urineArray'][2][3] ?? '' }}
+        {{ $fluidIntake_view->urine['urineArray'][2][3] ?? '' }}
     </div>
     <div class="tbl_urinevalue_eight">
-        {{ $pdf_fluidintake->urine['urineArray'][2][4] ?? '' }}
+        {{ $fluidIntake_view->urine['urineArray'][2][4] ?? '' }}
     </div>
     <div class="tbl_urinevalue_nine">
-        {{ $pdf_fluidintake->urine['urineArray'][3][1] ?? '' }}
+        {{ $fluidIntake_view->urine['urineArray'][3][1] ?? '' }}
     </div>
     <div class="tbl_urinevalue_ten">
-        {{ $pdf_fluidintake->urine['urineArray'][3][2] ?? '' }}
+        {{ $fluidIntake_view->urine['urineArray'][3][2] ?? '' }}
     </div>
     <div class="tbl_urinevalue_eleven">
-        {{ $pdf_fluidintake->urine['urineArray'][3][3] ?? '' }}
+        {{ $fluidIntake_view->urine['urineArray'][3][3] ?? '' }}
     </div>
     <div class="tbl_urinevalue_twelve">
-        {{ $pdf_fluidintake->urine['urineArray'][3][4] ?? '' }}
+        {{ $fluidIntake_view->urine['urineArray'][3][4] ?? '' }}
     </div>
     <div class="tbl_urinevalue_thirteen">
-        {{ $pdf_fluidintake->urine['urineArray'][4][1] ?? '' }}
+        {{ $fluidIntake_view->urine['urineArray'][4][1] ?? '' }}
     </div>
     <div class="tbl_urinevalue_fourteen">
-        {{ $pdf_fluidintake->urine['urineArray'][4][2] ?? '' }}
+        {{ $fluidIntake_view->urine['urineArray'][4][2] ?? '' }}
     </div>
     <div class="tbl_urinevalue_fifteen">
-        {{ $pdf_fluidintake->urine['urineArray'][4][3] ?? '' }}
+        {{ $fluidIntake_view->urine['urineArray'][4][3] ?? '' }}
     </div>
     <div class="tbl_urinevalue_sixteen">
-        {{ $pdf_fluidintake->urine['urineArray'][4][4] ?? '' }}
+        {{ $fluidIntake_view->urine['urineArray'][4][4] ?? '' }}
     </div>
     <div class="tbl_urinevalue_seventeen">
-        {{ $pdf_fluidintake->urine['urineArray'][5][1] ?? '' }}
+        {{ $fluidIntake_view->urine['urineArray'][5][1] ?? '' }}
     </div>
     <div class="tbl_urinevalue_eighteen">
-        {{ $pdf_fluidintake->urine['urineArray'][5][2] ?? '' }}
+        {{ $fluidIntake_view->urine['urineArray'][5][2] ?? '' }}
     </div>
     <div class="tbl_urinevalue_nineteen">
-        {{ $pdf_fluidintake->urine['urineArray'][5][3] ?? '' }}
+        {{ $fluidIntake_view->urine['urineArray'][5][3] ?? '' }}
     </div>
     <div class="tbl_urinevalue_twenty">
-        {{ $pdf_fluidintake->urine['urineArray'][5][4] ?? '' }}
+        {{ $fluidIntake_view->urine['urineArray'][5][4] ?? '' }}
     </div>
 
     <div class="tbl_drainagevalue_one">
-        {{ $pdf_fluidintake->drainage['drainageArray'][1][1] ?? '' }}
+        {{ $fluidIntake_view->drainage['drainageArray'][1][1] ?? '' }}
     </div>
     <div class="tbl_drainagevalue_two">
-        {{ $pdf_fluidintake->drainage['drainageArray'][1][2] ?? '' }}
+        {{ $fluidIntake_view->drainage['drainageArray'][1][2] ?? '' }}
     </div>
     <div class="tbl_drainagevalue_three">
-        {{ $pdf_fluidintake->drainage['drainageArray'][1][3] ?? '' }}
+        {{ $fluidIntake_view->drainage['drainageArray'][1][3] ?? '' }}
     </div>
     <div class="tbl_drainagevalue_four">
-        {{ $pdf_fluidintake->drainage['drainageArray'][1][4] ?? '' }}
+        {{ $fluidIntake_view->drainage['drainageArray'][1][4] ?? '' }}
     </div>
     <div class="tbl_drainagevalue_five">
-        {{ $pdf_fluidintake->drainage['drainageArray'][2][1] ?? '' }}
+        {{ $fluidIntake_view->drainage['drainageArray'][2][1] ?? '' }}
     </div>
     <div class="tbl_drainagevalue_six">
-        {{ $pdf_fluidintake->drainage['drainageArray'][2][2] ?? '' }}
+        {{ $fluidIntake_view->drainage['drainageArray'][2][2] ?? '' }}
     </div>
     <div class="tbl_drainagevalue_seven">
-        {{ $pdf_fluidintake->drainage['drainageArray'][2][3] ?? '' }}
+        {{ $fluidIntake_view->drainage['drainageArray'][2][3] ?? '' }}
     </div>
     <div class="tbl_drainagevalue_eight">
-        {{ $pdf_fluidintake->drainage['drainageArray'][2][4] ?? '' }}
+        {{ $fluidIntake_view->drainage['drainageArray'][2][4] ?? '' }}
     </div>
     <div class="tbl_drainagevalue_nine">
-        {{ $pdf_fluidintake->drainage['drainageArray'][3][1] ?? '' }}
+        {{ $fluidIntake_view->drainage['drainageArray'][3][1] ?? '' }}
     </div>
     <div class="tbl_drainagevalue_ten">
-        {{ $pdf_fluidintake->drainage['drainageArray'][3][2] ?? '' }}
+        {{ $fluidIntake_view->drainage['drainageArray'][3][2] ?? '' }}
     </div>
     <div class="tbl_drainagevalue_eleven">
-        {{ $pdf_fluidintake->drainage['drainageArray'][3][3] ?? '' }}
+        {{ $fluidIntake_view->drainage['drainageArray'][3][3] ?? '' }}
     </div>
     <div class="tbl_drainagevalue_twelve">
-        {{ $pdf_fluidintake->drainage['drainageArray'][3][4] ?? '' }}
+        {{ $fluidIntake_view->drainage['drainageArray'][3][4] ?? '' }}
     </div>
     <div class="tbl_drainagevalue_thirteen">
-        {{ $pdf_fluidintake->drainage['drainageArray'][4][1] ?? '' }}
+        {{ $fluidIntake_view->drainage['drainageArray'][4][1] ?? '' }}
     </div>
     <div class="tbl_drainagevalue_fourteen">
-        {{ $pdf_fluidintake->drainage['drainageArray'][4][2] ?? '' }}
+        {{ $fluidIntake_view->drainage['drainageArray'][4][2] ?? '' }}
     </div>
     <div class="tbl_drainagevalue_fifteen">
-        {{ $pdf_fluidintake->drainage['drainageArray'][4][3] ?? '' }}
+        {{ $fluidIntake_view->drainage['drainageArray'][4][3] ?? '' }}
     </div>
     <div class="tbl_drainagevalue_sixteen">
-        {{ $pdf_fluidintake->drainage['drainageArray'][4][4] ?? '' }}
+        {{ $fluidIntake_view->drainage['drainageArray'][4][4] ?? '' }}
     </div>
     <div class="tbl_drainagevalue_seventeen">
-        {{ $pdf_fluidintake->drainage['drainageArray'][5][1] ?? '' }}
+        {{ $fluidIntake_view->drainage['drainageArray'][5][1] ?? '' }}
     </div>
     <div class="tbl_drainagevalue_eighteen">
-        {{ $pdf_fluidintake->drainage['drainageArray'][5][2] ?? '' }}
+        {{ $fluidIntake_view->drainage['drainageArray'][5][2] ?? '' }}
     </div>
     <div class="tbl_drainagevalue_nineteen">
-        {{ $pdf_fluidintake->drainage['drainageArray'][5][3] ?? '' }}
+        {{ $fluidIntake_view->drainage['drainageArray'][5][3] ?? '' }}
     </div>
     <div class="tbl_drainagevalue_twenty">
-        {{ $pdf_fluidintake->drainage['drainageArray'][5][4] ?? '' }}
+        {{ $fluidIntake_view->drainage['drainageArray'][5][4] ?? '' }}
     </div>
 
     <div class="tbl_othersvalue_one">
-        {{ $pdf_fluidintake->others['othersArray'][1][1] ?? '' }}
+        {{ $fluidIntake_view->others['othersArray'][1][1] ?? '' }}
     </div>
     <div class="tbl_othersvalue_two">
-        {{ $pdf_fluidintake->others['othersArray'][1][2] ?? '' }}
+        {{ $fluidIntake_view->others['othersArray'][1][2] ?? '' }}
     </div>
     <div class="tbl_othersvalue_three">
-        {{ $pdf_fluidintake->others['othersArray'][1][3] ?? '' }}
+        {{ $fluidIntake_view->others['othersArray'][1][3] ?? '' }}
     </div>
     <div class="tbl_othersvalue_four">
-        {{ $pdf_fluidintake->others['othersArray'][1][4] ?? '' }}
+        {{ $fluidIntake_view->others['othersArray'][1][4] ?? '' }}
     </div>
     <div class="tbl_othersvalue_five">
-        {{ $pdf_fluidintake->others['othersArray'][2][1] ?? '' }}
+        {{ $fluidIntake_view->others['othersArray'][2][1] ?? '' }}
     </div>
     <div class="tbl_othersvalue_six">
-        {{ $pdf_fluidintake->others['othersArray'][2][2] ?? '' }}
+        {{ $fluidIntake_view->others['othersArray'][2][2] ?? '' }}
     </div>
     <div class="tbl_othersvalue_seven">
-        {{ $pdf_fluidintake->others['othersArray'][2][3] ?? '' }}
+        {{ $fluidIntake_view->others['othersArray'][2][3] ?? '' }}
     </div>
     <div class="tbl_othersvalue_eight">
-        {{ $pdf_fluidintake->others['othersArray'][2][4] ?? '' }}
+        {{ $fluidIntake_view->others['othersArray'][2][4] ?? '' }}
     </div>
     <div class="tbl_othersvalue_nine">
-        {{ $pdf_fluidintake->others['othersArray'][3][1] ?? '' }}
+        {{ $fluidIntake_view->others['othersArray'][3][1] ?? '' }}
     </div>
     <div class="tbl_othersvalue_ten">
-        {{ $pdf_fluidintake->others['othersArray'][3][2] ?? '' }}
+        {{ $fluidIntake_view->others['othersArray'][3][2] ?? '' }}
     </div>
     <div class="tbl_othersvalue_eleven">
-        {{ $pdf_fluidintake->others['othersArray'][3][3] ?? '' }}
+        {{ $fluidIntake_view->others['othersArray'][3][3] ?? '' }}
     </div>
     <div class="tbl_othersvalue_twelve">
-        {{ $pdf_fluidintake->others['othersArray'][3][4] ?? '' }}
+        {{ $fluidIntake_view->others['othersArray'][3][4] ?? '' }}
     </div>
     <div class="tbl_othersvalue_thirteen">
-        {{ $pdf_fluidintake->others['othersArray'][4][1] ?? '' }}
+        {{ $fluidIntake_view->others['othersArray'][4][1] ?? '' }}
     </div>
     <div class="tbl_othersvalue_fourteen">
-        {{ $pdf_fluidintake->others['othersArray'][4][2] ?? '' }}
+        {{ $fluidIntake_view->others['othersArray'][4][2] ?? '' }}
     </div>
     <div class="tbl_othersvalue_fifteen">
-        {{ $pdf_fluidintake->others['othersArray'][4][3] ?? '' }}
+        {{ $fluidIntake_view->others['othersArray'][4][3] ?? '' }}
     </div>
     <div class="tbl_othersvalue_sixteen">
-        {{ $pdf_fluidintake->others['othersArray'][4][4] ?? '' }}
+        {{ $fluidIntake_view->others['othersArray'][4][4] ?? '' }}
     </div>
     <div class="tbl_othersvalue_seventeen">
-        {{ $pdf_fluidintake->others['othersArray'][5][1] ?? '' }}
+        {{ $fluidIntake_view->others['othersArray'][5][1] ?? '' }}
     </div>
     <div class="tbl_othersvalue_eighteen">
-        {{ $pdf_fluidintake->others['othersArray'][5][2] ?? '' }}
+        {{ $fluidIntake_view->others['othersArray'][5][2] ?? '' }}
     </div>
     <div class="tbl_othersvalue_nineteen">
-        {{ $pdf_fluidintake->others['othersArray'][5][3] ?? '' }}
+        {{ $fluidIntake_view->others['othersArray'][5][3] ?? '' }}
     </div>
     <div class="tbl_othersvalue_twenty">
-        {{ $pdf_fluidintake->others['othersArray'][5][4] ?? '' }}
+        {{ $fluidIntake_view->others['othersArray'][5][4] ?? '' }}
     </div>
 
     <div class="tbl_secondtotalvalue_one">
-        {{ $pdf_fluidintake->urine_drainage_others_total['urinedrainageotherstotalArray'][1][1] ?? '' }}
+        {{ $fluidIntake_view->urine_drainage_others_total['urinedrainageotherstotalArray'][1][1] ?? '' }}
     </div>
     <div class="tbl_secondtotalvalue_two">
-        {{ $pdf_fluidintake->urine_drainage_others_total['urinedrainageotherstotalArray'][1][2] ?? '' }}
+        {{ $fluidIntake_view->urine_drainage_others_total['urinedrainageotherstotalArray'][1][2] ?? '' }}
     </div>
     <div class="tbl_secondtotalvalue_three">
-        {{ $pdf_fluidintake->urine_drainage_others_total['urinedrainageotherstotalArray'][1][3] ?? '' }}
+        {{ $fluidIntake_view->urine_drainage_others_total['urinedrainageotherstotalArray'][1][3] ?? '' }}
     </div>
     <div class="tbl_secondtotalvalue_four">
-        {{ $pdf_fluidintake->urine_drainage_others_total['urinedrainageotherstotalArray'][1][4] ?? '' }}
+        {{ $fluidIntake_view->urine_drainage_others_total['urinedrainageotherstotalArray'][1][4] ?? '' }}
     </div>
     <div class="tbl_secondtotalvalue_five">
-        {{ $pdf_fluidintake->urine_drainage_others_total['urinedrainageotherstotalArray'][2][1] ?? '' }}
+        {{ $fluidIntake_view->urine_drainage_others_total['urinedrainageotherstotalArray'][2][1] ?? '' }}
     </div>
     <div class="tbl_secondtotalvalue_six">
-        {{ $pdf_fluidintake->urine_drainage_others_total['urinedrainageotherstotalArray'][2][2] ?? '' }}
+        {{ $fluidIntake_view->urine_drainage_others_total['urinedrainageotherstotalArray'][2][2] ?? '' }}
     </div>
     <div class="tbl_secondtotalvalue_seven">
-        {{ $pdf_fluidintake->urine_drainage_others_total['urinedrainageotherstotalArray'][2][3] ?? '' }}
+        {{ $fluidIntake_view->urine_drainage_others_total['urinedrainageotherstotalArray'][2][3] ?? '' }}
     </div>
     <div class="tbl_secondtotalvalue_eight">
-        {{ $pdf_fluidintake->urine_drainage_others_total['urinedrainageotherstotalArray'][2][4] ?? '' }}
+        {{ $fluidIntake_view->urine_drainage_others_total['urinedrainageotherstotalArray'][2][4] ?? '' }}
     </div>
     <div class="tbl_secondtotalvalue_nine">
-        {{ $pdf_fluidintake->urine_drainage_others_total['urinedrainageotherstotalArray'][3][1] ?? '' }}
+        {{ $fluidIntake_view->urine_drainage_others_total['urinedrainageotherstotalArray'][3][1] ?? '' }}
     </div>
     <div class="tbl_secondtotalvalue_ten">
-        {{ $pdf_fluidintake->urine_drainage_others_total['urinedrainageotherstotalArray'][3][2] ?? '' }}
+        {{ $fluidIntake_view->urine_drainage_others_total['urinedrainageotherstotalArray'][3][2] ?? '' }}
     </div>
     <div class="tbl_secondtotalvalue_eleven">
-        {{ $pdf_fluidintake->urine_drainage_others_total['urinedrainageotherstotalArray'][3][3] ?? '' }}
+        {{ $fluidIntake_view->urine_drainage_others_total['urinedrainageotherstotalArray'][3][3] ?? '' }}
     </div>
     <div class="tbl_secondtotalvalue_twelve">
-        {{ $pdf_fluidintake->urine_drainage_others_total['urinedrainageotherstotalArray'][3][4] ?? '' }}
+        {{ $fluidIntake_view->urine_drainage_others_total['urinedrainageotherstotalArray'][3][4] ?? '' }}
     </div>
     <div class="tbl_secondtotalvalue_thirteen">
-        {{ $pdf_fluidintake->urine_drainage_others_total['urinedrainageotherstotalArray'][4][1] ?? '' }}
+        {{ $fluidIntake_view->urine_drainage_others_total['urinedrainageotherstotalArray'][4][1] ?? '' }}
     </div>
     <div class="tbl_secondtotalvalue_fourteen">
-        {{ $pdf_fluidintake->urine_drainage_others_total['urinedrainageotherstotalArray'][4][2] ?? '' }}
+        {{ $fluidIntake_view->urine_drainage_others_total['urinedrainageotherstotalArray'][4][2] ?? '' }}
     </div>
     <div class="tbl_secondtotalvalue_fifteen">
-        {{ $pdf_fluidintake->urine_drainage_others_total['urinedrainageotherstotalArray'][4][3] ?? '' }}
+        {{ $fluidIntake_view->urine_drainage_others_total['urinedrainageotherstotalArray'][4][3] ?? '' }}
     </div>
     <div class="tbl_secondtotalvalue_sixteen">
-        {{ $pdf_fluidintake->urine_drainage_others_total['urinedrainageotherstotalArray'][4][4] ?? '' }}
+        {{ $fluidIntake_view->urine_drainage_others_total['urinedrainageotherstotalArray'][4][4] ?? '' }}
     </div>
     <div class="tbl_secondtotalvalue_seventeen">
-        {{ $pdf_fluidintake->urine_drainage_others_total['urinedrainageotherstotalArray'][5][1] ?? '' }}
+        {{ $fluidIntake_view->urine_drainage_others_total['urinedrainageotherstotalArray'][5][1] ?? '' }}
     </div>
     <div class="tbl_secondtotalvalue_eighteen">
-        {{ $pdf_fluidintake->urine_drainage_others_total['urinedrainageotherstotalArray'][5][2] ?? '' }}
+        {{ $fluidIntake_view->urine_drainage_others_total['urinedrainageotherstotalArray'][5][2] ?? '' }}
     </div>
     <div class="tbl_secondtotalvalue_nineteen">
-        {{ $pdf_fluidintake->urine_drainage_others_total['urinedrainageotherstotalArray'][5][3] ?? '' }}
+        {{ $fluidIntake_view->urine_drainage_others_total['urinedrainageotherstotalArray'][5][3] ?? '' }}
     </div>
     <div class="tbl_secondtotalvalue_twenty">
-        {{ $pdf_fluidintake->urine_drainage_others_total['urinedrainageotherstotalArray'][5][4] ?? '' }}
+        {{ $fluidIntake_view->urine_drainage_others_total['urinedrainageotherstotalArray'][5][4] ?? '' }}
     </div>
 
 </body>

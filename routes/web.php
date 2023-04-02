@@ -4,6 +4,7 @@ use App\Http\Controllers\AdmissionController;
 use App\Http\Controllers\AdmissionsController;
 use App\Http\Controllers\BillingController;
 use App\Http\Controllers\DischargeSummaryController;
+use App\Http\Controllers\DischargeSummaryHistoryController;
 use App\Http\Controllers\EmergencyController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PatientController;
@@ -143,6 +144,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('dischargeSummary/search', [DischargeSummaryController::class, 'searchDischargeSummary'])->name('dischargeSummary.searchDischargeSummary');
     Route::get('dischargeSummary/pdf{dischargeSummary}', [DischargeSummaryController::class, 'pdf'])->name('dischargeSummary.pdf');
     Route::resource('dischargeSummary', DischargeSummaryController::class);
+    Route::resource('dischargeSummaryHistory', DischargeSummaryHistoryController::class);
 
     Route::post('fluidIntake/search', [FluidIntakeController::class, 'searchFluidIntake'])->name('fluidIntake.searchFluidIntake');
     Route::get('fluidIntake/pdf{fluidIntake}', [FluidIntakeController::class, 'pdf'])->name('fluidIntake.pdf');

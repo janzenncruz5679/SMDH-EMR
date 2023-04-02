@@ -23,6 +23,17 @@ class FluidIntakeController extends Controller
         return view('user.records.fluidIntake.index', compact('fluidIntake'));
     }
 
+    public function searchFluidIntake(Request $request)
+    {
+        $fluidIntake = FluidIntake::all();
+        if ($request->keyword != '') {
+            $fluidIntake = FluidIntake::where('full_name', 'LIKE', '%' . $request->keyword . '%')->get();
+        }
+        return response()->json([
+            'fluidIntake' => $fluidIntake
+        ]);
+    }
+
 
     public function create()
     {

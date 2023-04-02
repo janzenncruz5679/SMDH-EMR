@@ -144,6 +144,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('dischargeSummary/pdf{dischargeSummary}', [DischargeSummaryController::class, 'pdf'])->name('dischargeSummary.pdf');
     Route::resource('dischargeSummary', DischargeSummaryController::class);
 
+    Route::post('fluidIntake/search', [FluidIntakeController::class, 'searchFluidIntake'])->name('fluidIntake.searchFluidIntake');
     Route::get('fluidIntake/pdf{fluidIntake}', [FluidIntakeController::class, 'pdf'])->name('fluidIntake.pdf');
     Route::resource('fluidIntake', FluidIntakeController::class);
 });

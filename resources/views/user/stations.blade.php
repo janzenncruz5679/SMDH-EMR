@@ -21,7 +21,7 @@
                                 fontAwesomeIcon="fa-solid fa-heart-pulse" />
                         </div> --}}
                         <div class="">
-                            <x-menu-card :url="route('fluidIntake')" text="Fluid Intake" fontAwesomeIcon="fa-solid fa-syringe" />
+                            <x-menu-card :url="route('fluidIntake.index')" text="Fluid Intake" fontAwesomeIcon="fa-solid fa-syringe" />
                         </div>
                         {{-- <div class="">
                             <x-menu-card :url="route('kardex')" text="Kardex" fontAwesomeIcon="fa-solid fa-notes-medical" />

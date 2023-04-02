@@ -72,11 +72,7 @@ Route::middleware(['auth'])->group(function () {
     ////physicianOrder view
     Route::get('stations/labOptions/physicianOrder', [PhysicianOrderController::class, 'physicianOrderview'])->name('physicianOrder');
     ////fluidIntake view
-    Route::get('stations/labOptions/fluidIntake', [FluidIntakeController::class, 'fluidIntakeview'])->name('fluidIntake');
-    ////fluidIntake view
     Route::get('stations/labOptions/Kardex', [KardexController::class, 'kardexview'])->name('kardex');
-
-
 
 
     ///////////////emergency patients section
@@ -96,10 +92,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/records/addPhysicianOrder', [PhysicianOrderController::class, 'addPhysicianOrder'])->name('addPhysicianOrder');
     Route::post('/records/submitPhysicianOrder', [PhysicianOrderController::class, 'submit_addPhysicianOrder'])->name('submit_addPhysicianOrder');
     Route::get('/records/viewPhysicianOrder{id}', [PhysicianOrderController::class, 'viewPhysicianOrder'])->name('viewPhysicianOrder');
-    ////////fluid_intake_add_and_view
-    Route::get('/records/addFluidIntake', [FluidIntakeController::class, 'addFluidIntake'])->name('addFluidIntake');
-    Route::post('/records/submitFluidIntake', [FluidIntakeController::class, 'submit_addFluidIntake'])->name('submit_addFluidIntake');
-    Route::get('/records/viewFluidIntake{id}', [FluidIntakeController::class, 'viewFluidIntake'])->name('viewFluidIntake');
     ////////kardex_add_and_view
     Route::get('/records/addKardex', [KardexController::class, 'addKardex'])->name('addKardex');
     Route::post('/records/submitKardex', [KardexController::class, 'submit_addKardex'])->name('submit_addKardex');
@@ -107,17 +99,9 @@ Route::middleware(['auth'])->group(function () {
 
 
 
-
-    //nurseNotes view pdf
-    Route::get('/records/pdfFluidIntake{id}', [FluidIntakeController::class, 'viewpdfFluidIntake'])->name('viewpdfFluidIntake');
-
-
     //physician_order update data from db
     Route::get('/records/updatePhysicianOrder{id}', [PhysicianOrderController::class, 'updatePhysicianOrder'])->name('updatePhysicianOrder');
     Route::post('/records/editPhysicianOrder{id}', [PhysicianOrderController::class, 'editPhysicianOrder'])->name('editPhysicianOrder');
-    //fluid_intake update data from db
-    Route::get('/records/updateFluidIntake{id}', [FluidIntakeController::class, 'updateFluidIntake'])->name('updateFluidIntake');
-    Route::post('/records/editFluidIntake{id}', [FluidIntakeController::class, 'editFluidIntake'])->name('editFluidIntake');
     //fluid_intake update data from db
     Route::get('/records/updateKardex{id}', [KardexController::class, 'updateKardex'])->name('updateKardex');
     Route::post('/records/editKardex{id}', [KardexController::class, 'editKardex'])->name('editKardex');
@@ -159,4 +143,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('dischargeSummary/search', [DischargeSummaryController::class, 'searchDischargeSummary'])->name('dischargeSummary.searchDischargeSummary');
     Route::get('dischargeSummary/pdf{dischargeSummary}', [DischargeSummaryController::class, 'pdf'])->name('dischargeSummary.pdf');
     Route::resource('dischargeSummary', DischargeSummaryController::class);
+
+    Route::resource('fluidIntake', FluidIntakeController::class);
 });

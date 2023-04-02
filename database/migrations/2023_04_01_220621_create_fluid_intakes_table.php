@@ -48,6 +48,7 @@ return new class extends Migration
 
             $table->longText('overall_total')->nullable();
             $table->timestamps();
+            $table->timestamps();
         });
     }
 

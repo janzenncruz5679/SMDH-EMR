@@ -28,7 +28,7 @@
                 <div class="addpatientBar h-full w-full flex items-center justify-end">
                     <button
                         class="btnAddpatient h-full w-48 text-[1.5rem] bg-blue-300 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-100"><a
-                            href="{{ route('addFluidIntake') }}">
+                            href="{{ route('fluidIntake.create') }}">
                             <label class="hover:text-zinc-900">{{ __('Add Intake') }}</label>
                         </a></button>
                 </div>
@@ -42,25 +42,24 @@
                         <th class="col-span-2 flex justify-center">Gender</th>
                         <th class="col-span-2 flex justify-center">Actions</th>
                     </tr>
-                    @foreach ($fluidintakeDatas as $fluidintakeData)
+                    @foreach ($fluidIntake as $fluidIntakeData)
                         <tr class="grid grid-cols-12 even:bg-gray-200 odd:bg-white text-xl">
-                            <td class="flex justify-center">{{ $fluidintakeData->id }}</td>
-                            <td class="col-span-5 flex justify-center">{{ $fluidintakeData->full_name }}</td>
-                            <td class="col-span-2 flex justify-center">{{ $fluidintakeData->patient_info['age'] }}</td>
-                            <td class="col-span-2 flex justify-center">{{ $fluidintakeData->patient_info['gender'] }}
+                            <td class="flex justify-center">{{ $fluidIntakeData->id }}</td>
+                            <td class="col-span-5 flex justify-center">{{ $fluidIntakeData->full_name }}</td>
+                            <td class="col-span-2 flex justify-center">{{ $fluidIntakeData->patient_info['age'] }}</td>
+                            <td class="col-span-2 flex justify-center">{{ $fluidIntakeData->patient_info['gender'] }}
                             </td>
                             <td class="col-span-2 flex justify-center">
                                 <div class="grid grid-cols-3 justify-center gap-4">
-                                    <a href="{{ route('viewFluidIntake', ['id' => $fluidintakeData->id]) }}"
+                                    <a href="{{ route('fluidIntake.show', $fluidIntakeData->id) }}"
                                         class="editIcon hover:text-blue-300">
                                         <i class="fa-solid fa-eye"></i>
                                     </a>
-                                    <a href="{{ route('updateFluidIntake', ['id' => $fluidintakeData->id]) }}"
+                                    <a href="{{ route('fluidIntake.edit', $fluidIntakeData->id) }}"
                                         class="editIcon hover:text-blue-300">
                                         <i class="fa-solid fa-edit"></i>
                                     </a>
-                                    <a href="{{ route('viewpdfFluidIntake', ['id' => $fluidintakeData->id]) }}"
-                                        target="_blank" class="editIcon hover:text-blue-300">
+                                    <a href="" target="_blank" class="editIcon hover:text-blue-300">
                                         <i class="fa-solid fa-file-pdf"></i>
                                     </a>
                                 </div>
@@ -71,7 +70,7 @@
             </div>
         </div>
         <div class="inset-y-0 right-0 left-[275px] flex justify-center">
-            {{ $fluidintakeDatas->links('pagination::custom_tailwind') }}
+            {{ $fluidIntake->links('pagination::custom_tailwind') }}
         </div>
     </div>
 @endsection

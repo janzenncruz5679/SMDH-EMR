@@ -2,159 +2,78 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\Records\FluidIntake\StoreFluidIntake;
+use App\Actions\Records\FluidIntake\UpdateFluidIntake;
 use App\Models\FluidIntake;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use PDF;
 
 class FluidIntakeController extends Controller
 {
-    public function fluidIntakeview()
-    {
-        $fluidintakeDatas = FluidIntake::query()->paginate(20);
-        return view(
-            'user.stationSection.fluid_intake_view.fluidIntake',
-            [
-                'fluidintakeDatas' => $fluidintakeDatas,
-            ]
-        );
-    }
-    public function addFluidIntake()
-    {
-        return view('user.stationSection.fluid_intake_view.addFluidIntake');
+    public function __construct(
+        private StoreFluidIntake $storeFluidIntake,
+        private UpdateFluidIntake $updateFluidIntake,
+    ) {
     }
 
-    public function submit_addFluidIntake(Request $request)
+    public function index()
     {
-        // dd($request->toArray());
-        FluidIntake::create([
-            'full_name' => $request->full_name,
-            'last_name' => $request->last_name,
-            'first_name' => $request->first_name,
-            'middle_name' => $request->middle_name,
-            'suffix' => $request->suffix,
-
-            'patient_info' => [
-                'gender' => $request->gender,
-                'age' => $request->age,
-                'ward' => $request->ward,
-                'bed' => $request->bed,
-                'diagnosis' => $request->diagnosis,
-            ],
-            'date_of_intake' => [
-                'intake_dateArray' => $request->intake_dateArray,
-            ],
-            'intake' => [
-                'intakeArray' => $request->intakeArray,
-            ],
-            'oral' => [
-                'oralArray' => $request->oralArray,
-            ],
-            'parental' => [
-                'parentalArray' => $request->parentalArray,
-            ],
-            'oral_parental_total' => [
-                'oralparentaltotalArray' => $request->oralparentaltotalArray,
-            ],
-            'urine' => [
-                'urineArray' => $request->urineArray,
-            ],
-            'drainage' => [
-                'drainageArray' => $request->drainageArray,
-            ],
-            'others' => [
-                'othersArray' => $request->othersArray,
-            ],
-            'urine_drainage_others_total' => [
-                'urinedrainageotherstotalArray' => $request->urinedrainageotherstotalArray,
-            ],
-        ]);
-
-        return redirect()->route('fluidIntake');
+        $fluidIntake = FluidIntake::all()->paginate(10);
+        return view('user.records.fluidIntake.index', compact('fluidIntake'));
     }
 
-    public function viewFluidIntake($id)
+
+    public function create()
     {
-        $fluidintakes = FluidIntake::find($id);
-        // dd($fluidintakes->toArray());
-        return view('user.stationSection.fluid_intake_view.infoFluidIntake', [
-            'fluidintakes' => $fluidintakes,
-        ]);
+        return view('user.records.fluidIntake.create');
     }
 
-    public function updateFluidIntake($id)
-    {
-        $fluidintakes = FluidIntake::find($id);
-        // dd($nursenotes->toArray());
-        return view('user.stationSection.fluid_intake_view.updateFluidIntake', [
-            'fluidintakes' => $fluidintakes,
-        ]);
-    }
 
-    public function editFluidIntake(Request $request, $id)
+    public function store(Request $request)
     {
-        // dd($request->toArray());
         try {
             DB::beginTransaction();
-            FluidIntake::where('id', $id)->update([
-                'full_name' => $request->full_name,
-                'last_name' => $request->last_name,
-                'first_name' => $request->first_name,
-                'middle_name' => $request->middle_name,
-                'suffix' => $request->suffix,
-
-                'patient_info' => [
-                    'gender' => $request->gender,
-                    'age' => $request->age,
-                    'ward' => $request->ward,
-                    'bed' => $request->bed,
-                    'diagnosis' => $request->diagnosis,
-                ],
-                'date_of_intake' => [
-                    'intake_dateArray' => $request->intake_dateArray,
-                ],
-                'intake' => [
-                    'intakeArray' => $request->intakeArray,
-                ],
-                'oral' => [
-                    'oralArray' => $request->oralArray,
-                ],
-                'parental' => [
-                    'parentalArray' => $request->parentalArray,
-                ],
-                'oral_parental_total' => [
-                    'oralparentaltotalArray' => $request->oralparentaltotalArray,
-                ],
-                'urine' => [
-                    'urineArray' => $request->urineArray,
-                ],
-                'drainage' => [
-                    'drainageArray' => $request->drainageArray,
-                ],
-                'others' => [
-                    'othersArray' => $request->othersArray,
-                ],
-                'urine_drainage_others_total' => [
-                    'urinedrainageotherstotalArray' => $request->urinedrainageotherstotalArray,
-                ],
-            ]);
+            $add = $this->storeFluidIntake->handle($request);
+            // dd($add);
             DB::commit();
-        } catch (\Throwable $th) {
+            return redirect()->route('fluidIntake.index');
+        } catch (\Exception $err) {
             DB::rollBack();
-            dd($th);
-            return redirect()->back()->withErrors($th);
+            dd($err);
+            return redirect()->back()->withErrors($err->getMessage());
         }
-
-        return redirect()->route('fluidIntake');
     }
 
-    public function viewpdfFluidIntake($id)
-    {
-        $pdf_fluidintake = FluidIntake::find($id);
-        $fluid_pdf = PDF::loadView('user.stationSection.fluid_intake_view.pdfFluidIntake', [
-            'pdf_fluidintake' => $pdf_fluidintake,
-        ])->setPaper('a4', 'portrait');
 
-        return $fluid_pdf->stream($pdf_fluidintake->full_name . " Fluid Intake" . ".pdf");
+    public function show(FluidIntake $fluidIntake)
+    {
+        return view('user.records.fluidIntake.show', compact('fluidIntake'));
+    }
+
+
+    public function edit(FluidIntake $fluidIntake)
+    {
+        return view('user.records.fluidIntake.edit', compact('fluidIntake'));
+    }
+
+
+    public function update(Request $request, FluidIntake $fluidIntake)
+    {
+        try {
+            DB::beginTransaction();
+            $update = $this->updateFluidIntake->handle($request, $fluidIntake);
+            // dd($update);
+            DB::commit();
+            return redirect()->route('fluidIntake.index');
+        } catch (\Exception $err) {
+            DB::rollBack();
+            dd($err);
+            return redirect()->back()->withErrors($err->getMessage());
+        }
+    }
+
+    public function destroy(FluidIntake $fluidIntake)
+    {
+        //
     }
 }

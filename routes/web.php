@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdmissionController;
+use App\Http\Controllers\AdmissionHistoryController;
 use App\Http\Controllers\AdmissionsController;
 use App\Http\Controllers\BillingController;
 use App\Http\Controllers\DischargeSummaryController;
@@ -123,6 +124,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('admissions/search', [AdmissionController::class, 'searchAdmission'])->name('admission.searchAdmission');
     Route::get('admission/pdf{admission}', [AdmissionController::class, 'pdf'])->name('admission.pdf');
     Route::resource('admission', AdmissionController::class);
+    Route::resource('admissionHistory', AdmissionHistoryController::class);
 
     Route::post('emergency/search', [EmergencyController::class, 'searchEmergency'])->name('emergency.searchEmergency');
     Route::get('emergency/pdf{emergency}', [EmergencyController::class, 'pdf'])->name('emergency.pdf');

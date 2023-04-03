@@ -21,7 +21,7 @@ class OutpatientController extends Controller
     public function index()
     {
         $outpatients = Outpatient::all()->paginate(10);
-        return view('user.outpatient.index', compact('outpatients'));
+        return view('user.patients.outpatient.index', compact('outpatients'));
     }
 
     public function searchOutpatient(Request $request)
@@ -37,7 +37,7 @@ class OutpatientController extends Controller
 
     public function create()
     {
-        return view('user.outpatient.create');
+        return view('user.patients.outpatient.create');
     }
 
     public function store(StoreOutpatientForm $request)
@@ -58,12 +58,12 @@ class OutpatientController extends Controller
 
     public function show(Outpatient $outpatient)
     {
-        return view('user.outpatient.show', compact('outpatient'));
+        return view('user.patients.outpatient.show', compact('outpatient'));
     }
 
     public function edit(Outpatient $outpatient)
     {
-        return view('user.outpatient.edit', compact('outpatient'));
+        return view('user.patients.outpatient.edit', compact('outpatient'));
     }
 
     public function update(StoreOutpatientForm $request, Outpatient $outpatient)

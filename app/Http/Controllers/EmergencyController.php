@@ -6,6 +6,7 @@ use App\Actions\Emergency\StoreEmergency;
 use App\Actions\Emergency\UpdateEmergency;
 use App\Http\Requests\Records\Emergency\StoreEmergencyForm;
 use App\Models\Emergency;
+use App\Models\EmergencyHistory;
 use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -60,9 +61,12 @@ class EmergencyController extends Controller
     }
 
 
-    public function show(Emergency $emergency)
+    public function show(Emergency $emergency, EmergencyHistory $emergencyHistory)
     {
-        return view('user.patients.emergency.show', compact('emergency'));
+        $emergencyHistory = EmergencyHistory::where('history_id', $emergency->id)
+            ->latest('id')
+            ->paginate(10);
+        return view('user.patients.patientsHistory.emergency.index', compact('emergencyHistory'));
     }
 
 

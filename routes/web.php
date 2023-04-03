@@ -7,6 +7,7 @@ use App\Http\Controllers\BillingController;
 use App\Http\Controllers\DischargeSummaryController;
 use App\Http\Controllers\DischargeSummaryHistoryController;
 use App\Http\Controllers\EmergencyController;
+use App\Http\Controllers\EmergencyHistoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\EmergencyPatientController;
@@ -129,6 +130,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('emergency/search', [EmergencyController::class, 'searchEmergency'])->name('emergency.searchEmergency');
     Route::get('emergency/pdf{emergency}', [EmergencyController::class, 'pdf'])->name('emergency.pdf');
     Route::resource('emergency', EmergencyController::class);
+    Route::resource('emergencyHistory', EmergencyHistoryController::class);
 
     Route::post('outpatient/search', [OutpatientController::class, 'searchOutpatient'])->name('emergency.searchOutpatient');
     Route::get('outpatient/pdf{outpatient}', [OutpatientController::class, 'pdf'])->name('outpatient.pdf');

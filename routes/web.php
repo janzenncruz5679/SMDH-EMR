@@ -15,6 +15,7 @@ use App\Http\Controllers\FluidIntakeController;
 use App\Http\Controllers\KardexController;
 use App\Http\Controllers\NurseNoteController;
 use App\Http\Controllers\OutpatientController;
+use App\Http\Controllers\OutpatientHistoryController;
 use App\Http\Controllers\PhysicianOrderController;
 use App\Http\Controllers\StaffsController;
 use App\Http\Controllers\TestingController;
@@ -135,6 +136,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('outpatient/search', [OutpatientController::class, 'searchOutpatient'])->name('emergency.searchOutpatient');
     Route::get('outpatient/pdf{outpatient}', [OutpatientController::class, 'pdf'])->name('outpatient.pdf');
     Route::resource('outpatient', OutpatientController::class);
+    Route::resource('outpatientHistory', OutpatientHistoryController::class);
 
     /////stations
     Route::post('vitalSign/search', [VitalSignController::class, 'searchVitalSign'])->name('vitalSign.searchVitalSign');

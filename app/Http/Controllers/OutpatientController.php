@@ -6,6 +6,7 @@ use App\Actions\Outpatient\StoreOutpatient;
 use App\Actions\Outpatient\UpdateOutpatient;
 use App\Http\Requests\Records\Outpatient\StoreOutpatientForm;
 use App\Models\Outpatient;
+use App\Models\OutpatientHistory;
 use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -56,9 +57,13 @@ class OutpatientController extends Controller
         }
     }
 
-    public function show(Outpatient $outpatient)
+    public function show(Outpatient $outpatient, OutpatientHistory $outpatientHistory)
     {
-        return view('user.patients.outpatient.show', compact('outpatient'));
+        $outpatientHistory = OutpatientHistory::where('history_id', $outpatient->id)
+            ->latest('id')
+            ->paginate(10);
+        // dd($outpatientHistory->toArray());
+        return view('user.patients.patientsHistory.outpatient.index', compact('outpatientHistory'));
     }
 
     public function edit(Outpatient $outpatient)

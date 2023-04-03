@@ -5,12 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class EmergencyHistory extends Model
+class OutpatientHistory extends Model
 {
     use HasFactory;
-    use HasFactory;
 
-    protected $table = "emergency_histories";
+    protected $table = "outpatient_histories";
 
     protected $guarded = [];
 
@@ -24,9 +23,9 @@ class EmergencyHistory extends Model
         'case_summary' => 'array',
     ];
 
-    public function emergency()
+    public function outpatient()
     {
-        return $this->belongsTo(Emergency::class, 'history_id');
+        return $this->belongsTo(Outpatient::class, 'history_id');
     }
 
     //combine first middle and last name using accessor and mutators

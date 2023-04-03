@@ -28,18 +28,18 @@
                     <table class="tracking-[2px] w-full table table-striped table-inverse table-responsive d-table">
                         <thead>
                             <tr class="grid grid-cols-12">
-                                <th class="flex justify-center">Id</th>
+                                <th class="col-span-2 flex justify-center">File Updated</th>
                                 <th class="col-span-5 flex justify-center">Name</th>
                                 <th class="flex justify-center">Age</th>
                                 <th class="flex justify-center">Gender</th>
                                 <th class="col-span-2 flex justify-center">Phone</th>
-                                <th class="col-span-2 flex justify-center">Actions</th>
+                                <th class="flex justify-center">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($admissionHistory as $admissionHistoryData)
                                 <tr class="grid grid-cols-12 even:bg-gray-200 odd:bg-white text-xl">
-                                    <td class="flex justify-center">
+                                    <td class="col-span-2 flex justify-center">
                                         {{ Carbon\Carbon::parse($admissionHistoryData->created_at)->diffForHumans() }}</td>
                                     <td class="col-span-5 flex justify-center">{{ $admissionHistoryData->full_name }}
                                     </td>
@@ -48,9 +48,10 @@
                                     </td>
                                     <td class="col-span-2 flex justify-center">
                                         {{ $admissionHistoryData->personal_info['phone'] }}</td>
-                                    <td class="col-span-2 flex justify-center">
+                                    <td class="flex justify-center">
                                         <div class="grid justify-center gap-4">
-                                            <a href="" class="editIcon hover:text-blue-300">
+                                            <a href="{{ route('admissionHistory.show', $admissionHistoryData->id) }}"
+                                                class="editIcon hover:text-blue-300">
                                                 <i class="fa-solid fa-eye"></i>
                                             </a>
                                             {{-- <a href="{{ route('admission.edit', $admissionHistoryData->id) }}"

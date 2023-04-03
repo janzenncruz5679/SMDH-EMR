@@ -61,10 +61,4 @@ class AdmissionHistory extends Model
     {
         return $this->first_name . ' ' . ($this->middle_name ? $this->middle_name . ' ' : '') . ' ' . $this->last_name . ' ' . ($this->suffix ? $this->suffix . ' ' : '');
     }
-
-
-    public function patient_id_admission()
-    {
-        return $this->belongsTo(Patient_id::class);
-    }
 }

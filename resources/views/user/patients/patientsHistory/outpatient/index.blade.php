@@ -5,10 +5,10 @@
         <div class="admissionDisplay h-full w-full grid gap-4 text-2xl">
             <div class="h-20 bg-blue-300 flex items-center justify-center">
                 <label class="font-[sans-serif] font-semibold text-white tracking-wide text-4xl">
-                    {{ __('Emergency History') }}</label>
+                    {{ __('Outpatient History') }}</label>
             </div>
             <div class="admissionTable">
-                @if (isset($emergencyHistory))
+                @if (isset($outpatientHistory))
                     <table class="tracking-[2px] w-full table table-striped table-inverse table-responsive d-table">
                         <thead>
                             <tr class="grid grid-cols-12">
@@ -21,27 +21,27 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($emergencyHistory as $emergencyHistoryData)
+                            @foreach ($outpatientHistory as $outpatientHistoryData)
                                 <tr class="grid grid-cols-12 even:bg-gray-200 odd:bg-white text-xl">
                                     <td class="col-span-2 flex justify-center">
-                                        {{ Carbon\Carbon::parse($emergencyHistoryData->created_at)->diffForHumans() }}</td>
-                                    <td class="col-span-5 flex justify-center">{{ $emergencyHistoryData->full_name }}
+                                        {{ Carbon\Carbon::parse($outpatientHistoryData->created_at)->diffForHumans() }}</td>
+                                    <td class="col-span-5 flex justify-center">{{ $outpatientHistoryData->full_name }}
                                     </td>
-                                    <td class="flex justify-center">{{ $emergencyHistoryData->personal_info['age'] }}</td>
-                                    <td class="flex justify-center">{{ $emergencyHistoryData->personal_info['gender'] }}
+                                    <td class="flex justify-center">{{ $outpatientHistoryData->personal_info['age'] }}</td>
+                                    <td class="flex justify-center">{{ $outpatientHistoryData->personal_info['gender'] }}
                                     </td>
                                     <td class="col-span-2 flex justify-center">
-                                        {{ $emergencyHistoryData->personal_info['phone'] }}</td>
+                                        {{ $outpatientHistoryData->personal_info['phone'] }}</td>
                                     <td class="flex justify-center">
                                         <div class="grid justify-center gap-4">
                                             <a href="" class="editIcon hover:text-blue-300">
                                                 <i class="fa-solid fa-eye"></i>
                                             </a>
-                                            {{-- <a href="{{ route('emergency.edit', $emergency->id) }}"
+                                            {{-- <a href="{{ route('outpatient.edit', $outpatient->id) }}"
                                                 class="editIcon hover:text-blue-300">
                                                 <i class="fa-solid fa-edit"></i>
                                             </a>
-                                            <a href="{{ route('emergency.pdf', $emergency->id) }}"
+                                            <a href="{{ route('outpatient.pdf', $outpatient->id) }}"
                                                 class="editIcon hover:text-blue-300" target="_blank">
                                                 <i class="fa-solid fa-file-pdf"></i>
                                             </a> --}}
@@ -55,7 +55,7 @@
             </div>
         </div>
         <div class="inset-y-0 right-0 left-[275px] flex justify-center">
-            {{ $emergencyHistory->links('pagination::custom_tailwind') }}
+            {{ $outpatientHistory->links('pagination::custom_tailwind') }}
         </div>
     </div>
 @endsection

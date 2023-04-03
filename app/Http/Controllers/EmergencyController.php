@@ -22,7 +22,7 @@ class EmergencyController extends Controller
     public function index()
     {
         $emergencies = Emergency::all()->paginate(10);
-        return view('user.emergency.index', compact('emergencies'));
+        return view('user.patients.emergency.index', compact('emergencies'));
     }
 
     public function searchEmergency(Request $request)
@@ -39,7 +39,7 @@ class EmergencyController extends Controller
 
     public function create()
     {
-        return view('user.emergency.create');
+        return view('user.patients.emergency.create');
     }
 
 
@@ -62,13 +62,13 @@ class EmergencyController extends Controller
 
     public function show(Emergency $emergency)
     {
-        return view('user.emergency.show', compact('emergency'));
+        return view('user.patients.emergency.show', compact('emergency'));
     }
 
 
     public function edit(Emergency $emergency)
     {
-        return view('user.emergency.edit', compact('emergency'));
+        return view('user.patients.emergency.edit', compact('emergency'));
     }
 
 

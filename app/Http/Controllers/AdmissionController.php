@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Actions\Admission\StoreAdmission;
 use App\Actions\Admission\UpdateAdmission;
 use App\Models\Admission;
+use App\Models\AdmissionHistory;
 use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -20,7 +21,7 @@ class AdmissionController extends Controller
     public function index()
     {
         $admissions = Admission::all()->paginate(10);
-        return view('user.admission.index', compact('admissions'));
+        return view('user.patients.admission.index', compact('admissions'));
     }
 
     public function searchAdmission(Request $request)
@@ -36,7 +37,7 @@ class AdmissionController extends Controller
 
     public function create()
     {
-        return view('user.admission.create');
+        return view('user.patients.admission.create');
     }
 
     public function store(Request $request)
@@ -54,14 +55,24 @@ class AdmissionController extends Controller
         }
     }
 
-    public function show(Admission $admission)
+    public function show(Admission $admission, AdmissionHistory $admissionHistory)
     {
-        return view('user.admission.show', compact('admission'));
+
+        $admissionHistory = AdmissionHistory::where('history_id', $admission->id)
+            ->latest('id')
+            ->paginate(10);
+        return view('user.patients.patientsHistory.admission.index', compact('admissionHistory'));
+
+        // $dischargeSummaryHistory = DischargeSummaryHistory::where('history_id', $dischargeSummary->id)
+        //     ->latest('id')
+        //     ->paginate(10);
+        // // dd($dischargeSummaryHistory->toArray());
+        // return view('user.recordsHistory.dischargeSummary.index', compact('dischargeSummaryHistory'));
     }
 
     public function edit(Admission $admission)
     {
-        return view('user.admission.edit', compact('admission'));
+        return view('user.patients.admission.edit', compact('admission'));
     }
 
     public function update(Request $request, Admission $admission)

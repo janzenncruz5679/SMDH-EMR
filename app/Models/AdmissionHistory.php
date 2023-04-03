@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Admission extends Model
+class AdmissionHistory extends Model
 {
     use HasFactory;
 
-    protected $table = 'admissions';
+    protected $table = 'admission_histories';
 
     protected $guarded = [];
 
@@ -27,9 +27,9 @@ class Admission extends Model
         'other_opt' => 'array',
     ];
 
-    public function admissionHistory()
+    public function admission()
     {
-        return $this->hasMany(AdmissionHistory::class);
+        return $this->belongsTo(Admission::class, 'history_id');
     }
 
     public function setFirstNameAttribute($value)

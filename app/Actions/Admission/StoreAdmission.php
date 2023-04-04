@@ -5,6 +5,7 @@ namespace App\Actions\Admission;
 
 use App\Models\Admission;
 use App\Models\AdmissionHistory;
+use App\Models\Billing;
 use App\Models\Patient_id;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -220,5 +221,9 @@ class StoreAdmission
             'idc_code' => $request->idc_code,
             'icpm_code' => $request->icpm_code,
         ]);
+
+        // $_admissionBill = Billing::create([
+        //     'admissionBill_id' => $_admission->id,
+        // ]);
     }
 }

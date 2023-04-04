@@ -32,6 +32,11 @@ class Admission extends Model
         return $this->hasMany(AdmissionHistory::class);
     }
 
+    // public function admissionBilling()
+    // {
+    //     return $this->hasMany(Billing::class, 'admission_id');
+    // }
+
     public function setFirstNameAttribute($value)
     {
         $this->attributes['first_name'] = $value;

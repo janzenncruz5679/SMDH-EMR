@@ -9,5 +9,14 @@ class Billing extends Model
 {
     use HasFactory;
 
+    protected $table = 'billings';
+
     protected $guarded = [];
+
+    protected $hidden = [];
+
+    // public function admission()
+    // {
+    //     return $this->belongsTo(Admission::class);
+    // }
 }

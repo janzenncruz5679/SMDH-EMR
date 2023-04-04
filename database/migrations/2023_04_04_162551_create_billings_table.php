@@ -15,16 +15,17 @@ return new class extends Migration
     {
         Schema::create('billings', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('admission_id')->nullable()->constrained('admissions');
             $table->string('or_no')->nullable();
             $table->string('full_name')->nullable();
-            $table->decimal('total', 12, 2)->unsigned()->nullable();
-            $table->decimal('medicine', 12, 2)->unsigned()->nullable();
-            $table->decimal('lab', 12, 2)->unsigned()->nullable();
-            $table->decimal('xray', 12, 2)->unsigned()->nullable();
-            $table->decimal('ecg', 12, 2)->unsigned()->nullable();
-            $table->decimal('oxygen', 12, 2)->unsigned()->nullable();
-            $table->decimal('nbs', 12, 2)->unsigned()->nullable();
-            $table->decimal('income', 12, 2)->unsigned()->nullable();
+            $table->string('total')->nullable();
+            $table->string('medicine')->nullable();
+            $table->string('lab')->nullable();
+            $table->string('xray')->nullable();
+            $table->string('ecg')->nullable();
+            $table->string('oxygen')->nullable();
+            $table->string('nbs')->nullable();
+            $table->string('income')->nullable();
             $table->timestamps();
         });
     }

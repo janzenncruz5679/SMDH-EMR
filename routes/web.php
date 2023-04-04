@@ -48,7 +48,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/homePage', [HomeController::class, 'homePage'])->name('homePage');
     Route::get('/patientPage', [HomeController::class, 'patientPage'])->name('patientPage');
     Route::get('/stations', [HomeController::class, 'stations'])->name('stations');
-    Route::get('/billing', [HomeController::class, 'billing'])->name('billing');
+    Route::resource('billing', BillingController::class);
 
 
     ///////////////admission patients section
@@ -111,12 +111,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/records/editKardex{id}', [KardexController::class, 'editKardex'])->name('editKardex');
 
 
-
-
-    //billing view
-    Route::get('/billing/billingTable', [BillingController::class, 'billingTable'])->name('billingTable');
-    Route::get('/billing/billingTable/updateBilling{or_no}', [BillingController::class, 'updateBilling'])->name('updateBilling');
-    Route::post('/billing/billingTable/editBilling{or_no}', [BillingController::class, 'editBilling'])->name('editBilling');
 
     Route::resource('test-patient', AdmissionsController::class);
 

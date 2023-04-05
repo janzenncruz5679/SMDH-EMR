@@ -3,6 +3,7 @@
 namespace App\Actions\Outpatient;
 
 use App\Http\Requests\Records\Outpatient\StoreOutpatientForm;
+use App\Models\Billing;
 use App\Models\Outpatient;
 use App\Models\OutpatientHistory;
 use App\Models\Patient_id;
@@ -16,6 +17,7 @@ class UpdateOutpatient
     {
         $updatedOutpatient = $this->UpdateOutpatient($request, $outpatient);
         $this->createOutpatientHistory($request, $updatedOutpatient);
+        $this->updateBilling($updatedOutpatient);
         return $updatedOutpatient;
     }
 
@@ -158,6 +160,14 @@ class UpdateOutpatient
                 'disposition' => $request->disposition,
             ],
             'history_id' => $outpatient->id,
+        ]);
+    }
+
+    private function updateBilling(Outpatient $outpatient)
+    {
+        $billing = Billing::where('outpatientBilling_id', $outpatient->id)->first();
+        $billing->update([
+            'full_name' => $outpatient->full_name,
         ]);
     }
 }

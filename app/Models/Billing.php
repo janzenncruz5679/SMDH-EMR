@@ -24,4 +24,9 @@ class Billing extends Model
     {
         return $this->belongsTo(Emergency::class, 'emergencyBilling_id');
     }
+
+    public function outpatient()
+    {
+        return $this->belongsTo(Outpatient::class, 'outpatientBilling_id');
+    }
 }

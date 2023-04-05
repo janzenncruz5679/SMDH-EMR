@@ -19,6 +19,8 @@ return new class extends Migration
             $table->foreign('admissionBilling_id')->references('id')->on('admissions');
             $table->unsignedBigInteger('emergencyBilling_id')->nullable();
             $table->foreign('emergencyBilling_id')->references('id')->on('emergencies');
+            $table->unsignedBigInteger('outpatientBilling_id')->nullable();
+            $table->foreign('outpatientBilling_id')->references('id')->on('outpatients');
 
             $table->string('full_name')->nullable();
             $table->string('total')->nullable();

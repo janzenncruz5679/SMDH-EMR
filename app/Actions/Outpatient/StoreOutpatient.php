@@ -3,6 +3,7 @@
 namespace App\Actions\Outpatient;
 
 use App\Http\Requests\Records\Outpatient\StoreOutpatientForm;
+use App\Models\Billing;
 use App\Models\Outpatient;
 use App\Models\OutpatientHistory;
 use App\Models\Patient_id;
@@ -146,6 +147,11 @@ class StoreOutpatient
                 'chief_complaint' => $request->chief_complaint,
                 'disposition' => $request->disposition,
             ],
+        ]);
+
+        $_outpatientBill = Billing::create([
+            'outpatientBilling_id' => $_outpatient->id,
+            'full_name' => $_outpatient->full_name,
         ]);
     }
 }

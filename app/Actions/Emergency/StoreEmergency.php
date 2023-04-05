@@ -3,6 +3,7 @@
 namespace App\Actions\Emergency;
 
 use App\Http\Requests\Records\Emergency\StoreEmergencyForm;
+use App\Models\Billing;
 use App\Models\Emergency;
 use App\Models\EmergencyHistory;
 use App\Models\Patient_id;
@@ -146,6 +147,11 @@ class StoreEmergency
                 'chief_complaint' => $request->chief_complaint,
                 'disposition' => $request->disposition,
             ],
+        ]);
+
+        $_emergencyBill = Billing::create([
+            'emergencyBilling_id' => $_emergency->id,
+            'full_name' => $_emergency->full_name,
         ]);
     }
 }

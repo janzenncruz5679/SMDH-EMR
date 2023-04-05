@@ -15,8 +15,11 @@ return new class extends Migration
     {
         Schema::create('billings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('admission_id')->nullable()->constrained('admissions');
-            $table->string('or_no')->nullable();
+            $table->unsignedBigInteger('admissionBilling_id')->nullable();
+            $table->foreign('admissionBilling_id')->references('id')->on('admissions');
+            $table->unsignedBigInteger('emergencyBilling_id')->nullable();
+            $table->foreign('emergencyBilling_id')->references('id')->on('emergencies');
+
             $table->string('full_name')->nullable();
             $table->string('total')->nullable();
             $table->string('medicine')->nullable();

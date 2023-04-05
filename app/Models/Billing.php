@@ -15,8 +15,13 @@ class Billing extends Model
 
     protected $hidden = [];
 
-    // public function admission()
-    // {
-    //     return $this->belongsTo(Admission::class);
-    // }
+    public function admission()
+    {
+        return $this->belongsTo(Admission::class, 'admissionBilling_id');
+    }
+
+    public function emergency()
+    {
+        return $this->belongsTo(Emergency::class, 'emergencyBilling_id');
+    }
 }

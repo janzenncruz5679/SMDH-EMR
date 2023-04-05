@@ -61,55 +61,55 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- @foreach ($billings as $billing) --}}
-                        <tr class="grid grid-cols-12 even:bg-gray-200 odd:bg-white">
-                            <td class="grid justify-center"></td>
-                            <td class="grid justify-center"></td>
-                            <td class="grid justify-center col-span-3"></td>
-                            <td class="col-span-6 grid grid-cols-8">
-                                <div class="grid justify-center">
-                                    <label></label>
-                                </div>
-                                <div class="grid justify-center">
-                                    <label></label>
-                                </div>
-                                <div class="grid justify-center">
-                                    <label></label>
-                                </div>
-                                <div class="grid justify-center">
-                                    <label></label>
-                                </div>
-                                <div class="grid justify-center">
-                                    <label></label>
-                                </div>
-                                <div class="grid justify-center">
-                                    <label></label>
-                                </div>
-                                <div class="grid justify-center">
-                                    <label></label>
-                                </div>
-                                <div class="grid justify-center">
-                                    <label></label>
-                                </div>
-                            </td>
-                            <td class="grid justify-center">
-                                <div class="grid justify-center gap-2">
-                                    <a href="" class="editIcon hover:text-blue-300">
-                                        <i class="fa-solid fa-edit"></i>
-                                    </a>
-                                    {{-- <a href="" class="editIcon hover:text-blue-300">
+                        @foreach ($billings as $billing)
+                            <tr class="grid grid-cols-12 even:bg-gray-200 odd:bg-white">
+                                <td class="grid justify-center"></td>
+                                <td class="grid justify-center"></td>
+                                <td class="grid justify-center col-span-3">{{ $billing->full_name }}</td>
+                                <td class="col-span-6 grid grid-cols-8">
+                                    <div class="grid justify-center">
+                                        <label></label>
+                                    </div>
+                                    <div class="grid justify-center">
+                                        <label></label>
+                                    </div>
+                                    <div class="grid justify-center">
+                                        <label></label>
+                                    </div>
+                                    <div class="grid justify-center">
+                                        <label></label>
+                                    </div>
+                                    <div class="grid justify-center">
+                                        <label></label>
+                                    </div>
+                                    <div class="grid justify-center">
+                                        <label></label>
+                                    </div>
+                                    <div class="grid justify-center">
+                                        <label></label>
+                                    </div>
+                                    <div class="grid justify-center">
+                                        <label></label>
+                                    </div>
+                                </td>
+                                <td class="grid justify-center">
+                                    <div class="grid justify-center gap-2">
+                                        <a href="" class="editIcon hover:text-blue-300">
+                                            <i class="fa-solid fa-edit"></i>
+                                        </a>
+                                        {{-- <a href="" class="editIcon hover:text-blue-300">
                                         <i class="fa-solid fa-file-pdf"></i>
                                     </a> --}}
-                                </div>
-                            </td>
-                        </tr>
-                        {{-- @endforeach --}}
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
         <div class="inset-y-0 right-0 left-[275px] flex justify-center">
-            {{-- {{ $billings->links('pagination::custom_tailwind') }} --}}
+            {{ $billings->links('pagination::custom_tailwind') }}
         </div>
     </div>
 @endsection

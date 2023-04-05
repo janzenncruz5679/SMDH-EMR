@@ -222,8 +222,9 @@ class StoreAdmission
             'icpm_code' => $request->icpm_code,
         ]);
 
-        // $_admissionBill = Billing::create([
-        //     'admissionBill_id' => $_admission->id,
-        // ]);
+        $_admissionBill = Billing::create([
+            'admissionBilling_id' => $_admission->id,
+            'full_name' => $_admission->full_name,
+        ]);
     }
 }

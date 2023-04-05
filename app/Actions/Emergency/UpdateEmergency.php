@@ -3,6 +3,7 @@
 namespace App\Actions\Emergency;
 
 use App\Http\Requests\Records\Emergency\StoreEmergencyForm;
+use App\Models\Billing;
 use App\Models\Emergency;
 use App\Models\EmergencyHistory;
 use App\Models\Patient_id;
@@ -16,6 +17,7 @@ class UpdateEmergency
     {
         $updatedEmergency = $this->UpdateEmergency($request, $emergency);
         $this->createEmergencyHistory($request, $updatedEmergency);
+        $this->updateBilling($updatedEmergency);
         return $updatedEmergency;
     }
 
@@ -159,5 +161,18 @@ class UpdateEmergency
             ],
             'history_id' => $emergency->id,
         ]);
+    }
+
+    private function updateBilling(Emergency $emergency)
+    {
+        // try {
+            $billing = Billing::where('emergencyBilling_id', $emergency->id)->first();
+            $billing->update([
+                'full_name' => $emergency->full_name,
+            ]);
+        // } catch (\Exception $err) {
+        //     dd($err);
+        //     return redirect()->back()->withErrors($err->getMessage());
+        // }
     }
 }

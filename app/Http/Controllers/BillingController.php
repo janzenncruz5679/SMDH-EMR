@@ -9,12 +9,10 @@ use Illuminate\Http\Request;
 class BillingController extends Controller
 {
 
-    public function index(Admission $admission)
+    public function index()
     {
-        // $billings = Admission::with('admissionBilling')->select('full_name')->paginate(10);
-        // // dd($billings);
-        // return view('user.billing.index')
-        //     ->with(compact('billings'));
+        $billings = Billing::all()->paginate(10);
+        return view('user.billing.index', compact('billings'));
     }
 
     public function create()

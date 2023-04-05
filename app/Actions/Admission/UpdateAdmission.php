@@ -4,6 +4,7 @@ namespace App\Actions\Admission;
 
 use App\Models\Admission;
 use App\Models\AdmissionHistory;
+use App\Models\Billing;
 use App\Models\Patient_id;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -15,6 +16,7 @@ class UpdateAdmission
     {
         $updatedAdmission = $this->UpdateAdmission($request, $admission);
         $this->createAdmissionHistory($request, $updatedAdmission);
+        $this->updateBilling($updatedAdmission);
 
         return $updatedAdmission;
     }
@@ -125,6 +127,7 @@ class UpdateAdmission
             'icpm_code' => $request->icpm_code,
 
         ]);
+
         return $admission;
     }
 
@@ -234,5 +237,18 @@ class UpdateAdmission
             'history_id' => $admission->id,
 
         ]);
+    }
+
+    private function updateBilling(Admission $admission)
+    {
+        // try {
+        $billing = Billing::where('admissionBilling_id', $admission->id)->first();
+        $billing->update([
+            'full_name' => $admission->full_name,
+        ]);
+        // } catch (\Exception $err) {
+        //     dd($err);
+        //     return redirect()->back()->withErrors($err->getMessage());
+        // }
     }
 }

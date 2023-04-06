@@ -48,7 +48,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/homePage', [HomeController::class, 'homePage'])->name('homePage');
     Route::get('/patientPage', [HomeController::class, 'patientPage'])->name('patientPage');
     Route::get('/stations', [HomeController::class, 'stations'])->name('stations');
-    Route::resource('billing', BillingController::class);
 
 
     ///////////////admission patients section
@@ -149,4 +148,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('fluidIntake/search', [FluidIntakeController::class, 'searchFluidIntake'])->name('fluidIntake.searchFluidIntake');
     Route::get('fluidIntake/pdf{fluidIntake}', [FluidIntakeController::class, 'pdf'])->name('fluidIntake.pdf');
     Route::resource('fluidIntake', FluidIntakeController::class);
+
+    Route::resource('billing', BillingController::class);
 });

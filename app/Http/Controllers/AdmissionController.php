@@ -85,7 +85,7 @@ class AdmissionController extends Controller
             return redirect()->route('admission.index');
         } catch (\Exception $err) {
             DB::rollBack();
-            // dd($err);
+            dd($err);
             return redirect()->back()->withErrors($err->getMessage());
         }
     }

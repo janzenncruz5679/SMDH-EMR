@@ -94,7 +94,8 @@
                                 </td>
                                 <td class="grid justify-center">
                                     <div class="grid justify-center gap-2">
-                                        <a href="" class="editIcon hover:text-blue-300">
+                                        <a href="{{ route('billing.edit', $billing->id) }}"
+                                            class="editIcon hover:text-blue-300">
                                             <i class="fa-solid fa-edit"></i>
                                         </a>
                                         {{-- <a href="" class="editIcon hover:text-blue-300">

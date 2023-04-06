@@ -63,7 +63,7 @@
                         <div class="">
                             <a class="grid items-center p-6 text-zinc-900 hover:text-white bg-blue-100 hover:bg-blue-300
                                 rounded-3xl shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition"
-                                href="{{ route('patients.vital-signs.show-physicians', $patient->id) }}">
+                                href="{{ route('patients.vital-signs.create', $patient->id) }}">
                                 <div class="grid gap-3">
                                     <div class="grid place-items-center">
                                         <i class="fa-solid fa-heart-pulse text-[7rem]"></i>

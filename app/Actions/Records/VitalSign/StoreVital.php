@@ -12,11 +12,10 @@ use Illuminate\Http\Request;
 
 class StoreVital
 {
-    public function handle(Admission $admission, Request $request): VitalSign
+    public function handle(Request $request)
     {
-        return VitalSign::create([
-            'vitals_id' => $admission->id,
-            // 'patient_fullname' => $request->patient_fullname,
+        VitalSign::create([
+            'patient_fullname' => $request->patient_fullname,
             'birthdate' => $request->birthdate,
             'gender' => $request->gender,
             'physician' => $request->physician,

@@ -25,4 +25,9 @@ class VitalSign extends Model
         'pains' => 'array',
         'initials' => 'array',
     ];
+
+    public function admission()
+    {
+        return $this->belongsTo(Admission::class, 'vitals_id');
+    }
 }

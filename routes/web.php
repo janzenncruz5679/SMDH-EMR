@@ -47,6 +47,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('patients.billing', BillingsController::class)->except(['edit', 'update']);
     Route::get('patients/{patient}/vital-signs/physicians', [VitalSignsController::class, 'showPhysicians'])->name('patients.vital-signs.show-physicians');
     Route::get('patients/{patient}/vital-signs/physicians/{physician}', [VitalSignsController::class, 'show'])->name('patients.vital-signs.show');
+
+    //eto yung sa para magload si patient at vitals
     Route::resource('patients.vital-signs', VitalSignsController::class)->except(['edit', 'update', 'destroy', 'show']);
     Route::resource('patients.nurse-notes', NurseNotesController::class)->only(['index', 'create', 'store', 'show']);
 

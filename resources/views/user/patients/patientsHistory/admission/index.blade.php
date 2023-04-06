@@ -1,33 +1,13 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="absolute h-auto w-[84%] left-[16%] top-[7%] p-12 grid gap-8">
-        <div class="admissionDisplay h-full w-full grid gap-4 text-2xl">
-            <div class="h-20 bg-blue-300 flex items-center justify-center">
-                <label class="font-[sans-serif] font-semibold text-white tracking-wide text-4xl">
-                    {{ __('Admission History') }}</label>
-            </div>
-            {{-- <div class="searchBar h-12 gap-4 w-full flex justify-start items-center">
-                <form action="" method="POST" class="flex gap-4 m-0 h-full items-center">
-                    <input type="text" placeholder="Search Patient Name" id="search"
-                        class="h-full w-96 text-[1.5rem] border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 focus:outline-offset-2 rounded-[10px] px-[10px]">
-                </form>
-                <button
-                    class="h-full w-32 text-[1.5rem] bg-blue-300 tracking-[2px] text-white hover:text-zinc-900 rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-100"
-                    id="reset-btn">
-                    Reset
-                </button>
-                <div class="addpatientBar h-full w-full flex items-center justify-end">
-                    <a class="btnAddpatient h-full w-48 text-[1.5rem] grid place-items-center bg-blue-300 tracking-[2px] text-white hover:text-zinc-900 rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-100"
-                        href="{{ route('admission.create') }}">Add Patient
-                    </a>
-                </div>
-            </div> --}}
+    <div class="fixed h-[93%] w-[84%] left-[16%] top-[7%] grid gap-8 p-12">
+        <div class="h-full w-full bg-white p-8 shadow-md shadow-blue-200 rounded-3xl grid gap-4">
             <div class="admissionTable">
                 @if (isset($admissionHistory))
                     <table class="tracking-[2px] w-full table table-striped table-inverse table-responsive d-table">
                         <thead>
-                            <tr class="grid grid-cols-12">
+                            <tr class="grid grid-cols-12 text-xl">
                                 <th class="col-span-2 flex justify-center">File Updated</th>
                                 <th class="col-span-5 flex justify-center">Name</th>
                                 <th class="flex justify-center">Age</th>
@@ -38,7 +18,7 @@
                         </thead>
                         <tbody>
                             @foreach ($admissionHistory as $admissionHistoryData)
-                                <tr class="grid grid-cols-12 even:bg-gray-200 odd:bg-white text-xl">
+                                <tr class="grid grid-cols-12 even:bg-gray-200 odd:bg-white text-lg">
                                     <td class="col-span-2 flex justify-center">
                                         {{ Carbon\Carbon::parse($admissionHistoryData->created_at)->diffForHumans() }}</td>
                                     <td class="col-span-5 flex justify-center">{{ $admissionHistoryData->full_name }}
@@ -70,9 +50,38 @@
                     </table>
                 @endif
             </div>
+            <div class="inset-y-0 right-0 left-[275px] flex justify-center">
+                {{ $admissionHistory->links('pagination::custom_tailwind') }}
+            </div>
         </div>
-        <div class="inset-y-0 right-0 left-[275px] flex justify-center">
-            {{ $admissionHistory->links('pagination::custom_tailwind') }}
+        <div class="w-full row-span-2 grid grid-cols-2 gap-8">
+            <div class="h-full w-full bg-white p-8 shadow-lg shadow-blue-200 rounded-3xl flex flex-col gap-4">
+
+            </div>
+            <div class="h-full w-full bg-white p-8 shadow-lg shadow-blue-200 rounded-3xl">
+                <div class="grid grid-cols-3 gap-6">
+                    <div class="">
+                        <x-menu-card :url="route('vitalSign.index')" text="Vital Signs" fontAwesomeIcon="fa-solid fa-heart-pulse" />
+                    </div>
+                    <div class="">
+                        <x-menu-card :url="route('nurseNote.index')" text="Nurse Notes" fontAwesomeIcon="fa-solid fa-notes-medical" />
+                    </div>
+                    <div class="">
+                        <x-menu-card :url="route('dischargeSummary.index')" text="Discharge"
+                            fontAwesomeIcon="fa-solid fa-house-medical-circle-xmark" />
+                    </div>
+                    {{-- <div class="">
+                            <x-menu-card :url="route('physicianOrder')" text="Physician Order"
+                                fontAwesomeIcon="fa-solid fa-heart-pulse" />
+                        </div> --}}
+                    <div class="">
+                        <x-menu-card :url="route('fluidIntake.index')" text="Fluid Intake" fontAwesomeIcon="fa-solid fa-syringe" />
+                    </div>
+                    {{-- <div class="">
+                            <x-menu-card :url="route('kardex')" text="Kardex" fontAwesomeIcon="fa-solid fa-notes-medical" />
+                        </div> --}}
+                </div>
+            </div>
         </div>
     </div>
 @endsection

@@ -21,8 +21,8 @@
             @include('layouts.stepper')
         </div>
         <div class=" h-full w-full">
-            <form action="{{ route('vitalSign.store') }}" method="POST" enctype="multipart/form-data"
-                class="admission-form text-xl tracking-wider">
+            <form action="{{ route('admission.vitalSign.store', $admission->id) }}" method="POST"
+                enctype="multipart/form-data" class="admission-form text-xl tracking-wider">
                 @csrf
                 <div
                     class="grid justify-center text-4xl font-semibold tracking-widest rounded-t-3xl bg-[#A0DDD3] p-3 text-[#003D33]">
@@ -40,7 +40,7 @@
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="Patient Full Name" name="patient_fullname" autocomplete="off"
-                                    value="{{ old('patient_fullname') }}" required>
+                                    value="{{ $admission->full_name }}" required>
                                 <span class="text-base font-[sans-serif] font-medium text-red-600">
                                     @error('patient_fullname')
                                         {{ $message }}

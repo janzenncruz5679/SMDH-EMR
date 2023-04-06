@@ -61,7 +61,7 @@ class AdmissionController extends Controller
         $admissionHistory = AdmissionHistory::where('history_id', $admission->id)
             ->latest('id')
             ->paginate(5);
-        return view('user.patients.patientsHistory.admission.index', compact('admissionHistory'));
+        return view('user.patients.patientsHistory.admission.index', compact('admissionHistory', 'admission'));
 
         // $dischargeSummaryHistory = DischargeSummaryHistory::where('history_id', $dischargeSummary->id)
         //     ->latest('id')

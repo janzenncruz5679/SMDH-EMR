@@ -37,6 +37,11 @@ class Admission extends Model
         return $this->hasMany(Billing::class);
     }
 
+    public function admissionVitalSign()
+    {
+        return $this->hasMany(VitalSign::class, 'vitals_id');
+    }
+
     public function setFirstNameAttribute($value)
     {
         $this->attributes['first_name'] = $value;

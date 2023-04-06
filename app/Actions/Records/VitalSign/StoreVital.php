@@ -14,9 +14,9 @@ class StoreVital
 {
     public function handle(Admission $admission, Request $request): VitalSign
     {
-        $vital = VitalSign::create([
+        return VitalSign::create([
             'vitals_id' => $admission->id,
-            'patient_fullname' => $request->patient_fullname,
+            // 'patient_fullname' => $request->patient_fullname,
             'birthdate' => $request->birthdate,
             'gender' => $request->gender,
             'physician' => $request->physician,
@@ -46,7 +46,5 @@ class StoreVital
                 'initialsRecord' => $request->initialsRecord,
             ],
         ]);
-
-        dd($vital);
     }
 }

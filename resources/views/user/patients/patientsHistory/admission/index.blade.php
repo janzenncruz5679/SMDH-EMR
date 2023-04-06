@@ -61,7 +61,7 @@
             <div class="h-full w-full bg-white p-8 shadow-lg shadow-blue-200 rounded-3xl">
                 <div class="grid grid-cols-3 gap-6">
                     <div class="">
-                        <x-menu-card :url="route('admission.vitalSign.create', $admission->id)" text="Vital Signs" fontAwesomeIcon="fa-solid fa-heart-pulse" />
+                        <x-menu-card :url="route('vitalSign.index')" text="Vital Signs" fontAwesomeIcon="fa-solid fa-heart-pulse" />
                     </div>
                     <div class="">
                         <x-menu-card :url="route('nurseNote.index')" text="Nurse Notes" fontAwesomeIcon="fa-solid fa-notes-medical" />

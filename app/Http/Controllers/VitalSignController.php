@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Actions\Records\VitalSign\StoreVital;
 use App\Actions\Records\VitalSign\UpdateVital;
-use App\Models\Admission;
 use App\Models\VitalSign;
 use PDF;
 use Illuminate\Http\Request;
@@ -36,21 +35,20 @@ class VitalSignController extends Controller
         ]);
     }
 
-    public function create(Admission $admission)
+    public function create()
     {
-        return view('user.records.vitalSign.create')
-            ->with(compact('admission'));
+        return view('user.records.vitalSign.create');
     }
 
 
-    public function store(Admission $admission, Request $request)
+    public function store(Request $request)
     {
         try {
             DB::beginTransaction();
-            $add = $this->storeVital->handle($admission, $request);
+            $add = $this->storeVital->handle($request);
             // dd($add);
             DB::commit();
-            return redirect()->route('vitalSign.index', $admission->id);
+            return redirect()->route('vitalSign.index');
         } catch (\Exception $err) {
             DB::rollBack();
             dd($err);

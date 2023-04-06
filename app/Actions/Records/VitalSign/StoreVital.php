@@ -4,6 +4,7 @@ namespace App\Actions\Records\VitalSign;
 
 // use App\Http\Requests\Records\Outpatient\StoreOutpatientForm;
 
+use App\Models\Admission;
 use App\Models\VitalSign;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -11,9 +12,10 @@ use Illuminate\Http\Request;
 
 class StoreVital
 {
-    public function handle(Request $request)
+    public function handle(Admission $admission, Request $request): VitalSign
     {
-        VitalSign::create([
+        $vital = VitalSign::create([
+            'vitals_id' => $admission->id,
             'patient_fullname' => $request->patient_fullname,
             'birthdate' => $request->birthdate,
             'gender' => $request->gender,
@@ -44,5 +46,7 @@ class StoreVital
                 'initialsRecord' => $request->initialsRecord,
             ],
         ]);
+
+        dd($vital);
     }
 }

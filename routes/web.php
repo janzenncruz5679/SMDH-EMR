@@ -121,7 +121,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admission/pdf{admission}', [AdmissionController::class, 'pdf'])->name('admission.pdf');
     Route::resource('admission', AdmissionController::class);
     Route::resource('admissionHistory', AdmissionHistoryController::class);
-    Route::resource('admission.vitalSign', VitalSignController::class)->except(['edit', 'update', 'destroy', 'show']);
 
     Route::post('emergency/search', [EmergencyController::class, 'searchEmergency'])->name('emergency.searchEmergency');
     Route::get('emergency/pdf{emergency}', [EmergencyController::class, 'pdf'])->name('emergency.pdf');

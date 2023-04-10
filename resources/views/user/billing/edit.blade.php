@@ -1068,67 +1068,88 @@
                                         <tr class="grid grid-cols-4 gap-3 ">
                                             <td class="flex justify-center">
                                                 <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="nbs_procedure[1]" autocomplete="off"
+                                                    value="{{ $billing->nbs['nbs_procedure'][1] ?? 'Blood Test' }}">
                                             </td>
                                             <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
+                                                <input type="number" step="0.01" placeholder="0.00"
+                                                    autocomplete="off"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="nbs_cost[1]" id="nbs_cost_1"
+                                                    value="{{ $billing->nbs['nbs_cost'][1] ?? '' }}">
                                             </td>
                                             <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
+                                                <input type="number" maxlength="3" placeholder="1"
+                                                    autocomplete="off"
+                                                    oninput="this.value=this.value.slice(0,this.maxLength)"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="nbs_qty[1]" autocomplete="off"
+                                                    value="{{ $billing->nbs['nbs_qty'][1] ?? '' }}">
                                             </td>
                                             <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
-                                            </td>
-                                        </tr>
-                                        <tr class="grid grid-cols-4 gap-3 ">
-                                            <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
-                                            </td>
-                                            <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
-                                            </td>
-                                            <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
-                                            </td>
-                                            <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
+                                                <input type="text" placeholder="0.00"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="nbs_total[1]" id="nbs_total_1" readonly
+                                                    value="{{ $billing->nbs['nbs_total'][1] ?? '' }}">
                                             </td>
                                         </tr>
                                         <tr class="grid grid-cols-4 gap-3 ">
                                             <td class="flex justify-center">
                                                 <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="nbs_procedure[2]" autocomplete="off"
+                                                    value="{{ $billing->nbs['nbs_procedure'][2] ?? 'Pulse Oximetry' }}">
                                             </td>
                                             <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
+                                                <input type="number" step="0.01" placeholder="0.00"
+                                                    autocomplete="off"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="nbs_cost[2]" id="nbs_cost_2"
+                                                    value="{{ $billing->nbs['nbs_cost'][2] ?? '' }}">
                                             </td>
                                             <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
+                                                <input type="number" maxlength="3" placeholder="1"
+                                                    autocomplete="off"
+                                                    oninput="this.value=this.value.slice(0,this.maxLength)"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="nbs_qty[2]" autocomplete="off"
+                                                    value="{{ $billing->nbs['nbs_qty'][2] ?? '' }}">
                                             </td>
                                             <td class="flex justify-center">
+                                                <input type="text" placeholder="0.00"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="nbs_total[2]" id="nbs_total_2" readonly
+                                                    value="{{ $billing->nbs['nbs_total'][2] ?? '' }}">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-4 gap-3 ">
+                                            <td class="flex justify-center">
                                                 <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="nbs_procedure[3]" autocomplete="off"
+                                                    value="{{ $billing->nbs['nbs_procedure'][3] ?? 'Hearing Screen' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="number" step="0.01" placeholder="0.00"
+                                                    autocomplete="off"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="nbs_cost[3]" id="nbs_cost_3"
+                                                    value="{{ $billing->nbs['nbs_cost'][3] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="number" maxlength="3" placeholder="1"
+                                                    autocomplete="off"
+                                                    oninput="this.value=this.value.slice(0,this.maxLength)"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="nbs_qty[3]" autocomplete="off"
+                                                    value="{{ $billing->nbs['nbs_qty'][3] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text" placeholder="0.00"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="nbs_total[3]" id="nbs_total_3" readonly
+                                                    value="{{ $billing->nbs['nbs_total'][3] ?? '' }}">
                                             </td>
                                         </tr>
                                     </tbody>
@@ -1138,8 +1159,9 @@
                         <div class="grid gap-2 px-3 pb-3 text-2xl text-[#003D33] font-semibold tracking-widest">
                             <label>Total Cost of NBS</label>
                             <input type="text"
-                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                name="" autocomplete="off" value="">
+                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-xl"
+                                name="nbs_grandTotal" id="nbs_grandTotal"
+                                value="{{ $billing->nbs['nbs_grandTotal'] ?? '' }}" readonly>
                         </div>
                     </div>
                 </div>
@@ -1170,5 +1192,6 @@
         @vite('resources/js/billingPage/totalXray.js')
         @vite('resources/js/billingPage/totalEcg.js')
         @vite('resources/js/billingPage/totalOxygen.js')
+        @vite('resources/js/billingPage/totalNbs.js')
         @vite('resources/js/patientPage/multi-step-form.js')
     @endpush

@@ -13,6 +13,7 @@ export default defineConfig({
                 "resources/js/billingPage/totalBilling.js",
                 "resources/js/billingPage/totalLab.js",
                 "resources/js/billingPage/totalXray.js",
+                "resources/js/billingPage/totalEcg.js",
                 "resources/js/patientPage/birthdate.js",
                 "resources/js/patientPage/admission_days.js",
                 "resources/js/patientPage/multi-step-form.js",

@@ -811,7 +811,7 @@
                                                 <input type="text"
                                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                     name="ecg_procedure[1]" autocomplete="off"
-                                                    value="{{ $billing->ecg['xray_procedure'][1] ?? 'Holter Monitor' }}">
+                                                    value="{{ $billing->ecg['ecg_procedure'][1] ?? 'Holter Monitor' }}">
                                             </td>
                                             <td class="flex justify-center">
                                                 <input type="number" step="0.01" placeholder="0.00"
@@ -839,7 +839,7 @@
                                                 <input type="text"
                                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                     name="ecg_procedure[2]" autocomplete="off"
-                                                    value="{{ $billing->ecg['xray_procedure'][2] ?? 'Event Monitor' }}">
+                                                    value="{{ $billing->ecg['ecg_procedure'][2] ?? 'Event Monitor' }}">
                                             </td>
                                             <td class="flex justify-center">
                                                 <input type="number" step="0.01" placeholder="0.00"
@@ -895,111 +895,144 @@
                                         <tr class="grid grid-cols-4 gap-3 ">
                                             <td class="flex justify-center">
                                                 <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="oxygen_procedure[1]" autocomplete="off"
+                                                    value="{{ $billing->oxygen['oxygen_procedure'][1] ?? '5 lbs.' }}">
                                             </td>
                                             <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
+                                                <input type="number" step="0.01" placeholder="0.00"
+                                                    autocomplete="off"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="oxygen_cost[1]" id="oxygen_cost_1"
+                                                    value="{{ $billing->oxygen['oxygen_cost'][1] ?? '' }}">
                                             </td>
                                             <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
+                                                <input type="number" maxlength="3" placeholder="1" autocomplete="off"
+                                                    oninput="this.value=this.value.slice(0,this.maxLength)"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="oxygen_qty[1]" autocomplete="off"
+                                                    value="{{ $billing->oxygen['oxygen_qty'][1] ?? '' }}">
                                             </td>
                                             <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
-                                            </td>
-                                        </tr>
-                                        <tr class="grid grid-cols-4 gap-3 ">
-                                            <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
-                                            </td>
-                                            <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
-                                            </td>
-                                            <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
-                                            </td>
-                                            <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
+                                                <input type="text" placeholder="0.00"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="oxygen_total[1]" id="oxygen_total_1" readonly
+                                                    value="{{ $billing->oxygen['oxygen_total'][1] ?? '' }}">
                                             </td>
                                         </tr>
                                         <tr class="grid grid-cols-4 gap-3 ">
                                             <td class="flex justify-center">
                                                 <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="oxygen_procedure[2]" autocomplete="off"
+                                                    value="{{ $billing->oxygen['oxygen_procedure'][2] ?? '10 lbs.' }}">
                                             </td>
                                             <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
+                                                <input type="number" step="0.01" placeholder="0.00"
+                                                    autocomplete="off"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="oxygen_cost[2]" id="oxygen_cost_2"
+                                                    value="{{ $billing->oxygen['oxygen_cost'][2] ?? '' }}">
                                             </td>
                                             <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
+                                                <input type="number" maxlength="3" placeholder="1" autocomplete="off"
+                                                    oninput="this.value=this.value.slice(0,this.maxLength)"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="oxygen_qty[2]" autocomplete="off"
+                                                    value="{{ $billing->oxygen['oxygen_qty'][2] ?? '' }}">
                                             </td>
                                             <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
-                                            </td>
-                                        </tr>
-                                        <tr class="grid grid-cols-4 gap-3 ">
-                                            <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
-                                            </td>
-                                            <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
-                                            </td>
-                                            <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
-                                            </td>
-                                            <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
+                                                <input type="text" placeholder="0.00"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="oxygen_total[2]" id="oxygen_total_2" readonly
+                                                    value="{{ $billing->oxygen['oxygen_total'][2] ?? '' }}">
                                             </td>
                                         </tr>
                                         <tr class="grid grid-cols-4 gap-3 ">
                                             <td class="flex justify-center">
                                                 <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="oxygen_procedure[3]" autocomplete="off"
+                                                    value="{{ $billing->oxygen['oxygen_procedure'][3] ?? '15 lbs.' }}">
                                             </td>
                                             <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
+                                                <input type="number" step="0.01" placeholder="0.00"
+                                                    autocomplete="off"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="oxygen_cost[3]" id="oxygen_cost_3"
+                                                    value="{{ $billing->oxygen['oxygen_cost'][3] ?? '' }}">
                                             </td>
                                             <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
+                                                <input type="number" maxlength="3" placeholder="1"
+                                                    autocomplete="off"
+                                                    oninput="this.value=this.value.slice(0,this.maxLength)"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="oxygen_qty[3]" autocomplete="off"
+                                                    value="{{ $billing->oxygen['oxygen_qty'][3] ?? '' }}">
                                             </td>
                                             <td class="flex justify-center">
+                                                <input type="text" placeholder="0.00"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="oxygen_total[3]" id="oxygen_total_3" readonly
+                                                    value="{{ $billing->oxygen['oxygen_total'][3] ?? '' }}">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-4 gap-3 ">
+                                            <td class="flex justify-center">
                                                 <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="oxygen_procedure[4]" autocomplete="off"
+                                                    value="{{ $billing->oxygen['oxygen_procedure'][4] ?? '20 lbs.' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="number" step="0.01" placeholder="0.00"
+                                                    autocomplete="off"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="oxygen_cost[4]" id="oxygen_cost_4"
+                                                    value="{{ $billing->oxygen['oxygen_cost'][4] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="number" maxlength="3" placeholder="1"
+                                                    autocomplete="off"
+                                                    oninput="this.value=this.value.slice(0,this.maxLength)"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="oxygen_qty[4]" autocomplete="off"
+                                                    value="{{ $billing->oxygen['oxygen_qty'][4] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text" placeholder="0.00"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="oxygen_total[4]" id="oxygen_total_4" readonly
+                                                    value="{{ $billing->oxygen['oxygen_total'][4] ?? '' }}">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-4 gap-3 ">
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="oxygen_procedure[5]" autocomplete="off"
+                                                    value="{{ $billing->oxygen['oxygen_procedure'][5] ?? '25 lbs.' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="number" step="0.01" placeholder="0.00"
+                                                    autocomplete="off"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="oxygen_cost[5]" id="oxygen_cost_5"
+                                                    value="{{ $billing->oxygen['oxygen_cost'][5] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="number" maxlength="3" placeholder="1"
+                                                    autocomplete="off"
+                                                    oninput="this.value=this.value.slice(0,this.maxLength)"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="oxygen_qty[5]" autocomplete="off"
+                                                    value="{{ $billing->oxygen['oxygen_qty'][5] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text" placeholder="0.00"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="oxygen_total[5]" id="oxygen_total_5" readonly
+                                                    value="{{ $billing->oxygen['oxygen_total'][5] ?? '' }}">
                                             </td>
                                         </tr>
                                     </tbody>
@@ -1009,8 +1042,9 @@
                         <div class="grid gap-2 px-3 pb-3 text-2xl text-[#003D33] font-semibold tracking-widest">
                             <label>Total Cost of Oxygen</label>
                             <input type="text"
-                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                name="" autocomplete="off" value="">
+                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-xl"
+                                name="oxygen_grandTotal" id="oxygen_grandTotal"
+                                value="{{ $billing->lab['oxygen_grandTotal'] ?? '' }}" readonly>
                         </div>
                     </div>
                 </div>
@@ -1135,5 +1169,6 @@
         @vite('resources/js/billingPage/totalLab.js')
         @vite('resources/js/billingPage/totalXray.js')
         @vite('resources/js/billingPage/totalEcg.js')
+        @vite('resources/js/billingPage/totalOxygen.js')
         @vite('resources/js/patientPage/multi-step-form.js')
     @endpush

@@ -695,67 +695,85 @@
                                         <tr class="grid grid-cols-4 gap-3 ">
                                             <td class="flex justify-center">
                                                 <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="xray_procedure[1]" autocomplete="off"
+                                                    value="{{ $billing->xray['xray_procedure'][1] ?? 'Chest Scan' }}">
                                             </td>
                                             <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
+                                                <input type="number" step="0.01" placeholder="0.00"
+                                                    autocomplete="off"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="xray_cost[1]" id="xray_cost_1"
+                                                    value="{{ $billing->xray['xray_cost'][1] ?? '' }}">
                                             </td>
                                             <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
+                                                <input type="number" maxlength="3" placeholder="1" autocomplete="off"
+                                                    oninput="this.value=this.value.slice(0,this.maxLength)"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="xray_qty[1]" autocomplete="off"
+                                                    value="{{ $billing->xray['xray_qty'][1] ?? '' }}">
                                             </td>
                                             <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
-                                            </td>
-                                        </tr>
-                                        <tr class="grid grid-cols-4 gap-3 ">
-                                            <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
-                                            </td>
-                                            <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
-                                            </td>
-                                            <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
-                                            </td>
-                                            <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
+                                                <input type="text" placeholder="0.00"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="xray_total[1]" id="xray_total_1" readonly
+                                                    value="{{ $billing->xray['xray_total'][1] ?? '' }}">
                                             </td>
                                         </tr>
                                         <tr class="grid grid-cols-4 gap-3 ">
                                             <td class="flex justify-center">
                                                 <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="xray_procedure[2]" autocomplete="off"
+                                                    value="{{ $billing->xray['xray_procedure'][2] ?? 'Spine Scan' }}">
                                             </td>
                                             <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
+                                                <input type="number" step="0.01" placeholder="0.00"
+                                                    autocomplete="off"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="xray_cost[2]" id="xray_cost_2"
+                                                    value="{{ $billing->xray['xray_cost'][2] ?? '' }}">
                                             </td>
                                             <td class="flex justify-center">
-                                                <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
+                                                <input type="number" maxlength="3" placeholder="1" autocomplete="off"
+                                                    oninput="this.value=this.value.slice(0,this.maxLength)"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="xray_qty[2]" autocomplete="off"
+                                                    value="{{ $billing->xray['xray_qty'][2] ?? '' }}">
                                             </td>
                                             <td class="flex justify-center">
+                                                <input type="text" placeholder="0.00"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="xray_total[2]" id="xray_total_2" readonly
+                                                    value="{{ $billing->xray['xray_total'][2] ?? '' }}">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-4 gap-3 ">
+                                            <td class="flex justify-center">
                                                 <input type="text"
-                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                    name="" autocomplete="off" value="">
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="xray_procedure[3]" autocomplete="off"
+                                                    value="{{ $billing->xray['xray_procedure'][3] ?? 'Foot Scan' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="number" step="0.01" placeholder="0.00"
+                                                    autocomplete="off"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="xray_cost[3]" id="xray_cost_3"
+                                                    value="{{ $billing->xray['xray_cost'][3] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="number" maxlength="3" placeholder="1" autocomplete="off"
+                                                    oninput="this.value=this.value.slice(0,this.maxLength)"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="xray_qty[3]" autocomplete="off"
+                                                    value="{{ $billing->xray['xray_qty'][3] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text" placeholder="0.00"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="xray_total[3]" id="xray_total_3" readonly
+                                                    value="{{ $billing->xray['xray_total'][3] ?? '' }}">
                                             </td>
                                         </tr>
                                     </tbody>
@@ -765,15 +783,16 @@
                         <div class="grid gap-2 px-3 pb-3 text-2xl text-[#003D33] font-semibold tracking-widest">
                             <label>Total Cost of X-Ray</label>
                             <input type="text"
-                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                name="" autocomplete="off" value="">
+                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-xl"
+                                name="xray_grandTotal" id="xray_grandTotal"
+                                value="{{ $billing->xray['xray_grandTotal'] ?? '' }}" readonly>
                         </div>
                     </div>
                 </div>
                 <div class="form-section">
                     <div class="p-4 bg-slate-200 rounded-b-3xl">
                         <div class="grid px-3 pb-2 text-2xl text-[#003D33] font-semibold tracking-widest">
-                            <label>ECG</label>
+                            <label>ECG Procedure</label>
                         </div>
                         <div class="grid pb-3">
                             <div class=" grid h-full w-full px-3">
@@ -1123,5 +1142,6 @@
     @push('custom_scripts')
         @vite('resources/js/billingPage/totalBilling.js')
         @vite('resources/js/billingPage/totalLab.js')
+        @vite('resources/js/billingPage/totalXray.js')
         @vite('resources/js/patientPage/multi-step-form.js')
     @endpush

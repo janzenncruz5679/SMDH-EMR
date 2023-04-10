@@ -50,7 +50,20 @@ class UpdateBilling
                 'ecg_total' => $request->ecg_total,
                 'ecg_grandTotal' => $request->ecg_grandTotal,
             ],
-            // 'oxygen' => $request->course_in_hospital,
+            'oxygen' => [
+                'oxygen_procedure' => $request->oxygen_procedure,
+                'oxygen_cost' => $request->oxygen_cost,
+                'oxygen_qty' => $request->oxygen_qty,
+                'oxygen_total' => $request->oxygen_total,
+                'oxygen_grandTotal' => $request->oxygen_grandTotal,
+            ],
+            'nbs' => [
+                'nbs_procedure' => $request->nbs_procedure,
+                'nbs_cost' => $request->nbs_cost,
+                'nbs_qty' => $request->nbs_qty,
+                'nbs_total' => $request->nbs_total,
+                'nbs_grandTotal' => $request->nbs_grandTotal,
+            ],
             // 'nbs' => $request->final_diagnosis,
             // 'plan' => $request->plan,
         ]);

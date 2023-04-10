@@ -22,14 +22,19 @@ class UpdateBilling
     {
         $billing_id = Billing::findorfail($billing->id);
         $billing_id->update([
-            'medicine' => $request->medicine,
-            'lab' => $request->lab,
-            'xray' => $request->xray,
-            'ecg' => $request->ecg,
-            'oxygen' => $request->oxygen,
-            'nbs' => $request->nbs,
-            'income' => $request->income,
-            'total' => $request->total,
+            'medicine' => [
+                'medicine_name' => $request->medicine_name,
+                'medicine_cost' => $request->medicine_cost,
+                'medicine_qty' => $request->medicine_qty,
+                'medicine_total' => $request->medicine_total,
+                'medicine_grandTotal' => $request->medicine_grandTotal,
+            ],
+            // 'lab' => $request->patients_identity,
+            // 'xray' => $request->positive_finding,
+            // 'ecg' => $request->treatment,
+            // 'oxygen' => $request->course_in_hospital,
+            // 'nbs' => $request->final_diagnosis,
+            // 'plan' => $request->plan,
         ]);
     }
 }

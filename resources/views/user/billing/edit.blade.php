@@ -31,66 +31,1010 @@
                 </div>
                 {{-- admissionform_sec --}}
                 <div class="form-section">
-                    <div class="p-4 bg-slate-200 rounded-b-3xl grid">
-                        <div class="grid grid-cols-7">
-                            <div class="px-3">
-                                <label>Medicine Total:</label>
-                                <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="enter old record #" name="medicine" id="medicine"
-                                    value="{{ $billing->medicine }}">
+                    <div class="p-4 bg-slate-200 rounded-b-3xl">
+                        <div class="grid px-3 pb-2 text-2xl text-[#003D33] font-semibold tracking-widest">
+                            <label>Medicine Consumed</label>
+                        </div>
+                        <div class="grid pb-3 grid-cols-2 gap-10">
+                            <div class=" grid h-full w-full px-3">
+                                <table class="tracking-[2px] w-full">
+                                    <thead>
+                                        <tr class="grid grid-cols-5 gap-3">
+                                            <th class="col-span-2 flex justify-center">Medicine</th>
+                                            <th class="flex justify-center">Cost</th>
+                                            <th class="flex justify-center">Quantity</th>
+                                            <th class="flex justify-center">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="grid gap-3">
+                                        <tr class="grid grid-cols-5 gap-3 ">
+                                            <td class="col-span-2 flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_name[1]" autocomplete="off"
+                                                    value="{{ $billing->medicine['medicine_name'][1] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="number" step="0.01" placeholder="0.00" autocomplete="off"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_cost[1]" id="medicine_cost_1"
+                                                    value="{{ $billing->medicine['medicine_cost'][1] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="number" maxlength="3" placeholder="1" autocomplete="off"
+                                                    oninput="this.value=this.value.slice(0,this.maxLength)"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_qty[1]" autocomplete="off"
+                                                    value="{{ $billing->medicine['medicine_qty'][1] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text" placeholder="0.00"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_total[1]" id="medicine_total_1" readonly
+                                                    value="{{ $billing->medicine['medicine_total'][1] ?? '' }}">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-5 gap-3 ">
+                                            <td class="col-span-2 flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_name[2]" autocomplete="off"
+                                                    value="{{ $billing->medicine['medicine_name'][2] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="number" step="0.01" placeholder="0.00" autocomplete="off"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_cost[2]" id="medicine_cost_2"
+                                                    value="{{ $billing->medicine['medicine_cost'][2] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="number" maxlength="3" placeholder="1" autocomplete="off"
+                                                    oninput="this.value=this.value.slice(0,this.maxLength)"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_qty[2]" autocomplete="off"
+                                                    value="{{ $billing->medicine['medicine_qty'][2] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text" placeholder="0.00"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_total[2]" id="medicine_total_2" readonly
+                                                    value="{{ $billing->medicine['medicine_total'][2] ?? '' }}">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-5 gap-3 ">
+                                            <td class="col-span-2 flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_name[3]" autocomplete="off"
+                                                    value="{{ $billing->medicine['medicine_name'][3] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="number" step="0.01" placeholder="0.00" autocomplete="off"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_cost[3]" id="medicine_cost_3"
+                                                    value="{{ $billing->medicine['medicine_cost'][3] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="number" maxlength="3" placeholder="1"
+                                                    oninput="this.value=this.value.slice(0,this.maxLength)"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_qty[3]" autocomplete="off"
+                                                    value="{{ $billing->medicine['medicine_qty'][3] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text" placeholder="0.00"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_total[3]" id="medicine_total_3" readonly
+                                                    value="{{ $billing->medicine['medicine_total'][3] ?? '' }}">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-5 gap-3 ">
+                                            <td class="col-span-2 flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_name[4]" autocomplete="off"
+                                                    value="{{ $billing->medicine['medicine_name'][4] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="number" step="0.01" placeholder="0.00"
+                                                    autocomplete="off"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_cost[4]" id="medicine_cost_4"
+                                                    value="{{ $billing->medicine['medicine_cost'][4] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="number" maxlength="3" placeholder="1"
+                                                    oninput="this.value=this.value.slice(0,this.maxLength)"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_qty[4]" autocomplete="off"
+                                                    value="{{ $billing->medicine['medicine_qty'][4] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text" placeholder="0.00"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_total[4]" id="medicine_total_4" readonly
+                                                    value="{{ $billing->medicine['medicine_total'][4] ?? '' }}">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-5 gap-3 ">
+                                            <td class="col-span-2 flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_name[5]" autocomplete="off"
+                                                    value="{{ $billing->medicine['medicine_name'][5] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="number" step="0.01" placeholder="0.00"
+                                                    autocomplete="off"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_cost[5]" id="medicine_cost_5"
+                                                    value="{{ $billing->medicine['medicine_cost'][5] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="number" maxlength="3" placeholder="1"
+                                                    oninput="this.value=this.value.slice(0,this.maxLength)"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_qty[5]" autocomplete="off"
+                                                    value="{{ $billing->medicine['medicine_qty'][5] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text" placeholder="0.00"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_total[5]" id="medicine_total_5" readonly
+                                                    value="{{ $billing->medicine['medicine_total'][5] ?? '' }}">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                            <div class="px-3">
-                                <label>Laboratory Total:</label>
-                                <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="enter old record #" name="lab" id="lab"
-                                    value="{{ $billing->lab }}">
-                            </div>
-                            <div class="px-3">
-                                <label>X-Ray Total:</label>
-                                <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="enter old record #" name="xray" id="xray"
-                                    value="{{ $billing->xray }}">
-                            </div>
-                            <div class="px-3">
-                                <label>ECG Total:</label>
-                                <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="enter old record #" name="ecg" id="ecg"
-                                    value="{{ $billing->ecg }}">
-                            </div>
-                            <div class="px-3">
-                                <label>Oxygen Total:</label>
-                                <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="enter old record #" name="oxygen" id="oxygen"
-                                    value="{{ $billing->oxygen }}">
-                            </div>
-                            <div class="px-3">
-                                <label>NBS Total:</label>
-                                <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="enter old record #" name="nbs" id="nbs"
-                                    value="{{ $billing->nbs }}">
-                            </div>
-                            <div class="px-3">
-                                <label>Income Total:</label>
-                                <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="enter old record #" name="income" id="income"
-                                    value="{{ $billing->income }}">
+                            <div class=" grid h-full w-full px-3">
+                                <table class="tracking-[2px] w-full">
+                                    <thead>
+                                        <tr class="grid grid-cols-5 gap-3">
+                                            <th class="col-span-2 flex justify-center">Medicine</th>
+                                            <th class="flex justify-center">Cost</th>
+                                            <th class="flex justify-center">Quantity</th>
+                                            <th class="flex justify-center">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="grid gap-3">
+                                        <tr class="grid grid-cols-5 gap-3 ">
+                                            <td class="col-span-2 flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_name[6]" autocomplete="off"
+                                                    value="{{ $billing->medicine['medicine_name'][6] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="number" step="0.01" placeholder="0.00"
+                                                    autocomplete="off"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_cost[6]" id="medicine_cost_6"
+                                                    value="{{ $billing->medicine['medicine_cost'][6] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="number" maxlength="3" placeholder="1" autocomplete="off"
+                                                    oninput="this.value=this.value.slice(0,this.maxLength)"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_qty[6]" autocomplete="off"
+                                                    value="{{ $billing->medicine['medicine_qty'][6] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text" placeholder="0.00"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_total[6]" id="medicine_total_6" readonly
+                                                    value="{{ $billing->medicine['medicine_total'][6] ?? '' }}">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-5 gap-3 ">
+                                            <td class="col-span-2 flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_name[7]" autocomplete="off"
+                                                    value="{{ $billing->medicine['medicine_name'][7] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="number" step="0.01" placeholder="0.00"
+                                                    autocomplete="off"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_cost[7]" id="medicine_cost_7"
+                                                    value="{{ $billing->medicine['medicine_cost'][7] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="number" maxlength="3" placeholder="1" autocomplete="off"
+                                                    oninput="this.value=this.value.slice(0,this.maxLength)"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_qty[7]" autocomplete="off"
+                                                    value="{{ $billing->medicine['medicine_qty'][7] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text" placeholder="0.00"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_total[7]" id="medicine_total_7" readonly
+                                                    value="{{ $billing->medicine['medicine_total'][7] ?? '' }}">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-5 gap-3 ">
+                                            <td class="col-span-2 flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_name[8]" autocomplete="off"
+                                                    value="{{ $billing->medicine['medicine_name'][8] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="number" step="0.01" placeholder="0.00"
+                                                    autocomplete="off"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_cost[8]" id="medicine_cost_8"
+                                                    value="{{ $billing->medicine['medicine_cost'][8] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="number" maxlength="3" placeholder="1"
+                                                    oninput="this.value=this.value.slice(0,this.maxLength)"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_qty[8]" autocomplete="off"
+                                                    value="{{ $billing->medicine['medicine_qty'][8] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text" placeholder="0.00"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_total[8]" id="medicine_total_8" readonly
+                                                    value="{{ $billing->medicine['medicine_total'][8] ?? '' }}">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-5 gap-3 ">
+                                            <td class="col-span-2 flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_name[9]" autocomplete="off"
+                                                    value="{{ $billing->medicine['medicine_name'][9] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="number" step="0.01" placeholder="0.00"
+                                                    autocomplete="off"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_cost[9]" id="medicine_cost_9"
+                                                    value="{{ $billing->medicine['medicine_cost'][9] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="number" maxlength="3" placeholder="1"
+                                                    oninput="this.value=this.value.slice(0,this.maxLength)"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_qty[9]" autocomplete="off"
+                                                    value="{{ $billing->medicine['medicine_qty'][9] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text" placeholder="0.00"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_total[9]" id="medicine_total_9" readonly
+                                                    value="{{ $billing->medicine['medicine_total'][9] ?? '' }}">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-5 gap-3 ">
+                                            <td class="col-span-2 flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_name[10]" autocomplete="off"
+                                                    value="{{ $billing->medicine['medicine_name'][10] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="number" step="0.01" placeholder="0.00"
+                                                    autocomplete="off"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_cost[10]" id="medicine_cost_10"
+                                                    value="{{ $billing->medicine['medicine_cost'][10] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="number" maxlength="3" placeholder="1"
+                                                    oninput="this.value=this.value.slice(0,this.maxLength)"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_qty[10]" autocomplete="off"
+                                                    value="{{ $billing->medicine['medicine_qty'][10] ?? '' }}">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text" placeholder="0.00"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                    name="medicine_total[10]" id="medicine_total_10" readonly
+                                                    value="{{ $billing->medicine['medicine_total'][10] ?? '' }}">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                        <div>
-                            <div class="px-3">
-                                <label>Overall Expenses:</label>
-                                <input type="text"
-                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="enter old record #" name="total" id="total"
-                                    value="{{ $billing->total }}">
+                        <div class="grid gap-2 px-3 pb-3 text-2xl text-[#003D33] font-semibold tracking-widest">
+                            <label>Total Cost of Medicine</label>
+                            <input type="text"
+                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-xl"
+                                name="medicine_grandTotal" id="medicine_grandTotal"
+                                value="{{ $billing->medicine['medicine_grandTotal'] ?? '' }}" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <div class="p-4 bg-slate-200 rounded-b-3xl">
+                        <div class="grid px-3 pb-2 text-2xl text-[#003D33] font-semibold tracking-widest">
+                            <label>Laboratory Procedures</label>
+                        </div>
+                        <div class="grid pb-3 grid-cols-2 gap-10">
+                            <div class=" grid h-full w-full px-3">
+                                <table class="tracking-[2px] w-full">
+                                    <thead>
+                                        <tr class="grid grid-cols-4 gap-3">
+                                            <th class="flex justify-center">Procedure</th>
+                                            <th class="flex justify-center">Cost</th>
+                                            <th class="flex justify-center">Quantity</th>
+                                            <th class="flex justify-center">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="grid gap-3">
+                                        <tr class="grid grid-cols-4 gap-3 ">
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-4 gap-3 ">
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-4 gap-3 ">
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-4 gap-3 ">
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-4 gap-3 ">
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
+                            <div class=" grid h-full w-full px-3">
+                                <table class="tracking-[2px] w-full">
+                                    <thead>
+                                        <tr class="grid grid-cols-4 gap-3">
+                                            <th class="flex justify-center">Procedure</th>
+                                            <th class="flex justify-center">Cost</th>
+                                            <th class="flex justify-center">Quantity</th>
+                                            <th class="flex justify-center">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="grid gap-3">
+                                        <tr class="grid grid-cols-4 gap-3 ">
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-4 gap-3 ">
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-4 gap-3 ">
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-4 gap-3 ">
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-4 gap-3 ">
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="grid gap-2 px-3 pb-3 text-2xl text-[#003D33] font-semibold tracking-widest">
+                            <label>Total Cost of Laboratory</label>
+                            <input type="text"
+                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                name="" autocomplete="off" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <div class="p-4 bg-slate-200 rounded-b-3xl">
+                        <div class="grid px-3 pb-2 text-2xl text-[#003D33] font-semibold tracking-widest">
+                            <label>X-ray Procedures</label>
+                        </div>
+                        <div class="grid pb-3">
+                            <div class=" grid h-full w-full px-3">
+                                <table class="tracking-[2px] w-full">
+                                    <thead>
+                                        <tr class="grid grid-cols-4 gap-3">
+                                            <th class="flex justify-center">Procedure</th>
+                                            <th class="flex justify-center">Cost</th>
+                                            <th class="flex justify-center">Quantity</th>
+                                            <th class="flex justify-center">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="grid gap-3">
+                                        <tr class="grid grid-cols-4 gap-3 ">
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-4 gap-3 ">
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-4 gap-3 ">
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="grid gap-2 px-3 pb-3 text-2xl text-[#003D33] font-semibold tracking-widest">
+                            <label>Total Cost of X-Ray</label>
+                            <input type="text"
+                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                name="" autocomplete="off" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <div class="p-4 bg-slate-200 rounded-b-3xl">
+                        <div class="grid px-3 pb-2 text-2xl text-[#003D33] font-semibold tracking-widest">
+                            <label>ECG</label>
+                        </div>
+                        <div class="grid pb-3">
+                            <div class=" grid h-full w-full px-3">
+                                <table class="tracking-[2px] w-full">
+                                    <thead>
+                                        <tr class="grid grid-cols-4 gap-3">
+                                            <th class="flex justify-center">Procedure</th>
+                                            <th class="flex justify-center">Cost</th>
+                                            <th class="flex justify-center">Quantity</th>
+                                            <th class="flex justify-center">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="grid gap-3">
+                                        <tr class="grid grid-cols-4 gap-3 ">
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-4 gap-3 ">
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-4 gap-3 ">
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="grid gap-2 px-3 pb-3 text-2xl text-[#003D33] font-semibold tracking-widest">
+                            <label>Total Cost of ECG</label>
+                            <input type="text"
+                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                name="" autocomplete="off" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <div class="p-4 bg-slate-200 rounded-b-3xl">
+                        <div class="grid px-3 pb-2 text-2xl text-[#003D33] font-semibold tracking-widest">
+                            <label>Oxygen</label>
+                        </div>
+                        <div class="grid pb-3">
+                            <div class=" grid h-full w-full px-3">
+                                <table class="tracking-[2px] w-full">
+                                    <thead>
+                                        <tr class="grid grid-cols-4 gap-3">
+                                            <th class="flex justify-center">Oxygen(lbs)</th>
+                                            <th class="flex justify-center">Cost</th>
+                                            <th class="flex justify-center">Quantity</th>
+                                            <th class="flex justify-center">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="grid gap-3">
+                                        <tr class="grid grid-cols-4 gap-3 ">
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-4 gap-3 ">
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-4 gap-3 ">
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-4 gap-3 ">
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-4 gap-3 ">
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="grid gap-2 px-3 pb-3 text-2xl text-[#003D33] font-semibold tracking-widest">
+                            <label>Total Cost of Oxygen</label>
+                            <input type="text"
+                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                name="" autocomplete="off" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <div class="p-4 bg-slate-200 rounded-b-3xl">
+                        <div class="grid px-3 pb-2 text-2xl text-[#003D33] font-semibold tracking-widest">
+                            <label>NBS</label>
+                        </div>
+                        <div class="grid pb-3">
+                            <div class=" grid h-full w-full px-3">
+                                <table class="tracking-[2px] w-full">
+                                    <thead>
+                                        <tr class="grid grid-cols-4 gap-3">
+                                            <th class="flex justify-center">Procedure</th>
+                                            <th class="flex justify-center">Cost</th>
+                                            <th class="flex justify-center">Quantity</th>
+                                            <th class="flex justify-center">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="grid gap-3">
+                                        <tr class="grid grid-cols-4 gap-3 ">
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-4 gap-3 ">
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                        </tr>
+                                        <tr class="grid grid-cols-4 gap-3 ">
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                            <td class="flex justify-center">
+                                                <input type="text"
+                                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                                    name="" autocomplete="off" value="">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="grid gap-2 px-3 pb-3 text-2xl text-[#003D33] font-semibold tracking-widest">
+                            <label>Total Cost of NBS</label>
+                            <input type="text"
+                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                name="" autocomplete="off" value="">
                         </div>
                     </div>
                 </div>
@@ -114,13 +1058,8 @@
                 </div>
             </form>
         </div>
-
-    </div>
-    </div>
-    </div>
-@endsection
-
-@push('custom_scripts')
-    @vite('resources/js/billingPage/totalBilling.js')
-    @vite('resources/js/patientPage/multi-step-form.js')
-@endpush
+    @endsection
+    @push('custom_scripts')
+        @vite('resources/js/billingPage/totalBilling.js')
+        @vite('resources/js/patientPage/multi-step-form.js')
+    @endpush

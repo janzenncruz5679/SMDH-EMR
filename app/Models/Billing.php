@@ -15,6 +15,15 @@ class Billing extends Model
 
     protected $hidden = [];
 
+    protected $casts = [
+        'medicine' => 'array',
+        'lab' => 'array',
+        'xray' => 'array',
+        'ecg' => 'array',
+        'oxygen' => 'array',
+        'nbs' => 'array',
+    ];
+
     public function admission()
     {
         return $this->belongsTo(Admission::class, 'admissionBilling_id');

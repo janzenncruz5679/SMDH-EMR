@@ -23,14 +23,14 @@ return new class extends Migration
             $table->foreign('outpatientBilling_id')->references('id')->on('outpatients');
 
             $table->string('full_name')->nullable();
-            $table->string('total')->nullable();
-            $table->string('medicine')->nullable();
-            $table->string('lab')->nullable();
-            $table->string('xray')->nullable();
-            $table->string('ecg')->nullable();
-            $table->string('oxygen')->nullable();
-            $table->string('nbs')->nullable();
-            $table->string('income')->nullable();
+            $table->string('grand_total')->nullable();
+            $table->longText('medicine')->nullable();
+            $table->longText('lab')->nullable();
+            $table->longText('xray')->nullable();
+            $table->longText('ecg')->nullable();
+            $table->longText('oxygen')->nullable();
+            $table->longText('nbs')->nullable();
+            // $table->string('income')->nullable();
             $table->timestamps();
         });
     }

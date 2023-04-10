@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Actions\Billing\UpdateBilling;
 use App\Models\Admission;
 use App\Models\Billing;
+use App\Models\Medicine;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -23,6 +24,7 @@ class BillingController extends Controller
 
     public function create(Billing $billing)
     {
+        //
     }
 
 
@@ -33,7 +35,7 @@ class BillingController extends Controller
 
     public function show(Billing $billing)
     {
-        //
+        return view('user.billing.show', compact('billing'));
     }
 
     public function edit(Billing $billing)

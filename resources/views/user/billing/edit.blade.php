@@ -18,7 +18,7 @@
     </style>
     <div class="fixed h-[93%] w-[84%] left-[16%] top-[7%] p-12 flex flex-col">
         <div class="hidden">
-            @include('layouts.stepper')
+            @include('layouts.billingStepper')
         </div>
         <div class=" h-full w-full">
             <form action="{{ route('billing.update', $billing->id) }}" method="POST" enctype="multipart/form-data"
@@ -871,7 +871,7 @@
                             <input type="text"
                                 class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-xl"
                                 name="ecg_grandTotal" id="ecg_grandTotal"
-                                value="{{ $billing->lab['ecg_grandTotal'] ?? '' }}" readonly>
+                                value="{{ $billing->ecg['ecg_grandTotal'] ?? '' }}" readonly>
                         </div>
                     </div>
                 </div>
@@ -1044,7 +1044,7 @@
                             <input type="text"
                                 class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-xl"
                                 name="oxygen_grandTotal" id="oxygen_grandTotal"
-                                value="{{ $billing->lab['oxygen_grandTotal'] ?? '' }}" readonly>
+                                value="{{ $billing->oxygen['oxygen_grandTotal'] ?? '' }}" readonly>
                         </div>
                     </div>
                 </div>
@@ -1165,6 +1165,21 @@
                         </div>
                     </div>
                 </div>
+                {{-- <div class="form-section">
+                    <div class="p-4 bg-slate-200 rounded-b-3xl">
+                        <div>
+                            <div class="grid px-3 pb-2 text-2xl text-[#003D33] font-semibold tracking-widest">
+                                <label>Overall Total</label>
+                            </div>
+                            <div class="grid px-3 pb-2">
+                                <input type="text"
+                                    class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    name="grand_total" id="overall_total" readonly
+                                    value="{{ $billing->grand_total ?? '' }}">
+                            </div>
+                        </div>
+                    </div>
+                </div> --}}
                 <div class="form-navigation py-8 grid grid-cols-8 gap-4">
                     <button
                         class="previous h-full col-start-5 text-2xl p-2 bg-blue-300 tracking-[2px] text-white rounded-xl transform transition hover:-translate-y-0.5 hover:bg-blue-200 shadow-md shadow-blue-200"
@@ -1183,15 +1198,17 @@
                         </div>
                     </a>
                 </div>
-            </form>
         </div>
-    @endsection
-    @push('custom_scripts')
-        @vite('resources/js/billingPage/totalBilling.js')
-        @vite('resources/js/billingPage/totalLab.js')
-        @vite('resources/js/billingPage/totalXray.js')
-        @vite('resources/js/billingPage/totalEcg.js')
-        @vite('resources/js/billingPage/totalOxygen.js')
-        @vite('resources/js/billingPage/totalNbs.js')
-        @vite('resources/js/patientPage/multi-step-form.js')
-    @endpush
+        </form>
+    </div>
+@endsection
+@push('custom_scripts')
+    @vite('resources/js/billingPage/totalBilling.js')
+    @vite('resources/js/billingPage/totalMedicine.js')
+    @vite('resources/js/billingPage/totalLab.js')
+    @vite('resources/js/billingPage/totalXray.js')
+    @vite('resources/js/billingPage/totalEcg.js')
+    @vite('resources/js/billingPage/totalOxygen.js')
+    @vite('resources/js/billingPage/totalNbs.js')
+    @vite('resources/js/patientPage/multi-step-form.js')
+@endpush

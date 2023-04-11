@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Actions\Records\VitalSign\StoreVital;
 use App\Actions\Records\VitalSign\UpdateVital;
 use App\Models\VitalSign;
+use App\Models\VitalSignHistory;
 use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -57,9 +58,13 @@ class VitalSignController extends Controller
     }
 
 
-    public function show(VitalSign $vitalSign)
+    public function show(VitalSign $vitalSign, VitalSignHistory $vitalSignHistory)
     {
-        return view('user.records.vitalSign.show', compact('vitalSign'));
+        $vitalSignHistory = VitalSignHistory::where('history_id', $vitalSign->id)
+            ->latest('id')
+            ->paginate(10);
+        // dd($dischargeSummaryHistory->toArray());
+        return view('user.recordsHistory.vitalSign.index', compact('vitalSignHistory'));
     }
 
 

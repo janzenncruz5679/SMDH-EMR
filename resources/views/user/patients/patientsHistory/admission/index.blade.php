@@ -1,8 +1,12 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="fixed h-[93%] w-[84%] left-[16%] top-[7%] grid gap-8 p-12">
-        <div class="h-full w-full bg-white p-8 shadow-md shadow-blue-200 rounded-3xl grid gap-4">
+    <div class="absolute h-auto w-[84%] left-[16%] top-[7%] p-12 grid gap-8">
+        <div class="admissionDisplay h-full w-full grid gap-4 text-2xl">
+            <div class="h-20 bg-blue-300 flex items-center justify-center">
+                <label class="font-[sans-serif] font-semibold text-white tracking-wide text-4xl">
+                    {{ __('Admission History') }}</label>
+            </div>
             <div class="admissionTable">
                 @if (isset($admissionHistory))
                     <table class="tracking-[2px] w-full table table-striped table-inverse table-responsive d-table">
@@ -52,35 +56,6 @@
             </div>
             <div class="inset-y-0 right-0 left-[275px] flex justify-center">
                 {{ $admissionHistory->links('pagination::custom_tailwind') }}
-            </div>
-        </div>
-        <div class="w-full row-span-2 grid grid-cols-2 gap-8">
-            <div class="h-full w-full bg-white p-8 shadow-lg shadow-blue-200 rounded-3xl flex flex-col gap-4">
-
-            </div>
-            <div class="h-full w-full bg-white p-8 shadow-lg shadow-blue-200 rounded-3xl">
-                <div class="grid grid-cols-3 gap-6">
-                    <div class="">
-                        <x-menu-card :url="route('vitalSign.index')" text="Vital Signs" fontAwesomeIcon="fa-solid fa-heart-pulse" />
-                    </div>
-                    <div class="">
-                        <x-menu-card :url="route('nurseNote.index')" text="Nurse Notes" fontAwesomeIcon="fa-solid fa-notes-medical" />
-                    </div>
-                    <div class="">
-                        <x-menu-card :url="route('dischargeSummary.index')" text="Discharge"
-                            fontAwesomeIcon="fa-solid fa-house-medical-circle-xmark" />
-                    </div>
-                    {{-- <div class="">
-                            <x-menu-card :url="route('physicianOrder')" text="Physician Order"
-                                fontAwesomeIcon="fa-solid fa-heart-pulse" />
-                        </div> --}}
-                    <div class="">
-                        <x-menu-card :url="route('fluidIntake.index')" text="Fluid Intake" fontAwesomeIcon="fa-solid fa-syringe" />
-                    </div>
-                    {{-- <div class="">
-                            <x-menu-card :url="route('kardex')" text="Kardex" fontAwesomeIcon="fa-solid fa-notes-medical" />
-                        </div> --}}
-                </div>
             </div>
         </div>
     </div>

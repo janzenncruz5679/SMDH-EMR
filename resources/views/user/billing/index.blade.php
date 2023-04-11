@@ -23,7 +23,8 @@
                                 <tr class="grid grid-cols-12 even:bg-gray-200 odd:bg-white text-xl">
                                     <td class="col-span-2 flex justify-center">{{ $billing->id }}</td>
                                     <td class="col-span-5 flex justify-center">{{ $billing->full_name }}</td>
-                                    <td class="col-span-3 flex justify-center">{{ $billing->grand_total }}</td>
+                                    <td class="col-span-3 flex justify-center">
+                                        ₱{{ number_format($billing->grand_total, 2) }}</td>
                                     <td class="col-span-2 flex justify-center">
                                         <div class="grid grid-cols-3 justify-center gap-4">
                                             <a href="{{ route('billing.show', $billing->id) }}"
@@ -45,8 +46,16 @@
                     </table>
                 @endif
             </div>
-            <div class="h-full w-full bg-blue-100 p-8 shadow-lg shadow-blue-200 rounded-3xl">
-                <div class="grid grid-cols-3 gap-6">
+            <div class="h-full w-full bg-blue-300 p-8 shadow-lg shadow-blue-200 rounded-3xl">
+                <div class="h-full flex flex-col gap-4">
+                    <div class="">
+                        <label class="font-[sans-serif] font-semibold text-white tracking-wide text-3xl">
+                            Billing submitted today: {{ $records }}</label>
+                    </div>
+                    <div class="flex-grow">
+                        <label class="font-[sans-serif] font-semibold text-white tracking-wide text-3xl">
+                            Total Billing records: {{ $total_records }}</label>
+                    </div>
                 </div>
             </div>
         </div>

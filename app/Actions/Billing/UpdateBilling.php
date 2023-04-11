@@ -64,6 +64,7 @@ class UpdateBilling
                 'nbs_total' => $request->nbs_total,
                 'nbs_grandTotal' => $request->nbs_grandTotal,
             ],
+            'grand_total' => $request->medicine_grandTotal + $request->lab_grandTotal + $request->xray_grandTotal + $request->ecg_grandTotal + $request->oxygen_grandTotal + $request->nbs_grandTotal,
             // 'nbs' => $request->final_diagnosis,
             // 'plan' => $request->plan,
         ]);

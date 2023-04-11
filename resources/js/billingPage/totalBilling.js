@@ -1,87 +1,65 @@
-$(document).ready(function () {
-    $("#medicine, #lab, #xray, #ecg, #oxygen, #nbs, #income").on(
-        "input",
-        function () {
-            var medicine = parseFloat($("#medicine").val()) || 0;
-            var lab = parseFloat($("#lab").val()) || 0;
-            var xray = parseFloat($("#xray").val()) || 0;
-            var ecg = parseFloat($("#ecg").val()) || 0;
-            var oxygen = parseFloat($("#oxygen").val()) || 0;
-            var nbs = parseFloat($("#nbs").val()) || 0;
-            var income = parseFloat($("#income").val()) || 0;
-            var sum = medicine + lab + xray + ecg + oxygen + nbs + income;
-            $("#total").val(sum);
-        }
+// Get the initial values of grandTotals
+var medicineTotal = parseFloat(
+    document.getElementById("medicine_grandTotal").value
+);
+var labTotal = parseFloat(document.getElementById("lab_grandTotal").value);
+var xrayTotal = parseFloat(document.getElementById("xray_grandTotal").value);
+var ecgTotal = parseFloat(document.getElementById("ecg_grandTotal").value);
+var oxygenTotal = parseFloat(
+    document.getElementById("oxygen_grandTotal").value
+);
+var nbsTotal = parseFloat(document.getElementById("nbs_grandTotal").value);
+
+// Calculate the initial overallTotal
+var overallTotal =
+    medicineTotal + labTotal + xrayTotal + ecgTotal + oxygenTotal + nbsTotal;
+
+// Set the initial overallTotal in the input field
+document.getElementById("overall_total").value = overallTotal;
+
+// Add event listeners to grandTotal input fields
+document
+    .getElementById("medicine_grandTotal")
+    .addEventListener("input", updateOverallTotal);
+document
+    .getElementById("lab_grandTotal")
+    .addEventListener("input", updateOverallTotal);
+document
+    .getElementById("xray_grandTotal")
+    .addEventListener("input", updateOverallTotal);
+document
+    .getElementById("ecg_grandTotal")
+    .addEventListener("input", updateOverallTotal);
+document
+    .getElementById("oxygen_grandTotal")
+    .addEventListener("input", updateOverallTotal);
+document
+    .getElementById("nbs_grandTotal")
+    .addEventListener("input", updateOverallTotal);
+
+// Function to update the overallTotal
+function updateOverallTotal() {
+    // Get the updated values of grandTotals
+    medicineTotal = parseFloat(
+        document.getElementById("medicine_grandTotal").value
     );
-});
+    labTotal = parseFloat(document.getElementById("lab_grandTotal").value);
+    xrayTotal = parseFloat(document.getElementById("xray_grandTotal").value);
+    ecgTotal = parseFloat(document.getElementById("ecg_grandTotal").value);
+    oxygenTotal = parseFloat(
+        document.getElementById("oxygen_grandTotal").value
+    );
+    nbsTotal = parseFloat(document.getElementById("nbs_grandTotal").value);
 
-var numMedicineItems = 10; // Update this value to match the actual number of medicine items
+    // Calculate the updated overallTotal
+    overallTotal =
+        medicineTotal +
+        labTotal +
+        xrayTotal +
+        ecgTotal +
+        oxygenTotal +
+        nbsTotal;
 
-// Loop through each medicine item
-for (var i = 1; i <= numMedicineItems; i++) {
-    // Get the input elements for medicine_cost[i], medicine_qty[i], and medicine_total[i]
-    var medicineCostInput = $("#medicine_cost_" + i);
-    var medicineQtyInput = $("input[name='medicine_qty[" + i + "]']").eq(0);
-    var medicineTotalInput = $("#medicine_total_" + i);
-
-    // Define a closure to capture the values of medicineCostInput, medicineQtyInput, and medicineTotalInput
-    (function (medicineCostInput, medicineQtyInput, medicineTotalInput) {
-        // Add event listener to medicine_cost[i] input to listen for changes
-        medicineCostInput.on("input", function () {
-            // Get the values from medicine_cost[i] and medicine_qty[i]
-            var medicineCostValue = parseFloat(this.value) || 0;
-            var medicineQtyValue = parseInt(medicineQtyInput.val()) || 0;
-
-            // Calculate the total by multiplying cost and quantity
-            var medicineTotalValue = medicineCostValue * medicineQtyValue;
-
-            // Round the total to 2 decimal places
-            medicineTotalValue = medicineTotalValue.toFixed(2);
-
-            // Set the calculated total value to medicine_total[i]
-            medicineTotalInput.val(medicineTotalValue);
-
-            // Call the function to update the grand total
-            updateGrandTotal();
-        });
-
-        // Add event listener to medicine_qty[i] input to listen for changes
-        medicineQtyInput.on("input", function () {
-            // Get the values from medicine_cost[i] and medicine_qty[i]
-            var medicineCostValue = parseFloat(medicineCostInput.val()) || 0;
-            var medicineQtyValue = parseInt(this.value) || 0;
-
-            // Calculate the total by multiplying cost and quantity
-            var medicineTotalValue = medicineCostValue * medicineQtyValue;
-
-            // Round the total to 2 decimal places
-            medicineTotalValue = medicineTotalValue.toFixed(2);
-
-            // Set the calculated total value to medicine_total[i]
-            medicineTotalInput.val(medicineTotalValue);
-
-            // Call the function to update the grand total
-            updateGrandTotal();
-        });
-    })(medicineCostInput, medicineQtyInput, medicineTotalInput); // Pass in the current values of medicineCostInput, medicineQtyInput, and medicineTotalInput as arguments to the closure
-}
-
-// Function to update the grand total
-function updateGrandTotal() {
-    var grandTotal = 0;
-    // Loop through each medicine item
-    for (var i = 1; i <= numMedicineItems; i++) {
-        // Get the medicine_total[i] input element
-        var medicineTotalInput = $("#medicine_total_" + i);
-
-        // Get the value of medicine_total[i]
-        var medicineTotalValue = parseFloat(medicineTotalInput.val()) || 0;
-
-        // Add the value to the grand total
-        grandTotal += medicineTotalValue;
-    }
-
-    // Set the grand total value to medicine_grandTotal input
-    var medicineGrandTotalInput = $("#medicine_grandTotal");
-    medicineGrandTotalInput.val(grandTotal.toFixed(2));
+    // Set the updated overallTotal in the input field
+    document.getElementById("overall_total").value = overallTotal;
 }

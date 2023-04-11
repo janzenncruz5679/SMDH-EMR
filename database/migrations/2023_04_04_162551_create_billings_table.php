@@ -23,7 +23,7 @@ return new class extends Migration
             $table->foreign('outpatientBilling_id')->references('id')->on('outpatients');
 
             $table->string('full_name')->nullable();
-            $table->string('grand_total')->nullable();
+            $table->float('grand_total', 12, 2)->unsigned()->nullable();
             $table->longText('medicine')->nullable();
             $table->longText('lab')->nullable();
             $table->longText('xray')->nullable();

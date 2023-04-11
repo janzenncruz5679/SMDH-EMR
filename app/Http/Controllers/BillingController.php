@@ -6,6 +6,7 @@ use App\Actions\Billing\UpdateBilling;
 use App\Models\Admission;
 use App\Models\Billing;
 use App\Models\Medicine;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -19,7 +20,9 @@ class BillingController extends Controller
     public function index()
     {
         $billings = Billing::all()->paginate(10);
-        return view('user.billing.index', compact('billings'));
+        $records = Billing::whereDate('created_at', Carbon::today())->count();
+        $total_records = Billing::count();
+        return view('user.billing.index', compact('billings', 'records', 'total_records'));
     }
 
     public function create(Billing $billing)

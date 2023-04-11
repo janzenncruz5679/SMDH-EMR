@@ -11,6 +11,7 @@ export default defineConfig({
                 "resources/js/charts/notesChart.js",
                 "resources/js/billingPage/dropdown.js",
                 "resources/js/billingPage/totalBilling.js",
+                "resources/js/billingPage/totalMedicine.js",
                 "resources/js/billingPage/totalLab.js",
                 "resources/js/billingPage/totalXray.js",
                 "resources/js/billingPage/totalEcg.js",

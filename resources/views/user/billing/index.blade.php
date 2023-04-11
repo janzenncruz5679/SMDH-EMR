@@ -6,14 +6,15 @@
             <label class="font-[sans-serif] font-semibold text-white tracking-wide text-4xl">
                 {{ __('Billing Summary') }}</label>
         </div>
-        <div class="flex-grow w-full row-span-2 grid grid-cols-2 gap-8">
-            <div class="">
+        <div class="flex-grow w-full row-span-2 grid grid-cols-3 gap-8">
+            <div class="col-span-2">
                 @if (isset($billings))
                     <table class="tracking-widest w-full">
                         <thead>
                             <tr class="grid grid-cols-12 text-2xl">
                                 <th class="col-span-2 flex justify-center">OR #</th>
-                                <th class="col-span-8 flex justify-center">Name</th>
+                                <th class="col-span-5 flex justify-center">Name</th>
+                                <th class="col-span-3 flex justify-center">Total Bill</th>
                                 <th class="col-span-2 flex justify-center">Actions</th>
                             </tr>
                         </thead>
@@ -21,7 +22,8 @@
                             @foreach ($billings as $billing)
                                 <tr class="grid grid-cols-12 even:bg-gray-200 odd:bg-white text-xl">
                                     <td class="col-span-2 flex justify-center">{{ $billing->id }}</td>
-                                    <td class="col-span-8 flex justify-center">{{ $billing->full_name }}</td>
+                                    <td class="col-span-5 flex justify-center">{{ $billing->full_name }}</td>
+                                    <td class="col-span-3 flex justify-center">{{ $billing->grand_total }}</td>
                                     <td class="col-span-2 flex justify-center">
                                         <div class="grid grid-cols-3 justify-center gap-4">
                                             <a href="{{ route('billing.show', $billing->id) }}"

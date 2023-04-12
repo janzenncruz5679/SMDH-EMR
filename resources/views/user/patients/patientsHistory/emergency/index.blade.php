@@ -34,7 +34,8 @@
                                         {{ $emergencyHistoryData->personal_info['phone'] }}</td>
                                     <td class="flex justify-center">
                                         <div class="grid justify-center gap-4">
-                                            <a href="" class="editIcon hover:text-blue-300">
+                                            <a href="{{ route('emergencyHistory.show', $emergencyHistoryData->id) }}"
+                                                class="editIcon hover:text-blue-300">
                                                 <i class="fa-solid fa-eye"></i>
                                             </a>
                                             {{-- <a href="{{ route('emergency.edit', $emergency->id) }}"

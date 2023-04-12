@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class VitalSign extends Model
+class VitalSignHistory extends Model
 {
     use HasFactory;
 
-    protected $table = 'vital_signs';
+    protected $table = 'vital_sign_histories';
 
     protected $guarded = [];
 
@@ -26,8 +26,8 @@ class VitalSign extends Model
         'initials' => 'array',
     ];
 
-    public function vitalSignHistory()
+    public function vitalSign()
     {
-        return $this->hasMany(vitalSignHistory::class);
+        return $this->belongsTo(VitalSign::class, 'history_id');
     }
 }

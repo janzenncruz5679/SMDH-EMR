@@ -135,6 +135,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('vitalSign/search', [VitalSignController::class, 'searchVitalSign'])->name('vitalSign.searchVitalSign');
     Route::get('vitalSign/pdf{vitalSign}', [VitalSignController::class, 'pdf'])->name('vitalSign.pdf');
     Route::resource('vitalSign', VitalSignController::class);
+    Route::resource('vitalSignHistory', VitalSignHistoryController::class);
 
     Route::post('nurseNote/search', [NurseNoteController::class, 'searchNurseNote'])->name('nurseNote.searchNurseNote');
     Route::get('nurseNote/pdf{nurseNote}', [NurseNoteController::class, 'pdf'])->name('nurseNote.pdf');

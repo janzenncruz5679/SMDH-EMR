@@ -20,9 +20,7 @@
                     request()->routeIs('discahrgeSummary*') |
                     request()->routeIs('fluidIntake*')" text="Records"
                     fontAwesomeIcon="fa-solid fa-notes-medical" />
-                <x-sidebar-menu :url="route('billingTable')" :active-url="request()->routeIs('billing*') |
-                    request()->routeIs('billingTable*') |
-                    request()->routeIs('updateBilling*')" text="Billing"
+                <x-sidebar-menu :url="route('billing.index')" :active-url="request()->routeIs('billing*') | request()->routeIs('billing*')" text="Billing"
                     fontAwesomeIcon="fa-solid fa-hand-holding-dollar" />
                 <x-sidebar-menu :url="route('users.index')" :active-url="request()->routeIs('users*')" text="Users"
                     fontAwesomeIcon="fa-solid fa-hand-holding-dollar" />

@@ -45,6 +45,9 @@
                         </tbody>
                     </table>
                 @endif
+                <div class="inset-y-0 right-0 left-[275px] flex justify-center">
+                    {{ $billings->links('pagination::custom_tailwind') }}
+                </div>
             </div>
             <div class="h-full w-full bg-blue-300 p-8 shadow-lg shadow-blue-200 rounded-3xl">
                 <div class="h-full flex flex-col gap-4">

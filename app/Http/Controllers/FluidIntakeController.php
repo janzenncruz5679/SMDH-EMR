@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Actions\Records\FluidIntake\StoreFluidIntake;
 use App\Actions\Records\FluidIntake\UpdateFluidIntake;
 use App\Models\FluidIntake;
+use App\Models\FluidIntakeHistory;
 use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -57,9 +58,12 @@ class FluidIntakeController extends Controller
     }
 
 
-    public function show(FluidIntake $fluidIntake)
+    public function show(FluidIntake $fluidIntake, FluidIntakeHistory $fluidIntakeHistory)
     {
-        return view('user.records.fluidIntake.show', compact('fluidIntake'));
+        $fluidIntakeHistory = FluidIntakeHistory::where('history_id', $fluidIntake->id)
+            ->latest('id')
+            ->paginate(10);
+        return view('user.recordsHistory.fluidIntake.index', compact('fluidIntakeHistory'));
     }
 
 

@@ -20,6 +20,7 @@ class BillingController extends Controller
     public function index()
     {
         $billings = Billing::all()->paginate(10);
+        // dd($billings);
         $records = Billing::whereDate('created_at', Carbon::today())->count();
         $total_records = Billing::count();
         return view('user.billing.index', compact('billings', 'records', 'total_records'));

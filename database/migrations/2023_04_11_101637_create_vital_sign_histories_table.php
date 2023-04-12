@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('vital_sign_histories', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('history_id');
+            $table->foreign('history_id')->references('id')->on('vital_signs');
             $table->string('patient_fullname')->nullable();
             $table->string('birthdate')->nullable();
             $table->string('gender')->nullable();

@@ -11,11 +11,8 @@ class UpdateDischargeSummary
 {
     public function handle(Request $request, DischargeSummary $dischargeSummary)
     {
-        // Update the discharge summary
         $updatedDischargeSummary = $this->updateDischargeSummary($request, $dischargeSummary);
-
-        // Create a new record in DischargeSummaryHistory
-        $this->createDischargeSummaryHistory($updatedDischargeSummary);
+        $this->createDischargeSummaryHistory($request, $updatedDischargeSummary);
 
         return $updatedDischargeSummary;
     }
@@ -37,19 +34,19 @@ class UpdateDischargeSummary
         return $dischargeSummary;
     }
 
-    private function createDischargeSummaryHistory(DischargeSummary $dischargeSummary)
+    private function createDischargeSummaryHistory(Request $request, DischargeSummary $dischargeSummary)
     {
         DischargeSummaryHistory::create([
-            'discharge_date' => $dischargeSummary->discharge_date,
-            'patients_identity' => $dischargeSummary->patients_identity,
-            'positive_finding' => $dischargeSummary->positive_finding,
-            'treatment' => $dischargeSummary->treatment,
-            'course_in_hospital' => $dischargeSummary->course_in_hospital,
-            'final_diagnosis' => $dischargeSummary->final_diagnosis,
-            'plan' => $dischargeSummary->plan,
-            'doctor_name' => $dischargeSummary->doctor_name,
-            'license_number' => $dischargeSummary->license_number,
             'history_id' => $dischargeSummary->id,
+            'discharge_date' => $request->discharge_date,
+            'patients_identity' => $request->patients_identity,
+            'positive_finding' => $request->positive_finding,
+            'treatment' => $request->treatment,
+            'course_in_hospital' => $request->course_in_hospital,
+            'final_diagnosis' => $request->final_diagnosis,
+            'plan' => $request->plan,
+            'doctor_name' => $request->doctor_name,
+            'license_number' => $request->license_number,
         ]);
     }
 }

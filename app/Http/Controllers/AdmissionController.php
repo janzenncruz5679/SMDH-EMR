@@ -62,12 +62,6 @@ class AdmissionController extends Controller
             ->latest('id')
             ->paginate(5);
         return view('user.patients.patientsHistory.admission.index', compact('admissionHistory'));
-
-        // $dischargeSummaryHistory = DischargeSummaryHistory::where('history_id', $dischargeSummary->id)
-        //     ->latest('id')
-        //     ->paginate(10);
-        // // dd($dischargeSummaryHistory->toArray());
-        // return view('user.recordsHistory.dischargeSummary.index', compact('dischargeSummaryHistory'));
     }
 
     public function edit(Admission $admission)

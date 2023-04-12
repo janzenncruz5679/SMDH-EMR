@@ -120,17 +120,17 @@ Route::middleware(['auth'])->group(function () {
     Route::post('admissions/search', [AdmissionController::class, 'searchAdmission'])->name('admission.searchAdmission');
     Route::get('admission/pdf{admission}', [AdmissionController::class, 'pdf'])->name('admission.pdf');
     Route::resource('admission', AdmissionController::class);
-    Route::resource('admissionHistory', AdmissionHistoryController::class);
+    Route::resource('admissionHistory', AdmissionHistoryController::class)->only(['index', 'show']);
 
     Route::post('emergency/search', [EmergencyController::class, 'searchEmergency'])->name('emergency.searchEmergency');
     Route::get('emergency/pdf{emergency}', [EmergencyController::class, 'pdf'])->name('emergency.pdf');
     Route::resource('emergency', EmergencyController::class);
-    Route::resource('emergencyHistory', EmergencyHistoryController::class);
+    Route::resource('emergencyHistory', EmergencyHistoryController::class)->only(['index', 'show']);
 
     Route::post('outpatient/search', [OutpatientController::class, 'searchOutpatient'])->name('emergency.searchOutpatient');
     Route::get('outpatient/pdf{outpatient}', [OutpatientController::class, 'pdf'])->name('outpatient.pdf');
     Route::resource('outpatient', OutpatientController::class);
-    Route::resource('outpatientHistory', OutpatientHistoryController::class);
+    Route::resource('outpatientHistory', OutpatientHistoryController::class)->only(['index', 'show']);
 
     /////stations
     Route::post('vitalSign/search', [VitalSignController::class, 'searchVitalSign'])->name('vitalSign.searchVitalSign');

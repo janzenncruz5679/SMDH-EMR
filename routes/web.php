@@ -125,6 +125,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('emergency/search', [EmergencyController::class, 'searchEmergency'])->name('emergency.searchEmergency');
     Route::get('emergency/pdf{emergency}', [EmergencyController::class, 'pdf'])->name('emergency.pdf');
+    Route::get('emergency/show_all{emergency}', [EmergencyController::class, 'show_all'])->name('emergency.show_all');
     Route::resource('emergency', EmergencyController::class);
     Route::resource('emergencyHistory', EmergencyHistoryController::class)->only(['index', 'show']);
 

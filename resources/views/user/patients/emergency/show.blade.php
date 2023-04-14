@@ -52,13 +52,15 @@
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="N/A if not available" name="middle_name"
-                                        value="{{ $emergency->middle_name }}">
+                                        value="{{ $emergency->middle_name ?? 'N/A' }}" readonly>
+
                                 </div>
                                 <div class="px-3">
                                     <label>SUFFIX :</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="N/A if not available" name="suffix" value="{{ $emergency->suffix }}">
+                                        placeholder="N/A if not available" name="suffix"
+                                        value="{{ $emergency->suffix ?? 'N/A' }}" readonly>
                                 </div>
                             </div>
                         </div>
@@ -72,7 +74,8 @@
                                     <label>SR CITIZEN NO :</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="senior citizen #" name="sr_no" value="{{ $emergency->sr_no }}">
+                                        placeholder="senior citizen #" name="sr_no"
+                                        value="{{ $emergency->sr_no ?? 'N/A' }}" readonly>
 
                                 </div>
                                 <div class="px-3">
@@ -91,53 +94,23 @@
                                 </div>
                                 <div class="px-3">
                                     <label>SEX: <span class="text-red-600 font-bold">*</span></label>
-                                    <div class="w-full">
-                                        <select name="gender"
-                                            class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                            readonly>
-                                            <option value="" disabled selected>gender</option>
-                                            <option value="Male"
-                                                {{ $emergency->personal_info['gender'] == 'Male' ? 'selected' : '' }}>Male
-                                            </option>
-                                            <option value="Female"
-                                                {{ $emergency->personal_info['gender'] == 'Female' ? 'selected' : '' }}>
-                                                Female
-                                            </option>
-                                        </select>
-                                    </div>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        value="{{ $emergency->personal_info['gender'] }}" readonly>
                                 </div>
 
                                 <div class="px-3">
                                     <label>CIVIL STATUS: <span class="text-red-600 font-bold">*</span></label>
-                                    <div class="w-full">
-                                        <select name="civil_status"
-                                            class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                            readonly>
-                                            <option value="" disabled selected>civil status</option>
-                                            @php
-                                                $_civil_status = [
-                                                    'Single' => 'Single',
-                                                    'Divorced' => 'Divorced',
-                                                    'Separated' => 'Separated',
-                                                    'Common Law' => 'Common Law',
-                                                    'Widowed' => 'Widowed',
-                                                    'Married' => 'Married',
-                                                    'Neutral' => 'Neutral',
-                                                ];
-                                            @endphp
-                                            @foreach ($_civil_status as $k => $v)
-                                                <option value="{{ $v }}"
-                                                    {{ $emergency->personal_info['civil_status'] == $v ? 'selected' : '' }}>
-                                                    {{ $k }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="px-3">
-                                    <label>Type:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="enter old record #" name="type" value="Admission" readonly>
+                                        value="{{ $emergency->personal_info['civil_status'] }}" readonly>
+                                </div>
+                                <div class="px-3">
+                                    <label>NATIONALITY: <span class="text-red-600 font-bold">*</span></label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="nationality" name="nationality" id="nationality"
+                                        value="{{ $emergency->personal_info['nationality'] }}" readonly>
                                 </div>
                             </div>
 
@@ -146,14 +119,14 @@
                                 <div class="px-3">
                                     <label>BIRTHDATE: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="date"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="birthday" name="birthday" id="birthday"
                                         value="{{ $emergency->personal_info['birthday'] }}" readonly>
                                 </div>
                                 <div class="px-3">
                                     <label>AGE: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="age" name="age" id="age"
                                         value="{{ $emergency->personal_info['age'] }}" readonly>
                                 </div>
@@ -176,14 +149,14 @@
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="N/A if not available" name="occupation"
-                                        value="{{ $emergency->personal_info['occupation'] }}">
+                                        value="{{ $emergency->personal_info['occupation'] ?? 'Unemployed' }}" readonly>
                                 </div>
                                 <div class="px-3">
-                                    <label>NATIONALITY: <span class="text-red-600 font-bold">*</span></label>
+                                    <label>COMPANY: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
-                                        placeholder="nationality" name="nationality" id="nationality"
-                                        value="{{ $emergency->personal_info['nationality'] }}" readonly>
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="company" name="company" id="company"
+                                        value="{{ $emergency->personal_info['company'] ?? 'N/A' }}" readonly>
                                 </div>
                             </div>
                         </div>
@@ -210,7 +183,7 @@
                                 <div class="px-3">
                                     <label>MUNICIPALITY: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="municipality" name="municipality" id="municipality"
                                         value="{{ $emergency->full_address['municipality'] }}" readonly>
                                 </div>
@@ -259,51 +232,51 @@
                                 <div class="px-3">
                                     <label>LAST NAME: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="contact last name" name="contact_last" id="contact_last"
                                         value="{{ $emergency->contact_person['contact_last'] }}" readonly>
                                 </div>
                                 <div class="px-3">
                                     <label>FIRST NAME: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="contact first name" name="contact_first" id="contact_first"
                                         value="{{ $emergency->contact_person['contact_first'] }}" readonly>
                                 </div>
                                 <div class="px-3">
                                     <label>MIDDLE NAME:</label>
                                     <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="contact middle name" name="contact_middle" id="contact_middle"
-                                        value="{{ $emergency->contact_person['contact_middle'] }}">
+                                        value="{{ $emergency->contact_person['contact_middle'] ?? 'N/A' }}" readonly>
                                 </div>
                                 <div class="px-3">
                                     <label>SUFFIX:</label>
                                     <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="contact suffix" name="contact_suffix" id="contact_suffix"
-                                        value="{{ $emergency->contact_person['contact_suffix'] }}">
+                                        value="{{ $emergency->contact_person['contact_suffix'] ?? 'N/A' }}" readonly>
                                 </div>
                             </div>
                             <div class="grid grid-cols-5 h-full">
                                 <div class="col-span-2 px-3 pb-3">
                                     <label>ADDRESS: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="contact address" name="contact_address" id="contact_address"
                                         value="{{ $emergency->contact_person['contact_address'] }}" readonly>
                                 </div>
                                 <div class="px-3">
                                     <label>PHONE: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="contact address" name="contact_phone" id="contact_phone"
                                         value="{{ $emergency->contact_person['contact_phone'] }}" readonly>
                                 </div>
                                 <div class="col-span-2 px-3">
                                     <label>RELATION TO PATIENT: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="relation to patient" name="contact_rtp" id="contact_rtp"
                                         value="{{ $emergency->contact_person['contact_rtp'] }}" readonly>
                                 </div>
@@ -318,7 +291,7 @@
                                     <div>
                                         <label>VISIT DATE: <span class="text-red-600 font-bold">*</span></label>
                                         <input type="date"
-                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
+                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                             name="start_date" id="start_date"
                                             value="{{ $emergency->hospital_visit['visit_start']['start_date'] }}"
                                             readonly>
@@ -333,7 +306,7 @@
                                     <div>
                                         <label>VISIT TIME: <span class="text-red-600 font-bold">*</span></label>
                                         <input type="time"
-                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
+                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2r"
                                             name="start_time" id="start_time"
                                             value="{{ $emergency->hospital_visit['visit_start']['start_time'] }}"
                                             readonly>
@@ -343,7 +316,7 @@
                                     <div>
                                         <label>DISCHARGE DATE: <span class="text-red-600 font-bold">*</span></label>
                                         <input type="date"
-                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
+                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                             name="end_date" id="end_date"
                                             value="{{ $emergency->hospital_visit['visit_end']['end_date'] }}" readonly>
                                     </div>
@@ -352,60 +325,42 @@
                                     <div>
                                         <label>DISCHARGE TIME: <span class="text-red-600 font-bold">*</span></label>
                                         <input type="time"
-                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
+                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                             name="end_time" id="end_time"
                                             value="{{ $emergency->hospital_visit['visit_end']['end_time'] }}" readonly>
                                     </div>
                                 </div>
                                 <div class="px-3">
                                     <label>DISPOSITION: <span class="text-red-600 font-bold">*</span></label>
-                                    <div class="w-full">
-                                        <select name="disposition"
-                                            class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                            readonly>
-                                            <option value="" disabled selected>disposition</option>
-                                            @php
-                                                $_disposition = [
-                                                    'Treated and Sent Home' => 'Treated and Sent Home',
-                                                    'For Admission' => 'For Admission',
-                                                    'Refused Admission' => 'Refused Admission',
-                                                    'Referred' => 'Referred',
-                                                    'Out When Called' => 'Out When Called',
-                                                ];
-                                            @endphp
-                                            @foreach ($_disposition as $k => $v)
-                                                <option value="{{ $v }}"
-                                                    {{ $emergency->case_summary['disposition'] == $v ? 'selected' : '' }}>
-                                                    {{ $k }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+                                    <input type="text"
+                                        class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        name="end_time" id="end_time"
+                                        value="{{ $emergency->case_summary['disposition'] }}" readonly>
                                 </div>
                             </div>
                         </div>
                         <div class="grid px-3 pb-3 text-2xl text-[#003D33] font-semibold tracking-widest">
-                            <label>Emergency Vitals</label>
+                            <label>emergency Vitals</label>
                         </div>
                         <div class="grid gap-2 pb-3">
                             <div class="grid h-full">
                                 <div class=" grid grid-cols-6 h-full w-full px-3 gap-4">
                                     <div>
-                                        <label>HEIGHT:</label>
+                                        <label>HEIGHT(ft.):</label>
                                         <input type="text"
                                             class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                             placeholder="height" name="height" autocomplete="off"
-                                            value="{{ $emergency->case_summary['latest_vitals']['height'] }}">
+                                            value="{{ $emergency->case_summary['latest_vitals']['height'] }}" readonly>
                                     </div>
                                     <div>
-                                        <label>WEIGHT:</label>
+                                        <label>WEIGHT(kgs.):</label>
                                         <input type="text"
                                             class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                             placeholder="weight" name="weight" autocomplete="off"
                                             value="{{ $emergency->case_summary['latest_vitals']['weight'] }}" readonly>
                                     </div>
                                     <div>
-                                        <label>TEMPERATURE:</label>
+                                        <label>TEMPERATURE(°):</label>
                                         <input type="text"
                                             class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                             placeholder="temperature" name="temperature" autocomplete="off"
@@ -413,7 +368,7 @@
                                             readonly>
                                     </div>
                                     <div>
-                                        <label>PULSE:</label>
+                                        <label>PULSE(bpm):</label>
                                         <input type="text"
                                             class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                             placeholder="pulse rate" name="pulse_rate" autocomplete="off"

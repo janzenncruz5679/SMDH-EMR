@@ -52,14 +52,15 @@
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="N/A if not available" name="middle_name"
-                                        value="{{ $outpatient->middle_name }}">
+                                        value="{{ $outpatient->middle_name ?? 'N/A' }}" readonly>
 
                                 </div>
                                 <div class="px-3">
                                     <label>SUFFIX :</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="N/A if not available" name="suffix" value="{{ $outpatient->suffix }}">
+                                        placeholder="N/A if not available" name="suffix"
+                                        value="{{ $outpatient->suffix ?? 'N/A' }}" readonly>
                                 </div>
                             </div>
                         </div>
@@ -73,7 +74,8 @@
                                     <label>SR CITIZEN NO :</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="senior citizen #" name="sr_no" value="{{ $outpatient->sr_no }}">
+                                        placeholder="senior citizen #" name="sr_no"
+                                        value="{{ $outpatient->sr_no ?? 'N/A' }}" readonly>
 
                                 </div>
                                 <div class="px-3">
@@ -92,53 +94,23 @@
                                 </div>
                                 <div class="px-3">
                                     <label>SEX: <span class="text-red-600 font-bold">*</span></label>
-                                    <div class="w-full">
-                                        <select name="gender"
-                                            class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                            readonly>
-                                            <option value="" disabled selected>gender</option>
-                                            <option value="Male"
-                                                {{ $outpatient->personal_info['gender'] == 'Male' ? 'selected' : '' }}>Male
-                                            </option>
-                                            <option value="Female"
-                                                {{ $outpatient->personal_info['gender'] == 'Female' ? 'selected' : '' }}>
-                                                Female
-                                            </option>
-                                        </select>
-                                    </div>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        value="{{ $outpatient->personal_info['gender'] }}" readonly>
                                 </div>
 
                                 <div class="px-3">
                                     <label>CIVIL STATUS: <span class="text-red-600 font-bold">*</span></label>
-                                    <div class="w-full">
-                                        <select name="civil_status"
-                                            class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                            readonly>
-                                            <option value="" disabled selected>civil status</option>
-                                            @php
-                                                $_civil_status = [
-                                                    'Single' => 'Single',
-                                                    'Divorced' => 'Divorced',
-                                                    'Separated' => 'Separated',
-                                                    'Common Law' => 'Common Law',
-                                                    'Widowed' => 'Widowed',
-                                                    'Married' => 'Married',
-                                                    'Neutral' => 'Neutral',
-                                                ];
-                                            @endphp
-                                            @foreach ($_civil_status as $k => $v)
-                                                <option value="{{ $v }}"
-                                                    {{ $outpatient->personal_info['civil_status'] == $v ? 'selected' : '' }}>
-                                                    {{ $k }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="px-3">
-                                    <label>Type:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="enter old record #" name="type" value="Admission" readonly>
+                                        value="{{ $outpatient->personal_info['civil_status'] }}" readonly>
+                                </div>
+                                <div class="px-3">
+                                    <label>NATIONALITY: <span class="text-red-600 font-bold">*</span></label>
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="nationality" name="nationality" id="nationality"
+                                        value="{{ $outpatient->personal_info['nationality'] }}" readonly>
                                 </div>
                             </div>
 
@@ -147,14 +119,14 @@
                                 <div class="px-3">
                                     <label>BIRTHDATE: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="date"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="birthday" name="birthday" id="birthday"
                                         value="{{ $outpatient->personal_info['birthday'] }}" readonly>
                                 </div>
                                 <div class="px-3">
                                     <label>AGE: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="age" name="age" id="age"
                                         value="{{ $outpatient->personal_info['age'] }}" readonly>
                                 </div>
@@ -177,14 +149,14 @@
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="N/A if not available" name="occupation"
-                                        value="{{ $outpatient->personal_info['occupation'] }}">
+                                        value="{{ $outpatient->personal_info['occupation'] ?? 'Unemployed' }}" readonly>
                                 </div>
                                 <div class="px-3">
-                                    <label>NATIONALITY: <span class="text-red-600 font-bold">*</span></label>
+                                    <label>COMPANY: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
-                                        placeholder="nationality" name="nationality" id="nationality"
-                                        value="{{ $outpatient->personal_info['nationality'] }}" readonly>
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="company" name="company" id="company"
+                                        value="{{ $outpatient->personal_info['company'] ?? 'N/A' }}" readonly>
                                 </div>
                             </div>
                         </div>
@@ -211,7 +183,7 @@
                                 <div class="px-3">
                                     <label>MUNICIPALITY: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="municipality" name="municipality" id="municipality"
                                         value="{{ $outpatient->full_address['municipality'] }}" readonly>
                                 </div>
@@ -260,51 +232,51 @@
                                 <div class="px-3">
                                     <label>LAST NAME: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="contact last name" name="contact_last" id="contact_last"
                                         value="{{ $outpatient->contact_person['contact_last'] }}" readonly>
                                 </div>
                                 <div class="px-3">
                                     <label>FIRST NAME: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="contact first name" name="contact_first" id="contact_first"
                                         value="{{ $outpatient->contact_person['contact_first'] }}" readonly>
                                 </div>
                                 <div class="px-3">
                                     <label>MIDDLE NAME:</label>
                                     <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="contact middle name" name="contact_middle" id="contact_middle"
-                                        value="{{ $outpatient->contact_person['contact_middle'] }}">
+                                        value="{{ $outpatient->contact_person['contact_middle'] ?? 'N/A' }}" readonly>
                                 </div>
                                 <div class="px-3">
                                     <label>SUFFIX:</label>
                                     <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="contact suffix" name="contact_suffix" id="contact_suffix"
-                                        value="{{ $outpatient->contact_person['contact_suffix'] }}">
+                                        value="{{ $outpatient->contact_person['contact_suffix'] ?? 'N/A' }}" readonly>
                                 </div>
                             </div>
                             <div class="grid grid-cols-5 h-full">
                                 <div class="col-span-2 px-3 pb-3">
                                     <label>ADDRESS: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="contact address" name="contact_address" id="contact_address"
                                         value="{{ $outpatient->contact_person['contact_address'] }}" readonly>
                                 </div>
                                 <div class="px-3">
                                     <label>PHONE: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="contact address" name="contact_phone" id="contact_phone"
                                         value="{{ $outpatient->contact_person['contact_phone'] }}" readonly>
                                 </div>
                                 <div class="col-span-2 px-3">
                                     <label>RELATION TO PATIENT: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="relation to patient" name="contact_rtp" id="contact_rtp"
                                         value="{{ $outpatient->contact_person['contact_rtp'] }}" readonly>
                                 </div>
@@ -319,7 +291,7 @@
                                     <div>
                                         <label>VISIT DATE: <span class="text-red-600 font-bold">*</span></label>
                                         <input type="date"
-                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
+                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                             name="start_date" id="start_date"
                                             value="{{ $outpatient->hospital_visit['visit_start']['start_date'] }}"
                                             readonly>
@@ -334,7 +306,7 @@
                                     <div>
                                         <label>VISIT TIME: <span class="text-red-600 font-bold">*</span></label>
                                         <input type="time"
-                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
+                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2r"
                                             name="start_time" id="start_time"
                                             value="{{ $outpatient->hospital_visit['visit_start']['start_time'] }}"
                                             readonly>
@@ -344,7 +316,7 @@
                                     <div>
                                         <label>DISCHARGE DATE: <span class="text-red-600 font-bold">*</span></label>
                                         <input type="date"
-                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
+                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                             name="end_date" id="end_date"
                                             value="{{ $outpatient->hospital_visit['visit_end']['end_date'] }}" readonly>
                                     </div>
@@ -353,35 +325,17 @@
                                     <div>
                                         <label>DISCHARGE TIME: <span class="text-red-600 font-bold">*</span></label>
                                         <input type="time"
-                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-pointer"
+                                            class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                             name="end_time" id="end_time"
                                             value="{{ $outpatient->hospital_visit['visit_end']['end_time'] }}" readonly>
                                     </div>
                                 </div>
                                 <div class="px-3">
                                     <label>DISPOSITION: <span class="text-red-600 font-bold">*</span></label>
-                                    <div class="w-full">
-                                        <select name="disposition"
-                                            class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                            readonly>
-                                            <option value="" disabled selected>disposition</option>
-                                            @php
-                                                $_disposition = [
-                                                    'Treated and Sent Home' => 'Treated and Sent Home',
-                                                    'For Admission' => 'For Admission',
-                                                    'Refused Admission' => 'Refused Admission',
-                                                    'Referred' => 'Referred',
-                                                    'Out When Called' => 'Out When Called',
-                                                ];
-                                            @endphp
-                                            @foreach ($_disposition as $k => $v)
-                                                <option value="{{ $v }}"
-                                                    {{ $outpatient->case_summary['disposition'] == $v ? 'selected' : '' }}>
-                                                    {{ $k }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+                                    <input type="text"
+                                        class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        name="end_time" id="end_time"
+                                        value="{{ $outpatient->case_summary['disposition'] }}" readonly>
                                 </div>
                             </div>
                         </div>
@@ -392,21 +346,21 @@
                             <div class="grid h-full">
                                 <div class=" grid grid-cols-6 h-full w-full px-3 gap-4">
                                     <div>
-                                        <label>HEIGHT:</label>
+                                        <label>HEIGHT(ft.):</label>
                                         <input type="text"
                                             class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                             placeholder="height" name="height" autocomplete="off"
-                                            value="{{ $outpatient->case_summary['latest_vitals']['height'] }}">
+                                            value="{{ $outpatient->case_summary['latest_vitals']['height'] }}" readonly>
                                     </div>
                                     <div>
-                                        <label>WEIGHT:</label>
+                                        <label>WEIGHT(kgs.):</label>
                                         <input type="text"
                                             class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                             placeholder="weight" name="weight" autocomplete="off"
                                             value="{{ $outpatient->case_summary['latest_vitals']['weight'] }}" readonly>
                                     </div>
                                     <div>
-                                        <label>TEMPERATURE:</label>
+                                        <label>TEMPERATURE(°):</label>
                                         <input type="text"
                                             class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                             placeholder="temperature" name="temperature" autocomplete="off"
@@ -414,7 +368,7 @@
                                             readonly>
                                     </div>
                                     <div>
-                                        <label>PULSE:</label>
+                                        <label>PULSE(bpm):</label>
                                         <input type="text"
                                             class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                             placeholder="pulse rate" name="pulse_rate" autocomplete="off"
@@ -467,24 +421,17 @@
                 </div>
                 <div class="form-navigation py-8 grid grid-cols-8 gap-4">
                     <button
-                        class="previous h-full col-start-5 text-2xl p-2 bg-blue-300 tracking-[2px] text-white rounded-xl transform transition hover:-translate-y-0.5 hover:bg-blue-200 shadow-md shadow-blue-200"
+                        class="previous h-full col-start-6 text-2xl p-2 bg-blue-300 tracking-[2px] text-white rounded-xl transform transition hover:-translate-y-0.5 hover:bg-blue-200 shadow-md shadow-blue-200"
                         type="button">
                         Previous
                     </button>
                     <button
-                        class="next h-full col-start-6 text-2xl p-2 bg-blue-300 tracking-[2px] text-white rounded-xl transform transition hover:-translate-y-0.5 hover:bg-blue-200 shadow-md shadow-blue-200"
+                        class="next h-full col-start-7 text-2xl p-2 bg-blue-300 tracking-[2px] text-white rounded-xl transform transition hover:-translate-y-0.5 hover:bg-blue-200 shadow-md shadow-blue-200"
                         type="button">
                         Next
                     </button>
-                    <a class=" col-start-7 text-zinc-900 hover:text-white tracking-[2px] text-2xl font-[sans-serif]"
-                        href="{{ route('outpatient.edit', $outpatient->id) }}">
-                        <div
-                            class=" h-full bg-blue-300 hover:bg-blue-200 p-2 text-2xl font-[sans-serif] flex items-center justify-center text-white rounded-xl  shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
-                            Edit
-                        </div>
-                    </a>
                     <a class=" col-start-8 text-zinc-900 hover:text-white tracking-[2px] text-2xl font-[sans-serif]"
-                        href="{{ route('outpatient.index') }}">
+                        href="{{ route('outpatient.show', $outpatient->id) }}">
                         <div
                             class=" h-full bg-blue-300 hover:bg-blue-200 p-2 text-2xl font-[sans-serif] flex items-center justify-center text-white rounded-xl  shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
                             Back

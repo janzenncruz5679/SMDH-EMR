@@ -6,26 +6,29 @@
             <label class="font-[sans-serif] font-semibold text-white tracking-wide text-4xl">
                 {{ __('Billing Summary') }}</label>
         </div>
-        <div class="flex-grow w-full row-span-2 grid grid-cols-3 gap-8">
-            <div class="col-span-2">
+        <div class="flex-grow w-full row-span-2 grid grid-cols-5 gap-8">
+            <div class="col-span-4">
                 @if (isset($billings))
                     <table class="tracking-widest w-full">
                         <thead>
                             <tr class="grid grid-cols-12 text-2xl">
                                 <th class="col-span-2 flex justify-center">OR #</th>
-                                <th class="col-span-5 flex justify-center">Name</th>
+                                <th class="col-span-4 flex justify-center">Name</th>
+                                <th class="col-span-2 flex justify-center">Bill Created</th>
                                 <th class="col-span-3 flex justify-center">Total Bill</th>
-                                <th class="col-span-2 flex justify-center">Actions</th>
+                                <th class="flex justify-center">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($billings as $billing)
                                 <tr class="grid grid-cols-12 even:bg-gray-200 odd:bg-white text-xl">
                                     <td class="col-span-2 flex justify-center">{{ $billing->id }}</td>
-                                    <td class="col-span-5 flex justify-center">{{ $billing->full_name }}</td>
+                                    <td class="col-span-4 flex justify-center">{{ $billing->full_name }}</td>
+                                    <td class="col-span-2 flex justify-center">
+                                        {{ Carbon\Carbon::parse($billing->created_at)->format('F d Y') }}</td>
                                     <td class="col-span-3 flex justify-center">
                                         ₱{{ number_format($billing->grand_total, 2) }}</td>
-                                    <td class="col-span-2 flex justify-center">
+                                    <td class="flex justify-center">
                                         <div class="grid grid-cols-3 justify-center gap-4">
                                             <a href="{{ route('billing.show', $billing->id) }}"
                                                 class="editIcon hover:text-blue-300">

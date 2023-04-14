@@ -65,10 +65,14 @@ class EmergencyController extends Controller
     {
         $emergencyHistory = EmergencyHistory::where('history_id', $emergency->id)
             ->latest('id')
-            ->paginate(10);
-        return view('user.patients.patientsHistory.emergency.index', compact('emergencyHistory'));
+            ->paginate(7);
+        return view('user.patients.patientsHistory.emergency.index', compact('emergencyHistory', 'emergency'));
     }
 
+    public function show_all(Emergency $emergency)
+    {
+        return view('user.patients.emergency.show', compact('emergency'));
+    }
 
     public function edit(Emergency $emergency)
     {

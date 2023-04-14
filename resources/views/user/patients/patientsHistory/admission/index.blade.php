@@ -1,12 +1,12 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="absolute h-[93%] w-[84%] left-[16%] top-[7%] p-12 flex flex-col gap-4">
-        <div class="h-[12%] bg-blue-300 flex items-center justify-center">
+    <div class="absolute h-[93.6%] w-[84%] left-[16%] top-[7%] p-12 flex flex-col gap-4">
+        <div class="h-[10%] bg-blue-300 flex items-center justify-center">
             <label class="font-[sans-serif] font-semibold text-white tracking-wide text-4xl">
                 {{ __('Admission History') }}</label>
         </div>
-        <div class="h-[44%] w-full bg-blue-100 p-6 shadow-lg shadow-blue-200 rounded-3xl text-xl flex flex-col gap-4">
+        <div class="h-[45%] w-full bg-blue-100 p-6 shadow-lg shadow-blue-200 rounded-3xl text-xl flex flex-col gap-4">
             <div class=" text-2xl text-[#003D33] font-semibold tracking-widest">
                 <label>Patient Latest Information</label>
             </div>
@@ -45,7 +45,7 @@
                 </div>
             </a>
         </div>
-        <div class="h-[44%] w-full p-6 grid gap-4 text-2xlbg-blue-100 shadow-lg shadow-blue-200 rounded-3xl ">
+        <div class="h-[45%] w-full p-6 grid gap-4 text-2xlbg-blue-100 shadow-lg shadow-blue-200 rounded-3xl ">
             <div class="admissionTable">
                 @if (isset($admissionHistory))
                     <table class="tracking-[2px] w-full table table-striped table-inverse table-responsive d-table">
@@ -56,7 +56,7 @@
                                 <th class="flex justify-center">Age</th>
                                 <th class="flex justify-center">Gender</th>
                                 <th class="col-span-2 flex justify-center">Phone</th>
-                                <th class="flex justify-center">Actions</th>
+                                <th class="flex justify-center">View</th>
                             </tr>
                         </thead>
                         <tbody>

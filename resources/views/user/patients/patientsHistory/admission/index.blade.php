@@ -1,12 +1,51 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="absolute h-auto w-[84%] left-[16%] top-[7%] p-12 grid gap-8">
-        <div class="admissionDisplay h-full w-full grid gap-4 text-2xl">
-            <div class="h-20 bg-blue-300 flex items-center justify-center">
-                <label class="font-[sans-serif] font-semibold text-white tracking-wide text-4xl">
-                    {{ __('Admission History') }}</label>
+    <div class="absolute h-[93%] w-[84%] left-[16%] top-[7%] p-12 flex flex-col gap-4">
+        <div class="h-[12%] bg-blue-300 flex items-center justify-center">
+            <label class="font-[sans-serif] font-semibold text-white tracking-wide text-4xl">
+                {{ __('Admission History') }}</label>
+        </div>
+        <div class="h-[44%] w-full bg-blue-100 p-6 shadow-lg shadow-blue-200 rounded-3xl text-xl flex flex-col gap-4">
+            <div class=" text-2xl text-[#003D33] font-semibold tracking-widest">
+                <label>Patient Latest Information</label>
             </div>
+            <div class="flex-grow grid gap-4">
+                <div class="grid grid-cols-12 items-center gap-2 w-full">
+                    <label class="">FULL NAME:</label>
+                    <div class="flex-grow col-span-11">
+                        <input type="text"
+                            class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                            value="{{ $admission->full_name }}" readonly>
+                    </div>
+                </div>
+                <div class="grid grid-cols-12 items-center gap-2 w-full">
+                    <label class="">FULL ADDRESS:</label>
+                    <div class="flex-grow col-span-11">
+                        <input type="text"
+                            class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                            value="{{ $admission->full_address['street'] . ',' . $admission->full_address['barangay'] . ' ' . $admission->full_address['municipality'] . ' ' . $admission->full_address['zip_code'] . ' ' . $admission->full_address['province'] . ' ' . $admission->full_address['region'] . ' ' . $admission->full_address['country'] }}"
+                            readonly>
+                    </div>
+                </div>
+                <div class="grid grid-cols-12 items-center gap-2 w-full">
+                    <label class="">DIAGNOSIS:</label>
+                    <div class="flex-grow col-span-11">
+                        <input type="text"
+                            class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                            value="{{ $admission->main_diagnosis }}" readonly>
+                    </div>
+                </div>
+            </div>
+            <a class="text-zinc-900 hover:text-white tracking-[2px] text-2xl font-[sans-serif] flex justify-end"
+                href="{{ route('admission.show_all', $admission->id) }}">
+                <div
+                    class="h-full bg-blue-300 hover:bg-blue-200 p-2 text-white rounded-xl  shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
+                    View More
+                </div>
+            </a>
+        </div>
+        <div class="h-[44%] w-full p-6 grid gap-4 text-2xlbg-blue-100 shadow-lg shadow-blue-200 rounded-3xl ">
             <div class="admissionTable">
                 @if (isset($admissionHistory))
                     <table class="tracking-[2px] w-full table table-striped table-inverse table-responsive d-table">

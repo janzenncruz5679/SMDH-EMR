@@ -1,43 +1,93 @@
 <div class="w-full pb-12">
-    <div class="flex items-center justify-around h-20">
-        <div
-            class="step1 shadow-md shadow-blue-200 h-full flex items-center justify-center p-6 rounded-full border-4 border-blue-100">
-            <span class="check1 text-3xl font-bold">1</span>
+    <div class="flex items-center justify-around">
+        <div class="h-20">
+            <div
+                class="step1 shadow-md shadow-blue-200 h-full flex flex-col items-center justify-center p-6 rounded-full border-4 border-blue-100">
+                <span class="check1 text-3xl font-bold">1</span>
+            </div>
+            <div class="absolute left-[1.8%] p-2 text-xl text-[#003D33] font-semibold tracking-widest">
+                <label>Full Name</label>
+            </div>
         </div>
         <div
             class="line1 flex flex-grow shadow-md shadow-blue-200 justify-center items-center border-4 border-blue-100 w-25">
         </div>
-        <div
-            class="step2 shadow-md shadow-blue-200 h-full flex items-center justify-center p-6 rounded-full border-4 border-blue-100">
-            <span class="check2 text-3xl font-bold">2</span>
+        <div class="h-20">
+            <div
+                class="step2 shadow-md shadow-blue-200 h-full flex items-center justify-center p-6 rounded-full border-4 border-blue-100">
+                <span class="check2 text-3xl font-bold">2</span>
+            </div>
+            <div class="absolute left-[18.5%] p-2 text-xl text-[#003D33] font-semibold tracking-widest">
+                <label>Full Address</label>
+            </div>
         </div>
         <div
             class="line2 flex flex-grow shadow-md shadow-blue-200 justify-center items-center border-4 border-blue-100 w-25">
         </div>
-        <div
-            class="step3 shadow-md shadow-blue-200 h-full flex items-center justify-center p-6 rounded-full border-4 border-blue-100">
-            <span class="check3 text-3xl font-bold ">3</span>
+        <div class="h-20">
+            <div
+                class="step3 shadow-md shadow-blue-200 h-full flex items-center justify-center p-6 rounded-full border-4 border-blue-100">
+                <span class="check3 text-3xl font-bold ">3</span>
+            </div>
+            <div class="absolute left-[35.5%] p-2 text-xl text-[#003D33] font-semibold tracking-widest">
+                <label>Patient Contact</label>
+            </div>
         </div>
         <div
             class="line3 flex flex-grow shadow-md shadow-blue-200 justify-center items-center border-4 border-blue-100 w-25">
         </div>
-        <div
-            class="step4 shadow-md shadow-blue-200 h-full flex items-center justify-center p-6 rounded-full border-4 border-blue-100">
-            <span class="check4 text-3xl font-bold ">4</span>
+        <div class="h-20">
+            <div
+                class="step4 shadow-md shadow-blue-200 h-full flex items-center justify-center p-6 rounded-full border-4 border-blue-100">
+                <span class="check4 text-3xl font-bold ">4</span>
+            </div>
+            <div class="absolute left-[53.5%] p-2 text-xl text-[#003D33] font-semibold tracking-widest">
+                <label>Patient Affiliate</label>
+            </div>
         </div>
         <div
             class="line4 flex flex-grow shadow-md shadow-blue-200 justify-center items-center border-4 border-blue-100 w-25">
         </div>
-        <div
-            class="step5 shadow-md shadow-blue-200 h-full flex items-center justify-center p-6 rounded-full border-4 border-blue-100">
-            <span class="check5 text-3xl font-bold ">5</span>
+        <div class="h-20">
+            <div
+                class="step5 shadow-md shadow-blue-200 h-full flex items-center justify-center p-6 rounded-full border-4 border-blue-100">
+                <span class="check5 text-3xl font-bold ">5</span>
+            </div>
+            <div class="absolute left-[70%] p-2 text-xl text-[#003D33] font-semibold tracking-widest">
+                <label>Admission & Referral</label>
+            </div>
         </div>
         <div
             class="line5 flex flex-grow shadow-md shadow-blue-200 justify-center items-center border-4 border-blue-100 w-25">
         </div>
-        <div
-            class="step6 shadow-md shadow-blue-200 h-full flex items-center justify-center p-6 rounded-full border-4 border-blue-100">
-            <span class="check6 text-3xl font-bold ">6</span>
+        <div class="h-20">
+            <div
+                class="step6 shadow-md shadow-blue-200 h-full flex items-center justify-center p-6 rounded-full border-4 border-blue-100">
+                <span class="check6 text-3xl font-bold ">6</span>
+            </div>
+            <div class="absolute left-[91.5%] p-2 text-xl text-[#003D33] font-semibold tracking-widest">
+                <label>Insurance</label>
+            </div>
         </div>
     </div>
+    {{-- <div class="flex items-center justify-around">
+        <div class="px-3 pb-3 text-xl text-[#003D33] font-semibold tracking-widest">
+            <label>Full Name</label>
+        </div>
+        <div class="grid px-3 pb-3 text-xl text-[#003D33] font-semibold tracking-widest">
+            <label>Full Address</label>
+        </div>
+        <div class="grid px-3 pb-3 text-xl text-[#003D33] font-semibold tracking-widest">
+            <label>Patient Contact</label>
+        </div>
+        <div class="grid px-3 pb-3 text-xl text-[#003D33] font-semibold tracking-widest">
+            <label>Patient Affiliate</label>
+        </div>
+        <div class="grid px-3 pb-3 text-xl text-[#003D33] font-semibold tracking-widest">
+            <label>Admission & Referral</label>
+        </div>
+        <div class="grid px-3 pb-3 text-xl text-[#003D33] font-semibold tracking-widest">
+            <label>Patient Insurance</label>
+        </div>
+    </div> --}}
 </div>

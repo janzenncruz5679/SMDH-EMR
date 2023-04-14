@@ -119,6 +119,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('admissions/search', [AdmissionController::class, 'searchAdmission'])->name('admission.searchAdmission');
     Route::get('admission/pdf{admission}', [AdmissionController::class, 'pdf'])->name('admission.pdf');
+    Route::get('admission/show_all{admission}', [AdmissionController::class, 'show_all'])->name('admission.show_all');
     Route::resource('admission', AdmissionController::class);
     Route::resource('admissionHistory', AdmissionHistoryController::class)->only(['index', 'show']);
 

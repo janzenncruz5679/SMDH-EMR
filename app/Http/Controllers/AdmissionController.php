@@ -60,8 +60,13 @@ class AdmissionController extends Controller
 
         $admissionHistory = AdmissionHistory::where('history_id', $admission->id)
             ->latest('id')
-            ->paginate(5);
-        return view('user.patients.patientsHistory.admission.index', compact('admissionHistory'));
+            ->paginate(7);
+        return view('user.patients.patientsHistory.admission.index', compact('admissionHistory', 'admission'));
+    }
+
+    public function show_all(Admission $admission)
+    {
+        return view('user.patients.admission.show', compact('admission'));
     }
 
     public function edit(Admission $admission)

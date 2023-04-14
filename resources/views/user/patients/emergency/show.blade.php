@@ -53,7 +53,6 @@
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="N/A if not available" name="middle_name"
                                         value="{{ $emergency->middle_name }}">
-
                                 </div>
                                 <div class="px-3">
                                     <label>SUFFIX :</label>
@@ -467,24 +466,17 @@
                 </div>
                 <div class="form-navigation py-8 grid grid-cols-8 gap-4">
                     <button
-                        class="previous h-full col-start-5 text-2xl p-2 bg-blue-300 tracking-[2px] text-white rounded-xl transform transition hover:-translate-y-0.5 hover:bg-blue-200 shadow-md shadow-blue-200"
+                        class="previous h-full col-start-6 text-2xl p-2 bg-blue-300 tracking-[2px] text-white rounded-xl transform transition hover:-translate-y-0.5 hover:bg-blue-200 shadow-md shadow-blue-200"
                         type="button">
                         Previous
                     </button>
                     <button
-                        class="next h-full col-start-6 text-2xl p-2 bg-blue-300 tracking-[2px] text-white rounded-xl transform transition hover:-translate-y-0.5 hover:bg-blue-200 shadow-md shadow-blue-200"
+                        class="next h-full col-start-7 text-2xl p-2 bg-blue-300 tracking-[2px] text-white rounded-xl transform transition hover:-translate-y-0.5 hover:bg-blue-200 shadow-md shadow-blue-200"
                         type="button">
                         Next
                     </button>
-                    <a class=" col-start-7 text-zinc-900 hover:text-white tracking-[2px] text-2xl font-[sans-serif]"
-                        href="{{ route('emergency.edit', $emergency->id) }}">
-                        <div
-                            class=" h-full bg-blue-300 hover:bg-blue-200 p-2 text-2xl font-[sans-serif] flex items-center justify-center text-white rounded-xl  shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
-                            Edit
-                        </div>
-                    </a>
                     <a class=" col-start-8 text-zinc-900 hover:text-white tracking-[2px] text-2xl font-[sans-serif]"
-                        href="{{ route('emergency.index') }}">
+                        href="{{ route('emergency.show', $emergency->id) }}">
                         <div
                             class=" h-full bg-blue-300 hover:bg-blue-200 p-2 text-2xl font-[sans-serif] flex items-center justify-center text-white rounded-xl  shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
                             Back

@@ -61,9 +61,14 @@ class OutpatientController extends Controller
     {
         $outpatientHistory = OutpatientHistory::where('history_id', $outpatient->id)
             ->latest('id')
-            ->paginate(10);
+            ->paginate(7);
         // dd($outpatientHistory->toArray());
-        return view('user.patients.patientsHistory.outpatient.index', compact('outpatientHistory'));
+        return view('user.patients.patientsHistory.outpatient.index', compact('outpatientHistory', 'outpatient'));
+    }
+
+    public function show_all(Outpatient $outpatient,)
+    {
+        return view('user.patients.outpatient.show', compact('outpatient'));
     }
 
     public function edit(Outpatient $outpatient)

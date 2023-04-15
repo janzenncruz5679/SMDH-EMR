@@ -148,6 +148,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('dischargeSummary/search', [DischargeSummaryController::class, 'searchDischargeSummary'])->name('dischargeSummary.searchDischargeSummary');
     Route::get('dischargeSummary/pdf{dischargeSummary}', [DischargeSummaryController::class, 'pdf'])->name('dischargeSummary.pdf');
+    Route::get('dischargeSummary/show_all{dischargeSummary}', [DischargeSummaryController::class, 'show_all'])->name('dischargeSummary.show_all');
     Route::resource('dischargeSummary', DischargeSummaryController::class);
     Route::resource('dischargeSummaryHistory', DischargeSummaryHistoryController::class);
 

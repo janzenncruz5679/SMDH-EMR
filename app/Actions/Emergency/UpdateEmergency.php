@@ -84,10 +84,10 @@ class UpdateEmergency
                     'height' => $request->height,
                 ],
                 'present_illness' => $request->present_illness,
-                'diagnosis' => $request->diagnosis,
                 'chief_complaint' => $request->chief_complaint,
                 'disposition' => $request->disposition,
             ],
+            'main_diagnosis' => $request->diagnosis,
         ]);
 
         return $emergency;
@@ -155,10 +155,10 @@ class UpdateEmergency
                     'height' => $request->height,
                 ],
                 'present_illness' => $request->present_illness,
-                'diagnosis' => $request->diagnosis,
                 'chief_complaint' => $request->chief_complaint,
                 'disposition' => $request->disposition,
             ],
+            'main_diagnosis' => $request->diagnosis,
             'history_id' => $emergency->id,
         ]);
     }
@@ -166,10 +166,10 @@ class UpdateEmergency
     private function updateBilling(Emergency $emergency)
     {
         // try {
-            $billing = Billing::where('emergencyBilling_id', $emergency->id)->first();
-            $billing->update([
-                'full_name' => $emergency->full_name,
-            ]);
+        $billing = Billing::where('emergencyBilling_id', $emergency->id)->first();
+        $billing->update([
+            'full_name' => $emergency->full_name,
+        ]);
         // } catch (\Exception $err) {
         //     dd($err);
         //     return redirect()->back()->withErrors($err->getMessage());

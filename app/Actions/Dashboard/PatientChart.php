@@ -9,19 +9,19 @@ class PatientChart
     public static function getDataForCharts()
     {
         $firstQuery = DB::table('admissions')
-            ->select('type', DB::raw('count(*) as count'))
-            ->groupBy('type');
+            ->select('main_diagnosis', DB::raw('count(*) as count'))
+            ->groupBy('main_diagnosis');
 
         $secondQuery = DB::table('emergencies')
-            ->select('type', DB::raw('count(*) as count'))
-            ->groupBy('type');
+            ->select('main_diagnosis', DB::raw('count(*) as count'))
+            ->groupBy('main_diagnosis');
 
         $thirdQuery = DB::table('outpatients')
             ->select('type', DB::raw('count(*) as count'))
             ->groupBy('type');
 
         $record = $firstQuery->union($secondQuery)->union($thirdQuery)
-            ->pluck('count', 'type');
+            ->pluck('count', 'main_diagnosis', 'type');
 
         $labels = [];
         $data = [];

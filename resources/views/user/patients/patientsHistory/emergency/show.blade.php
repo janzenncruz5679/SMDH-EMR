@@ -466,7 +466,7 @@
                                 <label>DIAGNOSIS: <span class="text-red-600 font-bold">*</span></label>
                                 <textarea type="text"
                                     class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="diagnosis" name="diagnosis" autocomplete="off" readonly>{{ $emergencyHistory->case_summary['diagnosis'] }}</textarea>
+                                    placeholder="diagnosis" name="diagnosis" autocomplete="off" readonly>{{ $emergencyHistory->main_diagnosis }}</textarea>
                             </div>
                         </div>
                     </div>

@@ -76,10 +76,10 @@ class StoreOutpatient
                     'height' => $request->height,
                 ],
                 'present_illness' => $request->present_illness,
-                'diagnosis' => $request->diagnosis,
                 'chief_complaint' => $request->chief_complaint,
                 'disposition' => $request->disposition,
             ],
+            'main_diagnosis' => $request->diagnosis,
         ]);
 
         $outpatientHistory = OutpatientHistory::create([
@@ -143,10 +143,10 @@ class StoreOutpatient
                     'height' => $request->height,
                 ],
                 'present_illness' => $request->present_illness,
-                'diagnosis' => $request->diagnosis,
                 'chief_complaint' => $request->chief_complaint,
                 'disposition' => $request->disposition,
             ],
+            'main_diagnosis' => $request->diagnosis,
         ]);
 
         $_outpatientBill = Billing::create([

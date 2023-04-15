@@ -8,20 +8,21 @@ class PatientChart
 {
     public static function getDataForCharts()
     {
-        $firstQuery = DB::table('admissions')
-            ->select('main_diagnosis', DB::raw('count(*) as count'))
-            ->groupBy('main_diagnosis');
-
-        $secondQuery = DB::table('emergencies')
-            ->select('main_diagnosis', DB::raw('count(*) as count'))
-            ->groupBy('main_diagnosis');
-
-        $thirdQuery = DB::table('outpatients')
-            ->select('type', DB::raw('count(*) as count'))
-            ->groupBy('type');
-
-        $record = $firstQuery->union($secondQuery)->union($thirdQuery)
-            ->pluck('count', 'main_diagnosis', 'type');
+        $record = DB::table(function ($query) {
+            // Select and union all records from 'admissions' table
+            $query->select(DB::raw("'admissions' as table_name"), 'main_diagnosis')
+                ->from('admissions')
+                // Use unionAll to include all records, including duplicates
+                ->unionAll(DB::table('emergencies')->select(DB::raw("'emergencies' as table_name"), 'main_diagnosis'))
+                ->unionAll(DB::table('outpatients')->select(DB::raw("'outpatients' as table_name"), 'main_diagnosis'));
+        }, 'combined')
+            ->select('main_diagnosis')
+            ->selectRaw('SUM(CASE WHEN table_name = "admissions" THEN 1 ELSE 0 END) 
+                        + SUM(CASE WHEN table_name = "emergencies" THEN 1 ELSE 0 END)
+                        + SUM(CASE WHEN table_name = "outpatients" THEN 1 ELSE 0 END) 
+                    AS count')
+            ->groupBy('main_diagnosis')
+            ->pluck('count', 'main_diagnosis');
 
         $labels = [];
         $data = [];

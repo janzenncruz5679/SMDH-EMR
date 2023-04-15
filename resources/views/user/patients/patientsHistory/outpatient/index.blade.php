@@ -33,7 +33,7 @@
                     <div class="flex-grow col-span-11">
                         <input type="text"
                             class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                            value="{{ $outpatient->case_summary['diagnosis'] }}" readonly>
+                            value="{{ $outpatient->main_diagnosis }}" readonly>
                     </div>
                 </div>
             </div>

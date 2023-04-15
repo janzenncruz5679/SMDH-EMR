@@ -21,6 +21,7 @@ use App\Http\Controllers\PhysicianOrderController;
 use App\Http\Controllers\StaffsController;
 use App\Http\Controllers\TestingController;
 use App\Http\Controllers\VitalSignController;
+use App\Http\Controllers\VitalSignHistoryController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 

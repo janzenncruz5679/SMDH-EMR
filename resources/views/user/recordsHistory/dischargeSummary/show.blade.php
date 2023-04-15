@@ -25,7 +25,7 @@
                 @csrf
                 <div
                     class="grid justify-center text-4xl font-semibold tracking-widest rounded-t-3xl bg-[#A0DDD3] p-3 text-[#003D33]">
-                    <label>Discharge Summary Information # {{ $dischargeSummaryHistory->id }}</label>
+                    <label>Discharge Summary History Record # {{ $dischargeSummaryHistory->id }}</label>
                 </div>
                 {{-- admissionform_sec --}}
                 <div class="form-section">

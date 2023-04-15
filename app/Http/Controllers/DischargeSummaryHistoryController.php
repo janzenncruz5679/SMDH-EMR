@@ -25,7 +25,7 @@ class DischargeSummaryHistoryController extends Controller
 
     public function show(DischargeSummaryHistory $dischargeSummaryHistory)
     {
-        return view('user.recordsHistory.dischargeSummary.show');
+        return view('user.recordsHistory.dischargeSummary.show', compact('dischargeSummaryHistory'));
     }
 
     public function edit(DischargeSummaryHistory $dischargeSummaryHistory)

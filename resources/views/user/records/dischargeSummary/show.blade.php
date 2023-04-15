@@ -154,15 +154,8 @@
                     </div>
                 </div>
                 <div class="form-navigation py-8 grid grid-cols-8 gap-4">
-                    <a class=" col-start-7 text-zinc-900 hover:text-white tracking-[2px] text-2xl font-[sans-serif]"
-                        href="{{ route('dischargeSummary.edit', $dischargeSummary->id) }}">
-                        <div
-                            class=" h-full bg-blue-300 hover:bg-blue-200 p-2 text-2xl font-[sans-serif] flex items-center justify-center text-white rounded-xl  shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
-                            {{ __('Edit') }}
-                        </div>
-                    </a>
                     <a class=" col-start-8 text-zinc-900 hover:text-white tracking-[2px] text-2xl font-[sans-serif]"
-                        href="{{ route('dischargeSummary.index') }}">
+                        href="{{ route('dischargeSummary.show', $dischargeSummary->id) }}">
                         <div
                             class=" h-full bg-blue-300 hover:bg-blue-200 p-2 text-2xl font-[sans-serif] flex items-center justify-center text-white rounded-xl  shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
                             Back

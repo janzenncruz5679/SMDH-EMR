@@ -63,9 +63,14 @@ class DischargeSummaryController extends Controller
     {
         $dischargeSummaryHistory = DischargeSummaryHistory::where('history_id', $dischargeSummary->id)
             ->latest('id')
-            ->paginate(10);
+            ->paginate(12);
         // dd($dischargeSummaryHistory->toArray());
-        return view('user.recordsHistory.dischargeSummary.index', compact('dischargeSummaryHistory'));
+        return view('user.recordsHistory.dischargeSummary.index', compact('dischargeSummaryHistory', 'dischargeSummary'));
+    }
+
+    public function show_all(DischargeSummary $dischargeSummary)
+    {
+        return view('user.records.dischargeSummary.show', compact('dischargeSummary'));
     }
 
 

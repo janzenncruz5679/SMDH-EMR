@@ -25,7 +25,7 @@
                                     <td class="col-span-2 flex justify-center">{{ $billing->id }}</td>
                                     <td class="col-span-4 flex justify-center">{{ $billing->full_name }}</td>
                                     <td class="col-span-2 flex justify-center">
-                                        {{ Carbon\Carbon::parse($billing->created_at)->format('F d Y') }}</td>
+                                        {{ Carbon\Carbon::parse($billing->created_at)->format('F d, Y') }}</td>
                                     <td class="col-span-3 flex justify-center">
                                         ₱{{ number_format($billing->grand_total, 2) }}</td>
                                     <td class="flex justify-center">

@@ -158,7 +158,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('fluidIntake/search', [FluidIntakeController::class, 'searchFluidIntake'])->name('fluidIntake.searchFluidIntake');
     Route::get('fluidIntake/pdf{fluidIntake}', [FluidIntakeController::class, 'pdf'])->name('fluidIntake.pdf');
+    Route::get('fluidIntake/show_all{fluidIntake}', [FluidIntakeController::class, 'show_all'])->name('fluidIntake.show_all');
     Route::resource('fluidIntake', FluidIntakeController::class);
+    Route::resource('fluidIntakeHistory', FluidIntakeHistoryController::class);
 
     Route::resource('billing', BillingController::class);
 });

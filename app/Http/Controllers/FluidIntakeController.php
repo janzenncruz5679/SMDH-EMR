@@ -62,8 +62,13 @@ class FluidIntakeController extends Controller
     {
         $fluidIntakeHistory = FluidIntakeHistory::where('history_id', $fluidIntake->id)
             ->latest('id')
-            ->paginate(10);
-        return view('user.recordsHistory.fluidIntake.index', compact('fluidIntakeHistory'));
+            ->paginate(12);
+        return view('user.recordsHistory.fluidIntake.index', compact('fluidIntakeHistory', 'fluidIntake'));
+    }
+
+    public function show_all(FluidIntake $fluidIntake)
+    {
+        return view('user.records.fluidIntake.show', compact('fluidIntake'));
     }
 
 

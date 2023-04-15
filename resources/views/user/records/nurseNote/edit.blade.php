@@ -143,7 +143,7 @@
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         name="obsDate[2]" autocomplete="off"
-                                        value="{{ $nurseNote->record_date['obsDate'][2] ?? '' }}" required>
+                                        value="{{ $nurseNote->record_date['obsDate'][2] ?? '' }}">
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsDate[2]')
                                             {{ $message }}
@@ -155,7 +155,7 @@
                                     <input type="time"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         name="obsTime[2]" autocomplete="off"
-                                        value="{{ $nurseNote->record_time['obsTime'][2] ?? '' }}" required>
+                                        value="{{ $nurseNote->record_time['obsTime'][2] ?? '' }}">
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsTime[2]')
                                             {{ $message }}
@@ -168,7 +168,7 @@
                                     <label>FOCUS* :</label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="focus" name="obsFocus[2]" autocomplete="off" required>{{ $nurseNote->focus['obsFocus'][2] ?? '' }}</textarea>
+                                        placeholder="focus" name="obsFocus[2]" autocomplete="off">{{ $nurseNote->focus['obsFocus'][2] ?? '' }}</textarea>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsFocus[2]')
                                             {{ $message }}
@@ -179,7 +179,7 @@
                                     <label>DATA ACTION AND RESPONSE* :</label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="action response" name="obsDar[2]" autocomplete="off" required>{{ $nurseNote->data_action_response['obsDar'][2] ?? '' }}</textarea>
+                                        placeholder="action response" name="obsDar[2]" autocomplete="off">{{ $nurseNote->data_action_response['obsDar'][2] ?? '' }}</textarea>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsDar[2]')
                                             {{ $message }}
@@ -202,7 +202,7 @@
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         name="obsDate[3]" autocomplete="off"
-                                        value="{{ $nurseNote->record_date['obsDate'][3] ?? '' }}" required>
+                                        value="{{ $nurseNote->record_date['obsDate'][3] ?? '' }}">
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsDate[3]')
                                             {{ $message }}
@@ -214,7 +214,7 @@
                                     <input type="time"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         name="obsTime[3]" autocomplete="off"
-                                        value="{{ $nurseNote->record_time['obsTime'][3] ?? '' }}" required>
+                                        value="{{ $nurseNote->record_time['obsTime'][3] ?? '' }}">
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsTime[3]')
                                             {{ $message }}
@@ -227,7 +227,7 @@
                                     <label>FOCUS* :</label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="focus" name="obsFocus[3]" autocomplete="off" required>{{ $nurseNote->focus['obsFocus'][3] ?? '' }}</textarea>
+                                        placeholder="focus" name="obsFocus[3]" autocomplete="off">{{ $nurseNote->focus['obsFocus'][3] ?? '' }}</textarea>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsFocus[3]')
                                             {{ $message }}
@@ -238,7 +238,7 @@
                                     <label>DATA ACTION AND RESPONSE* :</label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="action response" name="obsDar[3]" autocomplete="off" required>{{ $nurseNote->data_action_response['obsDar'][3] ?? '' }}</textarea>
+                                        placeholder="action response" name="obsDar[3]" autocomplete="off">{{ $nurseNote->data_action_response['obsDar'][3] ?? '' }}</textarea>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsDar[3]')
                                             {{ $message }}
@@ -261,7 +261,7 @@
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         name="obsDate[4]" autocomplete="off"
-                                        value="{{ $nurseNote->record_date['obsDate'][4] ?? '' }}" required>
+                                        value="{{ $nurseNote->record_date['obsDate'][4] ?? '' }}">
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsDate[4]')
                                             {{ $message }}
@@ -273,7 +273,7 @@
                                     <input type="time"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         name="obsTime[4]" autocomplete="off"
-                                        value="{{ $nurseNote->record_time['obsTime'][4] ?? '' }}" required>
+                                        value="{{ $nurseNote->record_time['obsTime'][4] ?? '' }}">
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsTime[4]')
                                             {{ $message }}
@@ -286,7 +286,7 @@
                                     <label>FOCUS* :</label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="focus" name="obsFocus[4]" autocomplete="off" required>{{ $nurseNote->focus['obsFocus'][4] ?? '' }}</textarea>
+                                        placeholder="focus" name="obsFocus[4]" autocomplete="off">{{ $nurseNote->focus['obsFocus'][4] ?? '' }}</textarea>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsFocus[4]')
                                             {{ $message }}
@@ -297,7 +297,7 @@
                                     <label>DATA ACTION AND RESPONSE* :</label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="action response" name="obsDar[4]" autocomplete="off" required>{{ $nurseNote->data_action_response['obsDar'][4] ?? '' }}</textarea>
+                                        placeholder="action response" name="obsDar[4]" autocomplete="off">{{ $nurseNote->data_action_response['obsDar'][4] ?? '' }}</textarea>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsDar[4]')
                                             {{ $message }}
@@ -320,7 +320,7 @@
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         name="obsDate[5]" autocomplete="off"
-                                        value="{{ $nurseNote->record_date['obsDate'][5] ?? '' }}" required>
+                                        value="{{ $nurseNote->record_date['obsDate'][5] ?? '' }}">
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsDate[5]')
                                             {{ $message }}
@@ -332,7 +332,7 @@
                                     <input type="time"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         name="obsTime[5]" autocomplete="off"
-                                        value="{{ $nurseNote->record_time['obsTime'][5] ?? '' }}" required>
+                                        value="{{ $nurseNote->record_time['obsTime'][5] ?? '' }}">
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsTime[5]')
                                             {{ $message }}
@@ -345,7 +345,7 @@
                                     <label>FOCUS* :</label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="focus" name="obsFocus[5]" autocomplete="off" required>{{ $nurseNote->focus['obsFocus'][5] ?? '' }}</textarea>
+                                        placeholder="focus" name="obsFocus[5]" autocomplete="off">{{ $nurseNote->focus['obsFocus'][5] ?? '' }}</textarea>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsFocus[5]')
                                             {{ $message }}
@@ -356,7 +356,7 @@
                                     <label>DATA ACTION AND RESPONSE* :</label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="action response" name="obsDar[5]" autocomplete="off" required>{{ $nurseNote->data_action_response['obsDar'][5] ?? '' }}</textarea>
+                                        placeholder="action response" name="obsDar[5]" autocomplete="off">{{ $nurseNote->data_action_response['obsDar'][5] ?? '' }}</textarea>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsDar[5]')
                                             {{ $message }}

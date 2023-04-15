@@ -62,8 +62,13 @@ class NurseNoteController extends Controller
     {
         $nurseNoteHistory = NurseNoteHistory::where('history_id', $nurseNote->id)
             ->latest('id')
-            ->paginate(10);
-        return view('user.recordsHistory.nurseNote.index', compact('nurseNoteHistory'));
+            ->paginate(12);
+        return view('user.recordsHistory.nurseNote.index', compact('nurseNoteHistory', 'nurseNote'));
+    }
+
+    public function show_all(NurseNote $nurseNote)
+    {
+        return view('user.records.nurseNote.show', compact('nurseNote'));
     }
 
 

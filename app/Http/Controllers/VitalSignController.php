@@ -62,9 +62,14 @@ class VitalSignController extends Controller
     {
         $vitalSignHistory = VitalSignHistory::where('history_id', $vitalSign->id)
             ->latest('id')
-            ->paginate(10);
+            ->paginate(12);
         // dd($dischargeSummaryHistory->toArray());
-        return view('user.recordsHistory.vitalSign.index', compact('vitalSignHistory'));
+        return view('user.recordsHistory.vitalSign.index', compact('vitalSignHistory', 'vitalSign'));
+    }
+
+    public function show_all(VitalSign $vitalSign)
+    {
+        return view('user.records.vitalSign.show', compact('vitalSign'));
     }
 
 

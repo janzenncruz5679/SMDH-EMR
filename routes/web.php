@@ -138,6 +138,7 @@ Route::middleware(['auth'])->group(function () {
     /////stations
     Route::post('vitalSign/search', [VitalSignController::class, 'searchVitalSign'])->name('vitalSign.searchVitalSign');
     Route::get('vitalSign/pdf{vitalSign}', [VitalSignController::class, 'pdf'])->name('vitalSign.pdf');
+    Route::get('vitalSign/show_all{vitalSign}', [VitalSignController::class, 'show_all'])->name('vitalSign.show_all');
     Route::resource('vitalSign', VitalSignController::class);
     Route::resource('vitalSignHistory', VitalSignHistoryController::class);
 

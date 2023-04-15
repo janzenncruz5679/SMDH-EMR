@@ -43,6 +43,7 @@ return new class extends Migration
             $table->longText('full_address')->nullable();
             $table->longText('contact_person')->nullable();
             $table->longText('case_summary')->nullable();
+            $table->string('main_diagnosis')->nullable();
             $table->timestamps();
         });
     }

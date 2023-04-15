@@ -613,7 +613,7 @@
                                 <label>DIAGNOSIS: <span class="text-red-600 font-bold">*</span></label>
                                 <textarea type="text"
                                     class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="diagnosis" name="diagnosis" autocomplete="off" required>{{ $outpatient->case_summary['diagnosis'] }}</textarea>
+                                    placeholder="diagnosis" name="diagnosis" autocomplete="off" required>{{ $outpatient->main_diagnosis }}</textarea>
                                 <span class="text-base font-[sans-serif] font-medium text-red-600">
                                     @error('diagnosis')
                                         {{ $message }}
@@ -641,7 +641,7 @@
                         Submit
                     </button>
                     <a class=" col-start-8 text-zinc-900 hover:text-white tracking-[2px] text-2xl font-[sans-serif]"
-                        href="#" onclick="javascript:window.history.back(-1);return false;">
+                        href="{{ route('outpatient.index') }}">
                         <div
                             class=" h-full bg-blue-300 hover:bg-blue-200 p-2 text-2xl font-[sans-serif] flex items-center justify-center text-white rounded-xl  shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
                             Back

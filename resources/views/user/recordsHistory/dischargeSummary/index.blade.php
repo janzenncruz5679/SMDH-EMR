@@ -9,7 +9,7 @@
         </div>
         <div class="h-[20%] w-full bg-blue-100 p-6 shadow-lg shadow-blue-200 rounded-3xl text-2xl flex flex-col gap-4">
             <div class=" text-3xl text-[#003D33] font-semibold tracking-widest">
-                <label>Latest Vital Information</label>
+                <label>Latest Discharge Information</label>
             </div>
             <div class="flex-grow">
                 <table class="tracking-[2px] w-full">

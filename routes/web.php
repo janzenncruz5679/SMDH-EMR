@@ -12,6 +12,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\EmergencyPatientController;
 use App\Http\Controllers\FluidIntakeController;
+use App\Http\Controllers\FluidIntakeHistoryController;
 use App\Http\Controllers\KardexController;
 use App\Http\Controllers\NurseNoteController;
 use App\Http\Controllers\NurseNoteHistoryController;
@@ -145,6 +146,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('nurseNote/search', [NurseNoteController::class, 'searchNurseNote'])->name('nurseNote.searchNurseNote');
     Route::get('nurseNote/pdf{nurseNote}', [NurseNoteController::class, 'pdf'])->name('nurseNote.pdf');
+    Route::get('nurseNote/show_all{nurseNote}', [NurseNoteController::class, 'show_all'])->name('nurseNote.show_all');
     Route::resource('nurseNote', NurseNoteController::class);
     Route::resource('nurseNoteHistory', NurseNoteHistoryController::class);
 

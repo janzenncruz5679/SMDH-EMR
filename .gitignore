@@ -19,8 +19,8 @@ yarn-error.log
 
 custom ignores
 
-# public/assets/css
-# public/assets/js
-# public/assets
+public/assets/css
+public/assets/js
+public/assets
 composer.lock
 package-lock.json

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Actions\Dashboard\PatientChart;
 use App\Actions\Dashboard\PatientNotes;
+use App\Models\Admission;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -29,6 +30,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $total_admission = Admission::count();
         [$labels, $data] = PatientChart::getDataForCharts();
         [$labels_donut, $data_donut] = PatientNotes::getDataForNotes();
 
@@ -39,6 +41,7 @@ class HomeController extends Controller
                     'data' => $data,
                     'labels_donut' => $labels_donut,
                     'data_donut' => $data_donut,
+                    'total_admission' => $total_admission,
                 ]);
             } else if (Auth::user()->usertype == '1') {
                 return view('admin.home', [
@@ -46,6 +49,7 @@ class HomeController extends Controller
                     'data' => $data,
                     'labels_donut' => $labels_donut,
                     'data_donut' => $data_donut,
+                    'total_admission' => $total_admission,
                 ]);
             }
         } else {

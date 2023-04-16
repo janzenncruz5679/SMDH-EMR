@@ -6,7 +6,7 @@
             <div class="h-[25%] w-full grid grid-cols-5 gap-10">
                 <div class="bg-blue-100 p-6 shadow-lg shadow-blue-200 rounded-3xl h-full grid place-items-center">
                     <label class="font-[sans-serif] font-semibold text-blue-200 tracking-wide text-3xl">
-                        Admissions Hello</label>
+                        Admissions Hellos</label>
                     <label class="font-[sans-serif] font-semibold text-blue-200 tracking-wide text-3xl">
                         {{ $total_admission == 0 ? 'No patients' : ($total_admission == 1 ? $total_admission . ' patient' : $total_admission . ' patients') }}
                     </label>

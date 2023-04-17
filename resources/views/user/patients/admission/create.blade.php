@@ -782,7 +782,7 @@
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="N/A if not available" name="main_diagnosis" id="main_diagnosis"
-                                        autocomplete="off" value="{{ old('main_diagnosis') }}">
+                                        required autocomplete="off" value="{{ old('main_diagnosis') }}">
                                 </div>
                                 <div class="px-3">
                                     <label>PRINCIPAL DIAGNOSIS :</label>

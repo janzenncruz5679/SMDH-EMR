@@ -44,4 +44,3 @@
 
 {{-- dito ilalagay yung custom js --}}
 @vite('resources/js/calendar.js')
-@vite('resources/js/patientPage/liveSearch.js')

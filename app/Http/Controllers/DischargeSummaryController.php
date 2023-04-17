@@ -21,7 +21,7 @@ class DischargeSummaryController extends Controller
 
     public function index()
     {
-        $dischargeSummary = DischargeSummary::all()->paginate(10);
+        $dischargeSummary = DischargeSummary::all()->paginate(18);
         return view('user.records.dischargeSummary.index', compact('dischargeSummary'));
     }
 

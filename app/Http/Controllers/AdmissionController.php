@@ -20,7 +20,7 @@ class AdmissionController extends Controller
     }
     public function index()
     {
-        $admissions = Admission::all()->paginate(10);
+        $admissions = Admission::all()->paginate(18);
         return view('user.patients.admission.index', compact('admissions'));
     }
 

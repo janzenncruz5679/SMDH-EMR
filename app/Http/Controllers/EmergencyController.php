@@ -22,7 +22,7 @@ class EmergencyController extends Controller
 
     public function index()
     {
-        $emergencies = Emergency::all()->paginate(10);
+        $emergencies = Emergency::all()->paginate(18);
         return view('user.patients.emergency.index', compact('emergencies'));
     }
 

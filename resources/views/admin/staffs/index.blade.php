@@ -34,21 +34,21 @@
                     <table class="tracking-[2px] w-full">
                         <tr class="grid grid-cols-12">
                             <th class="flex justify-center">Id</th>
-                            <th class="col-span-5 flex justify-center">Username</th>
-                            <th class="flex justify-center">Email</th>
+                            <th class="col-span-3 flex justify-center">Username</th>
+                            <th class="col-span-4 flex justify-center">Email</th>
                             <th class="flex justify-center">Usertype</th>
                             <th class="col-span-2 flex justify-center">Phone</th>
-                            <th class="col-span-2 flex justify-center">Actions</th>
+                            <th class="justify-center">Archive</th>
                         </tr>
                         @foreach ($staffs as $staff)
                             <tr class="grid grid-cols-12 even:bg-gray-200 odd:bg-white text-xl">
                                 <td class="flex justify-center">{{ $staff->id }}</td>
-                                <td class="col-span-5 flex justify-center">{{ $staff->name }}
+                                <td class="col-span-3 flex justify-center">{{ $staff->name }}
                                 </td>
-                                <td class="flex justify-center">{{ $staff->email }}</td>
+                                <td class="col-span-4 flex justify-center">{{ $staff->email }}</td>
                                 <td class="flex justify-center">{{ $staff->usertype }}</td>
                                 <td class="col-span-2 flex justify-center">{{ $staff->phone }}</td>
-                                <td class="col-span-2 flex justify-center">
+                                <td class="flex justify-center">
                                     <div class="grid justify-center gap-4">
                                         {{-- <a href="{{ route('users.destroy', ['id' => $staff->id]) }}"
                                             class="editIcon hover:text-blue-300">

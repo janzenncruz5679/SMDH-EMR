@@ -7,7 +7,7 @@
                 {{ __('Billing Summary') }}</label>
         </div>
         <div class="flex-grow w-full row-span-2 grid grid-cols-5 gap-8">
-            <div class="col-span-4">
+            <div class="col-span-4 flex flex-col gap-8">
                 @if (isset($billings))
                     <table class="tracking-widest w-full">
                         <thead>

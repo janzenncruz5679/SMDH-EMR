@@ -21,7 +21,7 @@ class VitalSignController extends Controller
 
     public function index()
     {
-        $vitalSign = VitalSign::all()->paginate(10);
+        $vitalSign = VitalSign::all()->paginate(18);
         return view('user.records.vitalSign.index', compact('vitalSign'));
     }
 

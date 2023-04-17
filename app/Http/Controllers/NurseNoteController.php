@@ -20,7 +20,7 @@ class NurseNoteController extends Controller
 
     public function index()
     {
-        $nurseNote = NurseNote::all()->paginate(10);
+        $nurseNote = NurseNote::all()->paginate(18);
         return view('user.records.nurseNote.index', compact('nurseNote'));
     }
 

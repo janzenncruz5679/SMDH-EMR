@@ -20,7 +20,7 @@ class FluidIntakeController extends Controller
 
     public function index()
     {
-        $fluidIntake = FluidIntake::all()->paginate(10);
+        $fluidIntake = FluidIntake::all()->paginate(18);
         return view('user.records.fluidIntake.index', compact('fluidIntake'));
     }
 

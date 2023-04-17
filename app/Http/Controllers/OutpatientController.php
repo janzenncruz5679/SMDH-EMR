@@ -21,7 +21,7 @@ class OutpatientController extends Controller
 
     public function index()
     {
-        $outpatients = Outpatient::all()->paginate(10);
+        $outpatients = Outpatient::all()->paginate(18);
         return view('user.patients.outpatient.index', compact('outpatients'));
     }
 

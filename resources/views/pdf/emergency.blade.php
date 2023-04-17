@@ -561,7 +561,7 @@
             </div>
             <div class="diagnosis">
                 <label>DIAGNOSIS</label>
-                <div class="diagnosis_value">{{ $emergency_view->case_summary['diagnosis'] }}</div>
+                <div class="diagnosis_value">{{ $emergency_view->main_diagnosis }}</div>
             </div>
         </div>
 

@@ -84,5 +84,4 @@
 @endsection
 
 @push('custom_scripts')
-    @vite('resources/js/patientPage/liveSearch.js')
 @endpush

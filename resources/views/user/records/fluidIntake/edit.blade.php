@@ -204,44 +204,44 @@
                                             7 AM to 3 PM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="oral_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralArray[1][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral['oralArray'][1][1] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="parental_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="parentalArray[1][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->parental['parentalArray'][1][1] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="opTotal_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralparentaltotalArray[1][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral_parental_total['oralparentaltotalArray'][1][1] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="urine_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urineArray[1][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine['urineArray'][1][1] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="drainage_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="drainageArray[1][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->drainage['drainageArray'][1][1] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="others_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="othersArray[1][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->others['othersArray'][1][1] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="udoTotal_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urinedrainageotherstotalArray[1][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine_drainage_others_total['urinedrainageotherstotalArray'][1][1] }}">
                                         </td>
@@ -251,44 +251,44 @@
                                             3 PM to 11 PM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="oral_1_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralArray[1][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral['oralArray'][1][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="parental_1_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="parentalArray[1][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->parental['parentalArray'][1][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="opTotal_1_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralparentaltotalArray[1][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral_parental_total['oralparentaltotalArray'][1][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="urine_1_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urineArray[1][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine['urineArray'][1][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="drainage_1_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="drainageArray[1][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->drainage['drainageArray'][1][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="others_1_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="othersArray[1][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->others['othersArray'][1][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="udoTotal_1_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urinedrainageotherstotalArray[1][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine_drainage_others_total['urinedrainageotherstotalArray'][1][2] }}">
                                         </td>
@@ -298,44 +298,44 @@
                                             11 PM to 7 AM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="oral_1_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralArray[1][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral['oralArray'][1][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="parental_1_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="parentalArray[1][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->parental['parentalArray'][1][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="opTotal_1_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralparentaltotalArray[1][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral_parental_total['oralparentaltotalArray'][1][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="urine_1_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urineArray[1][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine['urineArray'][1][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="drainage_1_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="drainageArray[1][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->drainage['drainageArray'][1][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="others_1_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="othersArray[1][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->others['othersArray'][1][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="udoTotal_1_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urinedrainageotherstotalArray[1][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine_drainage_others_total['urinedrainageotherstotalArray'][1][3] }}">
                                         </td>
@@ -345,44 +345,44 @@
                                             Total
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="oral_overall_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralArray[1][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral['oralArray'][1][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="parental_overall_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="parentalArray[1][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->parental['parentalArray'][1][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="opGrandTotal_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralparentaltotalArray[1][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral_parental_total['oralparentaltotalArray'][1][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="urine_overall_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urineArray[1][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine['urineArray'][1][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="drainage_overall_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="drainageArray[1][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->drainage['drainageArray'][1][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="others_overall_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="othersArray[1][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->others['othersArray'][1][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="udoGrandTotal_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urinedrainageotherstotalArray[1][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine_drainage_others_total['urinedrainageotherstotalArray'][1][4] }}">
                                         </td>
@@ -433,44 +433,44 @@
                                             7 AM to 3 PM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="oral_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralArray[2][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral['oralArray'][2][1] ?? '' }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="parental_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="parentalArray[2][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->parental['parentalArray'][2][1] ?? '' }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="opTotal_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralparentaltotalArray[2][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral_parental_total['oralparentaltotalArray'][2][1] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="urine_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urineArray[2][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine['urineArray'][2][1] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="drainage_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="drainageArray[2][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->drainage['drainageArray'][2][1] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="others_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="othersArray[2][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->others['othersArray'][2][1] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="udoTotal_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urinedrainageotherstotalArray[2][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine_drainage_others_total['urinedrainageotherstotalArray'][2][1] }}">
                                         </td>
@@ -480,44 +480,44 @@
                                             3 PM to 11 PM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="oral_2_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralArray[2][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral['oralArray'][2][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="parental_2_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="parentalArray[2][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->parental['parentalArray'][2][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="opTotal_2_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralparentaltotalArray[2][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral_parental_total['oralparentaltotalArray'][2][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="urine_2_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urineArray[2][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine['urineArray'][2][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="drainage_2_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="drainageArray[2][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->drainage['drainageArray'][2][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="others_2_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="othersArray[2][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->others['othersArray'][2][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="udoTotal_2_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urinedrainageotherstotalArray[2][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine_drainage_others_total['urinedrainageotherstotalArray'][2][2] }}">
                                         </td>
@@ -527,44 +527,44 @@
                                             11 PM to 7 AM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="oral_2_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralArray[2][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral['oralArray'][2][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="parental_2_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="parentalArray[2][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->parental['parentalArray'][2][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="opTotal_2_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralparentaltotalArray[2][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral_parental_total['oralparentaltotalArray'][2][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="urine_2_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urineArray[2][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine['urineArray'][2][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="drainage_2_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="drainageArray[2][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->drainage['drainageArray'][2][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="others_2_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="othersArray[2][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->others['othersArray'][2][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="udoTotal_2_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urinedrainageotherstotalArray[2][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine_drainage_others_total['urinedrainageotherstotalArray'][2][3] }}">
                                         </td>
@@ -574,44 +574,44 @@
                                             Total
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="oral_overall_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralArray[2][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral['oralArray'][2][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="parental_overall_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="parentalArray[2][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->parental['parentalArray'][2][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="opGrandTotal_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralparentaltotalArray[2][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral_parental_total['oralparentaltotalArray'][2][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="urine_overall_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urineArray[2][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine['urineArray'][2][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="drainage_overall_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="drainageArray[2][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->drainage['drainageArray'][2][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="others_overall_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="othersArray[2][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->others['othersArray'][2][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="udoGrandTotal_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urinedrainageotherstotalArray[2][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine_drainage_others_total['urinedrainageotherstotalArray'][2][4] }}">
                                         </td>
@@ -662,44 +662,44 @@
                                             7 AM to 3 PM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="oral_3"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralArray[3][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral['oralArray'][3][1] ?? '' }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="parental_3"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="parentalArray[3][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->parental['parentalArray'][3][1] ?? '' }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="opTotal_3"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralparentaltotalArray[3][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral_parental_total['oralparentaltotalArray'][3][1] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="urine_3"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urineArray[3][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine['urineArray'][3][1] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="drainage_3"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="drainageArray[3][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->drainage['drainageArray'][3][1] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="others_3"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="othersArray[3][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->others['othersArray'][3][1] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="udoTotal_3"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urinedrainageotherstotalArray[3][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine_drainage_others_total['urinedrainageotherstotalArray'][3][1] }}">
                                         </td>
@@ -709,44 +709,44 @@
                                             3 PM to 11 PM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="oral_3_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralArray[3][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral['oralArray'][3][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="parental_3_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="parentalArray[3][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->parental['parentalArray'][3][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="opTotal_3_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralparentaltotalArray[3][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral_parental_total['oralparentaltotalArray'][3][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="urine_3_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urineArray[3][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine['urineArray'][3][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="drainage_3_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="drainageArray[3][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->drainage['drainageArray'][3][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="others_3_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="othersArray[3][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->others['othersArray'][3][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="udoTotal_3_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urinedrainageotherstotalArray[3][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine_drainage_others_total['urinedrainageotherstotalArray'][3][2] }}">
                                         </td>
@@ -756,44 +756,44 @@
                                             11 PM to 7 AM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="oral_3_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralArray[3][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral['oralArray'][3][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="parental_3_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="parentalArray[3][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->parental['parentalArray'][3][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="opTotal_3_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralparentaltotalArray[3][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral_parental_total['oralparentaltotalArray'][3][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="urine_3_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urineArray[3][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine['urineArray'][3][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="drainage_3_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="drainageArray[3][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->drainage['drainageArray'][3][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="others_3_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="othersArray[3][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->others['othersArray'][3][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="udoTotal_3_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urinedrainageotherstotalArray[3][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine_drainage_others_total['urinedrainageotherstotalArray'][3][3] }}">
                                         </td>
@@ -803,44 +803,44 @@
                                             Total
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="oral_overall_3"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralArray[3][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral['oralArray'][3][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="parental_overall_3"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="parentalArray[3][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->parental['parentalArray'][3][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="opGrandTotal_3"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralparentaltotalArray[3][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral_parental_total['oralparentaltotalArray'][3][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="urine_overall_3"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urineArray[3][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine['urineArray'][3][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="drainage_overall_3"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="drainageArray[3][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->drainage['drainageArray'][3][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="others_overall_3"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="othersArray[3][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->others['othersArray'][3][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="udoGrandTotal_3"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urinedrainageotherstotalArray[3][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine_drainage_others_total['urinedrainageotherstotalArray'][3][4] }}">
                                         </td>
@@ -891,44 +891,44 @@
                                             7 AM to 3 PM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="oral_4"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralArray[4][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral['oralArray'][4][1] ?? '' }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="parental_4"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="parentalArray[4][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->parental['parentalArray'][4][1] ?? '' }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="opTotal_4"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralparentaltotalArray[4][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral_parental_total['oralparentaltotalArray'][4][1] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="urine_4"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urineArray[4][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine['urineArray'][4][1] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="drainage_4"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="drainageArray[4][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->drainage['drainageArray'][4][1] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="others_4"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="othersArray[4][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->others['othersArray'][4][1] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="udoTotal_4"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urinedrainageotherstotalArray[4][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine_drainage_others_total['urinedrainageotherstotalArray'][4][1] }}">
                                         </td>
@@ -938,44 +938,44 @@
                                             3 PM to 11 PM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="oral_4_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralArray[4][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral['oralArray'][4][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="parental_4_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="parentalArray[4][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->parental['parentalArray'][4][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="opTotal_4_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralparentaltotalArray[4][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral_parental_total['oralparentaltotalArray'][4][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="urine_4_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urineArray[4][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine['urineArray'][4][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="drainage_4_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="drainageArray[4][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->drainage['drainageArray'][4][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="others_4_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="othersArray[4][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->others['othersArray'][4][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="udoTotal_4_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urinedrainageotherstotalArray[4][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine_drainage_others_total['urinedrainageotherstotalArray'][4][2] }}">
                                         </td>
@@ -985,44 +985,44 @@
                                             11 PM to 7 AM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="oral_4_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralArray[4][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral['oralArray'][4][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="parental_4_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="parentalArray[4][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->parental['parentalArray'][4][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="opTotal_4_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralparentaltotalArray[4][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral_parental_total['oralparentaltotalArray'][4][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="urine_4_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urineArray[4][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine['urineArray'][4][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="drainage_4_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="drainageArray[4][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->drainage['drainageArray'][4][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="others_4_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="othersArray[4][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->others['othersArray'][4][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="udoTotal_4_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urinedrainageotherstotalArray[4][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine_drainage_others_total['urinedrainageotherstotalArray'][4][3] }}">
                                         </td>
@@ -1032,44 +1032,44 @@
                                             Total
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="oral_overall_4"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralArray[4][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral['oralArray'][4][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="parental_overall_4"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="parentalArray[4][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->parental['parentalArray'][4][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="opGrandTotal_4"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralparentaltotalArray[4][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral_parental_total['oralparentaltotalArray'][4][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="urine_overall_4"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urineArray[4][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine['urineArray'][4][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="drainage_overall_4"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="drainageArray[4][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->drainage['drainageArray'][4][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="others_overall_4"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="othersArray[4][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->others['othersArray'][4][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="udoGrandTotal_4"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urinedrainageotherstotalArray[4][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine_drainage_others_total['urinedrainageotherstotalArray'][4][4] }}">
                                         </td>
@@ -1120,44 +1120,44 @@
                                             7 AM to 3 PM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="oral_5"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralArray[5][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral['oralArray'][5][1] ?? '' }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="parental_5"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="parentalArray[5][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->parental['parentalArray'][5][1] ?? '' }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="opTotal_5"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralparentaltotalArray[5][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral_parental_total['oralparentaltotalArray'][5][1] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="urine_5"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urineArray[5][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine['urineArray'][5][1] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="drainage_5"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="drainageArray[5][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->drainage['drainageArray'][5][1] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="others_5"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="othersArray[5][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->others['othersArray'][5][1] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="udoTotal_5"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urinedrainageotherstotalArray[5][1]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine_drainage_others_total['urinedrainageotherstotalArray'][5][1] }}">
                                         </td>
@@ -1167,44 +1167,44 @@
                                             3 PM to 11 PM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="oral_5_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralArray[5][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral['oralArray'][5][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="parental_5_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="parentalArray[5][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->parental['parentalArray'][5][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="opTotal_5_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralparentaltotalArray[5][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral_parental_total['oralparentaltotalArray'][5][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="urine_5_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urineArray[5][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine['urineArray'][5][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="drainage_5_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="drainageArray[5][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->drainage['drainageArray'][5][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="others_5_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="othersArray[5][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->others['othersArray'][5][2] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="udoTotal_5_1"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urinedrainageotherstotalArray[5][2]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine_drainage_others_total['urinedrainageotherstotalArray'][5][2] }}">
                                         </td>
@@ -1214,44 +1214,44 @@
                                             11 PM to 7 AM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="oral_5_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralArray[5][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral['oralArray'][5][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="parental_5_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="parentalArray[5][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->parental['parentalArray'][5][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="opTotal_5_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralparentaltotalArray[5][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral_parental_total['oralparentaltotalArray'][5][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="urine_5_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urineArray[5][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine['urineArray'][5][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="drainage_5_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="drainageArray[5][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->drainage['drainageArray'][5][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="others_5_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="othersArray[5][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->others['othersArray'][5][3] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="udoTotal_5_2"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urinedrainageotherstotalArray[5][3]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine_drainage_others_total['urinedrainageotherstotalArray'][5][3] }}">
                                         </td>
@@ -1261,44 +1261,44 @@
                                             Total
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="oral_overall_5"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralArray[5][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral['oralArray'][5][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="parental_overall_5"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="parentalArray[5][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->parental['parentalArray'][5][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="opGrandTotal_5"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="oralparentaltotalArray[5][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->oral_parental_total['oralparentaltotalArray'][5][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="urine_overall_5"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urineArray[5][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine['urineArray'][5][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="drainage_overall_5"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="drainageArray[5][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->drainage['drainageArray'][5][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="others_overall_5"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="othersArray[5][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->others['othersArray'][5][4] }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                            <input type="number" step="0.01" id="udoGrandTotal_5"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                                 name="urinedrainageotherstotalArray[5][4]" autocomplete="off"
                                                 value="{{ $fluidIntake->urine_drainage_others_total['urinedrainageotherstotalArray'][5][4] }}">
                                         </td>
@@ -1337,4 +1337,6 @@
     @vite('resources/js/patientPage/birthdate.js')
     @vite('resources/js/patientPage/admission_days.js')
     @vite('resources/js/patientPage/multi-step-form.js')
+    @vite('resources/js/stationPage/fluidIntake.js')
+    @vite('resources/js/stationPage/secondFluidIntake.js')
 @endpush

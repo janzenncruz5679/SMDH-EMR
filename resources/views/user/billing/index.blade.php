@@ -29,7 +29,7 @@
                                     <td class="col-span-3 flex justify-center">
                                         ₱{{ number_format($billing->grand_total, 2) }}</td>
                                     <td class="flex justify-center">
-                                        <div class="grid grid-cols-3 justify-center gap-4">
+                                        <div class="grid grid-cols-2 justify-center gap-4">
                                             <a href="{{ route('billing.show', $billing->id) }}"
                                                 class="editIcon hover:text-blue-300">
                                                 <i class="fa-solid fa-eye"></i>
@@ -37,9 +37,6 @@
                                             <a href="{{ route('billing.edit', $billing->id) }}"
                                                 class="editIcon hover:text-blue-300">
                                                 <i class="fa-solid fa-edit"></i>
-                                            </a>
-                                            <a href="" class="editIcon hover:text-blue-300" target="_blank">
-                                                <i class="fa-solid fa-file-pdf"></i>
                                             </a>
                                         </div>
                                     </td>
@@ -56,11 +53,19 @@
                 <div class="h-full flex flex-col gap-4">
                     <div class="">
                         <label class="font-[sans-serif] font-semibold text-white tracking-wide text-3xl">
+                            Total Billing records: {{ $total_records }}</label>
+                    </div>
+                    <div class="">
+                        <label class="font-[sans-serif] font-semibold text-white tracking-wide text-3xl">
                             Billing submitted today: {{ $records }}</label>
                     </div>
-                    <div class="flex-grow">
+                    <div class="">
                         <label class="font-[sans-serif] font-semibold text-white tracking-wide text-3xl">
-                            Total Billing records: {{ $total_records }}</label>
+                            Billing submitted this month: {{ $records_month }}</label>
+                    </div>
+                    <div class="">
+                        <label class="font-[sans-serif] font-semibold text-white tracking-wide text-3xl">
+                            Billing submitted this year: {{ $records_year }}</label>
                     </div>
                 </div>
             </div>

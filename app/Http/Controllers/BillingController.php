@@ -22,9 +22,11 @@ class BillingController extends Controller
         $billings = Billing::all()->paginate(18);
         // dd($billings);
         $records = Billing::whereDate('created_at', Carbon::now())->count();
+        $records_month = Billing::whereMonth('created_at', Carbon::now()->month)->count();
+        $records_year = Billing::whereYear('created_at', Carbon::now()->year)->count();
         // $records = Billing::whereMonth('created_at', Carbon::now()->month)->count();
         $total_records = Billing::count();
-        return view('user.billing.index', compact('billings', 'records', 'total_records'));
+        return view('user.billing.index', compact('billings', 'records', 'total_records', 'records_month', 'records_year'));
     }
 
     public function create(Billing $billing)

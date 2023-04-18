@@ -263,11 +263,10 @@
                                 </div>
                                 <div class="px-3">
                                     <label>BARANGAY: <span class="text-red-600 font-bold">*</span></label>
-                                    <select name="barangay" id="barangay"
+                                    <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        required>
-                                        <option value="" disabled selected>Barangay</option>
-                                    </select>
+                                        placeholder="barangay" name="barangay" id="barangay" autocomplete="off"
+                                        value="{{ old('barangay') }}" required>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('barangay')
                                             {{ $message }}
@@ -276,11 +275,15 @@
                                 </div>
                                 <div class="px-3">
                                     <label>MUNICIPALITY: <span class="text-red-600 font-bold">*</span></label>
-                                    <select name="municipality" id="municipality"
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="municipality" name="municipality" id="municipality"
+                                        autocomplete="off" value="{{ old('municipality') }}" required>
+                                    {{-- <select name="municipality" id="municipality"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         required>
                                         <option value="" disabled selected>Municipality</option>
-                                    </select>
+                                    </select> --}}
                                     {{-- <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                         placeholder="municipality" name="municipality" id="municipality" autocomplete="off"
@@ -296,11 +299,15 @@
 
                                 <div class="px-3">
                                     <label>PROVINCE: <span class="text-red-600 font-bold">*</span></label>
-                                    <select name="province" id="province"
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="province" name="province" id="province" autocomplete="off"
+                                        value="{{ old('province') }}" required>
+                                    {{-- <select name="province" id="province"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         required>
                                         <option value="" disabled selected>Province</option>
-                                    </select>
+                                    </select> --}}
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('province')
                                             {{ $message }}
@@ -309,11 +316,15 @@
                                 </div>
                                 <div class=" px-3">
                                     <label>REGION: <span class="text-red-600 font-bold">*</span></label>
-                                    <select name="region" id="region"
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="region" name="region" id="region" autocomplete="off"
+                                        value="{{ old('region') }}" required>
+                                    {{-- <select name="region" id="region"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         required>
                                         <option value="" disabled selected>Region</option>
-                                    </select>
+                                    </select> --}}
                                     {{-- <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="region" name="region" id="region" autocomplete="off"
@@ -338,14 +349,15 @@
                                 </div>
                                 <div class=" px-3">
                                     <label>COUNTRY: <span class="text-red-600 font-bold">*</span></label>
-                                    <select name="country" id="country"
+                                    <input type="text"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        placeholder="country" name="country" id="country" autocomplete="off"
+                                        value="{{ old('country') }}" required>
+                                    {{-- <select name="country" id="country"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         required>
                                         <option value="" disabled selected>Country</option>
-                                        {{-- <option value="Philippines"
-                                            {{ old('country') == 'Philippines' ? 'selected' : '' }}>Philippines
-                                        </option> --}}
-                                    </select>
+                                    </select> --}}
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('country')
                                             {{ $message }}

@@ -34,12 +34,12 @@
                     <label class="font-[sans-serif] font-semibold text-blue-200 tracking-wide text-3xl">
                         Outpatients today: </label>
                     <label class="font-[sans-serif] font-semibold text-blue-200 tracking-wide text-3xl">
-                        @if ($total_emergency == 0)
+                        @if ($total_outpatient == 0)
                             No patients
-                        @elseif ($total_emergency == 1)
-                            {{ $total_emergency }} patient
+                        @elseif ($total_outpatient == 1)
+                            {{ $total_outpatient }} patient
                         @else
-                            {{ $total_emergency }} patients
+                            {{ $total_outpatient }} patients
                         @endif
                     </label>
                 </div>

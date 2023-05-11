@@ -6,7 +6,7 @@ use App\Actions\Records\VitalSign\StoreVital;
 use App\Actions\Records\VitalSign\UpdateVital;
 use App\Models\VitalSign;
 use App\Models\VitalSignHistory;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -101,7 +101,7 @@ class VitalSignController extends Controller
     public function pdf(VitalSign $vitalSign)
     {
         $vitalSign_view = VitalSign::findorfail($vitalSign->id);
-        $vitalSign_pdf = PDF::loadView('pdf.vitalSign', compact('vitalSign_view'))
+        $vitalSign_pdf = Pdf::loadView('pdf.vitalSign', compact('vitalSign_view'))
             ->setPaper('a4', 'portrait');
 
         return $vitalSign_pdf->stream("Vital Signs  " . $vitalSign_view->id . ".pdf");

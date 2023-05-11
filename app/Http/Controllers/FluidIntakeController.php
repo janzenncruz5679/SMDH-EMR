@@ -6,7 +6,7 @@ use App\Actions\Records\FluidIntake\StoreFluidIntake;
 use App\Actions\Records\FluidIntake\UpdateFluidIntake;
 use App\Models\FluidIntake;
 use App\Models\FluidIntakeHistory;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -101,7 +101,7 @@ class FluidIntakeController extends Controller
     public function pdf(FluidIntake $fluidIntake)
     {
         $fluidIntake_view = FluidIntake::findorfail($fluidIntake->id);
-        $fluidIntake_pdf = PDF::loadView('pdf.fluidIntake', compact('fluidIntake_view'))
+        $fluidIntake_pdf = Pdf::loadView('pdf.fluidIntake', compact('fluidIntake_view'))
             ->setPaper('a4', 'portrait');
 
         return $fluidIntake_pdf->stream("Fluid Intake " . $fluidIntake_view->id . ".pdf");

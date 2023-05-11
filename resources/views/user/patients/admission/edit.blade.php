@@ -63,7 +63,7 @@
                                     <label>MIDDLE NAME :</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="N/A if not available" name="middle_name" autocomplete="off"
+                                        placeholder="leave empty if N/A" name="middle_name" autocomplete="off"
                                         value="{{ $admission->middle_name }}">
 
                                 </div>
@@ -71,7 +71,7 @@
                                     <label>SUFFIX :</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="N/A if not available" name="suffix" autocomplete="off"
+                                        placeholder="leave empty if N/A" name="suffix" autocomplete="off"
                                         value="{{ $admission->suffix }}">
                                 </div>
                             </div>
@@ -84,7 +84,8 @@
                             <div class="grid grid-cols-6 h-full w-full">
                                 <div class="px-3">
                                     <label>SR CITIZEN NO :</label>
-                                    <input type="text"
+                                    <input type="number" maxlength="5"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="senior citizen #" name="sr_no" autocomplete="off"
                                         value="{{ $admission->personal_info['sr_no'] }}">
@@ -92,7 +93,8 @@
                                 </div>
                                 <div class="px-3">
                                     <label>WARD/ROOM: <span class="text-red-600 font-bold">*</span></label>
-                                    <input type="text"
+                                    <input type="number" maxlength="5"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="ward/room #" name="ward_room_bed_service" autocomplete="off"
                                         value="{{ $admission->ward_room_bed_service }}" required>
@@ -104,7 +106,8 @@
                                 </div>
                                 <div class="px-3">
                                     <label>CONTACT NUMBER: <span class="text-red-600 font-bold">*</span></label>
-                                    <input type="text"
+                                    <input type="number" maxlength="11"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="contact #" name="phone" maxlength="11" autocomplete="off"
                                         value="{{ $admission->personal_info['phone'] }}" required>
@@ -225,7 +228,7 @@
                                     <label>OCCUPATION :</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="N/A if not available" name="occupation" autocomplete="off"
+                                        placeholder="leave empty if N/A" name="occupation" autocomplete="off"
                                         value="{{ $admission->personal_info['occupation'] }}">
                                 </div>
                                 <div class="px-3">
@@ -422,7 +425,8 @@
                                 </div>
                                 <div class="px-3">
                                     <label>PHONE: <span class="text-red-600 font-bold">*</span></label>
-                                    <input type="text"
+                                    <input type="number" maxlength="11"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                         placeholder="contact address" name="contact_phone" id="contact_phone"
                                         autocomplete="off" value="{{ $admission->contact_person['contact_phone'] }}"
@@ -462,21 +466,22 @@
                                     <label>EMPLOYER NAME:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="N/A if not available" name="employer_name" autocomplete="off"
+                                        placeholder="leave empty if N/A" name="employer_name" autocomplete="off"
                                         value="{{ $admission->patient_affiliate['employer']['name'] }}">
                                 </div>
                                 <div class="flex flex-col items-center px-3">
                                     <label>ADDRESS:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="N/A if not available" name="employer_address" autocomplete="off"
+                                        placeholder="leave empty if N/A" name="employer_address" autocomplete="off"
                                         value="{{ $admission->patient_affiliate['employer']['address'] }}">
                                 </div>
                                 <div class="flex flex-col items-center px-3">
                                     <label>PHONE:</label>
-                                    <input type="text"
+                                    <input type="number" maxlength="11"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="N/A if not available" name="employer_phone" autocomplete="off"
+                                        placeholder="leave empty if N/A" name="employer_phone" autocomplete="off"
                                         value="{{ $admission->patient_affiliate['employer']['contact'] }}">
                                 </div>
                             </div>
@@ -486,21 +491,22 @@
                                     <label>FATHER'S NAME:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="N/A if not available" name="father_name" autocomplete="off"
+                                        placeholder="leave empty if N/A" name="father_name" autocomplete="off"
                                         value="{{ $admission->patient_affiliate['father']['name'] }}">
                                 </div>
                                 <div class="flex flex-col items-center px-3">
                                     <label>ADDRESS:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="N/A if not available" name="father_address" autocomplete="off"
+                                        placeholder="leave empty if N/A" name="father_address" autocomplete="off"
                                         value="{{ $admission->patient_affiliate['father']['address'] }}">
                                 </div>
                                 <div class="flex flex-col items-center px-3">
                                     <label>PHONE:</label>
-                                    <input type="text"
+                                    <input type="number" maxlength="11"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="N/A if not available" name="father_phone" autocomplete="off"
+                                        placeholder="leave empty if N/A" name="father_phone" autocomplete="off"
                                         value="{{ $admission->patient_affiliate['father']['contact'] }}">
                                 </div>
                             </div>
@@ -511,21 +517,22 @@
                                     <label>MOTHER'S MAIDEN NAME:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="N/A if not available" name="mother_maiden_name" autocomplete="off"
+                                        placeholder="leave empty if N/A" name="mother_maiden_name" autocomplete="off"
                                         value="{{ $admission->patient_affiliate['mother']['name'] }}">
                                 </div>
                                 <div class="flex flex-col items-center px-3">
                                     <label>ADDRESS:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="N/A if not available" name="mother_address" autocomplete="off"
+                                        placeholder="leave empty if N/A" name="mother_address" autocomplete="off"
                                         value="{{ $admission->patient_affiliate['mother']['address'] }}">
                                 </div>
                                 <div class="flex flex-col items-center px-3">
                                     <label>PHONE:</label>
-                                    <input type="text"
+                                    <input type="number" maxlength="11"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="N/A if not available" name="mother_phone" autocomplete="off"
+                                        placeholder="leave empty if N/A" name="mother_phone" autocomplete="off"
                                         value="{{ $admission->patient_affiliate['mother']['contact'] }}">
                                 </div>
                             </div>
@@ -536,21 +543,22 @@
                                     <label>SPOUSE NAME:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="N/A if not available" name="spouse_name" autocomplete="off"
+                                        placeholder="leave empty if N/A" name="spouse_name" autocomplete="off"
                                         value="{{ $admission->patient_affiliate['spouse']['name'] }}">
                                 </div>
                                 <div class="flex flex-col items-center px-3">
                                     <label>ADDRESS:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="N/A if not available" name="spouse_address" autocomplete="off"
+                                        placeholder="leave empty if N/A" name="spouse_address" autocomplete="off"
                                         value="{{ $admission->patient_affiliate['spouse']['address'] }}">
                                 </div>
                                 <div class="flex flex-col items-center px-3">
                                     <label>PHONE:</label>
-                                    <input type="text"
+                                    <input type="number" maxlength="11"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="N/A if not available" name="spouse_phone" autocomplete="off"
+                                        placeholder="leave empty if N/A" name="spouse_phone" autocomplete="off"
                                         value="{{ $admission->patient_affiliate['spouse']['contact'] }}">
                                 </div>
                             </div>
@@ -678,7 +686,7 @@
                                     <label>ADMITTING CLERK: <span class="text-red-600 font-bold">*</span></label>
                                     <input type="text"
                                         class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="N/A if not available" name="admitting_clerk" id="admitting_clerk"
+                                        placeholder="leave empty if N/A" name="admitting_clerk" id="admitting_clerk"
                                         value="{{ $admission->admitting_personel['admitting_clerk'] }}"
                                         autocomplete="off" required>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
@@ -755,7 +763,7 @@
                                 <label>HOSPITALIZATION PLAN: </label>
                                 <input type="text"
                                     class="h-10 w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    placeholder="N/A if not available" name="hospitalization_plan"
+                                    placeholder="leave empty if N/A" name="hospitalization_plan"
                                     id="hospitalization_plan" autocomplete="off"
                                     value="{{ $admission->insurance['hospitalization_plan'] }}">
                             </div>
@@ -763,14 +771,14 @@
                                 <label>INSURANCE NAME:</label>
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    name="health_insurance" id="health_insurance" placeholder="N/A if not available"
+                                    name="health_insurance" id="health_insurance" placeholder="leave empty if N/A"
                                     autocomplete="off" value="{{ $admission->insurance['health_insurance'] }}">
                             </div>
                             <div class="px-3">
                                 <label>INSURANCE COVERAGE:</label>
                                 <input type="text"
                                     class="w-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    name="coverage_insurance" id="coverage_insurance" placeholder="N/A if not available"
+                                    name="coverage_insurance" id="coverage_insurance" placeholder="leave empty if N/A"
                                     autocomplete="off" value="{{ $admission->insurance['coverage_insurance'] }}">
                             </div>
                         </div>
@@ -783,14 +791,14 @@
                                     <label>ADMISSION DIAGNOSIS :</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="N/A if not available" name="main_diagnosis" id="main_diagnosis"
+                                        placeholder="leave empty if N/A" name="main_diagnosis" id="main_diagnosis"
                                         autocomplete="off" value="{{ $admission->main_diagnosis }}">
                                 </div>
                                 <div class="px-3">
                                     <label>PRINCIPAL DIAGNOSIS :</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="N/A if not available" name="principal_diagnosis"
+                                        placeholder="leave empty if N/A" name="principal_diagnosis"
                                         id="principal_diagnosis" autocomplete="off"
                                         value="{{ $admission->diagnosis['principal_diagnosis'] }}">
                                 </div>
@@ -798,7 +806,7 @@
                                     <label>OTHER DIAGNOSIS :</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="N/A if not available" name="other_diagnosis" id="other_diagnosis"
+                                        placeholder="leave empty if N/A" name="other_diagnosis" id="other_diagnosis"
                                         autocomplete="off" value="{{ $admission->diagnosis['other_diagnosis'] }}">
                                 </div>
 
@@ -808,7 +816,7 @@
                                     <label>PRINCIPAL OPERATION:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="N/A if not available" name="principal_operation"
+                                        placeholder="leave empty if N/A" name="principal_operation"
                                         id="principal_operation" autocomplete="off"
                                         value="{{ $admission->other_opt['principal_operation'] }}">
                                 </div>
@@ -816,21 +824,23 @@
                                     <label>OTHER OPERATION:</label>
                                     <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="N/A if not available" name="other_operation" id="other_operation"
+                                        placeholder="leave empty if N/A" name="other_operation" id="other_operation"
                                         autocomplete="off" value="{{ $admission->other_opt['other_operation'] }}">
                                 </div>
                                 <div class="px-3">
                                     <label>IDC CODE:</label>
-                                    <input type="text"
+                                    <input type="number" maxlength="5"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="N/A if not available" name="idc_code" id="idc_code"
+                                        placeholder="leave empty if N/A" name="idc_code" id="idc_code"
                                         autocomplete="off" value="{{ $admission->idc_code }}">
                                 </div>
                                 <div class="px-3">
                                     <label>ICPM CODE:</label>
-                                    <input type="text"
+                                    <input type="number" maxlength="5"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="N/A if not available" name="icpm_code" id="icpm_code"
+                                        placeholder="leave empty if N/A" name="icpm_code" id="icpm_code"
                                         autocomplete="off" value="{{ $admission->icpm_code }}">
                                 </div>
 

@@ -37,7 +37,7 @@
                         </div>
                         <div class="grid grid-cols-8 gap-2 pb-3">
                             <div class="col-span-4 px-3">
-                                <label>NAME :</label>
+                                <label>NAME: <span class="text-red-600 font-bold">*</span></label>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="Patient Full Name" name="patient_fullname" autocomplete="off"
@@ -49,8 +49,8 @@
                                 </span>
                             </div>
                             <div class="col-span-2 px-3">
-                                <label>AGE* :</label>
-                                <input type="text"
+                                <label>AGE: <span class="text-red-600 font-bold">*</span></label>
+                                <input type="number" maxlength="3" oninput="this.value=this.value.slice(0,this.maxLength)"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="Patient Age" name="age" autocomplete="off"
                                     value="{{ $nurseNote->age }}" required>
@@ -61,8 +61,8 @@
                                 </span>
                             </div>
                             <div class="col-span-2 px-3">
-                                <label>WARD* :</label>
-                                <input type="text"
+                                <label>WARD: <span class="text-red-600 font-bold">*</span></label>
+                                <input type="number" maxlength="5" oninput="this.value=this.value.slice(0,this.maxLength)"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="Ward #" name="ward" autocomplete="off" value="{{ $nurseNote->ward }}"
                                     required>
@@ -79,7 +79,7 @@
                         <div class="grid gap-2 pb-3">
                             <div class="grid grid-cols-6 h-full gap-4 px-3">
                                 <div>
-                                    <label>DATE* :</label>
+                                    <label>DATE: </label>
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         name="obsDate[1]" autocomplete="off"
@@ -91,7 +91,7 @@
                                     </span>
                                 </div>
                                 <div>
-                                    <label>TIME* :</label>
+                                    <label>TIME: </label>
                                     <input type="time"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         name="obsTime[1]" autocomplete="off"
@@ -105,7 +105,7 @@
                             </div>
                             <div class="grid grid-cols-2 gap-4 px-3">
                                 <div>
-                                    <label>FOCUS* :</label>
+                                    <label>FOCUS: </label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="focus" name="obsFocus[1]" autocomplete="off" required>{{ $nurseNote->focus['obsFocus'][1] ?? '' }}</textarea>
@@ -116,7 +116,7 @@
                                     </span>
                                 </div>
                                 <div>
-                                    <label>DATA ACTION AND RESPONSE* :</label>
+                                    <label>DATA ACTION AND RESPONSE: </label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="action response" name="obsDar[1]" autocomplete="off" required>{{ $nurseNote->data_action_response['obsDar'][1] ?? '' }}</textarea>
@@ -139,7 +139,7 @@
                         <div class="grid gap-2 pb-3">
                             <div class="grid grid-cols-6 h-full gap-4 px-3">
                                 <div>
-                                    <label>DATE* :</label>
+                                    <label>DATE: </label>
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         name="obsDate[2]" autocomplete="off"
@@ -151,7 +151,7 @@
                                     </span>
                                 </div>
                                 <div>
-                                    <label>TIME* :</label>
+                                    <label>TIME: </label>
                                     <input type="time"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         name="obsTime[2]" autocomplete="off"
@@ -165,7 +165,7 @@
                             </div>
                             <div class="grid grid-cols-2 gap-4 px-3">
                                 <div>
-                                    <label>FOCUS* :</label>
+                                    <label>FOCUS: </label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="focus" name="obsFocus[2]" autocomplete="off">{{ $nurseNote->focus['obsFocus'][2] ?? '' }}</textarea>
@@ -176,7 +176,7 @@
                                     </span>
                                 </div>
                                 <div>
-                                    <label>DATA ACTION AND RESPONSE* :</label>
+                                    <label>DATA ACTION AND RESPONSE: </label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="action response" name="obsDar[2]" autocomplete="off">{{ $nurseNote->data_action_response['obsDar'][2] ?? '' }}</textarea>
@@ -198,7 +198,7 @@
                         <div class="grid gap-2 pb-3">
                             <div class="grid grid-cols-6 h-full gap-4 px-3">
                                 <div>
-                                    <label>DATE* :</label>
+                                    <label>DATE: </label>
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         name="obsDate[3]" autocomplete="off"
@@ -210,7 +210,7 @@
                                     </span>
                                 </div>
                                 <div>
-                                    <label>TIME* :</label>
+                                    <label>TIME: </label>
                                     <input type="time"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         name="obsTime[3]" autocomplete="off"
@@ -224,7 +224,7 @@
                             </div>
                             <div class="grid grid-cols-2 gap-4 px-3">
                                 <div>
-                                    <label>FOCUS* :</label>
+                                    <label>FOCUS: </label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="focus" name="obsFocus[3]" autocomplete="off">{{ $nurseNote->focus['obsFocus'][3] ?? '' }}</textarea>
@@ -235,7 +235,7 @@
                                     </span>
                                 </div>
                                 <div>
-                                    <label>DATA ACTION AND RESPONSE* :</label>
+                                    <label>DATA ACTION AND RESPONSE: </label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="action response" name="obsDar[3]" autocomplete="off">{{ $nurseNote->data_action_response['obsDar'][3] ?? '' }}</textarea>
@@ -257,7 +257,7 @@
                         <div class="grid gap-2 pb-3">
                             <div class="grid grid-cols-6 h-full gap-4 px-3">
                                 <div>
-                                    <label>DATE* :</label>
+                                    <label>DATE: </label>
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         name="obsDate[4]" autocomplete="off"
@@ -269,7 +269,7 @@
                                     </span>
                                 </div>
                                 <div>
-                                    <label>TIME* :</label>
+                                    <label>TIME: </label>
                                     <input type="time"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         name="obsTime[4]" autocomplete="off"
@@ -283,7 +283,7 @@
                             </div>
                             <div class="grid grid-cols-2 gap-4 px-3">
                                 <div>
-                                    <label>FOCUS* :</label>
+                                    <label>FOCUS: </label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="focus" name="obsFocus[4]" autocomplete="off">{{ $nurseNote->focus['obsFocus'][4] ?? '' }}</textarea>
@@ -294,7 +294,7 @@
                                     </span>
                                 </div>
                                 <div>
-                                    <label>DATA ACTION AND RESPONSE* :</label>
+                                    <label>DATA ACTION AND RESPONSE: </label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="action response" name="obsDar[4]" autocomplete="off">{{ $nurseNote->data_action_response['obsDar'][4] ?? '' }}</textarea>
@@ -316,7 +316,7 @@
                         <div class="grid gap-2 pb-3">
                             <div class="grid grid-cols-6 h-full gap-4 px-3">
                                 <div>
-                                    <label>DATE* :</label>
+                                    <label>DATE: </label>
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         name="obsDate[5]" autocomplete="off"
@@ -328,7 +328,7 @@
                                     </span>
                                 </div>
                                 <div>
-                                    <label>TIME* :</label>
+                                    <label>TIME: </label>
                                     <input type="time"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         name="obsTime[5]" autocomplete="off"
@@ -342,7 +342,7 @@
                             </div>
                             <div class="grid grid-cols-2 gap-4 px-3">
                                 <div>
-                                    <label>FOCUS* :</label>
+                                    <label>FOCUS: </label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="focus" name="obsFocus[5]" autocomplete="off">{{ $nurseNote->focus['obsFocus'][5] ?? '' }}</textarea>
@@ -353,7 +353,7 @@
                                     </span>
                                 </div>
                                 <div>
-                                    <label>DATA ACTION AND RESPONSE* :</label>
+                                    <label>DATA ACTION AND RESPONSE: </label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="action response" name="obsDar[5]" autocomplete="off">{{ $nurseNote->data_action_response['obsDar'][5] ?? '' }}</textarea>

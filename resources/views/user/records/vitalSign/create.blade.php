@@ -117,57 +117,58 @@
                             </div>
                             <div class="grid grid-cols-8 h-full w-full px-3 gap-4">
                                 <div>
-                                    <label>Date:</label>
+                                    <label>DATE:</label>
                                     <input type="date"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center text-center"
                                         name="dateRecord[1]" autocomplete="off" value="{{ old('dateRecord[1]') }}">
                                 </div>
                                 <div>
-                                    <label>Weight:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>WEIGHT (kgs):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center text-center"
                                         placeholder="weight" name="weightRecord[1]" autocomplete="off"
                                         value="{{ old('weightRecord[1]') }}">
                                 </div>
                                 <div>
-                                    <label>Temperature:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>TEMP. (°C): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="temperature" name="tempRecord[1]" autocomplete="off"
                                         value="{{ old('tempRecord[1]') }}">
                                 </div>
                                 <div>
-                                    <label>Blood Pressure:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>BP (mm/Hg): </label>
+                                    <input type="text" maxlength="7"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="blood pressure" name="bpRecord[1]" autocomplete="off"
                                         value="{{ old('bpRecord[1]') }}">
                                 </div>
                                 <div>
-                                    <label>Pulse:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>PULSE (bpm):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pulse rate" name="pulseRecord[1]" autocomplete="off"
                                         value="{{ old('pulseRecord[1]') }}">
                                 </div>
                                 <div>
-                                    <label>Respiration</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>RP RATE (bpm): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="respiration" name="respirationRecord[1]" autocomplete="off"
                                         value="{{ old('respirationRecord[1]') }}">
                                 </div>
                                 <div>
-                                    <label>Pain</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Pain (Scale 1-10): </label>
+                                    <input type="number" maxlength="2"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pain" name="painRecord[1]" autocomplete="off"
                                         value="{{ old('painRecord[1]') }}">
                                 </div>
                                 <div>
-                                    <label>Initials</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Initials: </label>
+                                    <input type="text" maxlength="1"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="initials" name="initialsRecord[1]" autocomplete="off"
                                         value="{{ old('initialsRecord[1]') }}">
                                 </div>
@@ -179,57 +180,58 @@
                             </div>
                             <div class=" grid grid-cols-8 h-full w-full px-3 gap-4">
                                 <div>
-                                    <label>Date:</label>
+                                    <label>DATE:</label>
                                     <input type="date"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         name="dateRecord[2]" autocomplete="off" value="{{ old('dateRecord[2]') }}">
                                 </div>
                                 <div>
-                                    <label>Weight:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>WEIGHT (kgs):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="weight" name="weightRecord[2]" autocomplete="off"
                                         value="{{ old('weightRecord[2]') }}">
                                 </div>
                                 <div>
-                                    <label>Temperature:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>TEMP. (°C): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="temperature" name="tempRecord[2]" autocomplete="off"
                                         value="{{ old('tempRecord[2]') }}">
                                 </div>
                                 <div>
-                                    <label>Blood Pressure:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>BP (mm/Hg): </label>
+                                    <input type="text" maxlength="7"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="blood pressure" name="bpRecord[2]" autocomplete="off"
                                         value="{{ old('bpRecord[2]') }}">
                                 </div>
                                 <div>
-                                    <label>Pulse:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>PULSE (bpm):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pulse rate" name="pulseRecord[2]" autocomplete="off"
                                         value="{{ old('pulseRecord[2]') }}">
                                 </div>
                                 <div>
-                                    <label>Respiration</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>RP RATE (bpm): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="respiration" name="respirationRecord[2]" autocomplete="off"
                                         value="{{ old('respirationRecord[2]') }}">
                                 </div>
                                 <div>
-                                    <label>Pain</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Pain (Scale 1-10): </label>
+                                    <input type="number" maxlength="2"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pain" name="painRecord[2]" autocomplete="off"
                                         value="{{ old('painRecord[2]') }}">
                                 </div>
                                 <div>
-                                    <label>Initials</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Initials: </label>
+                                    <input type="text" maxlength="1"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="initials" name="initialsRecord[2]" autocomplete="off"
                                         value="{{ old('initialsRecord[2]') }}">
                                 </div>
@@ -241,57 +243,58 @@
                             </div>
                             <div class=" grid grid-cols-8 h-full w-full px-3 gap-4">
                                 <div>
-                                    <label>Date:</label>
+                                    <label>DATE:</label>
                                     <input type="date"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         name="dateRecord[3]" autocomplete="off" value="{{ old('dateRecord[3]') }}">
                                 </div>
                                 <div>
-                                    <label>Weight:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>WEIGHT (kgs):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="weight" name="weightRecord[3]" autocomplete="off"
                                         value="{{ old('weightRecord[3]') }}">
                                 </div>
                                 <div>
-                                    <label>Temperature:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>TEMP. (°C): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="temperature" name="tempRecord[3]" autocomplete="off"
                                         value="{{ old('tempRecord[3]') }}">
                                 </div>
                                 <div>
-                                    <label>Blood Pressure:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>BP (mm/Hg): </label>
+                                    <input type="text" maxlength="7"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="blood pressure" name="bpRecord[3]" autocomplete="off"
                                         value="{{ old('bpRecord[3]') }}">
                                 </div>
                                 <div>
-                                    <label>Pulse:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>PULSE (bpm):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pulse rate" name="pulseRecord[3]" autocomplete="off"
                                         value="{{ old('pulseRecord[3]') }}">
                                 </div>
                                 <div>
-                                    <label>Respiration</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>RP RATE (bpm): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="respiration" name="respirationRecord[3]" autocomplete="off"
                                         value="{{ old('respirationRecord[3]') }}">
                                 </div>
                                 <div>
-                                    <label>Pain</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Pain (Scale 1-10): </label>
+                                    <input type="number" maxlength="2"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pain" name="painRecord[3]" autocomplete="off"
                                         value="{{ old('painRecord[3]') }}">
                                 </div>
                                 <div>
-                                    <label>Initials</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Initials: </label>
+                                    <input type="text" maxlength="1"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="initials" name="initialsRecord[3]" autocomplete="off"
                                         value="{{ old('initialsRecord[3]') }}">
                                 </div>
@@ -303,57 +306,58 @@
                             </div>
                             <div class=" grid grid-cols-8 h-full w-full px-3 gap-4">
                                 <div>
-                                    <label>Date:</label>
+                                    <label>DATE:</label>
                                     <input type="date"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         name="dateRecord[4]" autocomplete="off" value="{{ old('dateRecord[4]') }}">
                                 </div>
                                 <div>
-                                    <label>Weight:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>WEIGHT (kgs):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="weight" name="weightRecord[4]" autocomplete="off"
                                         value="{{ old('weightRecord[4]') }}">
                                 </div>
                                 <div>
-                                    <label>Temperature:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>TEMP. (°C): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="temperature" name="tempRecord[4]" autocomplete="off"
                                         value="{{ old('tempRecord[4]') }}">
                                 </div>
                                 <div>
-                                    <label>Blood Pressure:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>BP (mm/Hg): </label>
+                                    <input type="text" maxlength="7"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="blood pressure" name="bpRecord[4]" autocomplete="off"
                                         value="{{ old('bpRecord[4]') }}">
                                 </div>
                                 <div>
-                                    <label>Pulse:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>PULSE (bpm):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pulse rate" name="pulseRecord[4]" autocomplete="off"
                                         value="{{ old('pulseRecord[4]') }}">
                                 </div>
                                 <div>
-                                    <label>Respiration</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>RP RATE (bpm): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="respiration" name="respirationRecord[4]" autocomplete="off"
                                         value="{{ old('respirationRecord[4]') }}">
                                 </div>
                                 <div>
-                                    <label>Pain</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Pain (Scale 1-10): </label>
+                                    <input type="number" maxlength="2"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pain" name="painRecord[4]" autocomplete="off"
                                         value="{{ old('painRecord[4]') }}">
                                 </div>
                                 <div>
-                                    <label>Initials</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Initials: </label>
+                                    <input type="text" maxlength="1"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="initials" name="initialsRecord[4]" autocomplete="off"
                                         value="{{ old('initialsRecord[4]') }}">
                                 </div>
@@ -369,57 +373,58 @@
                             </div>
                             <div class=" grid grid-cols-8 h-full w-full px-3 gap-4">
                                 <div>
-                                    <label>Date:</label>
+                                    <label>DATE:</label>
                                     <input type="date"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         name="dateRecord[5]" autocomplete="off" value="{{ old('dateRecord[5]') }}">
                                 </div>
                                 <div>
-                                    <label>Weight:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>WEIGHT (kgs):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="weight" name="weightRecord[5]" autocomplete="off"
                                         value="{{ old('weightRecord[5]') }}">
                                 </div>
                                 <div>
-                                    <label>Temperature:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>TEMP. (°C): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="temperature" name="tempRecord[5]" autocomplete="off"
                                         value="{{ old('tempRecord[5]') }}">
                                 </div>
                                 <div>
-                                    <label>Blood Pressure:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>BP (mm/Hg): </label>
+                                    <input type="text" maxlength="7"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="blood pressure" name="bpRecord[5]" autocomplete="off"
                                         value="{{ old('bpRecord[5]') }}">
                                 </div>
                                 <div>
-                                    <label>Pulse:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>PULSE (bpm):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pulse rate" name="pulseRecord[5]" autocomplete="off"
                                         value="{{ old('pulseRecord[5]') }}">
                                 </div>
                                 <div>
-                                    <label>Respiration</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>RP RATE (bpm): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="respiration" name="respirationRecord[5]" autocomplete="off"
                                         value="{{ old('respirationRecord[5]') }}">
                                 </div>
                                 <div>
-                                    <label>Pain</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Pain (Scale 1-10): </label>
+                                    <input type="number" maxlength="2"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pain" name="painRecord[5]" autocomplete="off"
                                         value="{{ old('painRecord[5]') }}">
                                 </div>
                                 <div>
-                                    <label>Initials</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Initials: </label>
+                                    <input type="text" maxlength="1"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="initials" name="initialsRecord[5]" autocomplete="off"
                                         value="{{ old('initialsRecord[5]') }}">
                                 </div>
@@ -431,57 +436,58 @@
                             </div>
                             <div class=" grid grid-cols-8 h-full w-full px-3 gap-4">
                                 <div>
-                                    <label>Date:</label>
+                                    <label>DATE:</label>
                                     <input type="date"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         name="dateRecord[6]" autocomplete="off" value="{{ old('dateRecord[6]') }}">
                                 </div>
                                 <div>
-                                    <label>Weight:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>WEIGHT (kgs):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="weight" name="weightRecord[6]" autocomplete="off"
                                         value="{{ old('weightRecord[6]') }}">
                                 </div>
                                 <div>
-                                    <label>Temperature:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>TEMP. (°C): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="temperature" name="tempRecord[6]" autocomplete="off"
                                         value="{{ old('tempRecord[6]') }}">
                                 </div>
                                 <div>
-                                    <label>Blood Pressure:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>BP (mm/Hg): </label>
+                                    <input type="text" maxlength="7"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="blood pressure" name="bpRecord[6]" autocomplete="off"
                                         value="{{ old('bpRecord[6]') }}">
                                 </div>
                                 <div>
-                                    <label>Pulse:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>PULSE (bpm):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pulse rate" name="pulseRecord[6]" autocomplete="off"
                                         value="{{ old('pulseRecord[6]') }}">
                                 </div>
                                 <div>
-                                    <label>Respiration</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>RP RATE (bpm): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="respiration" name="respirationRecord[6]" autocomplete="off"
                                         value="{{ old('respirationRecord[6]') }}">
                                 </div>
                                 <div>
-                                    <label>Pain</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Pain (Scale 1-10): </label>
+                                    <input type="number" maxlength="2"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pain" name="painRecord[6]" autocomplete="off"
                                         value="{{ old('painRecord[6]') }}">
                                 </div>
                                 <div>
-                                    <label>Initials</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Initials: </label>
+                                    <input type="text" maxlength="1"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="initials" name="initialsRecord[6]" autocomplete="off"
                                         value="{{ old('initialsRecord[6]') }}">
                                 </div>
@@ -493,57 +499,58 @@
                             </div>
                             <div class=" grid grid-cols-8 h-full w-full px-3 gap-4">
                                 <div>
-                                    <label>Date:</label>
+                                    <label>DATE:</label>
                                     <input type="date"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         name="dateRecord[7]" autocomplete="off" value="{{ old('dateRecord[7]') }}">
                                 </div>
                                 <div>
-                                    <label>Weight:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>WEIGHT (kgs):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="weight" name="weightRecord[7]" autocomplete="off"
                                         value="{{ old('weightRecord[7]') }}">
                                 </div>
                                 <div>
-                                    <label>Temperature:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>TEMP. (°C): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="temperature" name="tempRecord[7]" autocomplete="off"
                                         value="{{ old('tempRecord[7]') }}">
                                 </div>
                                 <div>
-                                    <label>Blood Pressure:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>BP (mm/Hg): </label>
+                                    <input type="text" maxlength="7"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="blood pressure" name="bpRecord[7]" autocomplete="off"
                                         value="{{ old('bpRecord[7]') }}">
                                 </div>
                                 <div>
-                                    <label>Pulse:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>PULSE (bpm):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pulse rate" name="pulseRecord[7]" autocomplete="off"
                                         value="{{ old('pulseRecord[7]') }}">
                                 </div>
                                 <div>
-                                    <label>Respiration</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>RP RATE (bpm): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="respiration" name="respirationRecord[7]" autocomplete="off"
                                         value="{{ old('respirationRecord[7]') }}">
                                 </div>
                                 <div>
-                                    <label>Pain</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Pain (Scale 1-10): </label>
+                                    <input type="number" maxlength="2"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pain" name="painRecord[7]" autocomplete="off"
                                         value="{{ old('painRecord[7]') }}">
                                 </div>
                                 <div>
-                                    <label>Initials</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Initials: </label>
+                                    <input type="text" maxlength="1"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="initials" name="initialsRecord[7]" autocomplete="off"
                                         value="{{ old('initialsRecord[7]') }}">
                                 </div>
@@ -555,57 +562,58 @@
                             </div>
                             <div class=" grid grid-cols-8 h-full w-full px-3 gap-4">
                                 <div>
-                                    <label>Date:</label>
+                                    <label>DATE:</label>
                                     <input type="date"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         name="dateRecord[8]" autocomplete="off" value="{{ old('dateRecord[8]') }}">
                                 </div>
                                 <div>
-                                    <label>Weight:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>WEIGHT (kgs):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="weight" name="weightRecord[8]" autocomplete="off"
                                         value="{{ old('weightRecord[8]') }}">
                                 </div>
                                 <div>
-                                    <label>Temperature:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>TEMP. (°C): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="temperature" name="tempRecord[8]" autocomplete="off"
                                         value="{{ old('tempRecord[8]') }}">
                                 </div>
                                 <div>
-                                    <label>Blood Pressure:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>BP (mm/Hg): </label>
+                                    <input type="text" maxlength="7"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="blood pressure" name="bpRecord[8]" autocomplete="off"
                                         value="{{ old('bpRecord[8]') }}">
                                 </div>
                                 <div>
-                                    <label>Pulse:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>PULSE (bpm):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pulse rate" name="pulseRecord[8]" autocomplete="off"
                                         value="{{ old('pulseRecord[8]') }}">
                                 </div>
                                 <div>
-                                    <label>Respiration</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>RP RATE (bpm): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="respiration" name="respirationRecord[8]" autocomplete="off"
                                         value="{{ old('respirationRecord[8]') }}">
                                 </div>
                                 <div>
-                                    <label>Pain</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Pain (Scale 1-10): </label>
+                                    <input type="number" maxlength="2"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pain" name="painRecord[8]" autocomplete="off"
                                         value="{{ old('painRecord[8]') }}">
                                 </div>
                                 <div>
-                                    <label>Initials</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Initials: </label>
+                                    <input type="text" maxlength="1"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="initials" name="initialsRecord[8]" autocomplete="off"
                                         value="{{ old('initialsRecord[8]') }}">
                                 </div>
@@ -621,57 +629,58 @@
                             </div>
                             <div class=" grid grid-cols-8 h-full w-full px-3 gap-4">
                                 <div>
-                                    <label>Date:</label>
+                                    <label>DATE:</label>
                                     <input type="date"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         name="dateRecord[9]" autocomplete="off" value="{{ old('dateRecord[9]') }}">
                                 </div>
                                 <div>
-                                    <label>Weight:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>WEIGHT (kgs):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="weight" name="weightRecord[9]" autocomplete="off"
                                         value="{{ old('weightRecord[9]') }}">
                                 </div>
                                 <div>
-                                    <label>Temperature:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>TEMP. (°C): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="temperature" name="tempRecord[9]" autocomplete="off"
                                         value="{{ old('tempRecord[9]') }}">
                                 </div>
                                 <div>
-                                    <label>Blood Pressure:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>BP (mm/Hg): </label>
+                                    <input type="text" maxlength="7"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="blood pressure" name="bpRecord[9]" autocomplete="off"
                                         value="{{ old('bpRecord[9]') }}">
                                 </div>
                                 <div>
-                                    <label>Pulse:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>PULSE (bpm):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pulse rate" name="pulseRecord[9]" autocomplete="off"
                                         value="{{ old('pulseRecord[9]') }}">
                                 </div>
                                 <div>
-                                    <label>Respiration</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>RP RATE (bpm): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="respiration" name="respirationRecord[9]" autocomplete="off"
                                         value="{{ old('respirationRecord[9]') }}">
                                 </div>
                                 <div>
-                                    <label>Pain</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Pain (Scale 1-10): </label>
+                                    <input type="number" maxlength="2"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pain" name="painRecord[9]" autocomplete="off"
                                         value="{{ old('painRecord[9]') }}">
                                 </div>
                                 <div>
-                                    <label>Initials</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Initials: </label>
+                                    <input type="text" maxlength="1"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="initials" name="initialsRecord[9]" autocomplete="off"
                                         value="{{ old('initialsRecord[9]') }}">
                                 </div>
@@ -683,57 +692,58 @@
                             </div>
                             <div class=" grid grid-cols-8 h-full w-full px-3 gap-4">
                                 <div>
-                                    <label>Date:</label>
+                                    <label>DATE:</label>
                                     <input type="date"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         name="dateRecord[10]" autocomplete="off" value="{{ old('dateRecord[10]') }}">
                                 </div>
                                 <div>
-                                    <label>Weight:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>WEIGHT (kgs):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="weight" name="weightRecord[10]" autocomplete="off"
                                         value="{{ old('weightRecord[10]') }}">
                                 </div>
                                 <div>
-                                    <label>Temperature:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>TEMP. (°C): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="temperature" name="tempRecord[10]" autocomplete="off"
                                         value="{{ old('tempRecord[10]') }}">
                                 </div>
                                 <div>
-                                    <label>Blood Pressure:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>BP (mm/Hg): </label>
+                                    <input type="text" maxlength="7"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="blood pressure" name="bpRecord[10]" autocomplete="off"
                                         value="{{ old('bpRecord[10]') }}">
                                 </div>
                                 <div>
-                                    <label>Pulse:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>PULSE (bpm):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pulse rate" name="pulseRecord[10]" autocomplete="off"
                                         value="{{ old('pulseRecord[10]') }}">
                                 </div>
                                 <div>
-                                    <label>Respiration</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>RP RATE (bpm): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="respiration" name="respirationRecord[10]" autocomplete="off"
                                         value="{{ old('respirationRecord[10]') }}">
                                 </div>
                                 <div>
-                                    <label>Pain</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Pain (Scale 1-10): </label>
+                                    <input type="number" maxlength="2"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pain" name="painRecord[10]" autocomplete="off"
                                         value="{{ old('painRecord[10]') }}">
                                 </div>
                                 <div>
-                                    <label>Initials</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Initials: </label>
+                                    <input type="text" maxlength="1"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="initials" name="initialsRecord[10]" autocomplete="off"
                                         value="{{ old('initialsRecord[10]') }}">
                                 </div>
@@ -745,58 +755,59 @@
                             </div>
                             <div class=" grid grid-cols-8 h-full w-full px-3 gap-4">
                                 <div>
-                                    <label>Date:</label>
+                                    <label>DATE:</label>
                                     <input type="date"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         name="dateRecord[11]" autocomplete="off"
                                         value="{{ old('initialsRecord[11]') }}">
                                 </div>
                                 <div>
-                                    <label>Weight:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>WEIGHT (kgs):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="weight" name="weightRecord[11]" autocomplete="off"
                                         value="{{ old('weightRecord[11]') }}">
                                 </div>
                                 <div>
-                                    <label>Temperature:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>TEMP. (°C): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="temperature" name="tempRecord[11]" autocomplete="off"
                                         value="{{ old('tempRecord[11]') }}">
                                 </div>
                                 <div>
-                                    <label>Blood Pressure:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>BP (mm/Hg): </label>
+                                    <input type="text" maxlength="7"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="blood pressure" name="bpRecord[11]" autocomplete="off"
                                         value="{{ old('bpRecord[11]') }}">
                                 </div>
                                 <div>
-                                    <label>Pulse:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>PULSE (bpm):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pulse rate" name="pulseRecord[11]" autocomplete="off"
                                         value="{{ old('pulseRecord[11]') }}">
                                 </div>
                                 <div>
-                                    <label>Respiration</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>RP RATE (bpm): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="respiration" name="respirationRecord[11]" autocomplete="off"
                                         value="{{ old('respirationRecord[11]') }}">
                                 </div>
                                 <div>
-                                    <label>Pain</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Pain (Scale 1-10): </label>
+                                    <input type="number" maxlength="2"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pain" name="painRecord[11]" autocomplete="off"
                                         value="{{ old('painRecord[11]') }}">
                                 </div>
                                 <div>
-                                    <label>Initials</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Initials: </label>
+                                    <input type="text" maxlength="1"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="initials" name="initialsRecord[11]" autocomplete="off"
                                         value="{{ old('initialsRecord[11]') }}">
                                 </div>
@@ -808,57 +819,58 @@
                             </div>
                             <div class=" grid grid-cols-8 h-full w-full px-3 gap-4">
                                 <div>
-                                    <label>Date:</label>
+                                    <label>DATE:</label>
                                     <input type="date"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         name="dateRecord[12]" autocomplete="off" value="{{ old('dateRecord[12]') }}">
                                 </div>
                                 <div>
-                                    <label>Weight:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>WEIGHT (kgs):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="weight" name="weightRecord[12]" autocomplete="off"
                                         value="{{ old('weightRecord[12]') }}">
                                 </div>
                                 <div>
-                                    <label>Temperature:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>TEMP. (°C): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="temperature" name="tempRecord[12]" autocomplete="off"
                                         value="{{ old('tempRecord[12]') }}">
                                 </div>
                                 <div>
-                                    <label>Blood Pressure:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>BP (mm/Hg): </label>
+                                    <input type="text" maxlength="7"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="blood pressure" name="bpRecord[12]" autocomplete="off"
                                         value="{{ old('bpRecord[12]') }}">
                                 </div>
                                 <div>
-                                    <label>Pulse:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>PULSE (bpm):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pulse rate" name="pulseRecord[12]" autocomplete="off"
                                         value="{{ old('pulseRecord[12]') }}">
                                 </div>
                                 <div>
-                                    <label>Respiration</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>RP RATE (bpm): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="respiration" name="respirationRecord[12]" autocomplete="off"
                                         value="{{ old('respirationRecord[12]') }}">
                                 </div>
                                 <div>
-                                    <label>Pain</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Pain (Scale 1-10): </label>
+                                    <input type="number" maxlength="2"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pain" name="painRecord[12]" autocomplete="off"
                                         value="{{ old('painRecord[12]') }}">
                                 </div>
                                 <div>
-                                    <label>Initials</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Initials: </label>
+                                    <input type="text" maxlength="1"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="initials" name="initialsRecord[12]" autocomplete="off"
                                         value="{{ old('initialsRecord[12]') }}">
                                 </div>
@@ -874,57 +886,58 @@
                             </div>
                             <div class=" grid grid-cols-8 h-full w-full px-3 gap-4">
                                 <div>
-                                    <label>Date:</label>
+                                    <label>DATE:</label>
                                     <input type="date"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         name="dateRecord[13]" autocomplete="off" value="{{ old('dateRecord[13]') }}">
                                 </div>
                                 <div>
-                                    <label>Weight:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>WEIGHT (kgs):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="weight" name="weightRecord[13]" autocomplete="off"
                                         value="{{ old('weightRecord[13]') }}">
                                 </div>
                                 <div>
-                                    <label>Temperature:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>TEMP. (°C): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="temperature" name="tempRecord[13]" autocomplete="off"
                                         value="{{ old('tempRecord[13]') }}">
                                 </div>
                                 <div>
-                                    <label>Blood Pressure:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>BP (mm/Hg): </label>
+                                    <input type="text" maxlength="7"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="blood pressure" name="bpRecord[13]" autocomplete="off"
                                         value="{{ old('bpRecord[13]') }}">
                                 </div>
                                 <div>
-                                    <label>Pulse:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>PULSE (bpm):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pulse rate" name="pulseRecord[13]" autocomplete="off"
                                         value="{{ old('pulseRecord[13]') }}">
                                 </div>
                                 <div>
-                                    <label>Respiration</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>RP RATE (bpm): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="respiration" name="respirationRecord[13]" autocomplete="off"
                                         value="{{ old('respirationRecord[13]') }}">
                                 </div>
                                 <div>
-                                    <label>Pain</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Pain (Scale 1-10): </label>
+                                    <input type="number" maxlength="2"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pain" name="painRecord[13]" autocomplete="off"
                                         value="{{ old('initialsRecord[13]') }}">
                                 </div>
                                 <div>
-                                    <label>Initials</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Initials: </label>
+                                    <input type="text" maxlength="1"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="initials" name="initialsRecord[13]" autocomplete="off"
                                         value="{{ old('initialsRecord[13]') }}">
                                 </div>
@@ -936,57 +949,58 @@
                             </div>
                             <div class=" grid grid-cols-8 h-full w-full px-3 gap-4">
                                 <div>
-                                    <label>Date:</label>
+                                    <label>DATE:</label>
                                     <input type="date"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         name="dateRecord[14]" autocomplete="off" value="{{ old('dateRecord[14]') }}">
                                 </div>
                                 <div>
-                                    <label>Weight:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>WEIGHT (kgs):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="weight" name="weightRecord[14]" autocomplete="off"
                                         value="{{ old('weightRecord[14]') }}">
                                 </div>
                                 <div>
-                                    <label>Temperature:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>TEMP. (°C): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="temperature" name="tempRecord[14]" autocomplete="off"
                                         value="{{ old('tempRecord[14]') }}">
                                 </div>
                                 <div>
-                                    <label>Blood Pressure:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>BP (mm/Hg): </label>
+                                    <input type="text" maxlength="7"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="blood pressure" name="bpRecord[14]" autocomplete="off"
                                         value="{{ old('bpRecord[14]') }}">
                                 </div>
                                 <div>
-                                    <label>Pulse:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>PULSE (bpm):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pulse rate" name="pulseRecord[14]" autocomplete="off"
                                         value="{{ old('pulseRecord[14]') }}">
                                 </div>
                                 <div>
-                                    <label>Respiration</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>RP RATE (bpm): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="respiration" name="respirationRecord[14]" autocomplete="off"
                                         value="{{ old('respirationRecord[14]') }}">
                                 </div>
                                 <div>
-                                    <label>Pain</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Pain (Scale 1-10): </label>
+                                    <input type="number" maxlength="2"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pain" name="painRecord[14]" autocomplete="off"
                                         value="{{ old('painRecord[14]') }}">
                                 </div>
                                 <div>
-                                    <label>Initials</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Initials: </label>
+                                    <input type="text" maxlength="1"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="initials" name="initialsRecord[14]" autocomplete="off"
                                         value="{{ old('initialsRecord[14]') }}">
                                 </div>
@@ -998,57 +1012,58 @@
                             </div>
                             <div class=" grid grid-cols-8 h-full w-full px-3 gap-4">
                                 <div>
-                                    <label>Date:</label>
+                                    <label>DATE:</label>
                                     <input type="date"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         name="dateRecord[15]" autocomplete="off" value="{{ old('dateRecord[15]') }}">
                                 </div>
                                 <div>
-                                    <label>Weight:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>WEIGHT (kgs):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="weight" name="weightRecord[15]" autocomplete="off"
                                         value="{{ old('weightRecord[15]') }}">
                                 </div>
                                 <div>
-                                    <label>Temperature:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>TEMP. (°C): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="temperature" name="tempRecord[15]" autocomplete="off"
                                         value="{{ old('tempRecord[15]') }}">
                                 </div>
                                 <div>
-                                    <label>Blood Pressure:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>BP (mm/Hg): </label>
+                                    <input type="text" maxlength="7"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="blood pressure" name="bpRecord[15]" autocomplete="off"
                                         value="{{ old('bpRecord[15]') }}">
                                 </div>
                                 <div>
-                                    <label>Pulse:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>PULSE (bpm):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pulse rate" name="pulseRecord[15]" autocomplete="off"
                                         value="{{ old('pulseRecord[15]') }}">
                                 </div>
                                 <div>
-                                    <label>Respiration</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>RP RATE (bpm): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="respiration" name="respirationRecord[15]" autocomplete="off"
                                         value="{{ old('respirationRecord[15]') }}">
                                 </div>
                                 <div>
-                                    <label>Pain</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Pain (Scale 1-10): </label>
+                                    <input type="number" maxlength="2"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pain" name="painRecord[15]" autocomplete="off"
                                         value="{{ old('painRecord[15]') }}">
                                 </div>
                                 <div>
-                                    <label>Initials</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Initials: </label>
+                                    <input type="text" maxlength="1"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="initials" name="initialsRecord[15]" autocomplete="off"
                                         value="{{ old('initialsRecord[15]') }}">
                                 </div>
@@ -1060,57 +1075,58 @@
                             </div>
                             <div class=" grid grid-cols-8 h-full w-full px-3 gap-4">
                                 <div>
-                                    <label>Date:</label>
+                                    <label>DATE:</label>
                                     <input type="date"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         name="dateRecord[16]" autocomplete="off" value="{{ old('dataRecord[16]') }}">
                                 </div>
                                 <div>
-                                    <label>Weight:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>WEIGHT (kgs):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="weight" name="weightRecord[16]" autocomplete="off"
                                         value="{{ old('weightRecord[16]') }}">
                                 </div>
                                 <div>
-                                    <label>Temperature:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>TEMP. (°C): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="temperature" name="tempRecord[16]" autocomplete="off"
                                         value="{{ old('tempRecord[16]') }}">
                                 </div>
                                 <div>
-                                    <label>Blood Pressure:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>BP (mm/Hg): </label>
+                                    <input type="text" maxlength="7"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="blood pressure" name="bpRecord[16]" autocomplete="off"
                                         value="{{ old('bpRecord[16]') }}">
                                 </div>
                                 <div>
-                                    <label>Pulse:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>PULSE (bpm):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pulse rate" name="pulseRecord[16]" autocomplete="off"
                                         value="{{ old('pulseRecord[16]') }}">
                                 </div>
                                 <div>
-                                    <label>Respiration</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>RP RATE (bpm): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="respiration" name="respirationRecord[16]" autocomplete="off"
                                         value="{{ old('respirationRecord[16]') }}">
                                 </div>
                                 <div>
-                                    <label>Pain</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Pain (Scale 1-10): </label>
+                                    <input type="number" maxlength="2"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pain" name="painRecord[16]" autocomplete="off"
                                         value="{{ old('painRecord[16]') }}">
                                 </div>
                                 <div>
-                                    <label>Initials</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Initials: </label>
+                                    <input type="text" maxlength="1"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="initials" name="initialsRecord[16]" autocomplete="off"
                                         value="{{ old('initialsRecord[16]') }}">
                                 </div>
@@ -1126,57 +1142,58 @@
                             </div>
                             <div class=" grid grid-cols-8 h-full w-full px-3 gap-4">
                                 <div>
-                                    <label>Date:</label>
+                                    <label>DATE:</label>
                                     <input type="date"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         name="dateRecord[17]" autocomplete="off" value="{{ old('dateRecord[17]') }}">
                                 </div>
                                 <div>
-                                    <label>Weight:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>WEIGHT (kgs):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="weight" name="weightRecord[17]" autocomplete="off"
                                         value="{{ old('weightRecord[17]') }}">
                                 </div>
                                 <div>
-                                    <label>Temperature:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>TEMP. (°C): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="temperature" name="tempRecord[17]" autocomplete="off"
                                         value="{{ old('tempRecord[17]') }}">
                                 </div>
                                 <div>
-                                    <label>Blood Pressure:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>BP (mm/Hg): </label>
+                                    <input type="text" maxlength="7"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="blood pressure" name="bpRecord[17]" autocomplete="off"
                                         value="{{ old('bpRecord[17]') }}">
                                 </div>
                                 <div>
-                                    <label>Pulse:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>PULSE (bpm):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pulse rate" name="pulseRecord[17]" autocomplete="off"
                                         value="{{ old('pulseRecord[17]') }}">
                                 </div>
                                 <div>
-                                    <label>Respiration</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>RP RATE (bpm): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="respiration" name="respirationRecord[17]" autocomplete="off"
                                         value="{{ old('respirationRecord[17]') }}">
                                 </div>
                                 <div>
-                                    <label>Pain</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Pain (Scale 1-10): </label>
+                                    <input type="number" maxlength="2"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pain" name="painRecord[17]" autocomplete="off"
                                         value="{{ old('painRecord[17]') }}">
                                 </div>
                                 <div>
-                                    <label>Initials</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Initials: </label>
+                                    <input type="text" maxlength="1"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="initials" name="initialsRecord[17]" autocomplete="off"
                                         value="{{ old('initialsRecord[17]') }}">
                                 </div>
@@ -1188,57 +1205,59 @@
                             </div>
                             <div class=" grid grid-cols-8 h-full w-full px-3 gap-4">
                                 <div>
-                                    <label>Date:</label>
+                                    <label>DATE:</label>
                                     <input type="date"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        name="dateRecord[18]" autocomplete="off" value="{{ old('dateRecord[18]') }}">
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                        name="dateRecord[18]" autocomplete="off"
+                                        value="{{ old('dateRecord[18]') }}">
                                 </div>
                                 <div>
-                                    <label>Weight:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>WEIGHT (kgs):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="weight" name="weightRecord[18]" autocomplete="off"
                                         value="{{ old('weightRecord[18]') }}">
                                 </div>
                                 <div>
-                                    <label>Temperature:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>TEMP. (°C): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="temperature" name="tempRecord[18]" autocomplete="off"
                                         value="{{ old('tempRecord[18]') }}">
                                 </div>
                                 <div>
-                                    <label>Blood Pressure:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>BP (mm/Hg): </label>
+                                    <input type="text" maxlength="7"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="blood pressure" name="bpRecord[18]" autocomplete="off"
                                         value="{{ old('initialsRecord[18]') }}">
                                 </div>
                                 <div>
-                                    <label>Pulse:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>PULSE (bpm):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pulse rate" name="pulseRecord[18]" autocomplete="off"
                                         value="{{ old('pulseRecord[18]') }}">
                                 </div>
                                 <div>
-                                    <label>Respiration</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>RP RATE (bpm): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="respiration" name="respirationRecord[18]" autocomplete="off"
                                         value="{{ old('respirationRecord[18]') }}">
                                 </div>
                                 <div>
-                                    <label>Pain</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Pain (Scale 1-10): </label>
+                                    <input type="number" maxlength="2"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pain" name="painRecord[18]" autocomplete="off"
                                         value="{{ old('painRecord[18]') }}">
                                 </div>
                                 <div>
-                                    <label>Initials</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Initials: </label>
+                                    <input type="text" maxlength="1"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="initials" name="initialsRecord[18]" autocomplete="off"
                                         value="{{ old('initialsRecord[18]') }}">
                                 </div>
@@ -1250,57 +1269,59 @@
                             </div>
                             <div class=" grid grid-cols-8 h-full w-full px-3 gap-4">
                                 <div>
-                                    <label>Date:</label>
+                                    <label>DATE:</label>
                                     <input type="date"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        name="dateRecord[19]" autocomplete="off" value="{{ old('dateRecord[19]') }}">
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                        name="dateRecord[19]" autocomplete="off"
+                                        value="{{ old('dateRecord[19]') }}">
                                 </div>
                                 <div>
-                                    <label>Weight:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>WEIGHT (kgs):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="weight" name="weightRecord[19]" autocomplete="off"
                                         value="{{ old('weightRecord[19]') }}">
                                 </div>
                                 <div>
-                                    <label>Temperature:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>TEMP. (°C): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="temperature" name="tempRecord[19]" autocomplete="off"
                                         value="{{ $vitals->temp['tempRecord'][19] ?? '' }}">
                                 </div>
                                 <div>
-                                    <label>Blood Pressure:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>BP (mm/Hg): </label>
+                                    <input type="text" maxlength="7"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="blood pressure" name="bpRecord[19]" autocomplete="off"
                                         value="{{ old('bpRecord[19]') }}">
                                 </div>
                                 <div>
-                                    <label>Pulse:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>PULSE (bpm):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pulse rate" name="pulseRecord[19]" autocomplete="off"
                                         value="{{ old('pulseRecord[19]') }}">
                                 </div>
                                 <div>
-                                    <label>Respiration</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>RP RATE (bpm): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="respiration" name="respirationRecord[19]" autocomplete="off"
                                         value="{{ old('respirationRecord[19]') }}">
                                 </div>
                                 <div>
-                                    <label>Pain</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Pain (Scale 1-10): </label>
+                                    <input type="number" maxlength="2"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pain" name="painRecord[19]" autocomplete="off"
                                         value="{{ old('painRecord[19]') }}">
                                 </div>
                                 <div>
-                                    <label>Initials</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Initials: </label>
+                                    <input type="text" maxlength="1"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="initials" name="initialsRecord[19]" autocomplete="off"
                                         value="{{ old('initialsRecord[19]') }}">
                                 </div>
@@ -1312,58 +1333,59 @@
                             </div>
                             <div class=" grid grid-cols-8 h-full w-full px-3 gap-4">
                                 <div>
-                                    <label>Date:</label>
+                                    <label>DATE:</label>
                                     <input type="date"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         name="dateRecord[20]" autocomplete="off"
                                         value="{{ old('dateRecord[20]') }}">
                                 </div>
                                 <div>
-                                    <label>Weight:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>WEIGHT (kgs):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="weight" name="weightRecord[20]" autocomplete="off"
                                         value="{{ old('painRecord[20]') }}">
                                 </div>
                                 <div>
-                                    <label>Temperature:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>TEMP. (°C): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="temperature" name="tempRecord[20]" autocomplete="off"
                                         value="{{ old('tempRecord[20]') }}">
                                 </div>
                                 <div>
-                                    <label>Blood Pressure:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>BP (mm/Hg): </label>
+                                    <input type="text" maxlength="7"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="blood pressure" name="bpRecord[20]" autocomplete="off"
                                         value="{{ old('bpRecord[20]') }}">
                                 </div>
                                 <div>
-                                    <label>Pulse:</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>PULSE (bpm):</label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pulse rate" name="pulseRecord[20]" autocomplete="off"
                                         value="{{ old('pulseRecord[20]') }}">
                                 </div>
                                 <div>
-                                    <label>Respiration</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>RP RATE (bpm): </label>
+                                    <input type="number" step="0.01"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="respiration" name="respirationRecord[20]" autocomplete="off"
                                         value="{{ old('respirationRecord[20]') }}">
                                 </div>
                                 <div>
-                                    <label>Pain</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Pain (Scale 1-10): </label>
+                                    <input type="number" maxlength="2"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="pain" name="painRecord[20]" autocomplete="off"
                                         value="{{ old('painRecord[20]') }}">
                                 </div>
                                 <div>
-                                    <label>Initials</label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                    <label>Initials: </label>
+                                    <input type="text" maxlength="1"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
                                         placeholder="initials" name="initialsRecord[20]" autocomplete="off"
                                         value="{{ old('initialsRecord[20]') }}">
                                 </div>

@@ -37,7 +37,7 @@
                         </div>
                         <div class="grid grid-cols-6 gap-2 pb-3">
                             <div class="col-span-2 px-3">
-                                <label>PATIENT'S IDENTITY :</label>
+                                <label>PATIENT'S IDENTITY: <span class="text-red-600 font-bold">*</span></label>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="patient identity" name="patients_identity" autocomplete="off" required
@@ -49,7 +49,7 @@
                                 </span>
                             </div>
                             <div class=" px-3">
-                                <label>DISCHARGE DATE* :</label>
+                                <label>DISCHARGE DATE: <span class="text-red-600 font-bold">*</span></label>
                                 <input type="date"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     name="discharge_date" autocomplete="off" required
@@ -61,7 +61,7 @@
                                 </span>
                             </div>
                             <div class="col-span-2 px-3">
-                                <label>DOCTOR'S NAME* :</label>
+                                <label>DOCTOR'S NAME: <span class="text-red-600 font-bold">*</span></label>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="doctor name" name="doctor_name" autocomplete="off" required
@@ -73,8 +73,8 @@
                                 </span>
                             </div>
                             <div class="px-3">
-                                <label>LICENSE NUMBER :</label>
-                                <input type="text"
+                                <label>LICENSE NUMBER: <span class="text-red-600 font-bold">*</span></label>
+                                <input type="number" maxlength="7" oninput="this.value=this.value.slice(0,this.maxLength)"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="license number" name="license_number" autocomplete="off" required
                                     value="{{ $dischargeSummary->license_number }}">
@@ -91,7 +91,7 @@
                         <div class="grid gap-2 pb-3">
                             <div class="grid grid-cols-3 gap-4 px-3">
                                 <div>
-                                    <label>FINDINGS :</label>
+                                    <label>FINDINGS: <span class="text-red-600 font-bold">*</span></label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="doctor findings" name="positive_finding" autocomplete="off" required>{{ $dischargeSummary->positive_finding }}</textarea>
@@ -102,7 +102,7 @@
                                     </span>
                                 </div>
                                 <div>
-                                    <label>TREATMENT :</label>
+                                    <label>TREATMENT: <span class="text-red-600 font-bold">*</span></label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="doctor treatment" name="treatment" autocomplete="off" required>{{ $dischargeSummary->treatment }}</textarea>
@@ -113,7 +113,7 @@
                                     </span>
                                 </div>
                                 <div>
-                                    <label>HOSPITAL STAY :</label>
+                                    <label>HOSPITAL STAY: <span class="text-red-600 font-bold">*</span></label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="hospital stay" name="course_in_hospital" autocomplete="off" required>{{ $dischargeSummary->course_in_hospital }}</textarea>
@@ -135,7 +135,7 @@
                         <div class="grid gap-2 pb-3">
                             <div class="grid grid-cols-2 gap-4 px-3">
                                 <div>
-                                    <label>FINAL DIAGNOSIS:</label>
+                                    <label>FINAL DIAGNOSIS: <span class="text-red-600 font-bold">*</span></label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="final diagnosis" name="final_diagnosis" autocomplete="off" required>{{ $dischargeSummary->final_diagnosis }}</textarea>
@@ -146,7 +146,7 @@
                                     </span>
                                 </div>
                                 <div>
-                                    <label>DOCTOR PLANS:</label>
+                                    <label>DOCTOR PLANS: <span class="text-red-600 font-bold">*</span></label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="plan" name="plan" autocomplete="off" required>{{ $dischargeSummary->plan }}</textarea>

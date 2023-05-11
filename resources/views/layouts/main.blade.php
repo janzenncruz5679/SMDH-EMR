@@ -9,7 +9,7 @@
 
     <title>San Miguel EMR</title>
 
-    @vite(['resources/css/app.css', 'resources/sass/app.scss', 'node_modules/@fortawesome/fontawesome-free/js/all.min.js'])
+    @vite(['resources/css/app.css', 'node_modules/@fortawesome/fontawesome-free/js/all.min.js'])
 
 </head>
 

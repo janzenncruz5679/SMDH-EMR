@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Actions\Records\DischargeSummary\StoreDischargeSummary;
 use App\Actions\Records\DischargeSummary\UpdateDischargeSummary;
 use App\Models\DischargeSummary;
+use App\Models\DischargeSummaryHistory;
 use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -20,7 +21,7 @@ class DischargeSummaryController extends Controller
 
     public function index()
     {
-        $dischargeSummary = DischargeSummary::all()->paginate(10);
+        $dischargeSummary = DischargeSummary::all()->paginate(18);
         return view('user.records.dischargeSummary.index', compact('dischargeSummary'));
     }
 
@@ -58,7 +59,16 @@ class DischargeSummaryController extends Controller
     }
 
 
-    public function show(DischargeSummary $dischargeSummary)
+    public function show(DischargeSummary $dischargeSummary, DischargeSummaryHistory $dischargeSummaryHistory)
+    {
+        $dischargeSummaryHistory = DischargeSummaryHistory::where('history_id', $dischargeSummary->id)
+            ->latest('id')
+            ->paginate(12);
+        // dd($dischargeSummaryHistory->toArray());
+        return view('user.recordsHistory.dischargeSummary.index', compact('dischargeSummaryHistory', 'dischargeSummary'));
+    }
+
+    public function show_all(DischargeSummary $dischargeSummary)
     {
         return view('user.records.dischargeSummary.show', compact('dischargeSummary'));
     }

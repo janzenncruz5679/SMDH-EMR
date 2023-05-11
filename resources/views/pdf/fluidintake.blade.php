@@ -1591,7 +1591,7 @@
         DATE:
     </div>
     <div class="date_intake_value_one">
-        {{ $fluidIntake_view->date_of_intake['intake_dateArray'][1] ?? '' }}
+        {{-- {{ $fluidIntake_view->date_of_intake['intake_dateArray'][1] ?? '' }} --}}
     </div>
     <div class="intake_label_one">
         INTAKE
@@ -1667,7 +1667,7 @@
         DATE:
     </div>
     <div class="date_intake_value_two">
-        {{ $fluidIntake_view->date_of_intake['intake_dateArray'][2] ?? '' }}
+        {{-- {{ $fluidIntake_view->date_of_intake['intake_dateArray'][2] ?? '' }} --}}
     </div>
     <div class="intake_label_two">
         INTAKE
@@ -1743,7 +1743,7 @@
         DATE
     </div>
     <div class="date_intake_value_three">
-        {{ $fluidIntake_view->date_of_intake['intake_dateArray'][3] ?? '' }}
+        {{-- {{ $fluidIntake_view->date_of_intake['intake_dateArray'][3] ?? '' }} --}}
     </div>
     <div class="intake_label_three">
         INTAKE
@@ -1818,7 +1818,7 @@
         DATE
     </div>
     <div class="date_intake_value_four">
-        {{ $fluidIntake_view->date_of_intake['intake_dateArray'][4] ?? '' }}
+        {{-- {{ $fluidIntake_view->date_of_intake['intake_dateArray'][4] ?? '' }} --}}
     </div>
     <div class="intake_label_four">
         INTAKE
@@ -1893,7 +1893,7 @@
         DATE
     </div>
     <div class="date_intake_value_five">
-        {{ $fluidIntake_view->date_of_intake['intake_dateArray'][5] ?? '' }}
+        {{-- {{ $fluidIntake_view->date_of_intake['intake_dateArray'][5] ?? '' }} --}}
     </div>
     <div class="intake_label_five">
         INTAKE

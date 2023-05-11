@@ -17,12 +17,10 @@
                 <x-sidebar-menu :url="route('stations')" :active-url="request()->routeIs('stations*') |
                     request()->routeIs('vitalSign*') |
                     request()->routeIs('nurseNote*') |
-                    request()->routeIs('discahrgeSummary*') |
+                    request()->routeIs('dischargeSummary*') |
                     request()->routeIs('fluidIntake*')" text="Records"
                     fontAwesomeIcon="fa-solid fa-notes-medical" />
-                <x-sidebar-menu :url="route('billingTable')" :active-url="request()->routeIs('billing*') |
-                    request()->routeIs('billingTable*') |
-                    request()->routeIs('updateBilling*')" text="Billing"
+                <x-sidebar-menu :url="route('billing.index')" :active-url="request()->routeIs('billing*') | request()->routeIs('billing*')" text="Billing"
                     fontAwesomeIcon="fa-solid fa-hand-holding-dollar" />
             </div>
 

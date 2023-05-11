@@ -27,6 +27,16 @@ class Admission extends Model
         'other_opt' => 'array',
     ];
 
+    public function admissionHistory()
+    {
+        return $this->hasMany(AdmissionHistory::class);
+    }
+
+    public function admissionBilling()
+    {
+        return $this->hasMany(Billing::class);
+    }
+
     public function setFirstNameAttribute($value)
     {
         $this->attributes['first_name'] = $value;

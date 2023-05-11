@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Actions\Records\FluidIntake\StoreFluidIntake;
 use App\Actions\Records\FluidIntake\UpdateFluidIntake;
 use App\Models\FluidIntake;
-use PDF;
+use App\Models\FluidIntakeHistory;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -19,7 +20,7 @@ class FluidIntakeController extends Controller
 
     public function index()
     {
-        $fluidIntake = FluidIntake::all()->paginate(10);
+        $fluidIntake = FluidIntake::all()->paginate(18);
         return view('user.records.fluidIntake.index', compact('fluidIntake'));
     }
 
@@ -57,7 +58,15 @@ class FluidIntakeController extends Controller
     }
 
 
-    public function show(FluidIntake $fluidIntake)
+    public function show(FluidIntake $fluidIntake, FluidIntakeHistory $fluidIntakeHistory)
+    {
+        $fluidIntakeHistory = FluidIntakeHistory::where('history_id', $fluidIntake->id)
+            ->latest('id')
+            ->paginate(12);
+        return view('user.recordsHistory.fluidIntake.index', compact('fluidIntakeHistory', 'fluidIntake'));
+    }
+
+    public function show_all(FluidIntake $fluidIntake)
     {
         return view('user.records.fluidIntake.show', compact('fluidIntake'));
     }
@@ -91,10 +100,14 @@ class FluidIntakeController extends Controller
 
     public function pdf(FluidIntake $fluidIntake)
     {
-        $fluidIntake_view = FluidIntake::findorfail($fluidIntake->id);
-        $fluidIntake_pdf = PDF::loadView('pdf.fluidIntake', compact('fluidIntake_view'))
-            ->setPaper('a4', 'portrait');
+        try {
+            $fluidIntake_view = FluidIntake::findorfail($fluidIntake->id);
+            $fluidIntake_pdf = Pdf::loadView('pdf.fluidintake', compact('fluidIntake_view'))
+                ->setPaper('a4', 'portrait');
 
-        return $fluidIntake_pdf->stream("Fluid Intake " . $fluidIntake_view->id . ".pdf");
+            return $fluidIntake_pdf->stream("Fluid Intake " . $fluidIntake_view->id . ".pdf");
+        } catch (\Exception $err) {
+            dd($err);
+        }
     }
 }

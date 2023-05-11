@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Actions\Records\VitalSign\StoreVital;
 use App\Actions\Records\VitalSign\UpdateVital;
 use App\Models\VitalSign;
-use PDF;
+use App\Models\VitalSignHistory;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -20,7 +21,7 @@ class VitalSignController extends Controller
 
     public function index()
     {
-        $vitalSign = VitalSign::all()->paginate(10);
+        $vitalSign = VitalSign::all()->paginate(18);
         return view('user.records.vitalSign.index', compact('vitalSign'));
     }
 
@@ -57,7 +58,16 @@ class VitalSignController extends Controller
     }
 
 
-    public function show(VitalSign $vitalSign)
+    public function show(VitalSign $vitalSign, VitalSignHistory $vitalSignHistory)
+    {
+        $vitalSignHistory = VitalSignHistory::where('history_id', $vitalSign->id)
+            ->latest('id')
+            ->paginate(12);
+        // dd($dischargeSummaryHistory->toArray());
+        return view('user.recordsHistory.vitalSign.index', compact('vitalSignHistory', 'vitalSign'));
+    }
+
+    public function show_all(VitalSign $vitalSign)
     {
         return view('user.records.vitalSign.show', compact('vitalSign'));
     }
@@ -91,7 +101,7 @@ class VitalSignController extends Controller
     public function pdf(VitalSign $vitalSign)
     {
         $vitalSign_view = VitalSign::findorfail($vitalSign->id);
-        $vitalSign_pdf = PDF::loadView('pdf.vitalSign', compact('vitalSign_view'))
+        $vitalSign_pdf = Pdf::loadView('pdf.vitalSign', compact('vitalSign_view'))
             ->setPaper('a4', 'portrait');
 
         return $vitalSign_pdf->stream("Vital Signs  " . $vitalSign_view->id . ".pdf");

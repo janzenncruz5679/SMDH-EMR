@@ -81,7 +81,7 @@
                                     <label>DATE* :</label>
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        name="obsDate[1]" autocomplete="off" value="{{ old('record_date') }}" required>
+                                        name="obsDate[1]" autocomplete="off" value="{{ old('record_date') }}">
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsDate[1]')
                                             {{ $message }}
@@ -92,7 +92,7 @@
                                     <label>TIME* :</label>
                                     <input type="time"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        name="obsTime[1]" autocomplete="off" value="{{ old('record_time') }}" required>
+                                        name="obsTime[1]" autocomplete="off" value="{{ old('record_time') }}">
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsTime[1]')
                                             {{ $message }}
@@ -105,7 +105,7 @@
                                     <label>FOCUS* :</label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="focus" name="obsFocus[1]" autocomplete="off" required>{{ old('focus') }}</textarea>
+                                        placeholder="focus" name="obsFocus[1]" autocomplete="off">{{ old('focus') }}</textarea>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsFocus[1]')
                                             {{ $message }}
@@ -116,7 +116,7 @@
                                     <label>DATA ACTION AND RESPONSE* :</label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="action response" name="obsDar[1]" autocomplete="off" required>{{ old('data_action_response') }}</textarea>
+                                        placeholder="action response" name="obsDar[1]" autocomplete="off">{{ old('data_action_response') }}</textarea>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsDar[1]')
                                             {{ $message }}
@@ -139,7 +139,7 @@
                                     <label>DATE* :</label>
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        name="obsDate[2]" autocomplete="off" value="{{ old('record_date') }}" required>
+                                        name="obsDate[2]" autocomplete="off" value="{{ old('record_date') }}">
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsDate[2]')
                                             {{ $message }}
@@ -150,7 +150,7 @@
                                     <label>TIME* :</label>
                                     <input type="time"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        name="obsTime[2]" autocomplete="off" value="{{ old('record_time') }}" required>
+                                        name="obsTime[2]" autocomplete="off" value="{{ old('record_time') }}">
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsTime[2]')
                                             {{ $message }}
@@ -163,7 +163,7 @@
                                     <label>FOCUS* :</label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="focus" name="obsFocus[2]" autocomplete="off" required>{{ old('focus') }}</textarea>
+                                        placeholder="focus" name="obsFocus[2]" autocomplete="off">{{ old('focus') }}</textarea>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsFocus[2]')
                                             {{ $message }}
@@ -174,7 +174,7 @@
                                     <label>DATA ACTION AND RESPONSE* :</label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="action response" name="obsDar[2]" autocomplete="off" required>{{ old('data_action_response') }}</textarea>
+                                        placeholder="action response" name="obsDar[2]" autocomplete="off">{{ old('data_action_response') }}</textarea>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsDar[2]')
                                             {{ $message }}
@@ -197,7 +197,7 @@
                                     <label>DATE* :</label>
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        name="obsDate[3]" autocomplete="off" value="{{ old('record_date') }}" required>
+                                        name="obsDate[3]" autocomplete="off" value="{{ old('record_date') }}">
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsDate[3]')
                                             {{ $message }}
@@ -208,7 +208,7 @@
                                     <label>TIME* :</label>
                                     <input type="time"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        name="obsTime[3]" autocomplete="off" value="{{ old('record_time') }}" required>
+                                        name="obsTime[3]" autocomplete="off" value="{{ old('record_time') }}">
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsTime[3]')
                                             {{ $message }}
@@ -221,7 +221,7 @@
                                     <label>FOCUS* :</label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="focus" name="obsFocus[3]" autocomplete="off" required>{{ old('focus') }}</textarea>
+                                        placeholder="focus" name="obsFocus[3]" autocomplete="off">{{ old('focus') }}</textarea>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsFocus[3]')
                                             {{ $message }}
@@ -232,7 +232,7 @@
                                     <label>DATA ACTION AND RESPONSE* :</label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="action response" name="obsDar[3]" autocomplete="off" required>{{ old('data_action_response') }}</textarea>
+                                        placeholder="action response" name="obsDar[3]" autocomplete="off">{{ old('data_action_response') }}</textarea>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsDar[3]')
                                             {{ $message }}
@@ -255,7 +255,7 @@
                                     <label>DATE* :</label>
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        name="obsDate[4]" autocomplete="off" value="{{ old('record_date') }}" required>
+                                        name="obsDate[4]" autocomplete="off" value="{{ old('record_date') }}">
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsDate[4]')
                                             {{ $message }}
@@ -266,7 +266,7 @@
                                     <label>TIME* :</label>
                                     <input type="time"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        name="obsTime[4]" autocomplete="off" value="{{ old('record_time') }}" required>
+                                        name="obsTime[4]" autocomplete="off" value="{{ old('record_time') }}">
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsTime[4]')
                                             {{ $message }}
@@ -279,7 +279,7 @@
                                     <label>FOCUS* :</label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="focus" name="obsFocus[4]" autocomplete="off" required>{{ old('focus') }}</textarea>
+                                        placeholder="focus" name="obsFocus[4]" autocomplete="off">{{ old('focus') }}</textarea>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsFocus[4]')
                                             {{ $message }}
@@ -290,7 +290,7 @@
                                     <label>DATA ACTION AND RESPONSE* :</label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="action response" name="obsDar[4]" autocomplete="off" required>{{ old('data_action_response') }}</textarea>
+                                        placeholder="action response" name="obsDar[4]" autocomplete="off">{{ old('data_action_response') }}</textarea>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsDar[4]')
                                             {{ $message }}
@@ -313,7 +313,7 @@
                                     <label>DATE* :</label>
                                     <input type="date"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        name="obsDate[5]" autocomplete="off" value="{{ old('record_date') }}" required>
+                                        name="obsDate[5]" autocomplete="off" value="{{ old('record_date') }}">
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsDate[5]')
                                             {{ $message }}
@@ -324,7 +324,7 @@
                                     <label>TIME* :</label>
                                     <input type="time"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        name="obsTime[5]" autocomplete="off" value="{{ old('record_time') }}" required>
+                                        name="obsTime[5]" autocomplete="off" value="{{ old('record_time') }}">
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsTime[5]')
                                             {{ $message }}
@@ -337,7 +337,7 @@
                                     <label>FOCUS* :</label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="focus" name="obsFocus[5]" autocomplete="off" required>{{ old('focus') }}</textarea>
+                                        placeholder="focus" name="obsFocus[5]" autocomplete="off">{{ old('focus') }}</textarea>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsFocus[5]')
                                             {{ $message }}
@@ -348,7 +348,7 @@
                                     <label>DATA ACTION AND RESPONSE* :</label>
                                     <textarea type="text"
                                         class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="action response" name="obsDar[5]" autocomplete="off" required>{{ old('data_action_response') }}</textarea>
+                                        placeholder="action response" name="obsDar[5]" autocomplete="off">{{ old('data_action_response') }}</textarea>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('obsDar[5]')
                                             {{ $message }}

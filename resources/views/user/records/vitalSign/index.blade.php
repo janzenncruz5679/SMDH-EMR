@@ -130,7 +130,7 @@
                         <td class="flex justify-center">` + res.vitalSign[i].id + `</td>
                         <td class="col-span-5 flex justify-center">` + res.vitalSign[i].patient_fullname + `</td>
                         <td class=flex justify-center">` + res.vitalSign[i].gender + `</td>
-                        <td class="col-span-3 flex justify-center">` + res.vitalSign[i].age + `</td>
+                        <td class="col-span-3 flex justify-center">` + res.vitalSign[i].physician + `</td>
                         <td class="col-span-2 flex justify-center">
                         <div class="grid grid-cols-3 justify-center gap-4">
                             <a href="/vitalSign/` + res.vitalSign[i].id + `" class="editIcon hover:text-blue-300">
@@ -154,5 +154,4 @@
 @endsection
 
 @push('custom_scripts')
-    @vite('resources/js/patientPage/liveSearch.js')
 @endpush

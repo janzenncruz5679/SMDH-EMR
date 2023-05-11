@@ -2,81 +2,71 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\Billing\UpdateBilling;
+use App\Models\Admission;
 use App\Models\Billing;
-use App\Models\First_admission;
-use Illuminate\Support\Facades\DB;
+use App\Models\Medicine;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BillingController extends Controller
 {
-    public function billingTable()
+    public function __construct(
+        private UpdateBilling $updateBilling,
+    ) {
+    }
+
+    public function index()
     {
-        $data_billings = Billing::select('or_no', 'full_name', 'total', 'medicine', 'lab', 'xray', 'ecg', 'oxygen', 'nbs', 'income')
-            ->orderBy('or_no', 'asc')
-            ->paginate(18);
+        $billings = Billing::all()->paginate(18);
+        // dd($billings);
+        $records = Billing::whereDate('created_at', Carbon::now())->count();
+        $records_month = Billing::whereMonth('created_at', Carbon::now()->month)->count();
+        $records_year = Billing::whereYear('created_at', Carbon::now()->year)->count();
+        // $records = Billing::whereMonth('created_at', Carbon::now()->month)->count();
+        $total_records = Billing::count();
+        return view('user.billing.index', compact('billings', 'records', 'total_records', 'records_month', 'records_year'));
+    }
 
-        $data_admissions = DB::table('first_admissions')->select('id', 'full_name', 'patient_id', 'created_at')->get();
+    public function create(Billing $billing)
+    {
+        //
+    }
 
-        foreach ($data_admissions as $data_admission) {
-            $admission = DB::table('first_admissions')
-                ->where('patient_id', $data_admission->patient_id)
-                ->first();
 
-            if ($admission) {
-                $new_full_name = $admission->full_name; // Replace with your new full name value
+    public function store(Request $request)
+    {
+        //
+    }
 
-                // Update full_name field in first_admissions table
-                DB::table('first_admissions')
-                    ->where('patient_id', $data_admission->patient_id)
-                    ->update(['full_name' => $new_full_name]);
+    public function show(Billing $billing)
+    {
+        return view('user.billing.show', compact('billing'));
+    }
 
-                // Check if full_name exists in billings table
-                $billing = Billing::where('or_no', $data_admission->patient_id)->first();
+    public function edit(Billing $billing)
+    {
+        return view('user.billing.edit', compact('billing'));
+    }
 
-                if ($billing) {
-                    // If full_name exists in billings table, update it
-                    $billing->full_name = $new_full_name;
-                    $billing->save();
-                } else {
-                    // If full_name does not exist in billings table, create a new record
-                    $new_billing = new Billing;
-                    $new_billing->or_no = $data_admission->patient_id;
-                    $new_billing->full_name = $new_full_name;
-                    $new_billing->save();
-                }
-            }
+    public function update(Request $request, Billing $billing)
+    {
+        try {
+            DB::beginTransaction();
+            $update = $this->updateBilling->handle($request, $billing);
+            // dd($update);
+            DB::commit();
+            return redirect()->route('billing.index');
+        } catch (\Exception $err) {
+            DB::rollBack();
+            dd($err);
+            return redirect()->back()->withErrors($err->getMessage());
         }
-
-        // dd($data_admissions->toArray());
-
-        return view('user.billing', [
-            'data_admissions' => $data_admissions,
-            'data_billings' => $data_billings,
-        ]);
     }
 
-    public function updateBilling($or_no)
+    public function destroy(Billing $billing)
     {
-        $view_bill = Billing::where('or_no', $or_no)->firstorFail();
-        return view('user.billingSection.billingUpdate', [
-            'view_bill' => $view_bill,
-        ]);
-    }
-
-    public function editBilling(Request $request, $or_no)
-    {
-        $edit_bill = Billing::where('or_no', $or_no)->firstOrFail();
-
-        $edit_bill->total = $request->total;
-        $edit_bill->medicine = $request->medicine;
-        $edit_bill->lab = $request->lab;
-        $edit_bill->xray = $request->xray;
-        $edit_bill->ecg = $request->ecg;
-        $edit_bill->oxygen = $request->oxygen;
-        $edit_bill->nbs = $request->nbs;
-        $edit_bill->income = $request->income;
-        $edit_bill->save();
-
-        return redirect()->route('billingTable');
+        //
     }
 }

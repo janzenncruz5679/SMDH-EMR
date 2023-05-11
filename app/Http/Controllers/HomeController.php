@@ -7,7 +7,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Actions\Dashboard\PatientChart;
+use App\Actions\Dashboard\PatientChartMonthly;
+use App\Actions\Dashboard\PatientChartYearly;
 use App\Actions\Dashboard\PatientNotes;
+use App\Models\Admission;
+use App\Models\Billing;
+use App\Models\Emergency;
+use App\Models\Outpatient;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -29,23 +36,40 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $total_admission = Admission::whereDate('created_at', Carbon::now())->count();
+        $total_emergency = Emergency::whereDate('created_at', Carbon::now())->count();
+        $total_outpatient = Outpatient::whereDate('created_at', Carbon::now())->count();
+        $billings = Billing::whereDate('created_at', Carbon::now())->count();
         [$labels, $data] = PatientChart::getDataForCharts();
-        [$labels_donut, $data_donut] = PatientNotes::getDataForNotes();
+        [$labels_monthly, $data_monthly] = PatientChartMonthly::getDataForChartsMonthly();
+        [$labels_yearly, $data_yearly] = PatientChartYearly::getDataForChartsYearly();
 
         if (Auth::id()) {
             if (Auth::user()->usertype == '0') {
                 return view('user.home', [
                     'labels' => $labels,
                     'data' => $data,
-                    'labels_donut' => $labels_donut,
-                    'data_donut' => $data_donut,
+                    'labels_monthly' => $labels_monthly,
+                    'data_monthly' => $data_monthly,
+                    'labels_yearly' => $labels_yearly,
+                    'data_yearly' => $data_yearly,
+                    'total_admission' => $total_admission,
+                    'total_emergency' => $total_emergency,
+                    'total_outpatient' => $total_outpatient,
+                    'billings' => $billings,
                 ]);
             } else if (Auth::user()->usertype == '1') {
                 return view('admin.home', [
                     'labels' => $labels,
                     'data' => $data,
-                    'labels_donut' => $labels_donut,
-                    'data_donut' => $data_donut,
+                    'labels_monthly' => $labels_monthly,
+                    'data_monthly' => $data_monthly,
+                    'labels_yearly' => $labels_yearly,
+                    'data_yearly' => $data_yearly,
+                    'total_admission' => $total_admission,
+                    'total_emergency' => $total_emergency,
+                    'total_outpatient' => $total_outpatient,
+                    'billings' => $billings,
                 ]);
             }
         } else {

@@ -84,7 +84,7 @@
                             </div>
                             <div class="px-3">
                                 <label>AGE :</label>
-                                <input type="text"
+                                <input type="number" maxlength="3" oninput="this.value=this.value.slice(0,this.maxLength)"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="age" name="age" autocomplete="off" value="{{ old('age') }}"
                                     required>
@@ -199,45 +199,46 @@
                                             7 AM to 3 PM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralArray[1][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralArray[1][1]" id="oral_1" autocomplete="off"
                                                 value="{{ old('oralArray[1][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="parentalArray[1][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="parentalArray[1][1]" id="parental_1" autocomplete="off"
                                                 value="{{ old('parentalArray[1][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralparentaltotalArray[1][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralparentaltotalArray[1][1]" id="opTotal_1" autocomplete="off"
                                                 value="{{ old('oralparentaltotalArray[1][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urineArray[1][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urineArray[1][1]" id="urine_1" autocomplete="off"
                                                 value="{{ old('urineArray[1][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="drainageArray[1][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="drainageArray[1][1]" id="drainage_1" autocomplete="off"
                                                 value="{{ old('drainageArray[1][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="othersArray[1][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="othersArray[1][1]" id="others_1" autocomplete="off"
                                                 value="{{ old('othersArray[1][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urinedrainageotherstotalArray[1][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urinedrainageotherstotalArray[1][1]" id="udoTotal_1"
+                                                autocomplete="off"
                                                 value="{{ old('urinedrainageotherstotalArray[1][1]') }}">
                                         </td>
                                     </tr>
@@ -246,45 +247,46 @@
                                             3 PM to 11 PM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralArray[1][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralArray[1][2]" id="oral_1_1" autocomplete="off"
                                                 value="{{ old('oralArray[1][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="parentalArray[1][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="parentalArray[1][2]" id="parental_1_1" autocomplete="off"
                                                 value="{{ old('parentalArray[1][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralparentaltotalArray[1][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralparentaltotalArray[1][2]" id="opTotal_1_1" autocomplete="off"
                                                 value="{{ old('oralparentaltotalArray[1][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urineArray[1][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urineArray[1][2]" id="urine_1_1" autocomplete="off"
                                                 value="{{ old('urineArray[1][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="drainageArray[1][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="drainageArray[1][2]" id="drainage_1_1" autocomplete="off"
                                                 value="{{ old('drainageArray[1][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="othersArray[1][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="othersArray[1][2]" id="others_1_1" autocomplete="off"
                                                 value="{{ old('othersArray[1][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urinedrainageotherstotalArray[1][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urinedrainageotherstotalArray[1][2]" id="udoTotal_1_1"
+                                                autocomplete="off"
                                                 value="{{ old('urinedrainageotherstotalArray[1][2]') }}">
                                         </td>
                                     </tr>
@@ -293,45 +295,46 @@
                                             11 PM to 7 AM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralArray[1][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralArray[1][3]" id="oral_1_2" autocomplete="off"
                                                 value="{{ old('oralArray[1][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="parentalArray[1][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="parentalArray[1][3]" id="parental_1_2" autocomplete="off"
                                                 value="{{ old('parentalArray[1][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralparentaltotalArray[1][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralparentaltotalArray[1][3]" id="opTotal_1_2" autocomplete="off"
                                                 value="{{ old('oralparentaltotalArray[1][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urineArray[1][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urineArray[1][3]" id="urine_1_2" autocomplete="off"
                                                 value="{{ old('urineArray[1][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="drainageArray[1][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="drainageArray[1][3]" id="drainage_1_2" autocomplete="off"
                                                 value="{{ old('drainageArray[1][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="othersArray[1][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="othersArray[1][3]" id="others_1_2" autocomplete="off"
                                                 value="{{ old('othersArray[1][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urinedrainageotherstotalArray[1][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urinedrainageotherstotalArray[1][3]" id="udoTotal_1_2"
+                                                autocomplete="off"
                                                 value="{{ old('urinedrainageotherstotalArray[1][3]') }}">
                                         </td>
                                     </tr>
@@ -340,45 +343,46 @@
                                             Total
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralArray[1][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralArray[1][4]" id="oral_overall_1" autocomplete="off"
                                                 value="{{ old('oralArray[1][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="parentalArray[1][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="parentalArray[1][4]" id="parental_overall_1" autocomplete="off"
                                                 value="{{ old('parentalArray[1][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralparentaltotalArray[1][4]" autocomplete="off"
-                                                value="{{ old('oralparentaltotalArray[1][4]') }}">
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralparentaltotalArray[1][4]" id="opGrandTotal_1"
+                                                autocomplete="off" value="{{ old('oralparentaltotalArray[1][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urineArray[1][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urineArray[1][4]" id="urine_overall_1" autocomplete="off"
                                                 value="{{ old('urineArray[1][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="drainageArray[1][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="drainageArray[1][4]" id="drainage_overall_1" autocomplete="off"
                                                 value="{{ old('drainageArray[1][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="othersArray[1][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="othersArray[1][4]" id="others_overall_1" autocomplete="off"
                                                 value="{{ old('othersArray[1][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urinedrainageotherstotalArray[1][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urinedrainageotherstotalArray[1][4]" id="udoGrandTotal_1"
+                                                autocomplete="off"
                                                 value="{{ old('urinedrainageotherstotalArray[1][4]') }}">
                                         </td>
                                     </tr>
@@ -428,45 +432,46 @@
                                             7 AM to 3 PM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralArray[2][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralArray[2][1]" id="oral_2" autocomplete="off"
                                                 value="{{ old('oralArray[2][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="parentalArray[2][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="parentalArray[2][1]" id="parental_2" autocomplete="off"
                                                 value="{{ old('parentalArray[2][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralparentaltotalArray[2][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralparentaltotalArray[2][1]" id="opTotal_2" autocomplete="off"
                                                 value="{{ old('oralparentaltotalArray[2][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urineArray[2][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urineArray[2][1]" id="urine_2" autocomplete="off"
                                                 value="{{ old('urineArray[2][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="drainageArray[2][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="drainageArray[2][1]" id="drainage_2" autocomplete="off"
                                                 value="{{ old('drainageArray[2][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="othersArray[2][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="othersArray[2][1]" id="others_2" autocomplete="off"
                                                 value="{{ old('othersArray[2][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urinedrainageotherstotalArray[2][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urinedrainageotherstotalArray[2][1]" id="udoTotal_2"
+                                                autocomplete="off"
                                                 value="{{ old('urinedrainageotherstotalArray[2][1]') }}">
                                         </td>
                                     </tr>
@@ -475,45 +480,46 @@
                                             3 PM to 11 PM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralArray[2][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralArray[2][2]" id="oral_2_1" autocomplete="off"
                                                 value="{{ old('oralArray[2][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="parentalArray[2][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="parentalArray[2][2]" id="parental_2_1" autocomplete="off"
                                                 value="{{ old('parentalArray[2][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralparentaltotalArray[2][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralparentaltotalArray[2][2]" id="opTotal_2_1" autocomplete="off"
                                                 value="{{ old('oralparentaltotalArray[2][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urineArray[2][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urineArray[2][2]" id="urine_2_1" autocomplete="off"
                                                 value="{{ old('urineArray[2][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="drainageArray[2][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="drainageArray[2][2]" id="drainage_2_1" autocomplete="off"
                                                 value="{{ old('drainageArray[2][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="othersArray[2][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="othersArray[2][2]" id="others_2_1" autocomplete="off"
                                                 value="{{ old('othersArray[2][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urinedrainageotherstotalArray[2][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urinedrainageotherstotalArray[2][2]" id="udoTotal_2_1"
+                                                autocomplete="off"
                                                 value="{{ old('urinedrainageotherstotalArray[2][2]') }}">
                                         </td>
                                     </tr>
@@ -522,45 +528,46 @@
                                             11 PM to 7 AM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralArray[2][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralArray[2][3]" id="oral_2_2" autocomplete="off"
                                                 value="{{ old('oralArray[2][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="parentalArray[2][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="parentalArray[2][3]" id="parental_2_2" autocomplete="off"
                                                 value="{{ old('parentalArray[1][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralparentaltotalArray[2][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralparentaltotalArray[2][3]" id="opTotal_2_2" autocomplete="off"
                                                 value="{{ old('oralparentaltotalArray[2][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urineArray[2][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urineArray[2][3]" id="urine_2_2" autocomplete="off"
                                                 value="{{ old('urineArray[2][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="drainageArray[2][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="drainageArray[2][3]" id="drainage_2_2" autocomplete="off"
                                                 value="{{ old('drainageArray[2][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="othersArray[2][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="othersArray[2][3]" id="others_2_2" autocomplete="off"
                                                 value="{{ old('othersArray[2][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urinedrainageotherstotalArray[2][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urinedrainageotherstotalArray[2][3]" id="udoTotal_2_2"
+                                                autocomplete="off"
                                                 value="{{ old('urinedrainageotherstotalArray[2][3]') }}">
                                         </td>
                                     </tr>
@@ -569,45 +576,46 @@
                                             Total
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralArray[2][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralArray[2][4]" id="oral_overall_2" autocomplete="off"
                                                 value="{{ old('oralArray[2][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="parentalArray[2][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="parentalArray[2][4]" id="parental_overall_2" autocomplete="off"
                                                 value="{{ old('parentalArray[2][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralparentaltotalArray[2][4]" autocomplete="off"
-                                                value="{{ old('oralparentaltotalArray[2][4]') }}">
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralparentaltotalArray[2][4]" id="opGrandTotal_2"
+                                                autocomplete="off" value="{{ old('oralparentaltotalArray[2][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urineArray[2][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urineArray[2][4]" id="urine_overall_2" autocomplete="off"
                                                 value="{{ old('urineArray[2][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="drainageArray[2][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="drainageArray[2][4]" id="drainage_overall_2" autocomplete="off"
                                                 value="{{ old('drainageArray[2][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="othersArray[2][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="othersArray[2][4]" id="others_overall_2" autocomplete="off"
                                                 value="{{ old('othersArray[2][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urinedrainageotherstotalArray[2][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urinedrainageotherstotalArray[2][4]" id="udoGrandTotal_2"
+                                                autocomplete="off"
                                                 value="{{ old('urinedrainageotherstotalArray[2][4]') }}">
                                         </td>
                                     </tr>
@@ -657,45 +665,46 @@
                                             7 AM to 3 PM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralArray[3][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralArray[3][1]" id="oral_3" autocomplete="off"
                                                 value="{{ old('oralArray[3][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="parentalArray[3][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="parentalArray[3][1]" id="parental_3" autocomplete="off"
                                                 value="{{ old('parentalArray[3][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralparentaltotalArray[3][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralparentaltotalArray[3][1]" id="opTotal_3" autocomplete="off"
                                                 value="{{ old('oralparentaltotalArray[3][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urineArray[3][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urineArray[3][1]" id="urine_3" autocomplete="off"
                                                 value="{{ old('urineArray[3][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="drainageArray[3][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="drainageArray[3][1]" id="drainage_3" autocomplete="off"
                                                 value="{{ old('drainageArray[3][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="othersArray[3][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="othersArray[3][1]" id="others_3" autocomplete="off"
                                                 value="{{ old('othersArray[3][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urinedrainageotherstotalArray[3][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urinedrainageotherstotalArray[3][1]" id="udoTotal_3"
+                                                autocomplete="off"
                                                 value="{{ old('urinedrainageotherstotalArray[3][1]') }}">
                                         </td>
                                     </tr>
@@ -704,45 +713,46 @@
                                             3 PM to 11 PM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralArray[3][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralArray[3][2]" id="oral_3_1" autocomplete="off"
                                                 value="{{ old('oralArray[3][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="parentalArray[3][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="parentalArray[3][2]" id="parental_3_1" autocomplete="off"
                                                 value="{{ old('parentalArray[3][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralparentaltotalArray[3][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralparentaltotalArray[3][2]" id="opTotal_3_1" autocomplete="off"
                                                 value="{{ old('oralparentaltotalArray[3][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urineArray[3][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urineArray[3][2]" id="urine_3_1" autocomplete="off"
                                                 value="{{ old('urineArray[3][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="drainageArray[3][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="drainageArray[3][2]" id="drainage_3_1" autocomplete="off"
                                                 value="{{ old('drainageArray[3][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="othersArray[3][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="othersArray[3][2]" id="others_3_1" autocomplete="off"
                                                 value="{{ old('othersArray[3][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urinedrainageotherstotalArray[3][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urinedrainageotherstotalArray[3][2]" id="udoTotal_3_1"
+                                                autocomplete="off"
                                                 value="{{ old('urinedrainageotherstotalArray[3][2]') }}">
                                         </td>
                                     </tr>
@@ -751,45 +761,46 @@
                                             11 PM to 7 AM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralArray[3][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralArray[3][3]" id="oral_3_2" autocomplete="off"
                                                 value="{{ old('oralArray[3][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="parentalArray[3][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="parentalArray[3][3]" id="parental_3_2" autocomplete="off"
                                                 value="{{ old('parentalArray[3][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralparentaltotalArray[3][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralparentaltotalArray[3][3]" id="opTotal_3_2" autocomplete="off"
                                                 value="{{ old('oralparentaltotalArray[3][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urineArray[3][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urineArray[3][3]" id="urine_3_2" autocomplete="off"
                                                 value="{{ old('urineArray[3][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="drainageArray[3][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="drainageArray[3][3]" id="drainage_3_2" autocomplete="off"
                                                 value="{{ old('drainageArray[3][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="othersArray[3][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="othersArray[3][3]" id="others_3_2" autocomplete="off"
                                                 value="{{ old('othersArray[3][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urinedrainageotherstotalArray[3][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urinedrainageotherstotalArray[3][3]" id="udoTotal_3_2"
+                                                autocomplete="off"
                                                 value="{{ old('urinedrainageotherstotalArray[3][3]') }}">
                                         </td>
                                     </tr>
@@ -798,45 +809,46 @@
                                             Total
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralArray[3][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralArray[3][4]" id="oral_overall_3" autocomplete="off"
                                                 value="{{ old('oralArray[3][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="parentalArray[3][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="parentalArray[3][4]" id="parental_overall_3" autocomplete="off"
                                                 value="{{ old('parentalArray[3][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralparentaltotalArray[3][4]" autocomplete="off"
-                                                value="{{ old('oralparentaltotalArray[3][4]') }}">
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralparentaltotalArray[3][4]" id="opGrandTotal_3"
+                                                autocomplete="off" value="{{ old('oralparentaltotalArray[3][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urineArray[3][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urineArray[3][4]" id="urine_overall_3" autocomplete="off"
                                                 value="{{ old('urineArray[3][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="drainageArray[3][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="drainageArray[3][4]" id="drainage_overall_3" autocomplete="off"
                                                 value="{{ old('drainageArray[3][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="othersArray[3][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="othersArray[3][4]" id="others_overall_3" autocomplete="off"
                                                 value="{{ old('othersArray[3][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urinedrainageotherstotalArray[3][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urinedrainageotherstotalArray[3][4]" id="udoGrandTotal_3"
+                                                autocomplete="off"
                                                 value="{{ old('urinedrainageotherstotalArray[3][4]') }}">
                                         </td>
                                     </tr>
@@ -887,45 +899,46 @@
                                             7 AM to 3 PM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralArray[4][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralArray[4][1]" id="oral_4" autocomplete="off"
                                                 value="{{ old('oralArray[4][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="parentalArray[4][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="parentalArray[4][1]" id="parental_4" autocomplete="off"
                                                 value="{{ old('parentalArray[4][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralparentaltotalArray[4][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralparentaltotalArray[4][1]" id="opTotal_4" autocomplete="off"
                                                 value="{{ old('oralparentaltotalArray[4][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urineArray[4][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urineArray[4][1]" id="urine_4" autocomplete="off"
                                                 value="{{ old('urineArray[4][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="drainageArray[4][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="drainageArray[4][1]" id="drainage_4" autocomplete="off"
                                                 value="{{ old('drainageArray[4][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="othersArray[4][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="othersArray[4][1]" id="others_4" autocomplete="off"
                                                 value="{{ old('othersArray[4][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urinedrainageotherstotalArray[4][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urinedrainageotherstotalArray[4][1]" id="udoTotal_4"
+                                                autocomplete="off"
                                                 value="{{ old('urinedrainageotherstotalArray[4][1]') }}">
                                         </td>
                                     </tr>
@@ -934,45 +947,46 @@
                                             3 PM to 11 PM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralArray[4][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralArray[4][2]" id="oral_4_1" autocomplete="off"
                                                 value="{{ old('oralArray[4][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="parentalArray[4][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="parentalArray[4][2]" id="parental_4_1" autocomplete="off"
                                                 value="{{ old('parentalArray[4][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralparentaltotalArray[4][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralparentaltotalArray[4][2]" id="opTotal_4_1" autocomplete="off"
                                                 value="{{ old('oralparentaltotalArray[4][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urineArray[4][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urineArray[4][2]" id="urine_4_1" autocomplete="off"
                                                 value="{{ old('urineArray[4][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="drainageArray[4][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="drainageArray[4][2]" id="drainage_4_1" autocomplete="off"
                                                 value="{{ old('drainageArray[4][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="othersArray[4][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="othersArray[4][2]" id="others_4_1" autocomplete="off"
                                                 value="{{ old('othersArray[4][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urinedrainageotherstotalArray[4][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urinedrainageotherstotalArray[4][2]" id="udoTotal_4_1"
+                                                autocomplete="off"
                                                 value="{{ old('urinedrainageotherstotalArray[4][2]') }}">
                                         </td>
                                     </tr>
@@ -981,45 +995,46 @@
                                             11 PM to 7 AM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralArray[4][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralArray[4][3]" id="oral_4_2" autocomplete="off"
                                                 value="{{ old('oralArray[4][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="parentalArray[4][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="parentalArray[4][3]" id="parental_4_2" autocomplete="off"
                                                 value="{{ old('parentalArray[4][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralparentaltotalArray[4][3]" autocomplete="off"
-                                                value="{{ old('oralparentaltotalArray[4][3]') }}">
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralparentaltotalArray[4][3]" id="opTotal_4_2"
+                                                autocomplete="off" value="{{ old('oralparentaltotalArray[4][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urineArray[4][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urineArray[4][3]" id="urine_4_2" autocomplete="off"
                                                 value="{{ old('urineArray[4][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="drainageArray[4][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="drainageArray[4][3]" id="drainage_4_2" autocomplete="off"
                                                 value="{{ old('drainageArray[4][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="othersArray[4][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="othersArray[4][3]" id="others_4_2" autocomplete="off"
                                                 value="{{ old('othersArray[4][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urinedrainageotherstotalArray[4][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urinedrainageotherstotalArray[4][3]" id="udoTotal_4_2"
+                                                autocomplete="off"
                                                 value="{{ old('urinedrainageotherstotalArray[4][3]') }}">
                                         </td>
                                     </tr>
@@ -1028,45 +1043,46 @@
                                             Total
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralArray[4][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralArray[4][4]" id="oral_overall_4" autocomplete="off"
                                                 value="{{ old('oralArray[4][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="parentalArray[4][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="parentalArray[4][4]" id="parental_overall_4" autocomplete="off"
                                                 value="{{ old('parentalArray[4][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralparentaltotalArray[4][4]" autocomplete="off"
-                                                value="{{ old('oralparentaltotalArray[4][4]') }}">
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralparentaltotalArray[4][4]" id="opGrandTotal_4"
+                                                autocomplete="off" value="{{ old('oralparentaltotalArray[4][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urineArray[4][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urineArray[4][4]" id="urine_overall_4" autocomplete="off"
                                                 value="{{ old('urineArray[4][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="drainageArray[4][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="drainageArray[4][4]" id="drainage_overall_4" autocomplete="off"
                                                 value="{{ old('drainageArray[4][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="othersArray[4][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="othersArray[4][4]" id="others_overall_4" autocomplete="off"
                                                 value="{{ old('othersArray[4][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urinedrainageotherstotalArray[4][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urinedrainageotherstotalArray[4][4]" id="udoGrandTotal_4"
+                                                autocomplete="off"
                                                 value="{{ old('urinedrainageotherstotalArray[4][4]') }}">
                                         </td>
                                     </tr>
@@ -1116,45 +1132,46 @@
                                             7 AM to 3 PM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralArray[5][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralArray[5][1]" id="oral_5" autocomplete="off"
                                                 value="{{ old('oralArray[5][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="parentalArray[5][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="parentalArray[5][1]" id="parental_5" autocomplete="off"
                                                 value="{{ old('parentalArray[5][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralparentaltotalArray[5][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralparentaltotalArray[5][1]" id="opTotal_5" autocomplete="off"
                                                 value="{{ old('oralparentaltotalArray[5][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urineArray[5][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urineArray[5][1]" id="urine_5" autocomplete="off"
                                                 value="{{ old('urineArray[5][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="drainageArray[5][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="drainageArray[5][1]" id="drainage_5" autocomplete="off"
                                                 value="{{ old('drainageArray[5][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="othersArray[5][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="othersArray[5][1]" id="others_5" autocomplete="off"
                                                 value="{{ old('othersArray[5][1]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urinedrainageotherstotalArray[5][1]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urinedrainageotherstotalArray[5][1]" id="udoTotal_5"
+                                                autocomplete="off"
                                                 value="{{ old('urinedrainageotherstotalArray[5][1]') }}">
                                         </td>
                                     </tr>
@@ -1163,45 +1180,46 @@
                                             3 PM to 11 PM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralArray[5][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralArray[5][2]" id="oral_5_1" autocomplete="off"
                                                 value="{{ old('oralArray[5][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="parentalArray[5][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="parentalArray[5][2]" id="parental_5_1" autocomplete="off"
                                                 value="{{ old('parentalArray[5][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralparentaltotalArray[5][2]" autocomplete="off"
-                                                value="{{ old('oralparentaltotalArray[5][2]') }}">
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralparentaltotalArray[5][2]" id="opTotal_5_1"
+                                                autocomplete="off" value="{{ old('oralparentaltotalArray[5][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urineArray[5][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urineArray[5][2]" id="urine_5_1" autocomplete="off"
                                                 value="{{ old('urineArray[5][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="drainageArray[5][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="drainageArray[5][2]" id="drainage_5_1" autocomplete="off"
                                                 value="{{ old('drainageArray[5][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="othersArray[5][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="othersArray[5][2]" id="others_5_1" autocomplete="off"
                                                 value="{{ old('othersArray[5][2]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urinedrainageotherstotalArray[5][2]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urinedrainageotherstotalArray[5][2]" id="udoTotal_5_1"
+                                                autocomplete="off"
                                                 value="{{ old('urinedrainageotherstotalArray[5][2]') }}">
                                         </td>
                                     </tr>
@@ -1210,45 +1228,46 @@
                                             11 PM to 7 AM
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralArray[5][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralArray[5][3]" id="oral_5_2" autocomplete="off"
                                                 value="{{ old('oralArray[5][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="parentalArray[5][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="parentalArray[5][3]" id="parental_5_2" autocomplete="off"
                                                 value="{{ old('parentalArray[5][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralparentaltotalArray[5][3]" autocomplete="off"
-                                                value="{{ old('oralparentaltotalArray[5][3]') }}">
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralparentaltotalArray[5][3]" id="opTotal_5_2"
+                                                autocomplete="off" value="{{ old('oralparentaltotalArray[5][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urineArray[5][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urineArray[5][3]" id="urine_5_2" autocomplete="off"
                                                 value="{{ old('urineArray[5][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="drainageArray[5][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="drainageArray[5][3]" id="drainage_5_2" autocomplete="off"
                                                 value="{{ old('drainageArray[5][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="othersArray[5][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="othersArray[5][3]" id="others_5_2" autocomplete="off"
                                                 value="{{ old('othersArray[5][3]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urinedrainageotherstotalArray[5][3]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urinedrainageotherstotalArray[5][3]" id="udoTotal_5_2"
+                                                autocomplete="off"
                                                 value="{{ old('urinedrainageotherstotalArray[5][3]') }}">
                                         </td>
                                     </tr>
@@ -1257,45 +1276,46 @@
                                             Total
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralArray[5][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralArray[5][4]" id="oral_overall_5" autocomplete="off"
                                                 value="{{ old('oralArray[5][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="parentalArray[5][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="parentalArray[5][4]" id="parental_overall_5" autocomplete="off"
                                                 value="{{ old('parentalArray[5][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="oralparentaltotalArray[5][4]" autocomplete="off"
-                                                value="{{ old('oralparentaltotalArray[5][4]') }}">
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="oralparentaltotalArray[5][4]" id="opGrandTotal_5"
+                                                autocomplete="off" value="{{ old('oralparentaltotalArray[5][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urineArray[5][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urineArray[5][4]" id="urine_overall_5" autocomplete="off"
                                                 value="{{ old('urineArray[5][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="drainageArray[5][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="drainageArray[5][4]" id="drainage_overall_5" autocomplete="off"
                                                 value="{{ old('drainageArray[5][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="othersArray[5][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="othersArray[5][4]" id="others_overall_5" autocomplete="off"
                                                 value="{{ old('othersArray[5][4]') }}">
                                         </td>
                                         <td class="flex justify-center">
-                                            <input type="text"
-                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                                name="urinedrainageotherstotalArray[5][4]" autocomplete="off"
+                                            <input type="number" step="0.01"
+                                                class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 text-center"
+                                                name="urinedrainageotherstotalArray[5][4]" id="udoGrandTotal_5"
+                                                autocomplete="off"
                                                 value="{{ old('urinedrainageotherstotalArray[5][4]') }}">
                                         </td>
                                     </tr>
@@ -1333,4 +1353,6 @@
     @vite('resources/js/patientPage/birthdate.js')
     @vite('resources/js/patientPage/admission_days.js')
     @vite('resources/js/patientPage/multi-step-form.js')
+    @vite('resources/js/stationPage/fluidIntake.js')
+    @vite('resources/js/stationPage/secondFluidIntake.js')
 @endpush

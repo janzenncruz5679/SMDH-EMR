@@ -1386,7 +1386,7 @@
                         type="button">Next</button>
 
                     <a class=" col-start-8 text-zinc-900 hover:text-white tracking-[2px] text-2xl font-[sans-serif]"
-                        href="#" onclick="javascript:window.history.back(-1);return false;">
+                        href="{{ route('vitalSign.show', $vitalSign->id) }}">
                         <div
                             class=" h-full bg-blue-300 hover:bg-blue-200 p-2 text-2xl font-[sans-serif] flex items-center justify-center text-white rounded-xl  shadow-md shadow-blue-200 hover:-translate-y-0.5 transform transition">
                             Back

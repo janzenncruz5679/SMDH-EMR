@@ -23,6 +23,16 @@ class Emergency extends Model
         'case_summary' => 'array',
     ];
 
+    public function emergencyHistory()
+    {
+        return $this->hasMany(EmergencyHistory::class);
+    }
+
+    public function emergencyBilling()
+    {
+        return $this->hasMany(Billing::class);
+    }
+
     //combine first middle and last name using accessor and mutators
     public function setFirstNameAttribute($value)
     {

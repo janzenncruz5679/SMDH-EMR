@@ -25,4 +25,9 @@ class VitalSign extends Model
         'pains' => 'array',
         'initials' => 'array',
     ];
+
+    public function vitalSignHistory()
+    {
+        return $this->hasMany(vitalSignHistory::class);
+    }
 }

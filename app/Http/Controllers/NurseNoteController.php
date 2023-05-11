@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Actions\Records\NurseNote\StoreNurseNote;
 use App\Actions\Records\NurseNote\UpdateNurseNote;
 use App\Models\NurseNote;
+use App\Models\NurseNoteHistory;
 use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -19,7 +20,7 @@ class NurseNoteController extends Controller
 
     public function index()
     {
-        $nurseNote = NurseNote::all()->paginate(10);
+        $nurseNote = NurseNote::all()->paginate(18);
         return view('user.records.nurseNote.index', compact('nurseNote'));
     }
 
@@ -57,7 +58,15 @@ class NurseNoteController extends Controller
     }
 
 
-    public function show(NurseNote $nurseNote)
+    public function show(NurseNote $nurseNote, NurseNoteHistory $nurseNoteHistory)
+    {
+        $nurseNoteHistory = NurseNoteHistory::where('history_id', $nurseNote->id)
+            ->latest('id')
+            ->paginate(12);
+        return view('user.recordsHistory.nurseNote.index', compact('nurseNoteHistory', 'nurseNote'));
+    }
+
+    public function show_all(NurseNote $nurseNote)
     {
         return view('user.records.nurseNote.show', compact('nurseNote'));
     }

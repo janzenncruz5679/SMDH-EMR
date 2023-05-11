@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Actions\Admission\StoreAdmission;
 use App\Actions\Admission\UpdateAdmission;
 use App\Models\Admission;
+use App\Models\AdmissionHistory;
 use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -19,8 +20,8 @@ class AdmissionController extends Controller
     }
     public function index()
     {
-        $admissions = Admission::all()->paginate(10);
-        return view('user.admission.index', compact('admissions'));
+        $admissions = Admission::all()->paginate(18);
+        return view('user.patients.admission.index', compact('admissions'));
     }
 
     public function searchAdmission(Request $request)
@@ -36,7 +37,7 @@ class AdmissionController extends Controller
 
     public function create()
     {
-        return view('user.admission.create');
+        return view('user.patients.admission.create');
     }
 
     public function store(Request $request)
@@ -54,14 +55,23 @@ class AdmissionController extends Controller
         }
     }
 
-    public function show(Admission $admission)
+    public function show(Admission $admission, AdmissionHistory $admissionHistory)
     {
-        return view('user.admission.show', compact('admission'));
+
+        $admissionHistory = AdmissionHistory::where('history_id', $admission->id)
+            ->latest('id')
+            ->paginate(7);
+        return view('user.patients.patientsHistory.admission.index', compact('admissionHistory', 'admission'));
+    }
+
+    public function show_all(Admission $admission)
+    {
+        return view('user.patients.admission.show', compact('admission'));
     }
 
     public function edit(Admission $admission)
     {
-        return view('user.admission.edit', compact('admission'));
+        return view('user.patients.admission.edit', compact('admission'));
     }
 
     public function update(Request $request, Admission $admission)
@@ -72,9 +82,9 @@ class AdmissionController extends Controller
             // dd($update);
             DB::commit();
             return redirect()->route('admission.index');
-        } catch (\Throwable $err) {
+        } catch (\Exception $err) {
             DB::rollBack();
-            // dd($err);
+            dd($err);
             return redirect()->back()->withErrors($err->getMessage());
         }
     }

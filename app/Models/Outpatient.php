@@ -23,6 +23,16 @@ class Outpatient extends Model
         'case_summary' => 'array',
     ];
 
+    public function outpatientHistory()
+    {
+        return $this->hasMany(OutpatientHistory::class);
+    }
+
+    public function outpatientBilling()
+    {
+        return $this->hasMany(Outpatient::class);
+    }
+
     //combine first middle and last name using accessor and mutators
     public function setFirstNameAttribute($value)
     {

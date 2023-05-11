@@ -14,4 +14,9 @@ class DischargeSummary extends Model
     protected $guarded = [];
 
     protected $hidden = [];
+
+    public function dischargeSummaryHistory()
+    {
+        return $this->hasMany(DischargeSummaryHistory::class);
+    }
 }

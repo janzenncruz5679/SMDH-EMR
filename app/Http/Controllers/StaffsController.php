@@ -12,7 +12,7 @@ class StaffsController extends Controller
     {
         if (Auth::id()) {
             if (Auth::user()->usertype == '1') {
-                $staffs = User::query()->where('usertype', '0')->paginate(10);
+                $staffs = User::query()->where('usertype', '0')->paginate(18);
 
                 return view('admin.staffs.index', compact('staffs'));
             } else {

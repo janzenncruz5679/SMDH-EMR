@@ -68,6 +68,7 @@
                             <label for="date-range" class="h-full grid items-center">Patients Admitted:</label>
                             <select id="date-range"
                                 class="h-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2">
+                                <option value="yesterday">Last 24 Hours</option>
                                 <option value="last-week">Last 7 Days</option>
                                 <option value="last-month">Last 30 Days</option>
                                 <option value="last-year">Last 360 Days</option>
@@ -89,6 +90,8 @@
     </div>
 @endsection
 <script>
+    var _labels_daily = {!! json_encode($labels_daily) !!};
+    var _data_daily = {!! json_encode($data_daily) !!};
     var _labels = {!! json_encode($labels) !!};
     var _data = {!! json_encode($data) !!};
     var _labels_monthly = {!! json_encode($labels_monthly) !!};

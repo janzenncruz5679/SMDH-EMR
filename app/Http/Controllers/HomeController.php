@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Actions\Dashboard\PatientChart;
 use App\Actions\Dashboard\PatientChartMonthly;
 use App\Actions\Dashboard\PatientChartYearly;
+use App\Actions\Dashboard\PatientChartDaily;
 use App\Actions\Dashboard\PatientNotes;
 use App\Models\Admission;
 use App\Models\Billing;
@@ -41,12 +42,15 @@ class HomeController extends Controller
         $total_outpatient = Outpatient::whereDate('created_at', Carbon::now())->count();
         $billings = Billing::whereDate('created_at', Carbon::now())->count();
         [$labels, $data] = PatientChart::getDataForCharts();
+        [$labels_daily, $data_daily] = PatientChartDaily::getDataForChartsDaily();
         [$labels_monthly, $data_monthly] = PatientChartMonthly::getDataForChartsMonthly();
         [$labels_yearly, $data_yearly] = PatientChartYearly::getDataForChartsYearly();
 
         if (Auth::id()) {
             if (Auth::user()->usertype == '0') {
                 return view('user.home', [
+                    'labels_daily' => $labels_daily,
+                    'data_daily' => $data_daily,
                     'labels' => $labels,
                     'data' => $data,
                     'labels_monthly' => $labels_monthly,
@@ -60,6 +64,8 @@ class HomeController extends Controller
                 ]);
             } else if (Auth::user()->usertype == '1') {
                 return view('admin.home', [
+                    'labels_daily' => $labels_daily,
+                    'data_daily' => $data_daily,
                     'labels' => $labels,
                     'data' => $data,
                     'labels_monthly' => $labels_monthly,

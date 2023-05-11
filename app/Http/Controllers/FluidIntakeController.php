@@ -100,10 +100,14 @@ class FluidIntakeController extends Controller
 
     public function pdf(FluidIntake $fluidIntake)
     {
-        $fluidIntake_view = FluidIntake::findorfail($fluidIntake->id);
-        $fluidIntake_pdf = Pdf::loadView('pdf.fluidIntake', compact('fluidIntake_view'))
-            ->setPaper('a4', 'portrait');
+        try {
+            $fluidIntake_view = FluidIntake::findorfail($fluidIntake->id);
+            $fluidIntake_pdf = Pdf::loadView('pdf.fluidIntake', compact('fluidIntake_view'))
+                ->setPaper('a4', 'portrait');
 
-        return $fluidIntake_pdf->stream("Fluid Intake " . $fluidIntake_view->id . ".pdf");
+            return $fluidIntake_pdf->stream("Fluid Intake " . $fluidIntake_view->id . ".pdf");
+        } catch (\Exception $err) {
+            dd($err);
+        }
     }
 }

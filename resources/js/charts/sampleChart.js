@@ -4,6 +4,15 @@ admission_canvas.height = 400;
 // Define the chart data for each option in the dropdown
 var chartData = {
     option1: {
+        labels: _labels_daily,
+        datasets: [
+            {
+                data: _data_daily,
+                backgroundColor: ["#003D33", "#14C9C9", "#439889"],
+            },
+        ],
+    },
+    option2: {
         labels: _labels,
         datasets: [
             {
@@ -12,7 +21,7 @@ var chartData = {
             },
         ],
     },
-    option2: {
+    option3: {
         labels: _labels_monthly,
         datasets: [
             {
@@ -21,7 +30,7 @@ var chartData = {
             },
         ],
     },
-    option3: {
+    option4: {
         labels: _labels_yearly,
         datasets: [
             {
@@ -97,10 +106,12 @@ function updateChartData() {
     var selectedOption = $("#date-range").val();
     var newData;
 
-    if (selectedOption === "last-month") {
+    if (selectedOption === "last-week") {
         newData = chartData.option2;
-    } else if (selectedOption === "last-year") {
+    } else if (selectedOption === "last-month") {
         newData = chartData.option3;
+    } else if (selectedOption === "last-year") {
+        newData = chartData.option4;
     } else {
         newData = chartData.option1;
     }
@@ -114,5 +125,5 @@ $("#date-range").change(updateChartData);
 
 $("#reset-btn").click(function () {
     updateChart(pieChart, chartData.option1, chartOptions); // reset to option 1
-    $("#date-range").val("last-week"); // reset the dropdown to "Last Week"
+    $("#date-range").val("yesterday"); // reset the dropdown to "Last Week"
 });

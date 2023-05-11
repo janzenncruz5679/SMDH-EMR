@@ -5,12 +5,12 @@ namespace  App\Actions\Dashboard;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
-class PatientChart
+class PatientChartYearly
 {
-    public static function getDataForCharts()
+    public static function getDataForChartsYearly()
     {
-        $endDate = Carbon::today()->startOfDay(); // set the end date to the beginning of today
-        $startDate = $endDate->copy()->subWeek(1)->startOfDay();
+        $endDate = Carbon::today()->endOfDay(); // set the end date to today (end of day)
+        $startDate = $endDate->copy()->subYears(1)->startOfDay(); // set the start date to exactly one year before the end date
 
         $record = DB::table(function ($query) use ($startDate, $endDate) {
             $query->select(DB::raw("'admissions' as table_name"), 'main_diagnosis', 'updated_at')
@@ -27,7 +27,6 @@ class PatientChart
             ->groupBy('main_diagnosis', 'updated_at') // update the groupBy clause
             ->get(['main_diagnosis', 'updated_at', 'count']);
 
-
         // dd($record->toArray());
 
         $groupedRecord = $record->groupBy('main_diagnosis')->map(function ($items) {
@@ -38,12 +37,12 @@ class PatientChart
 
         // dd($groupedRecord->toArray());
 
-        $labels = $groupedRecord->keys()->toArray();
-        $data = $groupedRecord->map(function ($item) {
+        $labels_yearly = $groupedRecord->keys()->toArray();
+        $data_yearly = $groupedRecord->map(function ($item) {
             return $item['count'];
         })->toArray();
 
         // dd($labels, $data);
-        return [$labels, $data];
+        return [$labels_yearly, $data_yearly];
     }
 }

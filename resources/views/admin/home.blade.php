@@ -57,26 +57,44 @@
                     </label>
                 </div>
             </div>
-            <div class="grid h-[75%] w-full gap-4  bg-blue-100 p-6 shadow-lg shadow-blue-200 rounded-3xl">
-                <div class="flex flex-col gap-4 justify-center ">
+            <div class="grid h-[80%] w-full gap-4 bg-blue-100 p-6 shadow-lg shadow-blue-200 rounded-3xl">
+                <div class="flex flex-col gap-4 justify-center text-2xl">
                     <div class="p-4 bg-blue-300 flex items-center justify-center">
                         <label class="font-[sans-serif] font-semibold text-white tracking-wide text-4xl">
                             {{ __('All Patients Diagnosis Information') }}</label>
                     </div>
-                    <div class="p-6">
-                        <canvas id="admission_canvas" class="max-h-full w-full"></canvas>
+                    <div class="h-10">
+                        <form id="date-form" class="h-full flex gap-4">
+                            <label for="date-range" class="h-full grid items-center">Patients Admitted:</label>
+                            <select id="date-range"
+                                class="h-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2">
+                                <option value="last-week">Last Week</option>
+                                <option value="last-month">Last Month</option>
+                                <option value="last-year">Last Year</option>
+                            </select>
+                            {{-- <button id="reset-btn">Reset</button> --}}
+                            <button
+                                class="h-full w-32 text-[1.5rem] bg-blue-300 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-200"
+                                id="reset-btn">
+                                Reset
+                            </button>
+                        </form>
                     </div>
+                    <canvas id="admission_canvas" class="max-h-full w-full"></canvas>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     </div>
 @endsection
 <script>
     var _labels = {!! json_encode($labels) !!};
     var _data = {!! json_encode($data) !!};
-    var _labels_donut = {!! json_encode($labels_donut) !!};
-    var _data_donut = {!! json_encode($data_donut) !!};
+    var _labels_monthly = {!! json_encode($labels_monthly) !!};
+    var _data_monthly = {!! json_encode($data_monthly) !!};
+    var _labels_yearly = {!! json_encode($labels_yearly) !!};
+    var _data_yearly = {!! json_encode($data_yearly) !!};
 </script>
 @push('custom_scripts')
     @vite('resources/js/charts/sampleChart.js')

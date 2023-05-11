@@ -68,9 +68,9 @@
                             <label for="date-range" class="h-full grid items-center">Patients Admitted:</label>
                             <select id="date-range"
                                 class="h-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2">
-                                <option value="last-week">Last Week</option>
-                                <option value="last-month">Last Month</option>
-                                <option value="last-year">Last Year</option>
+                                <option value="last-week">Last 7 Days</option>
+                                <option value="last-month">Last 30 Days</option>
+                                <option value="last-year">Last 360 Days</option>
                             </select>
                             {{-- <button id="reset-btn">Reset</button> --}}
                             <button

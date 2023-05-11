@@ -5,12 +5,12 @@ namespace  App\Actions\Dashboard;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
-class PatientChart
+class PatientChartMonthly
 {
-    public static function getDataForCharts()
+    public static function getDataForChartsMonthly()
     {
         $endDate = Carbon::today()->startOfDay(); // set the end date to the beginning of today
-        $startDate = $endDate->copy()->subWeek(1)->startOfDay();
+        $startDate = $endDate->copy()->subMonth(1)->startOfDay();
 
         $record = DB::table(function ($query) use ($startDate, $endDate) {
             $query->select(DB::raw("'admissions' as table_name"), 'main_diagnosis', 'updated_at')
@@ -27,7 +27,6 @@ class PatientChart
             ->groupBy('main_diagnosis', 'updated_at') // update the groupBy clause
             ->get(['main_diagnosis', 'updated_at', 'count']);
 
-
         // dd($record->toArray());
 
         $groupedRecord = $record->groupBy('main_diagnosis')->map(function ($items) {
@@ -38,12 +37,12 @@ class PatientChart
 
         // dd($groupedRecord->toArray());
 
-        $labels = $groupedRecord->keys()->toArray();
-        $data = $groupedRecord->map(function ($item) {
+        $labels_monthly = $groupedRecord->keys()->toArray();
+        $data_monthly = $groupedRecord->map(function ($item) {
             return $item['count'];
         })->toArray();
 
         // dd($labels, $data);
-        return [$labels, $data];
+        return [$labels_monthly, $data_monthly];
     }
 }

@@ -9,7 +9,7 @@ class PatientChart
 {
     public static function getDataForCharts()
     {
-        $endDate = Carbon::today()->startOfDay(); // set the end date to the beginning of today
+        $endDate = Carbon::today()->endOfDay(); // set the end date to the beginning of today
         $startDate = $endDate->copy()->subWeek(1)->startOfDay();
 
         $record = DB::table(function ($query) use ($startDate, $endDate) {

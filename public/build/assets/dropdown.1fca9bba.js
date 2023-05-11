@@ -1,1 +1,0 @@
-$(function(){$(".dropdown-header").click(function(){$(this).next(".dropdown").slideToggle()}),$(document).click(function(o){var d=o.target;!$(d).is(".dropdown-header")&&!$(d).parents().is(".dropdown-header")&&$(".dropdown").slideUp()})});

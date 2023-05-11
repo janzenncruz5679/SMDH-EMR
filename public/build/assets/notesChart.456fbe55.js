@@ -1,1 +1,0 @@
-var a=document.getElementById("canvas_two"),t={labels:_labels_donut,datasets:[{data:_data_donut,backgroundColor:["#b91d47","#00aba9","#2b5797","#e8c3b9","#1e7145"]}]};new Chart(a,{type:"doughnut",data:t});

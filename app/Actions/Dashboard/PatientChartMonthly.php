@@ -9,7 +9,7 @@ class PatientChartMonthly
 {
     public static function getDataForChartsMonthly()
     {
-        $endDate = Carbon::today()->startOfDay(); // set the end date to the beginning of today
+        $endDate = Carbon::today()->endOfDay(); // set the end date to the beginning of today
         $startDate = $endDate->copy()->subMonth(1)->startOfDay();
 
         $record = DB::table(function ($query) use ($startDate, $endDate) {

@@ -83,7 +83,8 @@
                             <div class="grid grid-cols-6 h-full w-full">
                                 <div class="px-3">
                                     <label>SR CITIZEN NO :</label>
-                                    <input type="text"
+                                    <input type="number" maxlength="5"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="senior citizen #" name="sr_no" autocomplete="off"
                                         value="{{ old('sr_no') }}">
@@ -91,7 +92,8 @@
                                 </div>
                                 <div class="px-3">
                                     <label>WARD/ROOM: <span class="text-red-600 font-bold">*</span></label>
-                                    <input type="text"
+                                    <input type="number" maxlength="5"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="ward/room #" name="ward_room_bed_service" autocomplete="off"
                                         value="{{ old('ward_room_bed_service') }}" required>
@@ -103,9 +105,10 @@
                                 </div>
                                 <div class="px-3">
                                     <label>CONTACT NUMBER: <span class="text-red-600 font-bold">*</span></label>
-                                    <input type="text"
+                                    <input type="number" maxlength="11"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="contact #" name="phone" maxlength="11" autocomplete="off"
+                                        placeholder="contact #" name="phone" autocomplete="off"
                                         value="{{ old('phone') }}" required>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('phone')
@@ -432,7 +435,8 @@
                                 </div>
                                 <div class="px-3">
                                     <label>PHONE: <span class="text-red-600 font-bold">*</span></label>
-                                    <input type="text"
+                                    <input type="number" maxlength="11"
+                                        oninput="this.value=this.value.slice(0,this.maxLength)"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
                                         placeholder="contact address" name="contact_phone" id="contact_phone"
                                         autocomplete="off" value="{{ old('contact_phone') }}" required>
@@ -561,46 +565,46 @@
                             <div class="grid h-full">
                                 <div class=" grid grid-cols-6 h-full w-full px-3 gap-4">
                                     <div>
-                                        <label>HEIGHT:</label>
-                                        <input type="text"
+                                        <label>HEIGHT (m): <span class="text-red-600 font-bold">*</span></label>
+                                        <input type="number" step="0.01"
                                             class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                            placeholder="height" name="height" autocomplete="off"
+                                            placeholder="height" name="height" autocomplete="off" required
                                             value="{{ old('height') }}">
                                     </div>
                                     <div>
-                                        <label>WEIGHT:</label>
-                                        <input type="text"
+                                        <label>WEIGHT (kgs): <span class="text-red-600 font-bold">*</span></label>
+                                        <input type="number" step="0.01"
                                             class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                            placeholder="weight" name="weight" autocomplete="off"
+                                            placeholder="weight" name="weight" autocomplete="off" required
                                             value="{{ old('weight') }}">
                                     </div>
                                     <div>
-                                        <label>TEMPERATURE:</label>
-                                        <input type="text"
+                                        <label>TEMPERATURE (°C): <span class="text-red-600 font-bold">*</span></label>
+                                        <input type="number" step="0.01"
                                             class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                            placeholder="temperature" name="temperature" autocomplete="off"
+                                            placeholder="temperature" name="temperature" autocomplete="off" required
                                             value="{{ old('temperature') }}">
                                     </div>
                                     <div>
-                                        <label>PULSE:</label>
-                                        <input type="text"
+                                        <label>PULSE (bpm): <span class="text-red-600 font-bold">*</span></label>
+                                        <input type="number" step="0.01"
                                             class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                            placeholder="pulse rate" name="pulse_rate" autocomplete="off"
+                                            placeholder="pulse rate" name="pulse_rate" autocomplete="off" required
                                             value="{{ old('pulse_rate') }}">
                                     </div>
                                     <div>
-                                        <label>BLOOD PRESSURE:</label>
-                                        <input type="text"
+                                        <label>BP (mm/Hg): <span class="text-red-600 font-bold">*</span></label>
+                                        <input type="text" maxlength="7"
                                             class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                             placeholder="blood pressure" name="blood_pressure" autocomplete="off"
-                                            value="{{ old('blood_pressure') }}">
+                                            required value="{{ old('blood_pressure') }}">
                                     </div>
                                     <div>
-                                        <label>RESPIRATION:</label>
-                                        <input type="text"
+                                        <label>RESPIRATION (bpm): <span class="text-red-600 font-bold">*</span></label>
+                                        <input type="number" step="0.01"
                                             class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                             placeholder="respiration rate" name="respiratory_rate" autocomplete="off"
-                                            value="{{ old('respiratory_rate') }}">
+                                            required value="{{ old('respiratory_rate') }}">
                                     </div>
                                 </div>
                             </div>
@@ -610,7 +614,7 @@
                         </div>
                         <div class="grid grid-cols-3 gap-4 px-3">
                             <div>
-                                <label>PRESENT ILLINESS: <span class="text-red-600 font-bold">*</span></label>
+                                <label>PRESENT ILLNESS: <span class="text-red-600 font-bold">*</span></label>
                                 <textarea type="text"
                                     class="w-full resize-none border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="present illness" name="present_illness" autocomplete="off" required>{{ old('present_illness') }}</textarea>

@@ -36,7 +36,7 @@
                         </div>
                         <div class="grid grid-cols-7 gap-2 pb-3">
                             <div class="col-span-2 px-3">
-                                <label>GIVEN NAME :</label>
+                                <label>GIVEN NAME: <span class="text-red-600 font-bold">*</span></label>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="first name" name="first_name" autocomplete="off"
@@ -48,7 +48,7 @@
                                 </span>
                             </div>
                             <div class="px-3">
-                                <label>MIDDLE NAME :</label>
+                                <label>MIDDLE NAME:</label>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="middle name" name="middle_name" autocomplete="off"
@@ -60,7 +60,7 @@
                                 </span>
                             </div>
                             <div class="px-3">
-                                <label>LAST NAME :</label>
+                                <label>LAST NAME: <span class="text-red-600 font-bold">*</span></label>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="last name" name="last_name" autocomplete="off"
@@ -72,7 +72,7 @@
                                 </span>
                             </div>
                             <div class="px-3">
-                                <label>SUFFIX:</label>
+                                <label>SUFFIX: </label>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="suffix" name="suffix" autocomplete="off" value="{{ old('suffix') }}">
@@ -83,7 +83,7 @@
                                 </span>
                             </div>
                             <div class="px-3">
-                                <label>AGE :</label>
+                                <label>AGE: <span class="text-red-600 font-bold">*</span></label>
                                 <input type="number" maxlength="3" oninput="this.value=this.value.slice(0,this.maxLength)"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="age" name="age" autocomplete="off" value="{{ old('age') }}"
@@ -121,7 +121,7 @@
                         </div>
                         <div class="grid grid-cols-7 gap-2 pb-3">
                             <div class="col-span-5 px-3">
-                                <label>DIAGNOSIS :</label>
+                                <label>DIAGNOSIS: <span class="text-red-600 font-bold">*</span></label>
                                 <input type="text"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="diagnosis" name="diagnosis" autocomplete="off" value="{{ old('suffix') }}"
@@ -133,8 +133,8 @@
                                 </span>
                             </div>
                             <div class="px-3">
-                                <label>BED:</label>
-                                <input type="text"
+                                <label>BED NO: <span class="text-red-600 font-bold">*</span></label>
+                                <input type="number" maxlength="3" oninput="this.value=this.value.slice(0,this.maxLength)"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="bed" name="bed" autocomplete="off" value="{{ old('bed') }}"
                                     required>
@@ -145,8 +145,8 @@
                                 </span>
                             </div>
                             <div class="px-3">
-                                <label>WARD :</label>
-                                <input type="text"
+                                <label>WARD: <span class="text-red-600 font-bold">*</span></label>
+                                <input type="number" maxlength="5" oninput="this.value=this.value.slice(0,this.maxLength)"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                     placeholder="ward" name="ward" autocomplete="off" value="{{ old('ward') }}"
                                     required>
@@ -169,7 +169,8 @@
                                 <label>Date:</label>
                                 <input type="date"
                                     class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                    name="intake_dateArray[1]" autocomplete="off" value="{{ old('intake_dateArray[1]') }}">
+                                    name="intake_dateArray[1]" autocomplete="off"
+                                    value="{{ old('intake_dateArray[1]') }}">
                             </div>
                             <div class="col-span-7">
                                 <label>Intake:</label>

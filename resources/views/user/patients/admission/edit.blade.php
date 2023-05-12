@@ -252,7 +252,6 @@
                         <div class="grid px-3 pb-3 text-2xl text-[#003D33] font-semibold tracking-widest">
                             <label>Patient Full Address</label>
                         </div>
-                        {{-- full_address --}}
                         <div class="grid gap-2">
                             <div class="grid grid-cols-4 h-full">
                                 <div class="col-span-2 px-3">
@@ -269,10 +268,22 @@
                                 </div>
                                 <div class="px-3">
                                     <label>BARANGAY: <span class="text-red-600 font-bold">*</span></label>
-                                    <input type="text"
+                                    {{-- <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="barangay" name="barangay" autocomplete="off"
                                         value="{{ $admission->full_address['barangay'] }}" required>
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                        @error('barangay')
+                                            {{ $message }}
+                                        @enderror
+                                    </span> --}}
+                                    <select name="barangay" id="barangay"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        required>
+                                        <option value="{{ $admission->full_address['barangay'] }}" selected>
+                                            {{ $admission->full_address['barangay'] }}
+                                        </option>
+                                    </select>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('barangay')
                                             {{ $message }}
@@ -281,11 +292,13 @@
                                 </div>
                                 <div class="px-3">
                                     <label>MUNICIPALITY: <span class="text-red-600 font-bold">*</span></label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2 cursor-auto"
-                                        placeholder="municipality" name="municipality" id="municipality"
-                                        autocomplete="off" value="{{ $admission->full_address['municipality'] }}"
+                                    <select name="municipality" id="municipality"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         required>
+                                        <option value="{{ $admission->full_address['municipality'] }}" selected>
+                                            {{ $admission->full_address['municipality'] }}
+                                        </option>
+                                    </select>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('municipality')
                                             {{ $message }}
@@ -297,10 +310,22 @@
 
                                 <div class="px-3">
                                     <label>PROVINCE: <span class="text-red-600 font-bold">*</span></label>
-                                    <input type="text"
+                                    {{-- <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="province" name="province" autocomplete="off"
                                         value="{{ $admission->full_address['province'] }}" required>
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                        @error('province')
+                                            {{ $message }}
+                                        @enderror
+                                    </span> --}}
+                                    <select name="province" id="province"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        required>
+                                        <option value="{{ $admission->full_address['province'] }}" disabled>
+                                            {{ $admission->full_address['province'] }}
+                                        </option>
+                                    </select>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('province')
                                             {{ $message }}
@@ -309,10 +334,22 @@
                                 </div>
                                 <div class=" px-3">
                                     <label>REGION: <span class="text-red-600 font-bold">*</span></label>
-                                    <input type="text"
+                                    {{-- <input type="text"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                                         placeholder="region" name="region" autocomplete="off"
                                         value="{{ $admission->full_address['region'] }}" required>
+                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
+                                        @error('region')
+                                            {{ $message }}
+                                        @enderror
+                                    </span> --}}
+                                    <select name="region" id="region"
+                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
+                                        required>
+                                        <option value="{{ $admission->full_address['region'] }}" disabled>
+                                            {{ $admission->full_address['region'] }}
+                                        </option>
+                                    </select>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('region')
                                             {{ $message }}
@@ -333,26 +370,15 @@
                                 </div>
                                 <div class=" px-3">
                                     <label>COUNTRY: <span class="text-red-600 font-bold">*</span></label>
-                                    <input type="text"
+                                    <select name="country" id="country"
                                         class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="country" name="country" autocomplete="off"
-                                        value="{{ $admission->full_address['country'] }}" required>
+                                        required>
+                                        <option value="{{ $admission->full_address['country'] }}" disabled>
+                                            {{ $admission->full_address['country'] }}
+                                        </option>
+                                    </select>
                                     <span class="text-base font-[sans-serif] font-medium text-red-600">
                                         @error('country')
-                                            {{ $message }}
-                                        @enderror
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="grid h-full">
-                                <div class="px-3 pb-3">
-                                    <label>PERMANENT ADDRESS: <span class="text-red-600 font-bold">*</span></label>
-                                    <input type="text"
-                                        class="w-full h-10 border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
-                                        placeholder="enter permanent address" name="perma_address" autocomplete="off"
-                                        value="{{ $admission->personal_info['perma_address'] }}" required>
-                                    <span class="text-base font-[sans-serif] font-medium text-red-600">
-                                        @error('perma_address')
                                             {{ $message }}
                                         @enderror
                                     </span>
@@ -882,4 +908,5 @@
     @vite('resources/js/patientPage/birthdate.js')
     @vite('resources/js/patientPage/admission_days.js')
     @vite('resources/js/patientPage/multi-step-form.js')
+    @vite('resources/js/patientPage/dependentDropdown.js')
 @endpush

@@ -6,7 +6,8 @@ var stateObject = {
                 "San Miguel": ["Salangan", "San Jose"],
             },
             "Nueva Ecija": {
-                Gapan: ["Roseburg", "Winston"],
+                Gapan: ["Kapalangan", "Maburak"],
+                Cabanatuan: ["San Josef Norte", "San Roque Norte"],
             },
         },
     },
@@ -20,6 +21,9 @@ window.onload = function () {
 
     for (var state in stateObject) {
         countrySelect.options[countrySelect.options.length] = new Option(
+            state,
+            state,
+            state,
             state,
             state
         );
@@ -87,7 +91,7 @@ window.onload = function () {
             return;
         }
 
-        municipalitySelect.options[0].text = "Please select city";
+        municipalitySelect.options[0].text = "Municipality";
         for (var city in stateObject[countrySelect.value][regionSelect.value][
             this.value
         ]) {
@@ -103,7 +107,7 @@ window.onload = function () {
         barangaySelect.length = 1;
 
         if (this.selectedIndex < 1) {
-            barangaySelect.options[0].text = "Municipality";
+            barangaySelect.options[0].text = "Barangay";
             return;
         }
 

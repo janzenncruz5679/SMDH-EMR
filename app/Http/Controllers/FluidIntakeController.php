@@ -74,7 +74,11 @@ class FluidIntakeController extends Controller
 
     public function edit(FluidIntake $fluidIntake)
     {
-        return view('user.records.fluidIntake.edit', compact('fluidIntake'));
+        try {
+            return view('user.records.fluidIntake.edit', compact('fluidIntake'));
+        } catch (\Exception $err) {
+            dd($err);
+        }
     }
 
 

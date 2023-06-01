@@ -1,5 +1,5 @@
 var admission_canvas = document.getElementById("admission_canvas");
-admission_canvas.height = 400;
+admission_canvas.height = 80;
 
 // Define the chart data for each option in the dropdown
 var chartData = {

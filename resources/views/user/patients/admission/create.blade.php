@@ -15,7 +15,7 @@
             font-size: 1rem;
         }
     </style>
-    <div class="absolute h-[93%] w-[84%] left-[16%] top-[7%] p-12 flex flex-col">
+    <div class="h-full w-full p-12">
         <div>
             @include('layouts.stepper')
         </div>

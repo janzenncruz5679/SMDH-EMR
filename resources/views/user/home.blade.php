@@ -1,13 +1,15 @@
 @extends('layouts.main')
 {{-- test responsiveness using these colors sm:bg-red-200 md:bg-violet-300 lg:bg-blue-800 xl:bg-yellow-500 --}}
 @section('content')
-    <div class="absolute h-[93%] w-[84%] left-[16%] top-[7%] p-12 grid">
+    <div class="h-full w-full p-12 xs:p-4">
         <div class="h-full w-full flex flex-col gap-8 ">
-            <div class="h-[25%] w-full grid grid-cols-4 gap-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 xs:gap-4 sm:gap-6 md:gap-10">
                 <div class="bg-blue-100 p-6 shadow-lg shadow-blue-200 rounded-3xl h-full grid place-items-center">
-                    <label class="font-[sans-serif] font-semibold text-blue-200 tracking-wide text-3xl">
+                    <label
+                        class="font-[sans-serif] font-semibold text-blue-200 tracking-wide md:text-lg xl:text-2xl 2xl:text-3xl">
                         Admissions today:</label>
-                    <label class="font-[sans-serif] font-semibold text-blue-200 tracking-wide text-3xl">
+                    <label
+                        class="font-[sans-serif] font-semibold text-blue-200 tracking-wide md:text-lg xl:text-2xl 2xl:text-3xl">
                         @if ($total_admission == 0)
                             No patients
                         @elseif ($total_admission == 1)
@@ -57,36 +59,36 @@
                     </label>
                 </div>
             </div>
-            <div class="grid h-[80%] w-full gap-4 bg-blue-100 p-6 shadow-lg shadow-blue-200 rounded-3xl">
-                <div class="flex flex-col gap-4 justify-center text-2xl">
-                    <div class="p-4 bg-blue-300 flex items-center justify-center">
-                        <label class="font-[sans-serif] font-semibold text-white tracking-wide text-4xl">
-                            {{ __('All Patients Diagnosis Information') }}</label>
-                    </div>
-                    <div class="h-10">
-                        <form id="date-form" class="h-full flex gap-4">
-                            <label for="date-range" class="h-full grid items-center">Patients Admitted:</label>
-                            <select id="date-range"
-                                class="h-full border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2">
-                                <option value="yesterday">Last 24 Hours</option>
-                                <option value="last-week">Last 7 Days</option>
-                                <option value="last-month">Last 30 Days</option>
-                                <option value="last-year">Last 360 Days</option>
-                            </select>
-                            {{-- <button id="reset-btn">Reset</button> --}}
-                            <button
-                                class="h-full w-32 text-[1.5rem] bg-blue-300 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-200"
-                                id="reset-btn">
-                                Reset
-                            </button>
-                        </form>
-                    </div>
-                    <canvas id="admission_canvas" class="max-h-full w-full"></canvas>
+            <div class="flex flex-col gap-4 h-full w-full bg-blue-100 p-6 shadow-lg shadow-blue-200 rounded-3xl">
+                <div class="grid items-center justify-center p-4 bg-blue-300">
+                    <label class="font-[sans-serif] font-semibold text-white tracking-wide xs:inline sm:hidden">
+                        Patient Diagnosis Info</label>
+                    <label
+                        class="font-[sans-serif] font-semibold text-white tracking-wide xs:hidden md:text-lg xl:text-2xl 2xl:text-4xl">
+                        All Patients Diagnosis Information</label>
+                </div>
+                <div class="grid grid-cols-1 md:text-lg xl:text-2xl">
+                    <form id="date-form" class="flex gap-4">
+                        <label for="date-range" class="h-full grid items-center">Patients Admitted:</label>
+                        <select id="date-range"
+                            class="border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2">
+                            <option value="yesterday">Last 24 Hours</option>
+                            <option value="last-week">Last 7 Days</option>
+                            <option value="last-month">Last 30 Days</option>
+                            <option value="last-year">Last 360 Days</option>
+                        </select>
+                        {{-- <button
+                            class="h-full w-32 text-[1.5rem] bg-blue-300 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-200"
+                            id="reset-btn">
+                            Reset
+                        </button> --}}
+                    </form>
+                </div>
+                <div class="grid grid-cols-1 gap-4 text-2xl xs:text-xl">
+                    <canvas id="admission_canvas"></canvas>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
     </div>
 @endsection
 <script>

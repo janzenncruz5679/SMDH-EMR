@@ -8,6 +8,6 @@ setInterval(() => {
 let date = document.getElementById("date_today");
 
 setInterval(() => {
-    let d = new Date();
-    date.innerHTML = d.toLocaleDateString();
-});
+    let d = moment();
+    date.innerHTML = d.format("MMMM DD, YYYY").toUpperCase();
+}, 1000);

@@ -1,5 +1,5 @@
 <div class="h-full w-full bg-zinc-900 overflow-hidden">
-    <div class="h-full w-full grid grid-rows-6 font-medium">
+    <div class="h-full w-full grid grid-rows-6 font-[sans-serif]">
         <div class="row-span-2 grid">
             {{-- <img src="{{ Vite::image('paimon.jpg') }}" alt="" class="rounded-full h-36 w-36"> --}}
             <div class="flex flex-col items-center justify-center gap-4">

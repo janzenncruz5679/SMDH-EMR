@@ -1,7 +1,7 @@
 @extends('layouts.main')
 {{-- test responsiveness using these colors sm:bg-red-200 md:bg-violet-300 lg:bg-blue-800 xl:bg-yellow-500 --}}
 @section('content')
-    <div class="absolute h-[93%] w-[84%] left-[16%] top-[7%] p-12 grid">
+    <div class="h-full w-full p-12">
         <div class="h-full w-full flex flex-col gap-8 ">
             <div class="h-[25%] w-full grid grid-cols-4 gap-10">
                 <div class="bg-blue-100 p-6 shadow-lg shadow-blue-200 rounded-3xl h-full grid place-items-center">

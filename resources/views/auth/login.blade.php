@@ -12,7 +12,7 @@
                 @csrf
                 <div class="grid gap-2 ">
                     <div class="flex flex-col text-xl xs:text-xl">
-                        <label for="email" class="font-medium">Username</label>
+                        <label for="email" class="font-[sans-serif]">Username</label>
                         <input id="email" type="email"
                             class="w-full rounded-[5px] border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                             name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -26,7 +26,7 @@
                     </div>
 
                     <div class="flex flex-col text-xl xs:text-xl">
-                        <label for="password" class="font-medium">Password</label>
+                        <label for="password" class="font-[sans-serif]">Password</label>
                         <input id="password" type="password"
                             class="peer sm:h-[40px] lg:h-[40px] w-full rounded-[5px] border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 px-[10px] focus:outline-offset-2"
                             name="password" value="{{ old('password') }}" required autocomplete="password">
@@ -42,14 +42,14 @@
                 <div class="grid gap-3">
                     <div class="flex flex-col xs:text-xl h-full ">
                         <button type="submit"
-                            class="h-full w-full text-2xl p-2 bg-blue-300 font-medium tracking-[2px] text-white border-none rounded-[10px] hover:text-black hover:bg-blue-200">
+                            class="h-full w-full text-2xl p-2 bg-blue-300 font-[sans-serif] tracking-[2px] text-white border-none rounded-[10px] hover:text-black hover:bg-blue-200">
                             {{ __('Login') }}
                         </button>
                     </div>
 
                     <div class="flex flex-col xs:text-xl h-full">
                         <a href="{{ route('register') }}"
-                            class="text-2xl p-2 bg-blue-300 font-medium tracking-[2px] text-white border-none rounded-[10px] hover:text-black hover:bg-blue-200 w-full h-full flex items-center justify-center">
+                            class="text-2xl p-2 bg-blue-300 font-[sans-serif] tracking-[2px] text-white border-none rounded-[10px] hover:text-black hover:bg-blue-200 w-full h-full flex items-center justify-center">
                             {{ __('Register') }}
                         </a>
 

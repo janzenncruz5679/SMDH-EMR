@@ -1,4 +1,4 @@
-<div class="h-full w-full bg-zinc-900 overflow-hidden">
+<div class="xs:absolute xs:w-[50%] h-full w-full bg-zinc-900 overflow-hidden">
     <div class="h-full w-full grid grid-rows-6 font-[sans-serif]">
         <div class="row-span-2 grid">
             {{-- <img src="{{ Vite::image('paimon.jpg') }}" alt="" class="rounded-full h-36 w-36"> --}}

@@ -4,7 +4,7 @@
     <div class="h-full w-full p-12 xs:p-4">
         <div class="h-full w-full flex flex-col gap-8 ">
             <div class="grid grid-cols-2 md:grid-cols-4 xs:gap-4 sm:gap-6 md:gap-10">
-                <div class="bg-blue-100 p-6 shadow-lg shadow-blue-200 rounded-3xl h-full grid place-items-center">
+                <div class="bg-blue-100 p-6 xs:p-2 shadow-lg shadow-blue-200 rounded-3xl h-full grid place-items-center">
                     <label
                         class="font-[sans-serif] font-semibold text-blue-200 tracking-wide md:text-lg xl:text-2xl 2xl:text-3xl">
                         Admissions today:</label>
@@ -19,7 +19,7 @@
                         @endif
                     </label>
                 </div>
-                <div class="bg-blue-100 p-6 shadow-lg shadow-blue-200 rounded-3xl h-full grid place-items-center">
+                <div class="bg-blue-100 p-6 xs:p-2 shadow-lg shadow-blue-200 rounded-3xl h-full grid place-items-center">
                     <label class="font-[sans-serif] font-semibold text-blue-200 tracking-wide text-3xl">
                         Emergencies today: </label>
                     <label class="font-[sans-serif] font-semibold text-blue-200 tracking-wide text-3xl">
@@ -32,7 +32,7 @@
                         @endif
                     </label>
                 </div>
-                <div class="bg-blue-100 p-6 shadow-lg shadow-blue-200 rounded-3xl h-full grid place-items-center">
+                <div class="bg-blue-100 p-6 xs:p-2 shadow-lg shadow-blue-200 rounded-3xl h-full grid place-items-center">
                     <label class="font-[sans-serif] font-semibold text-blue-200 tracking-wide text-3xl">
                         Outpatients today: </label>
                     <label class="font-[sans-serif] font-semibold text-blue-200 tracking-wide text-3xl">
@@ -45,7 +45,7 @@
                         @endif
                     </label>
                 </div>
-                <div class="bg-blue-100 p-6 shadow-lg shadow-blue-200 rounded-3xl h-full grid place-items-center">
+                <div class="bg-blue-100 p-6 xs:p-2 shadow-lg shadow-blue-200 rounded-3xl h-full grid place-items-center">
                     <label class="font-[sans-serif] font-semibold text-blue-200 tracking-wide text-3xl">
                         Billings Submitted: </label>
                     <label class="font-[sans-serif] font-semibold text-blue-200 tracking-wide text-3xl">

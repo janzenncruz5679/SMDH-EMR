@@ -2,7 +2,7 @@
 {{-- test responsiveness using these colors sm:bg-red-200 md:bg-violet-300 lg:bg-blue-800 xl:bg-yellow-500 --}}
 @section('content')
     <div class="h-full w-full p-12 xs:p-4">
-        <div class="h-1/2 w-full flex flex-col gap-8 ">
+        <div class="h-1/2 sm:h-full w-full flex flex-col gap-8 ">
             <div class="grid grid-cols-2 md:grid-cols-4 xs:gap-4 sm:gap-6 md:gap-10">
                 <div class="bg-blue-100 p-6 xs:p-2 shadow-lg shadow-blue-200 rounded-3xl h-full grid place-items-center">
                     <label

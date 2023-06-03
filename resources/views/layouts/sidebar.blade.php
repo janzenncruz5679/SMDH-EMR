@@ -3,12 +3,12 @@
         <div class="row-span-2 grid">
             {{-- <img src="{{ Vite::image('paimon.jpg') }}" alt="" class="rounded-full h-36 w-36"> --}}
             <div class="flex flex-col items-center justify-center gap-4">
-                <i class="fa-solid fa-user text-white h-32"></i>
+                <i class="fa-solid fa-user text-white h-20 sm:h-24 lg:h-32"></i>
                 <a href="{{ url('home') }}"
-                    class=" text-white hover:text-white text-4xl tracking-widest">{{ Auth::user()->name }}</a>
+                    class=" text-white hover:text-white xs:text-2xl sm:text-3xl xl:text-4xl tracking-widest">{{ Auth::user()->name }}</a>
             </div>
         </div>
-        <div class="row-span-3 grid grid-rows-5">
+        <div class="xs:row-span-2 sm:row-span-3 grid grid-rows-5">
             <x-sidebar-menu :url="route('home')" :active-url="request()->routeIs('home')" text="Home" fontAwesomeIcon="fa-solid fa-house" />
             <x-sidebar-menu :url="route('patientPage')" :active-url="request()->routeIs('patientPage*') |
                 request()->routeIs('admission*') |
@@ -29,7 +29,7 @@
             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                 @csrf
                 <button
-                    class="h-[60px] w-[130px] text-[1.5rem] border-none rounded-[10px] bg-blue-300 text-white hover:text-black hover:-translate-y-0.5 hover:bg-blue-100"
+                    class="h-[60px] w-[130px] text-xl md:text-2xl border-none rounded-[10px] bg-blue-300 text-white hover:text-black hover:-translate-y-0.5 hover:bg-blue-100"
                     href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">

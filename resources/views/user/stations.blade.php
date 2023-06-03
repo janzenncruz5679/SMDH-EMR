@@ -1,38 +1,14 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="lg:h-[35%] w-full p-12 xs:p-4 overflow-hidden">
-        <div class="h-full w-full row-span-2 grid  gap-8">
-            <div class="h-full w-full">
-                <div class="h-full ">
-                    <div class="grid grid-cols-6 gap-6">
-                        <div class="">
-                            <x-menu-card :url="route('vitalSign.index')" text="Vital Signs" fontAwesomeIcon="fa-solid fa-heart-pulse" />
-                        </div>
-                        <div class="">
-                            <x-menu-card :url="route('nurseNote.index')" text="Nurse Notes" fontAwesomeIcon="fa-solid fa-notes-medical" />
-                        </div>
-                        <div class="">
-                            <x-menu-card :url="route('dischargeSummary.index')" text="Discharge"
-                                fontAwesomeIcon="fa-solid fa-house-medical-circle-xmark" />
-                        </div>
-                        {{-- <div class="">
-                            <x-menu-card :url="route('physicianOrder')" text="Physician Order"
-                                fontAwesomeIcon="fa-solid fa-heart-pulse" />
-                        </div> --}}
-                        <div class="">
-                            <x-menu-card :url="route('fluidIntake.index')" text="Fluid Intake" fontAwesomeIcon="fa-solid fa-syringe" />
-                        </div>
-                        {{-- <div class="">
-                            <x-menu-card :url="route('kardex')" text="Kardex" fontAwesomeIcon="fa-solid fa-notes-medical" />
-                        </div> --}}
-                    </div>
-                </div>
-            </div>
-            {{-- <div class="h-full w-full bg-blue-100 p-4 shadow-lg shadow-blue-200 rounded-3xl">
-                <div class="h-full ">
-                </div>
-            </div> --}}
+    <div class="h-full w-full xs:p-4 sm:p-8 xl:p-12 overflow-hidden">
+        <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 xs:gap-4 sm:gap-8">
+            <x-menu-card :url="route('vitalSign.index')" text="Vital Sign" fontAwesomeIcon="fa-solid fa-heart-pulse" />
+            <x-menu-card :url="route('nurseNote.index')" text="Nurse Note" fontAwesomeIcon="fa-solid fa-notes-medical" />
+            <x-menu-card :url="route('dischargeSummary.index')" text="Discharge" fontAwesomeIcon="fa-solid fa-house-medical-circle-xmark" />
+            <x-menu-card :url="route('fluidIntake.index')" text="Fluid Intake" fontAwesomeIcon="fa-solid fa-syringe" />
+            {{-- <x-menu-card :url="route('physicianOrder')" text="Physician Order" fontAwesomeIcon="fa-solid fa-heart-pulse" />
+            <x-menu-card :url="route('kardex')" text="Kardex" fontAwesomeIcon="fa-solid fa-notes-medical" /> --}}
         </div>
     </div>
 @endsection

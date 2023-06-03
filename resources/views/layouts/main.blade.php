@@ -23,7 +23,7 @@
         </div>
         <div class="h-[93%] w-full">
             <div class="h-full w-full flex">
-                <div class="h-full w-[16%] xs:hidden overflow-hidden">
+                <div class="h-full w-[30%] lg:w-[25%] xl:w-[16%] xs:hidden overflow-hidden">
                     @php
                         if (Auth::user()->usertype == '0') {
                             $sidebar = 'layouts.sidebar';
@@ -33,7 +33,7 @@
                     @endphp
                     @include($sidebar)
                 </div>
-                <div class="h-full w-[84%] xs:w-full overflow-hidden">
+                <div class="h-full w-[70%] lg:w-[75%] xl:w-[84%] xs:w-full overflow-hidden">
                     @yield('content')
                 </div>
             </div>

@@ -2,92 +2,228 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\First_admission;
 use App\Models\Patient_id;
-use App\Models\Second_admission;
+use App\Models\AdmissionHistory;
+use App\Models\BIlling;
 use Illuminate\Http\Request;
 
 class TestingController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $patients_base = Patient_id::create();
-        $patients_Dummy = $patients_base->admission_table()->create([
-            'patient_id' => $patients_base->id,
-            'address' => 'Mahogany lane, Ylang Ylang Homes Phase 2 Tabang Guiguinto Bulacan',
-            'sr_no' => '254789',
-            'last_name' => 'Dela Cruz',
-            'first_name' => 'Ermengarde Marie Elise',
-            'middle_name' => 'Fernandez',
-            'ward_room_bed_service' => 'HPY2023',
-            'age' => '23',
-            'gender' => 'Female',
-            'phone' => '09059353017',
-            'birthday' => '2000-01-06',
+        $admission = Patient_id::create();
+        $_admission = $admission->admission_table()->create([
+            'full_name' => 'Janzenn Kyle' . ' ' . 'Gallema' . ' ' . 'Cruz' . ' ' . 'Jr.',
+            'suffix' =>  'Jr.',
+            'last_name' => 'Cruz',
+            'first_name' => 'Janzenn Kyle',
+            'middle_name' => 'Gallema',
+            'ward_room_bed_service' => '12121',
+            'type' => 'Admission',
+
+            'personal_info' => [
+                'sr_no' => '45145',
+                'gender' => 'Male',
+                'phone' => '09123456789',
+                'age' => '22',
+                'birthday' => '2001-05-05',
+                'birthplace' => 'Malolos Bulacan',
+                'nationality' => 'Filipino',
+                'occupation' => 'Vendor',
+                'religion' => 'Catholic',
+                'civil_status' => 'Single',
+                'perma_address' => 'Block 26 Lot 14 Malolos Bulacan',
+            ],
+            'full_address' => [
+                'street' => 'Block 26 Lot 14',
+                'municipality' => 'Malolos',
+                'province' => 'Bulacan',
+                'region' => '3',
+                'barangay' => 'Tabang',
+                'zip_code' => '3000',
+                'country' => 'Philippines',
+            ],
+            'contact_person' => [
+                'contact_last' => 'Cruz',
+                'contact_first' => 'Janzenn Kyle',
+                'contact_middle' => 'Gallema',
+                'contact_suffix' => 'Sr.',
+                'contact_address' => 'Block 26 Lot 14 Malolos Bulacan',
+                'contact_phone' => '09123456789',
+                'contact_rtp' => 'Parent',
+            ],
+            'patient_affiliate' => [
+                'employer' => [
+                    'name' => 'John Doe ',
+                    'address' => 'Malolos Bulacan',
+                    'contact' => '09062892006',
+                ],
+                'father' => [
+                    'name' => 'John Doe ',
+                    'address' => 'Malolos Bulacan',
+                    'contact' => '09062892006',
+                ],
+                'mother' => [
+                    'name' => 'John Doe ',
+                    'address' => 'Malolos Bulacan',
+                    'contact' => '09062892006',
+                ],
+                'spouse' => [
+                    'name' => 'John Doe ',
+                    'address' => 'Malolos Bulacan',
+                    'contact' => '09062892006',
+                ],
+            ],
+            'admitting_personel' => [
+                'admitting_clerk' => 'Dr Doe',
+                'admitting_physician' => 'Dr Doe',
+                'referred_by' => 'Dr Doe',
+            ],
+            'hospital_visit' => [
+                'admission_start' => [
+                    'start_date' => '2023-05-17',
+                    'start_time' => '03:06',
+                ],
+                'admission_end' => [
+                    'end_date' => '2023-06-02',
+                    'end_time' => '03:08',
+                ],
+                'admission_diff' => '16 days, 0 hours, 2 minutes',
+            ],
+
+
+            'type_of_admission' => 'New',
+            'allergic' => 'Shrimp',
+            'ssc' => 'a',
+            'insurance' => [
+                'hospitalization_plan' => 'Lorem',
+                'health_insurance' => 'Lorem',
+                'coverage_insurance' => 'Lorem',
+            ],
+
+
+            'main_diagnosis' => 'Sepsis',
+            'diagnosis' => [
+                'principal_diagnosis' => 'Sepsis',
+                'other_diagnosis' => 'Sepsis',
+            ],
+            'other_opt' => [
+                'principal_operation' => 'Sepsis',
+                'other_operation' => 'Sepsis',
+            ],
+            'idc_code' => '12345',
+            'icpm_code' => '12345',
         ]);
 
-        $patients_Dummy_two = $patients_Dummy->admission_two()->create([
-            'record_id' => $patients_Dummy->record_no,
-            'civil_status' => 'Married',
-            'perma_address' => 'Brgy Salangan San Miguel Bulacan',
-            'birthplace' => 'Vladivostok',
-            'nationality' => 'Filipino',
-            'religion' => 'Catholic',
-            'occupation' => 'Software Developer',
+        $_admissionHistory = AdmissionHistory::create([
+            'history_id' => $_admission->id,
+            'full_name' => 'Janzenn Kyle' . ' ' . 'Gallema' . ' ' . 'Cruz' . ' ' . 'Jr.',
+            'suffix' =>  'Jr.',
+            'last_name' => 'Cruz',
+            'first_name' => 'Janzenn Kyle',
+            'middle_name' => 'Gallema',
+            'ward_room_bed_service' => '12121',
+            'type' => 'Admission',
+
+            'personal_info' => [
+                'sr_no' => '45145',
+                'gender' => 'Male',
+                'phone' => '09123456789',
+                'age' => '22',
+                'birthday' => '2001-05-05',
+                'birthplace' => 'Malolos Bulacan',
+                'nationality' => 'Filipino',
+                'occupation' => 'Vendor',
+                'religion' => 'Catholic',
+                'civil_status' => 'Single',
+                'perma_address' => 'Block 26 Lot 14 Malolos Bulacan',
+            ],
+            'full_address' => [
+                'street' => 'Block 26 Lot 14',
+                'municipality' => 'Malolos',
+                'province' => 'Bulacan',
+                'region' => '3',
+                'barangay' => 'Tabang',
+                'zip_code' => '3000',
+                'country' => 'Philippines',
+            ],
+            'contact_person' => [
+                'contact_last' => 'Cruz',
+                'contact_first' => 'Janzenn Kyle',
+                'contact_middle' => 'Gallema',
+                'contact_suffix' => 'Sr.',
+                'contact_address' => 'Block 26 Lot 14 Malolos Bulacan',
+                'contact_phone' => '09123456789',
+                'contact_rtp' => 'Parent',
+            ],
+            'patient_affiliate' => [
+                'employer' => [
+                    'name' => 'John Doe ',
+                    'address' => 'Malolos Bulacan',
+                    'contact' => '09062892006',
+                ],
+                'father' => [
+                    'name' => 'John Doe ',
+                    'address' => 'Malolos Bulacan',
+                    'contact' => '09062892006',
+                ],
+                'mother' => [
+                    'name' => 'John Doe ',
+                    'address' => 'Malolos Bulacan',
+                    'contact' => '09062892006',
+                ],
+                'spouse' => [
+                    'name' => 'John Doe ',
+                    'address' => 'Malolos Bulacan',
+                    'contact' => '09062892006',
+                ],
+            ],
+            'admitting_personel' => [
+                'admitting_clerk' => 'Dr Doe',
+                'admitting_physician' => 'Dr Doe',
+                'referred_by' => 'Dr Doe',
+            ],
+            'hospital_visit' => [
+                'admission_start' => [
+                    'start_date' => '2023-05-17',
+                    'start_time' => '03:06',
+                ],
+                'admission_end' => [
+                    'end_date' => '2023-06-02',
+                    'end_time' => '03:08',
+                ],
+                'admission_diff' => '16 days, 0 hours, 2 minutes',
+            ],
+
+
+            'type_of_admission' => 'New',
+            'allergic' => 'Shrimp',
+            'ssc' => 'a',
+            'insurance' => [
+                'hospitalization_plan' => 'Lorem',
+                'health_insurance' => 'Lorem',
+                'coverage_insurance' => 'Lorem',
+            ],
+
+
+            'main_diagnosis' => 'Sepsis',
+            'diagnosis' => [
+                'principal_diagnosis' => 'Sepsis',
+                'other_diagnosis' => 'Sepsis',
+            ],
+            'other_opt' => [
+                'principal_operation' => 'Sepsis',
+                'other_operation' => 'Sepsis',
+            ],
+            'idc_code' => '12345',
+            'icpm_code' => '12345',
         ]);
 
-        $patients_Dummy_three = $patients_Dummy->admission_three()->create([
-            'record_id' => $patients_Dummy->record_no,
-            'employer_name' => 'Marie Doe',
-            'employer_address' => 'Brgy Atlag, Malolos Bulacan',
-            'employer_phone' => '09062632154',
-            'father_name' => 'John Walsh Delano',
-            'father_address' => 'Brgy Atlag, Malolos Bulacan',
-            'father_phone' => '09752632154',
-            'mother_maiden_name' => 'Mary Walsh Delana',
-            'mother_address' => 'E3 Maginhawa St Sikatuna Village, Quezon City',
-            'mother_phone' => '09062632154',
-            'spouse_name' => 'Anna Marie Walsh Delana',
-            'spouse_address' => 'E3 Maginhawa St Sikatuna Village, Quezon City',
-            'spouse_phone' => '09062777154',
+        $_admissionBill = Billing::create([
+            'admissionBilling_id' => $_admission->id,
+            'full_name' => $_admission->full_name,
         ]);
 
-        $patients_Dummy_four = $patients_Dummy->admission_four()->create([
-            'record_id' => $patients_Dummy->record_no,
-            'start_date' => '2023-01-14',
-            'start_time' => '06:58',
-            'end_date' => '2023-01-16',
-            'end_time' => '06:57',
-            'total_days' => '1 days, 23 hours, 59 minutes',
-            'admitting_physician' => 'Dr. Sven Doe',
-            'admitting_clerk' => 'Nurse Crystal Maiden Doe',
-            'admission_type' => 'Former OPD',
-            'referred_by' => 'Nurse Crystal Maiden Doe',
-        ]);
-
-        $patients_Dummy_five = $patients_Dummy->admission_five()->create([
-            'record_id' => $patients_Dummy->record_no,
-            'ssc' => 'd',
-            'alert_allergic' => 'shrimp',
-            'hospitalization_plan' => 'SIDC',
-            'health_insurance' => 'PhilHealth',
-            'coverage_insurance' => 'Full Coverage',
-            'furnished_by' => 'Mary Winowa Doe',
-            'relation_to_patient' => 'Sister',
-            'informant_address' => 'Meycauyan Bulacan'
-        ]);
-
-        $patients_Dummy_six = $patients_Dummy->admission_six()->create([
-            'record_id' => $patients_Dummy->record_no,
-            'admission_diagnosis' => 'Admit it as Possible',
-            'principal_diagnosis' => 'Surgery at left foot',
-            'other_diagnosis' => 'none',
-            'idc_code' => '15874',
-            'principal_operation' => 'Major Surgery',
-            'other_operation' => 'none',
-            'icpm_code' => '845874356415694',
-        ]);
-
-        dd($patients_base, $patients_Dummy, $patients_Dummy_two, $patients_Dummy_three, $patients_Dummy_four, $patients_Dummy_five, $patients_Dummy_six);
+        dd($admission, $_admissionHistory, $_admissionBill);
     }
 }

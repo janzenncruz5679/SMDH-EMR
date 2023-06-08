@@ -3,11 +3,13 @@
 @section('content')
     <div class="h-full w-full p-6 md:p-8 lg:p-12 flex flex-col gap-4 text-xl">
         <div class="h-[10%] bg-blue-300 flex items-center justify-center">
-            <label class="font-[sans-serif] font-semibold text-white tracking-wide text-3xl md:text-4xl">
-                BIlling Summary</label>
+            <label class="hidden xs:block font-[sans-serif] font-semibold text-white tracking-wide text-3xl md:text-4xl">
+                Billing</label>
+            <label class="xs:hidden font-[sans-serif] font-semibold text-white tracking-wide text-3xl md:text-4xl">
+                Billing Summary</label>
         </div>
-        <div class="grid grid-cols-4 gap-4">
-            <div class="col-span-4 xl:col-span-3">
+        <div class="h-[90%] grid grid-cols-4 gap-4">
+            <div class="col-span-4 xl:col-span-3 flex flex-col gap-6">
                 @if (isset($billings))
                     <table class="tracking-widest w-full">
                         <thead>
@@ -20,9 +22,11 @@
                                 </th>
                                 <th class="hidden 2xl:col-span-2 lg:flex items-center justify-center text-center">Bill
                                     Created</th>
-                                <th class="2xl:col-span-3 flex items-center justify-center text-center">Total
-                                    Bill</th>
-                                <th class="flex justify-center">Actions</th>
+                                <th class="2xl:col-span-3 flex items-center justify-center text-center">
+                                    <label class="md:hidden">Bill</label>
+                                    <label class="hidden md:block">Total Bill</label>
+                                </th>
+                                <th class="flex items-center justify-center text-center">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -60,22 +64,23 @@
                     {{ $billings->links('pagination::custom_tailwind') }}
                 </div>
             </div>
-            <div class="hidden xl:block h-full w-full bg-blue-300 p-8 shadow-lg shadow-blue-200 rounded-3xl">
+            <div
+                class="hidden xl:block h-full w-full bg-blue-300 p-8 shadow-lg shadow-blue-200 rounded-3xl text-xl xl:text-2xl">
                 <div class="h-full flex flex-col gap-4">
                     <div class="">
-                        <label class="font-[sans-serif] font-semibold text-white tracking-wide text-3xl">
+                        <label class="font-[sans-serif] font-semibold text-white tracking-wide">
                             Total Billing records: {{ $total_records }}</label>
                     </div>
                     <div class="">
-                        <label class="font-[sans-serif] font-semibold text-white tracking-wide text-3xl">
+                        <label class="font-[sans-serif] font-semibold text-white tracking-wide">
                             Billing submitted today: {{ $records }}</label>
                     </div>
                     <div class="">
-                        <label class="font-[sans-serif] font-semibold text-white tracking-wide text-3xl">
+                        <label class="font-[sans-serif] font-semibold text-white tracking-wide">
                             Billing submitted this month: {{ $records_month }}</label>
                     </div>
                     <div class="">
-                        <label class="font-[sans-serif] font-semibold text-white tracking-wide text-3xl">
+                        <label class="font-[sans-serif] font-semibold text-white tracking-wide">
                             Billing submitted this year: {{ $records_year }}</label>
                     </div>
                 </div>

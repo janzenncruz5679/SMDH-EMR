@@ -20,19 +20,46 @@ class AdmissionController extends Controller
     }
     public function index()
     {
-        $admissions = Admission::all()->paginate(18);
+        $admissions = Admission::all()->paginate(5);
         return view('user.patients.admission.index', compact('admissions'));
     }
 
     public function searchAdmission(Request $request)
     {
-        $admissions = Admission::all();
+        $admissionsQuery = Admission::query();
+
         if ($request->keyword != '') {
-            $admissions = Admission::where('full_name', 'LIKE', '%' . $request->keyword . '%')->get();
+            $admissionsQuery->where('full_name', 'LIKE', '%' . $request->keyword . '%');
         }
+
+        $admissions = $admissionsQuery->paginate(5);
+
         return response()->json([
-            'admissions' => $admissions
+            'admissions' => $admissions->items(),
+            'links' => [
+                'first' => $admissions->url(1),
+                'last' => $admissions->url($admissions->lastPage()),
+                'prev' => $admissions->previousPageUrl(),
+                'next' => $admissions->nextPageUrl(),
+            ],
+            'meta' => [
+                'current_page' => $admissions->currentPage(),
+                'from' => $admissions->firstItem(),
+                'last_page' => $admissions->lastPage(),
+                'path' => $admissions->path(),
+                'per_page' => $admissions->perPage(),
+                'to' => $admissions->lastItem(),
+                'total' => $admissions->total(),
+            ],
         ]);
+
+        // $admissions = Admission::all();
+        // if ($request->keyword != '') {
+        //     $admissions = Admission::where('full_name', 'LIKE', '%' . $request->keyword . '%')->get();
+        // }
+        // return response()->json([
+        //     'admissions' => $admissions
+        // ]);
     }
 
     public function create()

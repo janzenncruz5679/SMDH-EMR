@@ -131,7 +131,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('emergency', EmergencyController::class);
     Route::resource('emergencyHistory', EmergencyHistoryController::class)->only(['index', 'show']);
 
-    Route::post('outpatient/search', [OutpatientController::class, 'searchOutpatient'])->name('emergency.searchOutpatient');
+    Route::post('outpatient/search', [OutpatientController::class, 'searchOutpatient'])->name('outpatient.searchOutpatient');
     Route::get('outpatient/pdf{outpatient}', [OutpatientController::class, 'pdf'])->name('outpatient.pdf');
     Route::get('outpatient/show_all{outpatient}', [OutpatientController::class, 'show_all'])->name('outpatient.show_all');
     Route::resource('outpatient', OutpatientController::class);

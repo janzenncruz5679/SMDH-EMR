@@ -1,54 +1,66 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="absolute h-auto w-[84%] left-[16%] top-[7%] p-12 grid gap-8">
-        <div class="admissionDisplay h-full w-full grid gap-4 text-2xl">
-            <div class="h-20 bg-blue-300 flex items-center justify-center">
-                <label class="font-[sans-serif] font-semibold text-white tracking-wide text-4xl">
-                    {{ __('Outpatient Patients') }}</label>
-            </div>
-            <div class="searchBar h-12 gap-4 w-full flex justify-start items-center">
-                <form action="" method="POST" class="flex gap-4 m-0 h-full items-center">
+    <div class="h-full w-full p-6 md:p-8 lg:p-12 flex flex-col gap-4 text-xl">
+
+        <div class="h-[10%] bg-blue-300 flex items-center justify-center">
+            <label class="font-[sans-serif] font-semibold text-white tracking-wide text-3xl md:text-4xl">
+                Outpatients</label>
+        </div>
+        <div class="h-[90%] flex flex-col gap-4">
+            <div class="flex gap-4 justify-between">
+                <div class="flex gap-4">
                     <input type="text" placeholder="Search Patient Name" id="search"
-                        class="h-full w-96 text-[1.5rem] border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 focus:outline-offset-2 rounded-[10px] px-[10px]">
-                </form>
-                <button
-                    class="h-full w-32 text-[1.5rem] bg-blue-300 tracking-[2px] text-white hover:text-zinc-900 rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-100"
-                    id="reset-btn">
-                    Reset
-                </button>
-                <div class="addpatientBar h-full w-full flex items-center justify-end">
+                        class="w-full text-2xl border-4 border-blue-300 focus:border-blue-200 focus:outline-blue-200 focus:outline-offset-2 rounded-lg px-4">
                     <button
-                        class="btnAddpatient h-full w-48 text-[1.5rem] bg-blue-300 tracking-[2px] text-white rounded-[15px] transform transition hover:-translate-y-0.5 hover:bg-blue-100"><a
-                            href="{{ route('outpatient.create') }}">
-                            <label class="hover:text-zinc-900">{{ __('Add Patient') }}</label>
-                        </a></button>
+                        class="text-2xl bg-blue-300 tracking-[2px] text-white hover:text-zinc-900 rounded-lg px-4 hover:bg-blue-100 sm:hover:-translate-y-0.5 sm:transform sm:transition"
+                        id="reset-btn">
+                        <label class="hidden md:block">Reset</label>
+                        <label class="md:hidden xs:block sm:"><i class="fa-solid fa-rotate-right"></i></label>
+                    </button>
+                </div>
+                <div class="flex items-center justify-end">
+                    <a class="btnAddpatient h-full text-2xl grid place-items-center bg-blue-300 tracking-[2px] text-white hover:text-zinc-900 rounded-lg px-4 hover:bg-blue-100 sm:hover:-translate-y-0.5 sm:transform sm:transition"
+                        href="{{ route('outpatient.create') }}">
+                        <label class="hidden lg:hidden md:block">Add</label>
+                        <label class="hidden lg:block">Add Patient</label>
+                        <label class="md:hidden xs:block sm:block"><i class="fa-solid fa-plus"></i></label>
+                    </a>
                 </div>
             </div>
-            <div class="admissionTable">
+            <div class="flex flex-col gap-6">
                 @if (isset($outpatients))
-                    <table class="tracking-[2px] w-full">
+                    <table class="tracking-widest h-full w-full">
                         <thead>
-                            <tr class="grid grid-cols-12">
-                                <th class="flex justify-center">Id</th>
-                                <th class="col-span-5 flex justify-center">Name</th>
-                                <th class="flex justify-center">Age</th>
-                                <th class="flex justify-center">Gender</th>
-                                <th class="col-span-2 flex justify-center">Phone</th>
-                                <th class="col-span-2 flex justify-center">Actions</th>
+                            <tr class="grid grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-12 text-xl xl:text-2xl">
+                                <th class="flex items-center justify-center text-center">Id</th>
+                                <th
+                                    class="col-span-2 md:col-span-2 lg:col-span-2 xl:col-span-5 flex items-center justify-center text-center">
+                                    Name</th>
+                                <th class="hidden md:flex items-center justify-center text-center">Age</th>
+                                <th class="hidden lg:flex items-center justify-center text-center">Gender</th>
+                                <th class="hidden xl:col-span-2 xl:flex items-center justify-center text-center">
+                                    Phone</th>
+                                <th class="xl:col-span-2 flex items-center justify-center text-center">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($outpatients as $outpatient)
-                                <tr class="grid grid-cols-12 even:bg-gray-200 odd:bg-white text-xl">
-                                    <td class="flex justify-center">{{ $outpatient->patient_id }}</td>
-                                    <td class="col-span-5 flex justify-center">{{ $outpatient->full_name }}
+                                <tr
+                                    class="grid grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-12 even:bg-gray-200 odd:bg-white xs:text-sm text-lg xl:text-xl">
+                                    <td class="flex items-center justify-center text-center">
+                                        {{ $outpatient->patient_id }}</td>
+                                    <td
+                                        class="col-span-2 md:col-span-2 lg:col-span-2 xl:col-span-5 flex items-center justify-center text-center">
+                                        {{ $outpatient->full_name }}
                                     </td>
-                                    <td class="flex justify-center">{{ $outpatient->personal_info['age'] }}</td>
-                                    <td class="flex justify-center">{{ $outpatient->personal_info['gender'] }}</td>
-                                    <td class="col-span-2 flex justify-center">{{ $outpatient->personal_info['phone'] }}
-                                    </td>
-                                    <td class="col-span-2 flex justify-center">
+                                    <td class="hidden md:flex items-center justify-center text-center">
+                                        {{ $outpatient->personal_info['age'] }}</td>
+                                    <td class="hidden lg:flex items-center justify-center text-center">
+                                        {{ $outpatient->personal_info['gender'] }}</td>
+                                    <td class="hidden xl:col-span-2 xl:flex items-center justify-center text-center">
+                                        {{ $outpatient->personal_info['phone'] }}</td>
+                                    <td class="xl:col-span-2 flex items-center justify-center text-center">
                                         <div class="grid grid-cols-3 justify-center gap-4">
                                             <a href="{{ route('outpatient.show', $outpatient->id) }}"
                                                 class="editIcon hover:text-blue-300">
@@ -69,10 +81,10 @@
                         </tbody>
                     </table>
                 @endif
+                <div class="inset-y-0 right-0 left-[275px] flex justify-center">
+                    {{ $outpatients->links('pagination::custom_tailwind') }}
+                </div>
             </div>
-        </div>
-        <div class="inset-y-0 right-0 left-[275px] flex justify-center">
-            {{ $outpatients->links('pagination::custom_tailwind') }}
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -103,14 +115,14 @@
 
         function search(page = 1) {
             var keyword = $('#search').val();
-            $.post('{{ route('emergency.searchOutpatient') }}', {
+            $.post('{{ route('outpatient.searchOutpatient') }}', {
                 _token: $('meta[name="csrf-token"]').attr('content'),
                 keyword: keyword,
                 page: page
             }, function(data) {
                 if (keyword === '') {
                     data.outpatients = data.outpatients.slice(0,
-                        10); // slice
+                        5); // slice
                 }
                 table_post_row(data);
                 console.log(data);
@@ -122,18 +134,26 @@
             if (res.outpatients.length <= 0) {
                 htmlView += `
                     <tr>
-                        <td class="col-span-12 flex justify-center">No data available</td>
+                        <td class="col-span-12 flex items-center justify-center text-center">No data available</td>
                     </tr>`;
             }
             for (let i = 0; i < res.outpatients.length; i++) {
                 htmlView += `
-                    <tr class="grid grid-cols-12 even:bg-gray-200 odd:bg-white text-xl">
-                        <td class="flex justify-center">` + res.outpatients[i].patient_id + `</td>
-                        <td class="col-span-5 flex justify-center">` + res.outpatients[i].full_name + `</td>
-                        <td class="flex justify-center">` + res.outpatients[i].personal_info['age'] + `</td>
-                        <td class="flex justify-center">` + res.outpatients[i].personal_info['gender'] + `</td>
-                        <td class="col-span-2 flex justify-center">` + res.outpatients[i].personal_info['phone'] + `</td>
-                        <td class="col-span-2 flex justify-center">
+                    <tr class="grid grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-12 even:bg-gray-200 odd:bg-white xs:text-sm text-lg xl:text-xl">
+                        <td class="flex items-center justify-center text-center">` + res.outpatients[i]
+                    .patient_id +
+                    `</td>
+                        <td class="col-span-2 md:col-span-2 lg:col-span-2 xl:col-span-5 flex items-center justify-center text-center">` +
+                    res.outpatients[i].full_name + `</td>
+                        <td class="hidden md:flex items-center justify-center text-center">` + res.outpatients[i]
+                    .personal_info['age'] + `</td>
+                        <td class="hidden lg:flex items-center justify-center text-center">` + res.outpatients[i]
+                    .personal_info[
+                        'gender'] + `</td>
+                        <td class="hidden xl:col-span-2 xl:flex items-center justify-center text-center">` + res
+                    .outpatients[i]
+                    .personal_info['phone'] + `</td>
+                        <td class="xl:col-span-2 flex items-center justify-center text-center">
                         <div class="grid grid-cols-3 justify-center gap-4">
                             <a href="/outpatient/` + res.outpatients[i].id + `" class="editIcon hover:text-blue-300">
                             <i class="fa-solid fa-eye"></i>
@@ -141,7 +161,7 @@
                             <a href="/outpatient/` + res.outpatients[i].id + `/edit" class="editIcon hover:text-blue-300">
                             <i class="fa-solid fa-edit"></i>
                             </a>
-                            <a href="/outpatient/pdf` + res.outpatients[i].id + `" class="editIcon hover:text-blue-300" target="_blank">
+                            <a href="/outpatient/pdf` + res.outpatients[i].id + `"class="editIcon hover:text-blue-300" target="_blank">
                             <i class="fa-solid fa-file-pdf"></i>
                             </a>
                         </div>

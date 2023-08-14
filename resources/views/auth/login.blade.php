@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="flex items-center justify-center h-full w-full">
-        <div
-            class="bg-red-100 xs:bg-emerald-300 sm:bg-green-400 md:bg-yellow-100 lg:bg-violet-500 xl:bg-gray-500 2xl:bg-orange-100 grid gap-2 p-10 rounded-[30px] xs:w-[75%] xs:p-6">
+        {{-- xs:bg-emerald-300 sm:bg-green-400 md:bg-yellow-100 lg:bg-violet-500 xl:bg-gray-500 2xl:bg-orange-100 --}}
+        <div class="bg-white grid gap-2 p-10 rounded-[30px] xs:w-[75%] xs:p-6">
 
             <div class="flex justify-center items-center">
                 <img src="../../assets/img/san_miguel_hospital_logo.png" alt="logo" class="h-full">
